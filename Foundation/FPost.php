@@ -6,7 +6,7 @@ class FPost extends Fdb{
 
     private static $class = 'FPost';
 
-    private static $values = '(:domanda, :autore, :categoria, :data)';
+    private static $values = '(:domanda, :autore, :categoria, :data, :id_immagine)';
     
     public function __construct(){
     }
@@ -45,6 +45,7 @@ class FPost extends Fdb{
         $stmt->bindValue(':autore', $post->getAutore(), PDO::PARAM_INT);
         $stmt->bindValue(':categoria', $post->getCategoria(), PDO::PARAM_STR);
         $stmt->bindValue(':data', $post->getData_pubb(), PDO::PARAM_STR);
+        $stmt->bindValue(':id_immagine', $post->getId_immagine(), PDO::PARAM_INT);
     }
 
     public static function insert($object){
@@ -81,9 +82,10 @@ class FPost extends Fdb{
         else return false;
     }
 
-    public static function delete($field, $id){
+    public static function delete($field, $id, $id_ricetta){
         $db = parent::getInstance();
         $result = $db->deleteDB(self::getClass(), $field, $id);
+        $db->deleteDB(FImmagine::getClass(), $field, $id_ricetta);
         if ($result) return true;
         else return false;
     }

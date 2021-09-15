@@ -13,7 +13,7 @@ class VRicette
     function showRecepies($ricette, $array){ //forse da inserire utente tra i parametri in ingresso
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
-        $numero = rand(0, count($ricette) - 1);
+        $numero = rand(0, count(array($ricette)) - 1);
 
         $this->smarty->assign('ran_num', $numero);
         $this->smarty->assign('ricette', $ricette);
@@ -34,9 +34,10 @@ class VRicette
         $this->smarty->display('ricetta_info.tpl');
     }
 
-    function showAll($ricette, $num_pagine, $index, $num_ricette){
+    function showAll($ricette, $num_pagine, $index, $num_ricette, $immagini){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
+        $this->smarty->assign('immagini', $immagini);
         $this->smarty->assign('ricette', $ricette);
         $this->smarty->assign('num_pagine', $num_pagine);
         $this->smarty->assign('index', $index);

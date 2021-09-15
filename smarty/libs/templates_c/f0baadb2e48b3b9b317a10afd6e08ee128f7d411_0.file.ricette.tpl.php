@@ -1,5 +1,28 @@
-<!DOCTYPE html>
-{assign var='userlogged' value=$userlogged|default:'nouser'}
+<?php
+/* Smarty version 3.1.39, created on 2021-09-15 12:23:27
+  from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricette.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_6141c99fbbcf28_43464553',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'f0baadb2e48b3b9b317a10afd6e08ee128f7d411' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricette.tpl',
+      1 => 1631701403,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6141c99fbbcf28_43464553 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
+<?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -27,18 +50,18 @@
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
-                            {if $userlogged!='nouser'}
+                            <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
                                 </li>
-                            {else}
+                            <?php } else { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                                 </li>
-                            {/if}
+                            <?php }?>
                             <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -67,15 +90,20 @@
                                 <div class="col-lg-6 col-xl-5 py-lg-5">
                                     <div class="p-4 p-md-5">
                                         <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
-                                        <div class="h2 fw-bolder">{$ricette[$ran_num]->getNomeRicetta()}</div>
-                                        <p>{substr($ricette[$ran_num]->getProcedimento(), 0, 100)}...</p>
-                                        <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/{$ricette[$ran_num]->getId()}">
+                                        <div class="h2 fw-bolder"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getNomeRicetta();?>
+</div>
+                                        <p><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getProcedimento(),0,100);?>
+...</p>
+                                        <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getId();?>
+">
                                             Leggi tutta la ricetta
                                             <i class="bi bi-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:{$array[2][$ran_num]->getTipo()};base64,{$array[2][$ran_num]->getImmagine()}" width=600 height=450></div></div>
+                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['ran_num']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['ran_num']->value]->getImmagine();?>
+" width=600 height=450></div></div>
                             </div>
                         </div>
                     </div>
@@ -138,34 +166,50 @@
                 <div class="container px-5">
                     <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
                     <div class="row gx-5">
-                        {if $array}
-                            {if is_array($array)}
-                                {for $i = 0; $i < 3; $i++}
+                        <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
+                            <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
+                                <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < 3) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['i']->value++) {
+?>
                                     <div class="col-lg-4 mb-5">
                                         <div class="card h-100 shadow border-0">
 
-                                            <img class="card-img-top" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=600 height=350 alt="..." />
+                                            <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
+" width=600 height=350 alt="..." />
                                             <div class="card-body p-4">
-                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$array[0][$i]->getCategoria()}</div>
-                                                <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/{$array[0][$i]->getId()}"><div class="h5 card-title mb-3">{$array[0][$i]->getNomeRicetta()}</div></a>
-                                                <p class="card-text mb-0">{substr($array[0][$i]->getProcedimento(), 0, 100)}...</p>
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+</div>
+                                                <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+"><div class="h5 card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getNomeRicetta();?>
+</div></a>
+                                                <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getProcedimento(),0,100);?>
+...</p>
                                             </div>
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                                 <div class="d-flex align-items-end justify-content-between">
                                                     <div class="d-flex align-items-center">
                                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                                         <div class="small">
-                                                            <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
-                                                            <div class="text-muted">{$array[0][$i]->getData_()} &middot; 10 min read</div>
+                                                            <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
+</div>
+                                                            <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
+ &middot; 10 min read</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                {/for}
-                            {/if}
-                        {/if}
+                                <?php }
+}
+?>
+                            <?php }?>
+                        <?php }?>
 
                     <div class="text-end mb-5 mb-xl-0">
                         <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
@@ -193,8 +237,14 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
+>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <?php echo '<script'; ?>
+ src="js/scripts.js"><?php echo '</script'; ?>
+>
     </body>
 </html>
+<?php }
+}

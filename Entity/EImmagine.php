@@ -7,8 +7,6 @@ class EImmagine{
     private $dimensione;
     private $tipo;
     private $immagine;
-    private $id_ricetta;
-    private $id_post;
 
     /**
      * @param $id
@@ -17,15 +15,24 @@ class EImmagine{
      * @param $tipo
      * @param $immagine
      */
-    public function __construct($id=null, $nome=null, $dimensione=null, $tipo=null, $immagine=null, $id_ricetta=null, $id_post=null)
+    public function __construct( $id, $nome=null, $dimensione=null, $tipo=null, $immagine=null)
     {
         $this->id = $id;
         $this->nome = $nome;
         $this->dimensione = $dimensione;
         $this->tipo = $tipo;
         $this->immagine = $immagine;
-        $this->id_ricetta = $id_ricetta;
-        $this->id_post = $id_post;
+    }
+
+    public function parseparam(){
+        return[
+            'nome' => $this->getNome(),
+            'dimensione' => $this->getDimensione(),
+            'id' => $this->getId(),
+            'tipo' => $this->getTipo(),
+            'immagine' => $this->getImmagine(),
+        ];
+
     }
 
 
@@ -129,45 +136,6 @@ class EImmagine{
         return $this;
     }
 
-    /**
-     * Get the value of id_ricetta
-     */ 
-    public function getId_ricetta()
-    {
-        return $this->id_ricetta;
-    }
-
-    /**
-     * Set the value of id_ricetta
-     *
-     * @return  self
-     */ 
-    public function setId_ricetta($id_ricetta)
-    {
-        $this->id_ricetta = $id_ricetta;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of id_post
-     */ 
-    public function getId_post()
-    {
-        return $this->id_post;
-    }
-
-    /**
-     * Set the value of id_post
-     *
-     * @return  self
-     */ 
-    public function setId_post($id_post)
-    {
-        $this->id_post = $id_post;
-
-        return $this;
-    }
 }
 
 ?>

@@ -77,7 +77,7 @@ class Fdb
                 while ($row = $stmt->fetch())
                     $result[] = $row;                    //ritorna un array di righe.
             }
-            //  $this->closeDbConnection();
+            // $this->closeDbConnection();
             return $result;
         } catch (PDOException $e) {
             echo "Attenzione errore: " . $e->getMessage();
@@ -166,7 +166,7 @@ res     * @param $object
         $filtro = '';
         try {
             //$this->_conn->beginTransaction();
-            for ($i = 0; $i < count($parametri); $i++) {
+            for ($i = 0; $i < sizeof($parametri); $i++) {
                 if ($i > 0) $filtro .= ' AND';
                 $filtro .= ' `' . $parametri[$i][0] . '` ' . $parametri[$i][1] . ' \'' . $parametri[$i][2] . '\'';
             }
@@ -256,7 +256,7 @@ res     * @param $object
     public function searchDb($class, $parametri = array(), $ordinamento = '', $limite = ''){
         $filtro = '';
         try {
-            for ($i = 0; $i < count($parametri); $i++) {
+            for ($i = 0; $i < sizeof($parametri); $i++) {
                 if ($i > 0) $filtro .= ' AND';
                 $filtro .= ' `' . $parametri[$i][0] . '` ' . $parametri[$i][1] . ' \'' . $parametri[$i][2] . '\'';
             }

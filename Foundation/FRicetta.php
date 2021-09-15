@@ -6,7 +6,7 @@ class FRicetta extends Fdb {
 
     private static $class = 'FRicetta';
 
-    private static $values = '(:ingredienti, :procedimento, :categoria, :data, :autore, :foto, :nome_ricetta, :dosi_persone)';
+    private static $values = '(:ingredienti, :procedimento, :categoria, :data, :autore, :nome_ricetta, :dosi_persone, :id_immagine)';
 
     public function __construct(){
     }
@@ -50,6 +50,7 @@ class FRicetta extends Fdb {
         $stmt->bindValue(':autore', $ricetta->getAutore(), PDO::PARAM_INT);
         $stmt->bindValue(':nome_ricetta', $ricetta->getNomeRicetta(), PDO::PARAM_STR);
         $stmt->bindValue(':dosi_persone', $ricetta->getDosiPersone(), PDO::PARAM_INT);
+        $stmt->bindValue(':id_immagine', $ricetta->getId_immagine(), PDO::PARAM_INT);
 
     }
 
@@ -65,20 +66,20 @@ class FRicetta extends Fdb {
         $db = parent::getInstance();
         $result = $db->searchDb(static::getClass(), $parametri, $ordinamento, $limite);
         //var_dump($result);
-        if (count($parametri) > 0) {
+        if (sizeof($parametri) > 0) {
             $rows_number = $db->getRowNum(static::getClass(), $parametri);
         } else {
             $rows_number = $db->getRowNum(static::getClass());
         }
         if(($result != null) && ($rows_number == 1)) {
-            $ricetta = new ERicetta($result['ingredienti'], $result['procedimento'], $result['categoria'], $result['data'], $result['autore'], $result['nome_ricetta'], $result['dosi_persone']);
+            $ricetta = new ERicetta($result['ingredienti'], $result['procedimento'], $result['categoria'], $result['data'], $result['autore'], $result['nome_ricetta'], $result['dosi_persone'], $result['id_immagine']);
             $ricetta->setId($result['id']);
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $ricetta = array();
-                for($i = 0; $i < count($result); $i++){
-                    $ricetta[] = new ERicetta($result[$i]['ingredienti'], $result[$i]['procedimento'], $result[$i]['categoria'], $result[$i]['data'], $result[$i]['autore'], $result[$i]['nome_ricetta'], $result[$i]['dosi_persone']);
+                for($i = 0; $i < sizeof($result); $i++){
+                    $ricetta[] = new ERicetta($result[$i]['ingredienti'], $result[$i]['procedimento'], $result[$i]['categoria'], $result[$i]['data'], $result[$i]['autore'], $result[$i]['nome_ricetta'], $result[$i]['dosi_persone'], $result[$i]['id_immagine']);
                     $ricetta[$i]->setId($result[$i]['id']);
                 }
             }
@@ -93,9 +94,10 @@ class FRicetta extends Fdb {
         else return false;
     }
 
-    public static function delete($field, $id){
+    public static function delete($field, $id, $id_ricetta){
         $db = parent::getInstance();
         $result = $db->deleteDB(self::getClass(), $field, $id);
+        $db->deleteDB(FImmagine::getClass(), $field, $id_ricetta);
         if ($result) return true;
         else return false;
     }

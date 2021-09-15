@@ -11,6 +11,7 @@ class ERicetta
     private $autore;
     private $nome_ricetta;
     private $dosi_persone;
+    private $id_immagine;
 
 
     /**
@@ -22,7 +23,7 @@ class ERicetta
      * @param int $id
      * @param $dosi_persone
      */
-    public function __construct($ingredienti=null, $procedimento=null, $categoria=null, $data_pubblicazione=null, $autore=null, $nome_ricetta=null, $dosi_persone=null)
+    public function __construct($ingredienti=null, $procedimento=null, $categoria=null, $data_pubblicazione=null, $autore=null, $nome_ricetta=null, $dosi_persone=null, $id_immagine=null)
     {
         $this->ingredienti = $ingredienti;
         $this->procedimento = $procedimento;
@@ -31,6 +32,7 @@ class ERicetta
         $this->autore = $autore;
         $this->nome_ricetta = $nome_ricetta;
         $this->dosi_persone = $dosi_persone;
+        $this->id_immagine = $id_immagine;
     }
 
     /**
@@ -166,6 +168,9 @@ class ERicetta
             'categoria' => $this->getCategoria(),
             'data_pubblicazione' => $this->getData_(),
             'autore' => $this->getAutore(),
+            'nome_ricetta' => $this->getNomeRicetta(),
+            'dosi_persone' => $this->getDosiPersone(),
+            'id_immagine' => $this->getId_immagine(),
         ];
 
     }
@@ -178,6 +183,26 @@ class ERicetta
         }
 
         return $ingredienti;
+    }
+
+    /**
+     * Get the value of id_immagine
+     */ 
+    public function getId_immagine()
+    {
+        return $this->id_immagine;
+    }
+
+    /**
+     * Set the value of id_immagine
+     *
+     * @return  self
+     */ 
+    public function setId_immagine($id_immagine)
+    {
+        $this->id_immagine = $id_immagine;
+
+        return $this;
     }
 }
 

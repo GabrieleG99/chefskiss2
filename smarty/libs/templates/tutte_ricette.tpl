@@ -70,7 +70,7 @@
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[0]->getId()}"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[0]->getId()}"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64,{$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">{$ricette[0]->getData_()}</div>
                             <h2 class="card-title">{$ricette[0]->getNomeRicetta()}</h2>
@@ -83,7 +83,7 @@
                                 <!-- Blog post-->
                                 {if count($ricette) >= 2}
                                     <div class="card mb-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[1]->getId()}"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[1]->getId()}"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64,{$immagini[1]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted">{$ricette[1]->getData_()}</div>
                                             <h2 class="card-title h4">{$ricette[1]->getNomeRicetta()}</h2>
@@ -94,7 +94,7 @@
                                 <!-- Blog post-->
                                 {if count($ricette) >= 3}
                                     <div class="card mb-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[2]->getId()}"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[2]->getId()}"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64,{$immagini[2]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted">{$ricette[2]->getData_()}</div>
                                             <h2 class="card-title h4">{$ricette[2]->getNomeRicetta()}</h2>
@@ -107,7 +107,7 @@
                             <!-- Blog post-->
                             {if count($ricette) >= 4}
                                 <div class="card mb-4">
-                                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[3]->getId()}"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+                                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[3]->getId()}"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">{$ricette[3]->getData_()}</div>
                                         <h2 class="card-title h4">{$ricette[3]->getNomeRicetta()}</h2>
@@ -118,7 +118,7 @@
                             <!-- Blog post-->
                             {if count($ricette) == 5}
                                 <div class="card mb-4">
-                                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[4]->getId()}"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+                                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[4]->getId()}"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">{$ricette[4]->getData_()}</div>
                                         <h2 class="card-title h4">{$ricette[4]->getNomeRicetta()}</h2>

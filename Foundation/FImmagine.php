@@ -1,11 +1,11 @@
 <?php
 
 class FImmagine extends Fdb{
-    private static $table = 'immagine';
+    private static $table = 'immagini';
 
     private static $class = 'FImmagine';
 
-    private static $values = '(:nome, :dimensione, :tipo, :immagine, :id_ricetta, :id_post)';
+    private static $values = '(:nome, :dimensione, :tipo, :immagine, :id)';
 
     public function __construct(){}
 
@@ -38,12 +38,11 @@ class FImmagine extends Fdb{
      * @param EImmagine $immagine
      */
     public static function bind($stmt, EImmagine $immagine){
+        $stmt->bindValue(':id', $immagine->getId(), PDO::PARAM_INT);
         $stmt->bindValue(':nome', $immagine->getNome(), PDO::PARAM_STR);
         $stmt->bindValue(':dimensione', $immagine->getDimensione(), PDO::PARAM_STR);
         $stmt->bindValue(':tipo', $immagine->getTipo(), PDO::PARAM_STR);
         $stmt->bindValue(':immagine', $immagine->getImmagine(), PDO::PARAM_LOB);
-        $stmt->bindValue(':id_ricetta', $immagine->getId_ricetta(), PDO::PARAM_INT);
-        $stmt->bindValue(':id_post', $immagine->getId_post(), PDO::PARAM_INT);
     }
 
     public static function insert($object){
@@ -55,19 +54,20 @@ class FImmagine extends Fdb{
     public static function loadByField($parametri = array(), $ordinamento = '', $limite = ''){
         $immagine = null;
         $db = parent::getInstance();
-        $result = $db->loadDb(static::getClass(), $parametri);
-        $rows_number = $db->getRowNum(static::getClass(), $parametri[0][0], $parametri[0][2]);
+        $result = $db->searchDb(static::getClass(), $parametri, $ordinamento, $limite);
+        if (count($parametri) > 0) {
+            $rows_number = $db->getRowNum(static::getClass(), $parametri);
+        } else {
+            $rows_number = $db->getRowNum(static::getClass());
+        }
         if(($result != null) && ($rows_number == 1)) {
-            $immagine = new EImmagine($result['nome'], $result['dimensione'], $result['tipo'], $result['immagine'], $result['id_ricetta'], $result['id_post']);
-            $immagine->setId($result['id']);
+            $immagine = new EImmagine($result['id'], $result['nome'], $result['dimensione'], $result['tipo'], base64_encode($result['immagine']));
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $immagine = array();
-                for($i = 0; $i < count($result); $i++){
-                    $immagine[] = new EImmagine($result[$i]['nome'], $result[$i]['dimensione'], $result[$i]['tipo'], $result[$i]['immagine'],
-                        $result[$i]['id_ricetta'], $result[$i]['id_post']);
-                    $immagine[$i]->setId($result[$i]['id']);
+                for($i = 0; $i < sizeof($result); $i++){
+                    $immagine = new EImmagine($result[$i]['id'], $result[$i]['nome'], $result[$i]['dimensione'], $result[$i]['tipo'], base64_encode($result[$i]['immagine']));
                 }
             }
         }
