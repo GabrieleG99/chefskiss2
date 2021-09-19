@@ -35,6 +35,14 @@ class VUtente
         $this->smarty->display('.smarty/libs/templates/login_registration_form.tpl');
     }
 
+    public function profilo($ricette, $utente, $immagini){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
+        $this->smarty->assign('utente', $utente);
+        $this->smarty->assign('ricette', $ricette);
+        $this->smarty->assign('immagini', $immagini);
+
+        $this->smarty->display('profile.tpl');
+    }
 
 }

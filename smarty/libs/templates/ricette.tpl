@@ -156,7 +156,7 @@
                                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
-                                                            <div class="text-muted">{$array[0][$i]->getData_()} &middot; 10 min read</div>
+                                                            <div class="text-muted">{$array[0][$i]->getData_()} &middot; Per {$array[0][$i]->getDosiPersone()} persone</div>
                                                         </div>
                                                     </div>
                                                 </div>

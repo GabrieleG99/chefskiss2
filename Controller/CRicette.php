@@ -14,14 +14,31 @@ class CRicette
         $view->showRecepies($ricette, $array);
     }
 
-    static function InfoRicetta($id){
+    static function InfoRicetta(int $id){
         $view = new VRicette();
         $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $session->setValue('id_ricetta', $id);
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
-        //$immagini = $pm::load('FRicetta', array(['id', '=', $ricetta->getId_immagine()]));
+        $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
+        $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id]));
+        if(is_array($recensione)){
+            for ($i = 0; $i < sizeof($recensione); $i++){
+                $recensioni_info[$i] = $recensione[$i];
+                $autori_recensioni[$i] = $pm::load('FUtente', array(['id', '=', $recensione[$i]->getAutore()]));
+                $array = array($recensioni_info, $autori_recensioni);
+            }
+            $view->showInfo($ricetta, $autore, $immagine, $array);
+        }
+        elseif($recensione != null){
+            $recensioni_info = $recensione;
+            $autori_recensioni = $pm::load('FUtente', array(['id', '=', $recensione->getAutore()]));
+            $array = array($recensioni_info, $autori_recensioni);
+            $view->showInfo($ricetta, $autore, $immagine, $array);
+        }
 
-        $view->showInfo($ricetta, $autore);
+        else $view->showInfo($ricetta, $autore, $immagine, $array=null);
     }
 
     static function homeRicette($ricette){
@@ -67,7 +84,45 @@ class CRicette
         $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini);
     }
 
+    static function InserisciRecensione(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        if(CUtente::isLogged()){
+            $id_ricetta = intval($session->readValue('id_ricetta'));
+            $utente = unserialize($session->readValue('utente'));
+            if(self::hasVoted($utente->getId(), $id_ricetta)){
+                $text = $_POST['text_comment'];
+                $voto = intval($_POST['star']);
+                $recensione = new ERecensione($text, $voto, $id_ricetta, date('Y-m-d'), $utente->getId());
+                $pm::insert($recensione);
+                $session->destroyValue('id_ricetta');
+                header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
+            }
+            else{ //l'utente ha già votato
+                $text = $_POST['text_comment'];
+                $voto = 0;
+                $recensione = new ERecensione($text, $voto, $id_ricetta, date('Y-m-d'), $utente->getId());
+                $pm::insert($recensione);
+                $session->destroyValue('id_ricetta');
+                header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
+            }
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
 
-
+    static function hasVoted($user_id, $recipe_id){ //not working
+        $pm = USingleton::getInstance('FPersistentManager');
+        $check = true;
+        $recensioni = $pm::load('FRecensione', array(['id_ricetta', '=', $recipe_id, 'autore', '=', $user_id]));
+        if(is_array($recensioni)){
+            for ($i = 0; $i < count($recensioni); $i++){
+                if($recensioni[$i]->getValutazione() > 0) $check = false;
+            }
+        }
+        elseif($recensioni->getValutazione() > 0) $check = false;
+        return $check;
+    }
 
 }

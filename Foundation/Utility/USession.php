@@ -21,6 +21,13 @@ class USession{
         else return false;
     }
 
+    public function valueExist(String $key){
+        if(isset($_SESSION[$key])){
+            return true;
+        }
+        else return false;
+    }
+
     public function unsetSession(){
         session_unset();
     }

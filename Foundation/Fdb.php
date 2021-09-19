@@ -122,7 +122,6 @@ res     * @param $object
         try {
             $this->_conn->beginTransaction();
             $query = "INSERT INTO `" . $class::getTable() . "` " . str_replace(array(':', ',', ')'), array('`', '`,', '`)'), $class::getValues()) . " VALUES " . $class::getValues();
-            echo $query;
             $stmt = $this->_conn->prepare($query);
             $class::bind($stmt, $object);
             $stmt->execute();

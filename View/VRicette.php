@@ -22,7 +22,7 @@ class VRicette
         $this->smarty->display('ricette.tpl');
     }
 
-    function showInfo(ERicetta $ricetta, $user){ //aggiungere variabile in ingresso user
+    function showInfo(ERicetta $ricetta, $user, $immagine, $array){ //aggiungere variabile in ingresso user
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
         $procedimento = explode('.', $ricetta->getProcedimento());
@@ -30,6 +30,8 @@ class VRicette
         $this->smarty->assign('utente', $user);
         $this->smarty->assign('ricetta', $ricetta);
         $this->smarty->assign('procedimento', $procedimento);
+        $this->smarty->assign('immagine', $immagine);
+        $this->smarty->assign('array', $array);
 
         $this->smarty->display('ricetta_info.tpl');
     }

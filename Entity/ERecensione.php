@@ -18,7 +18,7 @@ class ERecensione
      * @param $data_pubblicazione
      * @param $autore
      */
-    public function __construct($commento=null, $valutazione=null, $id=null, $id_ricetta=null, $data_pubblicazione=null, $autore=null)
+    public function __construct($commento=null, $valutazione=null, $id_ricetta=null, $data_pubblicazione=null, $autore=null, $id=null)
     {
         $this->commento = $commento;
         $this->valutazione = $valutazione;

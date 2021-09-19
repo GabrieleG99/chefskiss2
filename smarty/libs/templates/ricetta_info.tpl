@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/chefskiss/smarty/libs/css/boot_styles.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -91,7 +92,7 @@
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!">{ucfirst($ricetta->getCategoria())}</a>
                                 </header>
                                 <!-- Preview image figure-->
-                                <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure class="mb-4"><img class="img-fluid rounded" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=900 height=400 alt="..." /></figure>
                                 <ul>
                                     {for $i = 0; $i < count($ricetta->parseIngredienti()); $i++}
                                         {$ingredienti = $ricetta->parseIngredienti()}
@@ -110,18 +111,25 @@
                                 <div class="card bg-light">
                                     <div class="card-body">
                                         <!-- Comment form-->
-                                        <form class="mb-4" METHOD="get" action="/chefskiss/Ricette/InfoRicetta">
-                                            <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="text_comment"></textarea>
+                                        <form class="mb-4" METHOD="post" action="/chefskiss/Ricette/InserisciRecensione">
+                                            <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="text_comment" required></textarea>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="stars"> 
+                                                        <div class="text-muted">Dai un voto alla ricetta!</div> <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <button type="submit">Invia</button>
                                         </form>
                                         <!-- Comment with nested comments-->
-                                        <div class="d-flex mb-4">
-                                            <!-- Parent comment-->
+                                        <!--<div class="d-flex mb-4">
+                                            Parent comment
                                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                             <div class="ms-3">
                                                 <div class="fw-bold">Commenter Name</div>
                                                 If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                                <!-- Child comment 1-->
+                                                Child comment 1
                                                 <div class="d-flex mt-4">
                                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                     <div class="ms-3">
@@ -129,7 +137,7 @@
                                                         And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
                                                     </div>
                                                 </div>
-                                                <!-- Child comment 2-->
+                                                Child comment 2
                                                 <div class="d-flex mt-4">
                                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                     <div class="ms-3">
@@ -138,15 +146,31 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <!-- Single comment-->
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                            </div>
-                                        </div>
+                                        {if $array}
+                                            {if is_array($array)}
+                                                {if is_array($array[0])}
+                                                    {for $i = 0; $i < sizeof($array[0]); $i++}
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                            <div class="ms-3">
+                                                                <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
+                                                                {$array[0][$i]->getCommento()} <div class="text-end d-flex">{$array[0][$i]->getData_pubblicazione()}</div>
+                                                            </div>
+                                                        </div>
+                                                    {/for}
+                                                {else}
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                    <div class="ms-3">
+                                                        <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
+                                                        {$array[0]->getCommento()} <div class="text-end">{$array[0]->getData_pubblicazione()}</div>
+                                                    </div>
+                                                </div>
+                                                {/if}
+                                            {/if}
+                                        {/if}
                                     </div>
                                 </div>
                             </section>

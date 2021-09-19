@@ -24,7 +24,7 @@ class CUtente
         $view = new VUtente();
         $pm = USingleton::getInstance('FPersistentManager');
         $utente = $pm->loadLogin($_POST['email'], $_POST['password']);
-        var_dump($utente);
+        //var_dump($utente);
         if ($utente != null && $utente->getBan() != true){
             if (session_status() == PHP_SESSION_NONE){
                 $session = USingleton::getInstance('USession');
@@ -92,4 +92,25 @@ class CUtente
             header('Location: /chefskiss/Utente/login');
         }
     }
+
+    static function profilo(){
+        $view = new VUtente();
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        $pm = USingleton::getInstance('FPersistentManager');
+        if(CUtente::isLogged()){
+            $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
+            if($ricetta != null) {
+                for($i = 0; $i < sizeof($ricetta); $i++){
+                    $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
+                }
+                $view->profilo($ricetta, $utente, $immagine);
+            }
+            else $view->profilo($ricetta, $utente, $immagine = null);
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
 }

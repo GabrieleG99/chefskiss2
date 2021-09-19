@@ -6,8 +6,7 @@ final class USingleton
 
     private static $instances = array();
 
-    private function __construct()
-    {}
+    private function __construct(){}
 
     public static function getInstance(string $class_name){
 

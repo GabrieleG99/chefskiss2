@@ -12,6 +12,7 @@ class ERicetta
     private $nome_ricetta;
     private $dosi_persone;
     private $id_immagine;
+    private $valutazione;
 
 
     /**
@@ -23,7 +24,8 @@ class ERicetta
      * @param int $id
      * @param $dosi_persone
      */
-    public function __construct($ingredienti=null, $procedimento=null, $categoria=null, $data_pubblicazione=null, $autore=null, $nome_ricetta=null, $dosi_persone=null, $id_immagine=null)
+    public function __construct($ingredienti=null, $procedimento=null, $categoria=null, $data_pubblicazione=null,
+                                 $autore=null, $nome_ricetta=null, $dosi_persone=null, $id_immagine=null, $valutazione=null)
     {
         $this->ingredienti = $ingredienti;
         $this->procedimento = $procedimento;
@@ -33,6 +35,7 @@ class ERicetta
         $this->nome_ricetta = $nome_ricetta;
         $this->dosi_persone = $dosi_persone;
         $this->id_immagine = $id_immagine;
+        $this->valutazione = $valutazione;
     }
 
     /**
@@ -171,6 +174,7 @@ class ERicetta
             'nome_ricetta' => $this->getNomeRicetta(),
             'dosi_persone' => $this->getDosiPersone(),
             'id_immagine' => $this->getId_immagine(),
+            'valutazione' => $this->getValutazione(),
         ];
 
     }
@@ -201,6 +205,26 @@ class ERicetta
     public function setId_immagine($id_immagine)
     {
         $this->id_immagine = $id_immagine;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of valutazione
+     */ 
+    public function getValutazione()
+    {
+        return $this->valutazione;
+    }
+
+    /**
+     * Set the value of valutazione
+     *
+     * @return  self
+     */ 
+    public function setValutazione($valutazione)
+    {
+        $this->valutazione = $valutazione;
 
         return $this;
     }
