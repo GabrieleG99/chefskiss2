@@ -112,16 +112,16 @@ class CRicette
         }
     }
 
-    static function hasVoted($user_id, $recipe_id){ //not working
+    static function hasVoted($user_id, $recipe_id){ //not working basta che sia presente una recensione con valutazione e ritorna sempre true
         $pm = USingleton::getInstance('FPersistentManager');
         $check = true;
-        $recensioni = $pm::load('FRecensione', array(['id_ricetta', '=', $recipe_id, 'autore', '=', $user_id]));
+        $recensioni = $pm::load('FRecensione', array(['id_ricetta', '=', $recipe_id]));
         if(is_array($recensioni)){
             for ($i = 0; $i < count($recensioni); $i++){
-                if($recensioni[$i]->getValutazione() > 0) $check = false;
+                if($recensioni[$i]->getValutazione() > 0 && $recensioni[$i]->getAutore() == $user_id) $check = false;
             }
         }
-        elseif($recensioni->getValutazione() > 0) $check = false;
+        elseif($recensioni!=null && $recensioni->getValutazione() > 0 && $recensioni->getAutore() == $user_id) $check = false;
         return $check;
     }
 
