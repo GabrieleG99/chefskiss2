@@ -74,14 +74,18 @@ class FRicetta extends Fdb {
         }
         if(($result != null) && ($rows_number == 1)) {
             $ricetta = new ERicetta($result['ingredienti'], $result['procedimento'], $result['categoria'], $result['data'], $result['autore'], $result['nome_ricetta'], $result['dosi_persone'], $result['id_immagine'], $result['valutazione']);
+            self::getValutazioneRicetta($ricetta);
             $ricetta->setId($result['id']);
+            self::update('valutazione', self::getValutazioneRicetta($ricetta), 'id', $ricetta->getId());
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $ricetta = array();
                 for($i = 0; $i < sizeof($result); $i++){
                     $ricetta[] = new ERicetta($result[$i]['ingredienti'], $result[$i]['procedimento'], $result[$i]['categoria'], $result[$i]['data'], $result[$i]['autore'], $result[$i]['nome_ricetta'], $result[$i]['dosi_persone'], $result[$i]['id_immagine'], $result[$i]['valutazione']);
+                    self::getValutazioneRicetta($ricetta[$i]);
                     $ricetta[$i]->setId($result[$i]['id']);
+                    self::update('valutazione', self::getValutazioneRicetta($ricetta[$i]), 'id', $ricetta[$i]->getId());
                 }
             }
         }
@@ -128,5 +132,26 @@ class FRicetta extends Fdb {
         $db = parent::getInstance();
         $result = $db->getRowNum(self::$class, $parametri, $ordinamento, $limite);
         return $result;
+    }
+
+    public static function getValutazioneRicetta($ricetta){
+        $id_ricetta = $ricetta->getId();
+        $valutazione = 0;
+        $pm = USingleton::getInstance('FPersistentManager');
+        $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id_ricetta]));
+        if($recensione != null){
+            if(is_array($recensione)){
+                for($i = 0; $i < sizeof($recensione); $i++){
+                    $voti[$i] = $recensione[$i]->getValutazione();
+                }
+                $valutazione = array_sum($voti)/sizeof($voti);
+                $ricetta->setValutazione(array_sum($voti)/sizeof($voti));
+            }
+            else {
+                $valutazione = $recensione->getValutazione();
+                $ricetta->setValutazione($recensione->getValutazione());
+            }
+        }
+        return $valutazione;
     }
 }

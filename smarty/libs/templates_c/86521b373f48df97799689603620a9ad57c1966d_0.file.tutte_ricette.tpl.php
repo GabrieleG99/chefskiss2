@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-15 12:56:45
+/* Smarty version 3.1.39, created on 2021-09-20 15:26:45
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6141d16d817b70_38729551',
+  'unifunc' => 'content_61488c153c56d7_41670875',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '86521b373f48df97799689603620a9ad57c1966d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\tutte_ricette.tpl',
-      1 => 1631703396,
+      1 => 1632144401,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6141d16d817b70_38729551 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -235,10 +235,12 @@ function content_6141d16d817b70_38729551 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
+                        <form method="POST" action="/chefskiss/Ricette/cerca">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                     <!-- Categories widget-->
@@ -248,26 +250,26 @@ function content_6141d16d817b70_38729551 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li>Primi</li>
+                                        <li>Contorni</li>
+                                        <li>Antipasti</li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li>Secondi</li>
+                                        <li>Dessert</li>
+                                        <li>Salse</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Side widget-->
-                    <div class="card mb-4">
+                    <!--<div class="card mb-4">
                         <div class="card-header">Side Widget</div>
                         <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         <!-- Footer-->

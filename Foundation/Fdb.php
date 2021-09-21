@@ -142,6 +142,7 @@ res     * @param $object
         try {
             $this->_conn->beginTransaction();
             $query = "UPDATE " . $class::getTable() . " SET " . $field . "='" . $newvalue . "' WHERE " . $pk . "='" . $id . "';";
+            //var_dump($query);
             $stmt = $this->_conn->prepare($query);
             $stmt->execute();
             $this->_conn->commit();
@@ -264,7 +265,7 @@ res     * @param $object
             if ($filtro != '')
                 $query .= 'WHERE ' . $filtro . ' ';
             if ($ordinamento != '')
-                $query .= 'ORDER BY ' . $ordinamento . ' ';
+                $query .= 'ORDER BY ' . $ordinamento . ' ' . 'DESC ';
             if ($limite != '')
                 $query .= 'LIMIT ' . $limite . ' ';
             $stmt = $this->_conn->prepare($query);

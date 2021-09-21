@@ -58,83 +58,65 @@
                 </div>
             </nav>
             <!-- Page Content-->
-            <section class="py-5">
-                <div class="container px-5">
-                    <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
-                    <div class="card border-0 shadow rounded-3 overflow-hidden">
-                        <div class="card-body p-0">
-                            <div class="row gx-0">
-                                <div class="col-lg-6 col-xl-5 py-lg-5">
-                                    <div class="p-4 p-md-5">
-                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
-                                        <div class="h2 fw-bolder">{$ricette[$ran_num]->getNomeRicetta()}</div>
-                                        <p>{substr($ricette[$ran_num]->getProcedimento(), 0, 100)}...</p>
-                                        <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/{$ricette[$ran_num]->getId()}">
-                                            Leggi tutta la ricetta
-                                            <i class="bi bi-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:{$array[2][$ran_num]->getTipo()};base64,{$array[2][$ran_num]->getImmagine()}" width=600 height=450></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="py-5 bg-light">
-                <div class="container px-5">
-                    <div class="row gx-5">
-                        <div class="col-xl-8">
-                            <h2 class="fw-bolder fs-5 mb-4">News</h2>
-                            <!-- News item-->
-                            <div class="mb-4">
-                                <div class="small text-muted">May 12, 2021</div>
-                                <a class="link-dark" href="#!"><h3>Start Bootstrap releases Bootstrap 5 updates for templates and themes</h3></a>
-                            </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">May 5, 2021</div>
-                                <a class="link-dark" href="#!"><h3>Bootstrap 5 has officially landed</h3></a>
-                            </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">Apr 21, 2021</div>
-                                <a class="link-dark" href="#!"><h3>This is another news article headline, but this one is a little bit longer</h3></a>
-                            </div>
-                            <div class="text-end mb-5 mb-xl-0">
-                                <a class="text-decoration-none" href="#!">
-                                    More news
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="card border-0 h-100">
-                                <div class="card-body p-4">
-                                    <div class="d-flex h-100 align-items-center justify-content-center">
-                                        <div class="text-center">
-                                            <div class="h6 fw-bolder">Contact</div>
-                                            <p class="text-muted mb-4">
-                                                For press inquiries, email us at
-                                                <br />
-                                                <a href="#!">press@domain.com</a>
-                                            </p>
-                                            <div class="h6 fw-bolder">Follow us</div>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-linkedin"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-youtube"></i></a>
+            {if $ricette}
+                {if is_array($ricette)}
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
+                            <div class="card border-0 shadow rounded-3 overflow-hidden">
+                                <div class="card-body p-0">
+                                    <div class="row gx-0">
+                                        <div class="col-lg-6 col-xl-5 py-lg-5">
+                                            <div class="p-4 p-md-5">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
+                                                <div class="h2 fw-bolder">{$ricette[$ran_num]->getNomeRicetta()}</div>
+                                                <p>{substr($ricette[$ran_num]->getProcedimento(), 0, 100)}...</p>
+                                                <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/{$ricette[$ran_num]->getId()}">
+                                                    Leggi tutta la ricetta
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            </div>
                                         </div>
+                                        <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:{$array[2][$ran_num]->getTipo()};base64,{$array[2][$ran_num]->getImmagine()}" width=600 height=450></div></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+                    {else}
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
+                            <div class="card border-0 shadow rounded-3 overflow-hidden">
+                                <div class="card-body p-0">
+                                    <div class="row gx-0">
+                                        <div class="col-lg-6 col-xl-5 py-lg-5">
+                                            <div class="p-4 p-md-5">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
+                                                <div class="h2 fw-bolder">{$ricette->getNomeRicetta()}</div>
+                                                <p>{substr($ricette->getProcedimento(), 0, 100)}...</p>
+                                                <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/{$ricette->getId()}">
+                                                    Leggi tutta la ricetta
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=600 height=450></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                {/if}
+                {else}
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Ancora nessuna ricetta da vedere!</h1>
+                        </div>
+                    </section>
+            {/if}
             <!-- Blog preview section-->
             <section class="py-5">
-
                 <div class="container px-5">
                     <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
                     <div class="row gx-5">
@@ -143,7 +125,6 @@
                                 {for $i = 0; $i < 3; $i++}
                                     <div class="col-lg-4 mb-5">
                                         <div class="card h-100 shadow border-0">
-
                                             <img class="card-img-top" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=600 height=350 alt="..." />
                                             <div class="card-body p-4">
                                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$array[0][$i]->getCategoria()}</div>
@@ -164,16 +145,40 @@
                                         </div>
                                     </div>
                                 {/for}
+                            {else}
+                            <section>
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=600 height=350 alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$array[0]->getCategoria()}</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/{$array[0]->getId()}"><div class="h5 card-title mb-3">{$array[0]->getNomeRicetta()}</div></a>
+                                            <p class="card-text mb-0">{substr($array[0]->getProcedimento(), 0, 100)}...</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
+                                                        <div class="text-muted">{$array[0]->getData_()} &middot; Per {$array[0]->getDosiPersone()} persone</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             {/if}
                         {/if}
 
-                    <div class="text-end mb-5 mb-xl-0">
-                        <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
-                            Tutte le ricette
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
+                        <div class="text-end mb-5 mb-xl-0">
+                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
+                                Tutte le ricette
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
+                    </div>
                 </div>
             </section>
         </main>

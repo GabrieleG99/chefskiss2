@@ -69,53 +69,41 @@
                     </div>
                 </div>
             </nav>
-            <!-- Header-->
-            <header class="bg-dark py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="bd-example">
-                            <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
-                              <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                              </ol>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active" data-interval="5000">
-                                  <img src="{$Immagine1}" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2>{$Nome_Ricetta1}</h2>
-                                    <h3>{$Descrizione_Ricetta1}</h3>
-                                  </div>
-                                </div>
-                                <div class="carousel-item" data-interval="5000">
-                                  <img src="{$Immagine2}" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2>{$Nome_Ricetta2}</h2>
-                                    <h3>{$Descrizione_Ricetta2}</h3>
-                                  </div>
-                                </div>
-                                <div class="carousel-item" data-interval="5000">
-                                  <img src="{$Immagine3}" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2>{$Nome_Ricetta3}</h2>
-                                    <h3>{$Descrizione_Ricetta3}</h3>
-                                  </div>
-                                </div>
-                              </div>
-                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                              </button>
-                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                              </button>
-                            </div>
-                        </div>
+            <div id="carouselExampleCaptions" class="container px-5 carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[0]->getId()}"><img src="data:{$immagini[0]->getTipo()};base64,{$immagini[0]->getImmagine()}" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{$ricette_home[0]->getNomeRicetta()}</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[1]->getId()}"><img src="data:{$immagini[1]->getTipo()};base64,{$immagini[1]->getImmagine()}" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{$ricette_home[1]->getNomeRicetta()}</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[2]->getId()}"><img src="data:{$immagini[2]->getTipo()};base64,{$immagini[2]->getImmagine()}" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{$ricette_home[2]->getNomeRicetta()}</h5>
+                    </div>
                     </div>
                 </div>
-            </header>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <!-- Features section-->
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
@@ -126,13 +114,13 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="{$Immagine4}" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[3]->getId()}"><img src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">{$Titolo_Ricetta1}</h5>
-                                          <p class="card-text">{$Intro_Ricetta1}</p>
-                                          <p class="card-text"><small class="text-muted">{$Data_Ricetta1}</small></p>
+                                          <h5 class="card-title">{$ricette_home[3]->getNomeRicetta()}</h5>
+                                          <p class="card-text">{substr($ricette_home[3]->getProcedimento(), 0, 100)}...</p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[3]->getData_()}</small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -140,13 +128,13 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="{$Immagine5}" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[4]->getId()}"><img src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">{$Titolo_Ricetta2}</h5>
-                                          <p class="card-text">{$Intro_Ricetta2}</p>
-                                          <p class="card-text"><small class="text-muted">{$Data_Ricetta2}</small></p>
+                                          <h5 class="card-title">{$ricette_home[4]->getNomeRicetta()}</h5>
+                                          <p class="card-text">{substr($ricette_home[4]->getProcedimento(), 0, 100)}...</p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[4]->getData_()}</small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -154,13 +142,13 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="{$Immagine6}" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[5]->getId()}"><img src="data:{$immagini[5]->getTipo()};base64,{$immagini[5]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">{$Titolo_Ricetta3}</h5>
-                                          <p class="card-text">{$Intro_Ricetta3}</p>
-                                          <p class="card-text"><small class="text-muted">{$Data_Ricetta3}</small></p>
+                                          <h5 class="card-title">{$ricette_home[5]->getNomeRicetta()}</h5>
+                                          <p class="card-text">{substr($ricette_home[5]->getProcedimento(), 0, 100)}...</p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[5]->getData_()}</small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -168,13 +156,13 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="{$Immagine7}" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[6]->getId()}"><img src="data:{$immagini[6]->getTipo()};base64,{$immagini[6]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">{$Titolo_Ricetta4}</h5>
-                                          <p class="card-text">{$Intro_Ricetta4}</p>
-                                          <p class="card-text"><small class="text-muted">{$Data_Ricetta4}</small></p>
+                                          <h5 class="card-title">{$ricette_home[6]->getNomeRicetta()}</h5>
+                                          <p class="card-text">{substr($ricette_home[6]->getProcedimento(), 0, 100)}...</p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[6]->getData_()}</small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -192,7 +180,7 @@
                             <div class="text-center">
                                 <div class="fs-4 mb-4 fst-italic">"A RECIPE HAS NO SOUL. YOU, AS THE COOK, MUST BRING SOUL TO THE RECIPE"</div>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                    <img class="rounded-circle me-3" src="./smarty/libs/assets/ThomasKeller828x1344.jpg" width=40 height=40 alt="..." />
                                     <div class="fw-bold">
                                         Thomas Keller
                                         <span class="fw-bold text-primary mx-1">/</span>
@@ -227,7 +215,7 @@
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore1}" alt="..." />
+                                            <img class="rounded-circle me-3" src="{$Immagine_Autore1}" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold">{$Nome_Autore1}</div>
                                                 <div class="text-muted">{$Data_Post1}</div>
@@ -248,7 +236,7 @@
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore2}" alt="..." />
+                                            <img class="rounded-circle me-3" src="{$Immagine_Autore2}" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold">{$Nome_Autore2}</div>
                                                 <div class="text-muted">{$Data_Post2}</div>
@@ -269,7 +257,7 @@
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore3}" alt="..." />
+                                            <img class="rounded-circle me-3" src="{$Immagine_Autore3}" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold">{$Nome_Autore3}</div>
                                                 <div class="text-muted">{$Data_Post3}</div>

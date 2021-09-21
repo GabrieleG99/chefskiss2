@@ -46,11 +46,19 @@ class CRicette
         $immagini_home = array();
         $autori_ricette = array();
         $pm = USingleton::getInstance('FPersistentManager');
-        for ($i = 0; $i < count($ricette); $i++){
-            $ricette_home[$i] = $ricette[$i];
-            $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricette[$i]->getAutore()]));
-            $immagini_home[$i] = $pm::load('FImmagine', array(['id', '=', $ricette[$i]->getId_immagine()]));
-
+        if($ricette!=null){
+            if(is_array($ricette)){
+                for ($i = 0; $i < count($ricette); $i++){
+                    $ricette_home[$i] = $ricette[$i];
+                    $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricette[$i]->getAutore()]));
+                    $immagini_home[$i] = $pm::load('FImmagine', array(['id', '=', $ricette[$i]->getId_immagine()]));
+                }
+            }
+            else{
+                $ricette_home = $ricette;
+                $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricette->getAutore()]));
+                $immagini_home = $pm::load('FImmagine', array(['id', '=', $ricette->getId_immagine()]));
+            }
         }
         return array($ricette_home, $autori_ricette, $immagini_home);
     }
@@ -90,6 +98,7 @@ class CRicette
         if(CUtente::isLogged()){
             $id_ricetta = intval($session->readValue('id_ricetta'));
             $utente = unserialize($session->readValue('utente'));
+            $ricetta = $pm::load('FRicetta', array(['id', '=', $id_ricetta]));
             if(self::hasVoted($utente->getId(), $id_ricetta)){
                 $text = $_POST['text_comment'];
                 $voto = intval($_POST['star']);
@@ -123,6 +132,18 @@ class CRicette
         }
         elseif($recensioni!=null && $recensioni->getValutazione() > 0 && $recensioni->getAutore() == $user_id) $check = false;
         return $check;
+    }
+
+    static function cerca(){
+        $view = new VRicette();
+        $pm = USingleton::getInstance('FPersistentManager');
+        $parametro = $_POST['text'];
+        //$ricette = $pm::load('FRicetta', array(['categoria', '=', $parametro]));
+        strtoupper($parametro);
+        $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
+        $array = self::homeRicette($ricette);
+
+        $view->showRecepies($ricette, $array);
     }
 
 }
