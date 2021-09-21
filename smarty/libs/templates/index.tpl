@@ -120,7 +120,11 @@
                                         <div class="card-body">
                                           <h5 class="card-title">{$ricette_home[3]->getNomeRicetta()}</h5>
                                           <p class="card-text">{substr($ricette_home[3]->getProcedimento(), 0, 100)}...</p>
-                                          <p class="card-text"><small class="text-muted">{$ricette_home[3]->getData_()}</small></p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[3]->getData_()} &middot; 
+                                            {for $i = 0; $i < (int)$ricette_home[3]->getValutazione(); $i++}
+                                                <i class="bi bi-star"></i>
+                                            {/for}
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -134,7 +138,11 @@
                                         <div class="card-body">
                                           <h5 class="card-title">{$ricette_home[4]->getNomeRicetta()}</h5>
                                           <p class="card-text">{substr($ricette_home[4]->getProcedimento(), 0, 100)}...</p>
-                                          <p class="card-text"><small class="text-muted">{$ricette_home[4]->getData_()}</small></p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[4]->getData_()} &middot; 
+                                            {for $i = 0; $i < (int)$ricette_home[4]->getValutazione(); $i++}
+                                                <i class="bi bi-star"></i>
+                                            {/for}
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -148,7 +156,11 @@
                                         <div class="card-body">
                                           <h5 class="card-title">{$ricette_home[5]->getNomeRicetta()}</h5>
                                           <p class="card-text">{substr($ricette_home[5]->getProcedimento(), 0, 100)}...</p>
-                                          <p class="card-text"><small class="text-muted">{$ricette_home[5]->getData_()}</small></p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[5]->getData_()} &middot; 
+                                            {for $i = 0; $i < (int)$ricette_home[5]->getValutazione(); $i++}
+                                                <i class="bi bi-star"></i>
+                                            {/for}
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -162,7 +174,11 @@
                                         <div class="card-body">
                                           <h5 class="card-title">{$ricette_home[6]->getNomeRicetta()}</h5>
                                           <p class="card-text">{substr($ricette_home[6]->getProcedimento(), 0, 100)}...</p>
-                                          <p class="card-text"><small class="text-muted">{$ricette_home[6]->getData_()}</small></p>
+                                          <p class="card-text"><small class="text-muted">{$ricette_home[6]->getData_()} &middot; 
+                                            {for $i = 0; $i < (int)$ricette_home[6]->getValutazione(); $i++}
+                                                <i class="bi bi-star"></i>
+                                            {/for}
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>

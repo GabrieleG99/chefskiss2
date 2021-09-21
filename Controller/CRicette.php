@@ -134,16 +134,20 @@ class CRicette
         return $check;
     }
 
-    static function cerca(){
-        $view = new VRicette();
+    static function cerca($categoria=null){
         $pm = USingleton::getInstance('FPersistentManager');
-        $parametro = $_POST['text'];
-        //$ricette = $pm::load('FRicetta', array(['categoria', '=', $parametro]));
-        strtoupper($parametro);
-        $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-        $array = self::homeRicette($ricette);
-
-        $view->showRecepies($ricette, $array);
+        if($categoria!=null){
+            $view = new VRicette();
+            $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
+            $array = self::homeRicette($ricette);
+            $view->showRecepies($ricette, $array);
+        }
+        else{
+            $parametro = $_POST['text'];
+            strtoupper($parametro);
+            $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
+            self::InfoRicetta($ricette->getId());
+        }
     }
 
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-20 15:54:06
+/* Smarty version 3.1.39, created on 2021-09-21 16:51:56
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6148927e677e06_60145255',
+  'unifunc' => 'content_6149f18c261836_87518401',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0baadb2e48b3b9b317a10afd6e08ee128f7d411' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricette.tpl',
-      1 => 1632146041,
+      1 => 1632234624,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6148927e677e06_60145255 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6149f18c261836_87518401 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -185,7 +185,18 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
 </div>
                                                             <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getDosiPersone();?>
- persone</div>
+ persone &middot; 
+                                                            <?php
+$_smarty_tpl->tpl_vars['x'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['x']->value = 0;
+if ($_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione(); $_smarty_tpl->tpl_vars['x']->value++) {
+?>
+                                                                <i class="bi bi-star"></i>
+                                                            <?php }
+}
+?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,7 +232,18 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
 </div>
                                                         <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getDosiPersone();?>
- persone</div>
+ persone &middot; 
+                                                        <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                            <i class="bi bi-star"></i>
+                                                        <?php }
+}
+?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

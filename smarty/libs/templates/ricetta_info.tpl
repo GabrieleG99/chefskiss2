@@ -87,7 +87,11 @@
                                     <!-- Post title-->
                                     <h1 class="fw-bolder mb-1">{$ricetta->getNomeRicetta()}</h1>
                                     <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">{$ricetta->getData_()}</div>
+                                    <div class="text-muted fst-italic mb-2">{$ricetta->getData_()} &middot; 
+                                    {for $i = 0; $i < (int)$ricetta->getValutazione(); $i++}
+                                        <i class="bi bi-star"></i>
+                                    {/for}
+                                    </div>
                                     <!-- Post categories-->
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!">{ucfirst($ricetta->getCategoria())}</a>
                                 </header>

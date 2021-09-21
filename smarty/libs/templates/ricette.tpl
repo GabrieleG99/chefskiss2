@@ -137,7 +137,11 @@
                                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
-                                                            <div class="text-muted">{$array[0][$i]->getData_()} &middot; Per {$array[0][$i]->getDosiPersone()} persone</div>
+                                                            <div class="text-muted">{$array[0][$i]->getData_()} &middot; Per {$array[0][$i]->getDosiPersone()} persone &middot; 
+                                                            {for $x = 0; $x < (int)$array[0][$i]->getValutazione(); $x++}
+                                                                <i class="bi bi-star"></i>
+                                                            {/for}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,7 +165,11 @@
                                                     <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                                     <div class="small">
                                                         <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
-                                                        <div class="text-muted">{$array[0]->getData_()} &middot; Per {$array[0]->getDosiPersone()} persone</div>
+                                                        <div class="text-muted">{$array[0]->getData_()} &middot; Per {$array[0]->getDosiPersone()} persone &middot; 
+                                                        {for $i = 0; $i < (int)$array[0]->getValutazione(); $i++}
+                                                            <i class="bi bi-star"></i>
+                                                        {/for}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-20 15:26:45
+/* Smarty version 3.1.39, created on 2021-09-21 18:13:39
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61488c153c56d7_41670875',
+  'unifunc' => 'content_614a04b3accf47_22945395',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '86521b373f48df97799689603620a9ad57c1966d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\tutte_ricette.tpl',
-      1 => 1632144401,
+      1 => 1632240808,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614a04b3accf47_22945395 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -31,6 +31,7 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
         <meta name="author" content="" />
         <title>Chef's Kiss - Forum e Ricette</title>
         <!-- Favicon-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/chefskiss/smarty/libs/css/boot_styles.css" rel="stylesheet" />
@@ -99,7 +100,18 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
 " width=900 height=400 alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getData_();?>
-</div>
+ &middot; 
+                                <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[0]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                    <i class="bi bi-star"></i>
+                                <?php }
+}
+?>
+                                </div>
                             <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getNomeRicetta();?>
 </h2>
                             <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[0]->getProcedimento(),0,100);?>
@@ -118,7 +130,18 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
 " width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getData_();?>
-</div>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[1]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[1]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </div>
                                             <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getNomeRicetta();?>
 </h2>
                                             <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[1]->getProcedimento(),0,100);?>
@@ -135,7 +158,18 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
 " width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getData_();?>
-</div>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[2]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[2]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </div>
                                             <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getNomeRicetta();?>
 </h2>
                                             <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[2]->getProcedimento(),0,100);?>
@@ -154,7 +188,18 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
 " width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getData_();?>
-</div>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[3]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[3]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </div>
                                         <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getNomeRicetta();?>
 </h2>
                                         <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[3]->getProcedimento(),0,100);?>
@@ -171,7 +216,18 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
 " width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getData_();?>
-</div>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[4]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette']->value[4]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </div>
                                         <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getNomeRicetta();?>
 </h2>
                                         <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[4]->getProcedimento(),0,100);?>
@@ -250,7 +306,7 @@ function content_61488c153c56d7_41670875 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li>Primi</li>
+                                        <li><a href="/chefskiss/Ricette/cerca?primi">Primi</a></li>
                                         <li>Contorni</li>
                                         <li>Antipasti</li>
                                     </ul>
