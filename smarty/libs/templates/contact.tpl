@@ -22,12 +22,24 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.tpl">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="contact.tpl">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="forum.tpl">Forum</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ricette.tpl">Ricette</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
+                            {if $userlogged!='nouser'}
+                                <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
+                                </li>
+                                <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
+                                </li>
+                            {else}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
+                                </li>
+                            {/if}
                             <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">

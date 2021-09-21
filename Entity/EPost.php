@@ -1,6 +1,8 @@
 <?php
 
 class EPost {
+
+    private $titolo;
     private $autore;
     private $domanda;
     private $categoria;
@@ -16,8 +18,9 @@ class EPost {
      * @param $data_pubb
      * @param array $_commenti
      */
-    public function __construct($autore=null, $domanda=null, $categoria=null, $id=null, $data_pubb=null, $id_immagine=null)
+    public function __construct($autore=null,$titolo=null, $domanda=null, $categoria=null, $id=null, $data_pubb=null, $id_immagine=null)
     {
+        $this->titolo = $titolo;
         $this->autore = $autore;
         $this->domanda = $domanda;
         $this->categoria = $categoria;

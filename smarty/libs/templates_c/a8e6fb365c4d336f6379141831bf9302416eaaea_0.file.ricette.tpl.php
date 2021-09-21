@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-12 04:36:22
+/* Smarty version 3.1.39, created on 2021-09-21 14:14:09
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_613d67a6580416_51582431',
+  'unifunc' => 'content_6149cc91acbcd8_69059532',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1631412543,
+      1 => 1632221165,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_613d67a6580416_51582431 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6149cc91acbcd8_69059532 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -48,7 +48,7 @@ function content_613d67a6580416_51582431 (Smarty_Internal_Template $_smarty_tpl)
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
@@ -81,86 +81,75 @@ function content_613d67a6580416_51582431 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </nav>
             <!-- Page Content-->
-            <section class="py-5">
-                <div class="container px-5">
-                    <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
-                    <div class="card border-0 shadow rounded-3 overflow-hidden">
-                        <div class="card-body p-0">
-                            <div class="row gx-0">
-                                <div class="col-lg-6 col-xl-5 py-lg-5">
-                                    <div class="p-4 p-md-5">
-                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
-                                        <div class="h2 fw-bolder"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getNomeRicetta();?>
+            <?php if ($_smarty_tpl->tpl_vars['ricette']->value) {?>
+                <?php if (is_array($_smarty_tpl->tpl_vars['ricette']->value)) {?>
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
+                            <div class="card border-0 shadow rounded-3 overflow-hidden">
+                                <div class="card-body p-0">
+                                    <div class="row gx-0">
+                                        <div class="col-lg-6 col-xl-5 py-lg-5">
+                                            <div class="p-4 p-md-5">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
+                                                <div class="h2 fw-bolder"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getNomeRicetta();?>
 </div>
-                                        <p><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getProcedimento(),0,100);?>
+                                                <p><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getProcedimento(),0,100);?>
 ...</p>
-                                        <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getId();?>
+                                                <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['ran_num']->value]->getId();?>
 ">
-                                            Leggi tutta la ricetta
-                                            <i class="bi bi-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('https://dummyimage.com/700x350/343a40/6c757d')"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="py-5 bg-light">
-                <div class="container px-5">
-                    <div class="row gx-5">
-                        <div class="col-xl-8">
-                            <h2 class="fw-bolder fs-5 mb-4">News</h2>
-                            <!-- News item-->
-                            <div class="mb-4">
-                                <div class="small text-muted">May 12, 2021</div>
-                                <a class="link-dark" href="#!"><h3>Start Bootstrap releases Bootstrap 5 updates for templates and themes</h3></a>
-                            </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">May 5, 2021</div>
-                                <a class="link-dark" href="#!"><h3>Bootstrap 5 has officially landed</h3></a>
-                            </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">Apr 21, 2021</div>
-                                <a class="link-dark" href="#!"><h3>This is another news article headline, but this one is a little bit longer</h3></a>
-                            </div>
-                            <div class="text-end mb-5 mb-xl-0">
-                                <a class="text-decoration-none" href="#!">
-                                    More news
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="card border-0 h-100">
-                                <div class="card-body p-4">
-                                    <div class="d-flex h-100 align-items-center justify-content-center">
-                                        <div class="text-center">
-                                            <div class="h6 fw-bolder">Contact</div>
-                                            <p class="text-muted mb-4">
-                                                For press inquiries, email us at
-                                                <br />
-                                                <a href="#!">press@domain.com</a>
-                                            </p>
-                                            <div class="h6 fw-bolder">Follow us</div>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-linkedin"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-youtube"></i></a>
+                                                    Leggi tutta la ricetta
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            </div>
                                         </div>
+                                        <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['ran_num']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['ran_num']->value]->getImmagine();?>
+" width=600 height=450></div></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+                    <?php } else { ?>
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Le ricette</h1>
+                            <div class="card border-0 shadow rounded-3 overflow-hidden">
+                                <div class="card-body p-0">
+                                    <div class="row gx-0">
+                                        <div class="col-lg-6 col-xl-5 py-lg-5">
+                                            <div class="p-4 p-md-5">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Ricetta del giorno</div>
+                                                <div class="h2 fw-bolder"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getNomeRicetta();?>
+</div>
+                                                <p><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value->getProcedimento(),0,100);?>
+...</p>
+                                                <a class="stretched-link text-decoration-none" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value->getId();?>
+">
+                                                    Leggi tutta la ricetta
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog"> <img src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getImmagine();?>
+" width=600 height=450></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <?php }?>
+                <?php } else { ?>
+                    <section class="py-5">
+                        <div class="container px-5">
+                            <h1 class="fw-bolder fs-5 mb-4">Ancora nessuna ricetta da vedere!</h1>
+                        </div>
+                    </section>
+            <?php }?>
             <!-- Blog preview section-->
             <section class="py-5">
-
                 <div class="container px-5">
                     <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
                     <div class="row gx-5">
@@ -174,8 +163,9 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
 ?>
                                     <div class="col-lg-4 mb-5">
                                         <div class="card h-100 shadow border-0">
-
-                                            <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+                                            <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
+" width=600 height=350 alt="..." />
                                             <div class="card-body p-4">
                                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
 </div>
@@ -194,7 +184,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
 </div>
                                                             <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
- &middot; 10 min read</div>
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getDosiPersone();?>
+ persone</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -204,16 +195,50 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
                                 <?php }
 }
 ?>
+                            <?php } else { ?>
+                            <section>
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getImmagine();?>
+" width=600 height=350 alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getCategoria();?>
+</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getId();?>
+"><div class="h5 card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getNomeRicetta();?>
+</div></a>
+                                            <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['array']->value[0]->getProcedimento(),0,100);?>
+...</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
+</div>
+                                                        <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_();?>
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getDosiPersone();?>
+ persone</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             <?php }?>
                         <?php }?>
 
-                    <div class="text-end mb-5 mb-xl-0">
-                        <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
-                            Tutte le ricette
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
+                        <div class="text-end mb-5 mb-xl-0">
+                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
+                                Tutte le ricette
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
+                    </div>
                 </div>
             </section>
         </main>

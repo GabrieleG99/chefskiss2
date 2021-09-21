@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-13 11:09:08
+/* Smarty version 3.1.39, created on 2021-09-21 18:02:25
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_613f1534784fb6_97739963',
+  'unifunc' => 'content_614a021169c3a9_84090640',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1631524148,
+      1 => 1632240145,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614a021169c3a9_84090640 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -45,7 +45,7 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                         <li class="nav-item text-light">
@@ -94,7 +94,9 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                     <!-- Featured blog post-->
                     <div class="card mb-4">
                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getId();?>
-"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getData_();?>
 </div>
@@ -111,7 +113,9 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                                 <?php if (count($_smarty_tpl->tpl_vars['ricette']->value) >= 2) {?>
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getId();?>
-"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getData_();?>
 </div>
@@ -126,7 +130,9 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                                 <?php if (count($_smarty_tpl->tpl_vars['ricette']->value) >= 3) {?>
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getId();?>
-"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getData_();?>
 </div>
@@ -143,7 +149,9 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                             <?php if (count($_smarty_tpl->tpl_vars['ricette']->value) >= 4) {?>
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getId();?>
-"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getData_();?>
 </div>
@@ -158,7 +166,9 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                             <?php if (count($_smarty_tpl->tpl_vars['ricette']->value) == 5) {?>
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getId();?>
-"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></a>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getData_();?>
 </div>
@@ -225,10 +235,12 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
+                        <form method="POST" action="/chefskiss/Ricette/cerca">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                     <!-- Categories widget-->
@@ -238,26 +250,26 @@ function content_613f1534784fb6_97739963 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li><a href="#">Primi</a></li>
+                                        <li><a href="#">Contorni</a></li>
+                                        <li><a href="#">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li><a href="#">Secondi</a></li>
+                                        <li><a href="#">Dessert</a></li>
+                                        <li><a href="#">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Side widget-->
-                    <div class="card mb-4">
+                    <!--<div class="card mb-4">
                         <div class="card-header">Side Widget</div>
                         <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         <!-- Footer-->

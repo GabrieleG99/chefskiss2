@@ -22,7 +22,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         {if $userlogged!='nouser'}
                         <li class="nav-item text-light">
@@ -36,20 +36,6 @@
                             <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                         </li>
                         {/if}
-                        <!--<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="ricette.tpl">Blog Home</a></li>
-                                <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                            </ul>
-                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -179,16 +165,16 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li>Primi</li>
-                                        <li>Contorni</li>
-                                        <li>Antipasti</li>
+                                        <li><a href="#">Primi</a></li>
+                                        <li><a href="#">Contorni</a></li>
+                                        <li><a href="#">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li>Secondi</li>
-                                        <li>Dessert</li>
-                                        <li>Salse</li>
+                                        <li><a href="#">Secondi</a></li>
+                                        <li><a href="#">Dessert</a></li>
+                                        <li><a href="#">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

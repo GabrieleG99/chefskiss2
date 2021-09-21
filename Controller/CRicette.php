@@ -7,7 +7,7 @@ class CRicette
         $view = new VRicette();
         $pm = USingleton::getInstance('FPersistentManager');
 
-        $ricette = $pm::load('FRicetta');
+        $ricette = $pm::load('FRicetta', array(), '', 3);
 
         $array = self::homeRicette($ricette);
 
@@ -139,7 +139,7 @@ class CRicette
         $pm = USingleton::getInstance('FPersistentManager');
         $parametro = $_POST['text'];
         //$ricette = $pm::load('FRicetta', array(['categoria', '=', $parametro]));
-        strtoupper($parametro);
+        $parametro = strtoupper($parametro);
         $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
         $array = self::homeRicette($ricette);
 

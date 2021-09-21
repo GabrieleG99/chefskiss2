@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-13 18:34:42
+/* Smarty version 3.1.39, created on 2021-09-21 12:46:06
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_613f7da2aed3b5_24250441',
+  'unifunc' => 'content_6149b7ee739666_73856534',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1631550881,
+      1 => 1632221165,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -58,11 +58,11 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
@@ -94,62 +94,53 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
             </nav>
-            <!-- Header-->
-            <header class="bg-dark py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="bd-example">
-                            <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
-                              <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                              </ol>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active" data-interval="5000">
-                                  <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine1']->value;?>
-" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2><?php echo $_smarty_tpl->tpl_vars['Nome_Ricetta1']->value;?>
-</h2>
-                                    <h3><?php echo $_smarty_tpl->tpl_vars['Descrizione_Ricetta1']->value;?>
-</h3>
-                                  </div>
-                                </div>
-                                <div class="carousel-item" data-interval="5000">
-                                  <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine2']->value;?>
-" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2><?php echo $_smarty_tpl->tpl_vars['Nome_Ricetta2']->value;?>
-</h2>
-                                    <h3><?php echo $_smarty_tpl->tpl_vars['Descrizione_Ricetta2']->value;?>
-</h3>
-                                  </div>
-                                </div>
-                                <div class="carousel-item" data-interval="5000">
-                                  <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine3']->value;?>
-" class="d-block w-100" alt="...">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h2><?php echo $_smarty_tpl->tpl_vars['Nome_Ricetta3']->value;?>
-</h2>
-                                    <h3><?php echo $_smarty_tpl->tpl_vars['Descrizione_Ricetta3']->value;?>
-</h3>
-                                  </div>
-                                </div>
-                              </div>
-                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                              </button>
-                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                              </button>
-                            </div>
-                        </div>
+            <div id="carouselExampleCaptions" class="container px-5 carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[0]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getImmagine();?>
+" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[0]->getNomeRicetta();?>
+</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[1]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getImmagine();?>
+" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[1]->getNomeRicetta();?>
+</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[2]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getImmagine();?>
+" width=900 height=500 class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[2]->getNomeRicetta();?>
+</h5>
+                    </div>
                     </div>
                 </div>
-            </header>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <!-- Features section-->
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
@@ -160,16 +151,18 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine4']->value;?>
-" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[3]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getImmagine();?>
+" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['Titolo_Ricetta1']->value;?>
+                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[3]->getNomeRicetta();?>
 </h5>
-                                          <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['Intro_Ricetta1']->value;?>
-</p>
-                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Ricetta1']->value;?>
+                                          <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[3]->getProcedimento(),0,100);?>
+...</p>
+                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[3]->getData_();?>
 </small></p>
                                         </div>
                                       </div>
@@ -178,16 +171,18 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine5']->value;?>
-" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[4]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getImmagine();?>
+" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['Titolo_Ricetta2']->value;?>
+                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[4]->getNomeRicetta();?>
 </h5>
-                                          <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['Intro_Ricetta2']->value;?>
-</p>
-                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Ricetta2']->value;?>
+                                          <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[4]->getProcedimento(),0,100);?>
+...</p>
+                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[4]->getData_();?>
 </small></p>
                                         </div>
                                       </div>
@@ -196,16 +191,18 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine6']->value;?>
-" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[5]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[5]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[5]->getImmagine();?>
+" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['Titolo_Ricetta3']->value;?>
+                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[5]->getNomeRicetta();?>
 </h5>
-                                          <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['Intro_Ricetta3']->value;?>
-</p>
-                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Ricetta3']->value;?>
+                                          <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[5]->getProcedimento(),0,100);?>
+...</p>
+                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[5]->getData_();?>
 </small></p>
                                         </div>
                                       </div>
@@ -214,16 +211,18 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <img src="<?php echo $_smarty_tpl->tpl_vars['Immagine7']->value;?>
-" class="img-fluid rounded-start" alt="...">
+                                        <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[6]->getId();?>
+"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[6]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[6]->getImmagine();?>
+" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['Titolo_Ricetta4']->value;?>
+                                          <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[6]->getNomeRicetta();?>
 </h5>
-                                          <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['Intro_Ricetta4']->value;?>
-</p>
-                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Ricetta4']->value;?>
+                                          <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[6]->getProcedimento(),0,100);?>
+...</p>
+                                          <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[6]->getData_();?>
 </small></p>
                                         </div>
                                       </div>
@@ -242,7 +241,7 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="text-center">
                                 <div class="fs-4 mb-4 fst-italic">"A RECIPE HAS NO SOUL. YOU, AS THE COOK, MUST BRING SOUL TO THE RECIPE"</div>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                    <img class="rounded-circle me-3" src="./smarty/libs/assets/ThomasKeller828x1344.jpg" width=40 height=40 alt="..." />
                                     <div class="fw-bold">
                                         Thomas Keller
                                         <span class="fw-bold text-primary mx-1">/</span>
@@ -281,7 +280,7 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore1']->value;?>
-" alt="..." />
+" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore1']->value;?>
 </div>
@@ -308,7 +307,7 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore2']->value;?>
-" alt="..." />
+" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore2']->value;?>
 </div>
@@ -335,7 +334,7 @@ function content_613f7da2aed3b5_24250441 (Smarty_Internal_Template $_smarty_tpl)
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore3']->value;?>
-" alt="..." />
+" width="40" height="40" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore3']->value;?>
 </div>

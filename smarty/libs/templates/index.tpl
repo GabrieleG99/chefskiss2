@@ -37,7 +37,7 @@
                             <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             {if $userlogged!='nouser'}
                                 <li class="nav-item text-light">
