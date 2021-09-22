@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 12:46:06
+/* Smarty version 3.1.39, created on 2021-09-21 19:05:11
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6149b7ee739666_73856534',
+  'unifunc' => 'content_614a10c71f7b56_10213882',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1632221165,
+      1 => 1632242717,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614a10c71f7b56_10213882 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -163,7 +163,18 @@ function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl)
                                           <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[3]->getProcedimento(),0,100);?>
 ...</p>
                                           <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[3]->getData_();?>
-</small></p>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[3]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[3]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -183,7 +194,18 @@ function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl)
                                           <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[4]->getProcedimento(),0,100);?>
 ...</p>
                                           <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[4]->getData_();?>
-</small></p>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[4]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[4]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -203,7 +225,18 @@ function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl)
                                           <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[5]->getProcedimento(),0,100);?>
 ...</p>
                                           <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[5]->getData_();?>
-</small></p>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[5]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[5]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>
@@ -223,7 +256,18 @@ function content_6149b7ee739666_73856534 (Smarty_Internal_Template $_smarty_tpl)
                                           <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette_home']->value[6]->getProcedimento(),0,100);?>
 ...</p>
                                           <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[6]->getData_();?>
-</small></p>
+ &middot; 
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[6]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricette_home']->value[6]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <i class="bi bi-star"></i>
+                                            <?php }
+}
+?>
+                                            </small></p>
                                         </div>
                                       </div>
                                     </div>

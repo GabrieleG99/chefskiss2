@@ -74,7 +74,7 @@
                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[0]->getId()}"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64,{$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">{$ricette[0]->getData_()} &middot;
-                                {for $i = 0; $i < (int)$ricette[0]->getValutazione(); $i++}
+                                {for $i = 0; $i < (int) $ricette[0]->getValutazione(); $i++}
                                     <i class="bi bi-star"></i>
                                 {/for}
                                 </div>
@@ -91,7 +91,7 @@
                                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[1]->getId()}"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64,{$immagini[1]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted">{$ricette[1]->getData_()} &middot;
-                                            {for $i = 0; $i < (int)$ricette[1]->getValutazione(); $i++}
+                                                {for $i = 0; $i < (int) $ricette[1]->getValutazione(); $i++}
                                                 <i class="bi bi-star"></i>
                                             {/for}
                                             </div>
@@ -106,7 +106,7 @@
                                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[2]->getId()}"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64,{$immagini[2]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
                                             <div class="small text-muted">{$ricette[2]->getData_()} &middot;
-                                            {for $i = 0; $i < (int)$ricette[2]->getValutazione(); $i++}
+                                            {for $i = 0; $i < (int) $ricette[2]->getValutazione(); $i++}
                                                 <i class="bi bi-star"></i>
                                             {/for}
                                             </div>
@@ -123,7 +123,7 @@
                                     <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[3]->getId()}"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">{$ricette[3]->getData_()} &middot;
-                                            {for $i = 0; $i < (int)$ricette[3]->getValutazione(); $i++}
+                                            {for $i = 0; $i < (int) $ricette[3]->getValutazione(); $i++}
                                                 <i class="bi bi-star"></i>
                                             {/for}
                                             </div>
@@ -138,7 +138,7 @@
                                     <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[4]->getId()}"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">{$ricette[4]->getData_()} &middot;
-                                            {for $i = 0; $i < (int)$ricette[4]->getValutazione(); $i++}
+                                            {for $i = 0; $i < (int) $ricette[4]->getValutazione(); $i++}
                                                 <i class="bi bi-star"></i>
                                             {/for}
                                             </div>

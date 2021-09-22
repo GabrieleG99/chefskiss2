@@ -18,13 +18,12 @@ class EPost {
      * @param $data_pubb
      * @param array $_commenti
      */
-    public function __construct($autore=null,$titolo=null, $domanda=null, $categoria=null, $id=null, $data_pubb=null, $id_immagine=null)
+    public function __construct($autore=null, $titolo=null, $domanda=null, $categoria=null, $data_pubb=null, $id_immagine=null)
     {
         $this->titolo = $titolo;
         $this->autore = $autore;
         $this->domanda = $domanda;
         $this->categoria = $categoria;
-        $this->id = $id;
         $this->data_pubb = $data_pubb;
         $this->id_immagine = $id_immagine;
     }
@@ -40,7 +39,22 @@ class EPost {
     ];
 
     }
-    
+
+    /**
+     * @return mixed|null
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @param mixed|null $titolo
+     */
+    public function setTitolo(mixed $titolo)
+    {
+        $this->titolo = $titolo;
+    }
 
     /**
      * Get the value of autore

@@ -11,10 +11,10 @@ class VForum
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
         $this->smarty->assign('immagini', $immagini);
-        $this->smarty->assign('ricette', $post);
+        $this->smarty->assign('post', $post);
         $this->smarty->assign('num_pagine', $num_pagine);
         $this->smarty->assign('index', $index);
-        $this->smarty->assign('num_ricette', $num_post);
+        $this->smarty->assign('num_post', $num_post);
 
         $this->smarty->display('forum.tpl');
     }

@@ -59,65 +59,88 @@
                     <div class="card mb-4">
                         <a href="#!"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64, {$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">{$post[0]->getData_pub()}</div>
-                            <h2 class="card-title">{$post[0]->getDomanda()}</h2>
-                            <p class="card-text">{$post[0]->get}</p>
+                            <div class="small text-muted">{$post[0]->getData_pubb()}</div>
+                            <h2 class="card-title">{$post[0]->getTitolo()}</h2>
+                            <p class="card-text">{substr($post[0]->getDomanda(), 0, 100)}...</p>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
                         <div class="col-lg-6">
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{$Immagine2}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{$Data_Post2}</div>
-                                    <h2 class="card-title h4">{$Titolo_Post2}</h2>
-                                    <p class="card-text">{$Descrizione_Post2}</p>
+                            {if count($post) >= 2}
+                                <div class="card mb-4">
+                                    <a href="#!"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64, {$immagini[1]->getImmagine()}" alt="..." /></a>
+                                    <div class="card-body">
+                                        <div class="small text-muted">{$post[1]->getData_pubb()}</div>
+                                        <h2 class="card-title h4">{$post[1]->getTitolo()}</h2>
+                                        <p class="card-text">{substr($post[1]->getDomanda(), 0, 100)}...</p>
+                                    </div>
                                 </div>
-                            </div>
+                            {/if}
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{$Immagine3}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{$Data_Post3}</div>
-                                    <h2 class="card-title h4">{$Titolo_Post3}</h2>
-                                    <p class="card-text">{$Descrizione_Post3}</p>
+                            {if count($post) >= 3}
+                                <div class="card mb-4">
+                                    <a href="#!"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64, {$immagini[2]->getImmagine()}" alt="..." /></a>
+                                    <div class="card-body">
+                                        <div class="small text-muted">{$post[2]->getData_pubb()}</div>
+                                        <h2 class="card-title h4">{$post[2]->getTitolo()}</h2>
+                                        <p class="card-text">{substr($post[2]->getDomanda(), 0, 100)}...</p>
+                                    </div>
                                 </div>
-                            </div>
+                            {/if}
                         </div>
                         <div class="col-lg-6">
                             <!-- Blog post-->
+                            {if count($post) >= 4}
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{$Immagine4}" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64, {$immagini[3]->getImmagine()}" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">{$Data_Post4}</div>
-                                    <h2 class="card-title h4">{$Titolo_Post4}</h2>
-                                    <p class="card-text">{$Descrizione_Post4}</p>
+                                    <div class="small text-muted">{$post[3]->getData_pubb()}</div>
+                                    <h2 class="card-title h4">{$post[3]->getTitolo()}</h2>
+                                    <p class="card-text">{substr($post[3]->getDomanda(), 0, 100)}...</p>
                                 </div>
                             </div>
+                            {/if}
                             <!-- Blog post-->
+                            {if count($post) == 5}
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{$Immagine5}" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64, {$immagini[4]->getImmagine()}" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">{$Data_Post5}</div>
-                                    <h2 class="card-title h4">{$Titolo_Post5}</h2>
-                                    <p class="card-text">{$Descrizione_Post5}</p>
+                                    <div class="small text-muted">{$post[4]->getData_pubb()}</div>
+                                    <h2 class="card-title h4">{$post[4]->getTitolo()}</h2>
+                                    <p class="card-text">{substr($post[4]->getDomanda(), 0, 100)}...</p>
                                 </div>
                             </div>
+                            {/if}
                         </div>
                     </div>
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                            {if $index == 1}
+                                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index}">{$index}</a></li>
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                                {if $index + 2 < $num_pagine}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 2}">{$index + 2}</a></li>
+                                {/if}
+                            {else}
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index - 1}" tabindex="-1" aria-disabled="true">Back</a></li>
+                                <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index - 1}">{$index - 1}</a></li>
+                                <li class="page-item active"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index}">{$index}</a></li>
+                                {if $index + 1 < $num_pagine}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                                {/if}
+                            {/if}
+                            {if $num_pagine <= $index + 1 && $num_pagine != $index}
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$num_pagine}">{$num_pagine}</a></li>
+                            {elseif $index < $num_pagine - 1}
+                                <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$num_pagine}">{$num_pagine}</a></li>
+                            {/if}
+                            <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/{$index + 1}">Next</a></li>
                         </ul>
                     </nav>
                 </div>

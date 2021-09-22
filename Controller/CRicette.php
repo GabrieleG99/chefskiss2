@@ -63,7 +63,10 @@ class CRicette
         return array($ricette_home, $autori_ricette, $immagini_home);
     }
 
-    static function EsploraLeRicette($new_index, $filtro=''){
+    static function EsploraLeRicette($index=null, $filtro=''){
+
+        if ($index == null) $new_index = 1;
+        else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
 

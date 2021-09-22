@@ -6,7 +6,7 @@ class FPost extends Fdb{
 
     private static $class = 'FPost';
 
-    private static $values = '(:domanda, :autore, :categoria, :data, :id_immagine)';
+    private static $values = '(:domanda, :autore, :titolo, :categoria, :data, :id_immagine)';
     
     public function __construct(){
     }
@@ -46,6 +46,7 @@ class FPost extends Fdb{
         $stmt->bindValue(':categoria', $post->getCategoria(), PDO::PARAM_STR);
         $stmt->bindValue(':data', $post->getData_pubb(), PDO::PARAM_STR);
         $stmt->bindValue(':id_immagine', $post->getId_immagine(), PDO::PARAM_INT);
+        $stmt->bindValue(':titolo', $post->getTitolo(), PDO::PARAM_STR);
     }
 
     public static function insert($object){
@@ -57,17 +58,21 @@ class FPost extends Fdb{
     public static function loadByField($parametri = array(), $ordinamento = '', $limite = ''){
         $post = null;
         $db = parent::getInstance();
-        $result = $db->loadDb(static::getClass(), $parametri);
-        $rows_number = $db->getRowNum(static::getClass(), $parametri[0][0], $parametri[0][2]);
+        $result = $db->loadDb(static::getClass(), $parametri, $ordinamento, $limite);
+        if (sizeof($parametri) > 0) {
+            $rows_number = $db->getRowNum(static::getClass(), $parametri);
+        } else {
+            $rows_number = $db->getRowNum(static::getClass());
+        }
         if(($result != null) && ($rows_number == 1)) {
-            $post = new EPost($result['domanda'], $result['autore'], $result['categoria'], $result['data']);
+            $post = new EPost($result['autore'], $result['titolo'], $result['domanda'], $result['categoria'], $result['data'], $result['id_immagine']);
             $post->setId($result['id']);
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $post = array();
                 for($i = 0; $i < count($result); $i++){
-                    $post[] = new EPost($result[$i]['domanda'], $result[$i]['autore'], $result[$i]['categoria'], $result[$i]['data']);
+                    $post[] = new EPost($result[$i]['autore'], $result[$i]['titolo'], $result[$i]['domanda'], $result[$i]['categoria'], $result[$i]['data'], $result[$i]['id_immagine']);
                     $post[$i]->setId($result[$i]['id']);
                 }
             }

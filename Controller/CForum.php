@@ -2,7 +2,11 @@
 
 class CForum
 {
-    static function esploraLeDomande($new_index, $filtro=''){
+    static function esploraLeDomande($index=null, $filtro=''){
+
+        if ($index == null) $new_index = 1;
+        else $new_index = $index;
+
         $pm = USingleton::getInstance('FPersistentManager');
 
         $num_post = $pm::getRows('FPost');
@@ -18,10 +22,10 @@ class CForum
             $post_pag = $pm::load('FPost', array(['id', '>', ($new_index - 1) * 5]), '', 5);
         } else {
             $limite = $num_post % 5;
-            $post_pag[] = $pm::load('FPost', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+            $post_pag = $pm::load('FPost', array(['id', '>', $new_index * 5 - 5]), '', $limite);
         }
 
-        for($i = 0; $i < count($post_pag); $i++){
+        for($i = 0; $i < sizeof($post_pag); $i++){
             $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $post_pag[$i]->getId_immagine()]));
         }
 

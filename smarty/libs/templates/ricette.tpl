@@ -181,7 +181,7 @@
                         {/if}
 
                         <div class="text-end mb-5 mb-xl-0">
-                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
+                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette">
                                 Tutte le ricette
                                 <i class="bi bi-arrow-right"></i>
                             </a>

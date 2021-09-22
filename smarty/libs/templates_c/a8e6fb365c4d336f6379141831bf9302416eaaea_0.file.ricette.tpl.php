@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 14:14:09
+/* Smarty version 3.1.39, created on 2021-09-21 19:42:50
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6149cc91acbcd8_69059532',
+  'unifunc' => 'content_614a199a0e4c02_02504700',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1632221165,
+      1 => 1632246162,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6149cc91acbcd8_69059532 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614a199a0e4c02_02504700 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -185,7 +185,18 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
 </div>
                                                             <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getDosiPersone();?>
- persone</div>
+ persone &middot; 
+                                                            <?php
+$_smarty_tpl->tpl_vars['x'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['x']->value = 0;
+if ($_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione(); $_smarty_tpl->tpl_vars['x']->value++) {
+?>
+                                                                <i class="bi bi-star"></i>
+                                                            <?php }
+}
+?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,7 +232,18 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
 </div>
                                                         <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getDosiPersone();?>
- persone</div>
+ persone &middot; 
+                                                        <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                            <i class="bi bi-star"></i>
+                                                        <?php }
+}
+?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,7 +255,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
                         <?php }?>
 
                         <div class="text-end mb-5 mb-xl-0">
-                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette/1">
+                            <a class="text-decoration-none" href="/chefskiss/Ricette/EsploraLeRicette">
                                 Tutte le ricette
                                 <i class="bi bi-arrow-right"></i>
                             </a>

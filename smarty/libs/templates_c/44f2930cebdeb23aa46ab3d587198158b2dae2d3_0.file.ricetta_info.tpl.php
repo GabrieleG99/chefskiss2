@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 14:14:42
+/* Smarty version 3.1.39, created on 2021-09-21 19:43:44
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6149ccb249d0b2_87867857',
+  'unifunc' => 'content_614a19d0e0fd86_80674799',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44f2930cebdeb23aa46ab3d587198158b2dae2d3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricetta_info.tpl',
-      1 => 1632221165,
+      1 => 1632242717,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6149ccb249d0b2_87867857 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614a19d0e0fd86_80674799 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -114,7 +114,18 @@ function content_6149ccb249d0b2_87867857 (Smarty_Internal_Template $_smarty_tpl)
 </h1>
                                     <!-- Post meta content-->
                                     <div class="text-muted fst-italic mb-2"><?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getData_();?>
-</div>
+ &middot; 
+                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricetta']->value->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['ricetta']->value->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                        <i class="bi bi-star"></i>
+                                    <?php }
+}
+?>
+                                    </div>
                                     <!-- Post categories-->
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php echo ucfirst($_smarty_tpl->tpl_vars['ricetta']->value->getCategoria());?>
 </a>
