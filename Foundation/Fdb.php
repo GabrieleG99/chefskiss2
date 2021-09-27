@@ -137,23 +137,22 @@ res     * @param $object
 
     }
 
-    public function storeMedia ($class , $obj,$nome_file) {
+    public function storeMedia($class , $obj,$nome_file) {
 		try {
-			$this->db->beginTransaction();
-			$query = "INSERT INTO ".$class::getTable()." VALUES ".$class::getValues();
-			$stmt = $this->db->prepare($query);
-			$class::bind($stmt,$obj,$nome_file);
-			$stmt->execute();
-			$id=$this->db->lastInsertId();
-			$this->db->commit();
-			$this->closeConn();
-			return $id;
-		}
-		catch(PDOException $e) {
-			echo "Attenzione errore: ".$e->getMessage();
-			$this->db->rollBack();
-			return null;
-		}
+            $this->_conn->beginTransaction();
+            $query = "INSERT INTO `" . $class::getTable() . "` " . str_replace(array(':', ',', ')'), array('`', '`,', '`)'), $class::getValues()) . " VALUES " . $class::getValues();
+            $stmt = $this->_conn->prepare($query);
+            $class::bind($stmt, $obj, $nome_file);
+            $stmt->execute();
+            $id = $this->_conn->lastInsertId();
+            $this->_conn->commit();
+            $this->closeConn();
+            return $id;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            $this->_conn->rollBack();
+            return null;
+        }
 	}
 
     public function updateDB ($class, $field, $newvalue, $pk, $id)

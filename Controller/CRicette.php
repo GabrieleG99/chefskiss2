@@ -85,9 +85,9 @@ class CRicette
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
             } else {
                 $limite = $num_ricette % 5;
-                $ricette_pag[] = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
             }
-
+            //var_dump($ricette_pag);
             for($i = 0; $i < count($ricette_pag); $i++){
                 $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
             }
@@ -219,7 +219,7 @@ class CRicette
         $immagine = file_get_contents($_FILES['file']['tmp_name']);
         $immagine = addslashes ($immagine);      
         $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
-        $pm::insertMedia($image, $nome);
+        $pm::insertMedia($image, 'file');
         return $image->getId();
         }
     }

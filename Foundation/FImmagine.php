@@ -51,7 +51,7 @@ class FImmagine extends Fdb{
 
     public static function insert($object, $nome_file){
         $db = parent::getInstance();
-        $id = $db->insertDb(self::$class, $object, $nome_file);
+        $id = $db->storeMedia(self::$class, $object, $nome_file);
         $object->setId($id);
     }
 

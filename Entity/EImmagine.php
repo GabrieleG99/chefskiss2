@@ -26,9 +26,9 @@ class EImmagine{
 
     public function parseparam(){
         return[
+            'id' => $this->getId(),
             'nome' => $this->getNome(),
             'dimensione' => $this->getDimensione(),
-            'id' => $this->getId(),
             'tipo' => $this->getTipo(),
             'immagine' => $this->getImmagine(),
         ];
