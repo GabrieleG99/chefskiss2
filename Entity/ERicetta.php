@@ -183,7 +183,8 @@ class ERicetta
         $array = explode(', ', $this->getIngredienti());
         $ingredienti = array();
         for ($i = 0; $i < count($array); $i++){
-            $ingredienti[$i] = explode(':', $array[$i]);
+            $ingredienti[$i] = $array[$i];
+            //var_dump($ingredienti[$i]);
         }
 
         return $ingredienti;

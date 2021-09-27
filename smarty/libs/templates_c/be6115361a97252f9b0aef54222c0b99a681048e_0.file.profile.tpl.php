@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-19 09:17:52
+/* Smarty version 3.1.39, created on 2021-09-27 15:54:40
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6146e42077a330_15581601',
+  'unifunc' => 'content_6151cd206d20f5_87743472',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6115361a97252f9b0aef54222c0b99a681048e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\profile.tpl',
-      1 => 1632035848,
+      1 => 1632748824,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6146e42077a330_15581601 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6151cd206d20f5_87743472 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -51,9 +51,12 @@ function content_6146e42077a330_15581601 (Smarty_Internal_Template $_smarty_tpl)
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
+                                <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>
@@ -163,6 +166,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
 }
 ?>
                             <?php }?>
+                            <?php } else { ?>
+                            <h2> L'utente non ha ancora pubblicato ricette</h2>
                         <?php }?>
                     </div>
                 </div>

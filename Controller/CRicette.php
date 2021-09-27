@@ -22,6 +22,7 @@ class CRicette
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
+        //$immagine->setImmagine(base64_encode($immagine->getImmagine()));
         $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id]));
         if(is_array($recensione)){
             for ($i = 0; $i < sizeof($recensione); $i++){
@@ -63,7 +64,7 @@ class CRicette
         return array($ricette_home, $autori_ricette, $immagini_home);
     }
 
-    static function EsploraLeRicette($index=null, $filtro=''){
+    static function EsploraLeRicette($index=null, $ricette=''){
 
         if ($index == null) $new_index = 1;
         else $new_index = $index;
@@ -79,15 +80,29 @@ class CRicette
             $page_number = $num_ricette / 5;
         }
 
-        if ($new_index * 5 <= $num_ricette){
-            $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
-        } else {
-            $limite = $num_ricette % 5;
-            $ricette_pag[] = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
-        }
+        if(!is_array($ricette)){
+            if ($new_index * 5 <= $num_ricette){
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
+            } else {
+                $limite = $num_ricette % 5;
+                $ricette_pag[] = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+            }
 
-        for($i = 0; $i < count($ricette_pag); $i++){
-            $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+            for($i = 0; $i < count($ricette_pag); $i++){
+                $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+            }
+        }
+        else{
+            if ($new_index * 5 <= $num_ricette){
+                for($i = 0; $i < count($ricette); $i++) $ricette_pag[$i] = $ricette[$i];
+            } else {
+                $stop = $num_ricette % 5 + 5;
+                for($limite = $num_ricette % 5; $limite != $stop; $limite++) $ricette_pag[$limite] = $ricette[$limite];
+            }
+
+            for($i = 0; $i < count($ricette_pag); $i++){
+                $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+            }
         }
 
         $view = new VRicette();
@@ -124,7 +139,7 @@ class CRicette
         }
     }
 
-    static function hasVoted($user_id, $recipe_id){ //not working basta che sia presente una recensione con valutazione e ritorna sempre true
+    static function hasVoted($user_id, $recipe_id){
         $pm = USingleton::getInstance('FPersistentManager');
         $check = true;
         $recensioni = $pm::load('FRecensione', array(['id_ricetta', '=', $recipe_id]));
@@ -139,17 +154,73 @@ class CRicette
 
     static function cerca($categoria=null){
         $pm = USingleton::getInstance('FPersistentManager');
+        $view = new VRicette();
         if($categoria!=null){
-            $view = new VRicette();
             $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
-            $array = self::homeRicette($ricette);
-            $view->showRecepies($ricette, $array);
+            self::EsploraLeRicette($index=null, $ricette);
+            //$view->showRecepies($ricette, $array);
         }
         else{
             $parametro = $_POST['text'];
             strtoupper($parametro);
             $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-            self::InfoRicetta($ricette->getId());
+            $array = self::homeRicette($ricette);
+            $view->showRecepies($ricette, $array);
+        }
+    }
+
+    static function nuovaRicetta(){
+        $view = new VRicette();
+        $view->showSubmitRecipe();
+    }
+
+    static function pubblicaRicetta(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        if(CUtente::isLogged()){
+            $id_immagine = self::upload();
+            if($id_immagine!=false){
+                $utente = unserialize($session->readValue('utente'));
+                $autore = $utente->getId();
+                $titolo = $_POST['title'];
+                $procedimento = $_POST['content'];
+                $array = $_POST['ingredients'];
+                $ingredienti = implode(", ", $array);
+                $categoria = $_POST['recipe-type'];
+                $dosi = $_POST['servings'];
+                $ricetta = new ERicetta($ingredienti, $procedimento, $categoria, date('Y-m-d'), $autore, $titolo, $dosi, $id_immagine, $valutazione=0);
+                $pm::insert($ricetta);
+                $id_ricetta = $ricetta->getId();
+                header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
+            }
+            else; //errore caricamento immagine
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
+    static function upload(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $result = false;
+        $max_size = 600000;
+        $result = is_uploaded_file($_FILES['file']['tmp_name']);
+        if (!$result){
+          //echo "Impossibile eseguire l'upload.";
+          return false;
+        } else {
+          $size = $_FILES['file']['size'];
+        if ($size > $max_size){
+            //echo "Il file è troppo grande.";
+            return false;
+        }
+        $type = $_FILES['file']['type'];
+        $nome = $_FILES['file']['name'];
+        $immagine = file_get_contents($_FILES['file']['tmp_name']);
+        $immagine = addslashes ($immagine);      
+        $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
+        $pm::insertMedia($image, $nome);
+        return $image->getId();
         }
     }
 

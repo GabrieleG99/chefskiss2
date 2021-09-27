@@ -37,17 +37,21 @@ class FImmagine extends Fdb{
      * @param PDOStatement $stmt
      * @param EImmagine $immagine
      */
-    public static function bind($stmt, EImmagine $immagine){
+    public static function bind($stmt, EImmagine $immagine, $nome_file){
+        $path = $_FILES[$nome_file]['tmp_name'];
+        $file = fopen($path, 'rb') or die ("Attenzione! Impossibile da aprire!");
         $stmt->bindValue(':id', $immagine->getId(), PDO::PARAM_INT);
         $stmt->bindValue(':nome', $immagine->getNome(), PDO::PARAM_STR);
         $stmt->bindValue(':dimensione', $immagine->getDimensione(), PDO::PARAM_STR);
         $stmt->bindValue(':tipo', $immagine->getTipo(), PDO::PARAM_STR);
-        $stmt->bindValue(':immagine', $immagine->getImmagine(), PDO::PARAM_LOB);
+        $stmt->bindValue(':immagine', fread($file, filesize($path)), PDO::PARAM_LOB);
+        unset($file);
+        unlink($path);
     }
 
-    public static function insert($object){
+    public static function insert($object, $nome_file){
         $db = parent::getInstance();
-        $id = $db->insertDb(self::$class, $object);
+        $id = $db->insertDb(self::$class, $object, $nome_file);
         $object->setId($id);
     }
 

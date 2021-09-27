@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 16:16:38
+/* Smarty version 3.1.39, created on 2021-09-27 15:55:46
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6149e946b45787_13027217',
+  'unifunc' => 'content_6151cd624162a4_31855235',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1632233793,
+      1 => 1632748804,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6149e946b45787_13027217 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6151cd624162a4_31855235 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -49,9 +49,12 @@ function content_6149e946b45787_13027217 (Smarty_Internal_Template $_smarty_tpl)
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum">Forum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                     <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
+                        <li class="nav-item text-light">
+                            <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                        </li>
                         <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
@@ -142,9 +145,8 @@ if ($_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['ricetta']
 for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['ricetta']->value->parseIngredienti()); $_smarty_tpl->tpl_vars['i']->value++) {
 ?>
                                         <?php $_smarty_tpl->_assignInScope('ingredienti', $_smarty_tpl->tpl_vars['ricetta']->value->parseIngredienti());?>
-                                        <li> <?php echo $_smarty_tpl->tpl_vars['ingredienti']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
- <?php echo $_smarty_tpl->tpl_vars['ingredienti']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
-</li>
+                                        <li> <?php echo $_smarty_tpl->tpl_vars['ingredienti']->value[$_smarty_tpl->tpl_vars['i']->value];?>
+ </li>
                                     <?php }
 }
 ?>
@@ -174,7 +176,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="stars"> 
-                                                        <div class="text-muted">Dai un voto alla ricetta!</div> <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                        <div class="text-muted">Dai un voto alla ricetta!</div>
+                                                        <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
                                                     </div>
                                                 </div>
                                             </div>

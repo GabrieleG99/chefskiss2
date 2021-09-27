@@ -51,5 +51,10 @@ class FPersistentManager
         return $ris;
     }
 
+    public static function insertMedia($object, $filename){
+        $EClass = get_class($object);
+        $FClass = str_replace('E', 'F', $EClass);
+        $FClass::insert($object, $filename);
+    }
 
 }

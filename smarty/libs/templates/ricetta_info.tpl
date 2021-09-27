@@ -30,6 +30,9 @@
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                     {if $userlogged!='nouser'}
                         <li class="nav-item text-light">
+                            <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                        </li>
+                        <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
                         <li class="nav-item text-light">
@@ -100,7 +103,7 @@
                                 <ul>
                                     {for $i = 0; $i < count($ricetta->parseIngredienti()); $i++}
                                         {$ingredienti = $ricetta->parseIngredienti()}
-                                        <li> {$ingredienti[$i][0]} {$ingredienti[$i][1]}</li>
+                                        <li> {$ingredienti[$i]} </li>
                                     {/for}
                                 </ul>
                                 <!-- Post content-->

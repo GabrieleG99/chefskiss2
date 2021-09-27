@@ -137,6 +137,25 @@ res     * @param $object
 
     }
 
+    public function storeMedia ($class , $obj,$nome_file) {
+		try {
+			$this->db->beginTransaction();
+			$query = "INSERT INTO ".$class::getTable()." VALUES ".$class::getValues();
+			$stmt = $this->db->prepare($query);
+			$class::bind($stmt,$obj,$nome_file);
+			$stmt->execute();
+			$id=$this->db->lastInsertId();
+			$this->db->commit();
+			$this->closeConn();
+			return $id;
+		}
+		catch(PDOException $e) {
+			echo "Attenzione errore: ".$e->getMessage();
+			$this->db->rollBack();
+			return null;
+		}
+	}
+
     public function updateDB ($class, $field, $newvalue, $pk, $id)
     {
         try {

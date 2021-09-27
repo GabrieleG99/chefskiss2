@@ -48,4 +48,8 @@ class VRicette
         $this->smarty->display('tutte_ricette.tpl');
     }
 
+    function showSubmitRecipe(){
+        $this->smarty->display('new-recipe.tpl');
+    }
+
 }

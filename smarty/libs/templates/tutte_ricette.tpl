@@ -27,6 +27,9 @@
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         {if $userlogged!='nouser'}
                         <li class="nav-item text-light">
+                            <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                        </li>
+                        <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
                         <li class="nav-item text-light">
@@ -200,16 +203,16 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?primi">Primi</a></li>
-                                        <li>Contorni</li>
-                                        <li>Antipasti</li>
+                                        <li><a href="/chefskiss/Ricette/cerca/primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#">Secondi</a></li>
-                                        <li><a href="#">Dessert</a></li>
-                                        <li><a href="#">Salse</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

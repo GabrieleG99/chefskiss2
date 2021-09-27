@@ -29,6 +29,9 @@
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             {if $userlogged!='nouser'}
                                 <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
+                                <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>
                                 <li class="nav-item text-light">
@@ -121,7 +124,7 @@
                     <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
                     <div class="row gx-5">
                         {if $array}
-                            {if is_array($array)}
+                            {if is_array($array[0])}
                                 {for $i = 0; $i < 3; $i++}
                                     <div class="col-lg-4 mb-5">
                                         <div class="card h-100 shadow border-0">

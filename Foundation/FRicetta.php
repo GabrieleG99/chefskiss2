@@ -59,7 +59,6 @@ class FRicetta extends Fdb {
         $db = parent::getInstance();
         $id = $db->insertDb(self::$class, $object);
         $object->setId($id);
-        return $id;
     }
 
     public static function loadByField($parametri = array(), $ordinamento = '', $limite = ''){
