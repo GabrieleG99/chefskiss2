@@ -27,6 +27,9 @@
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         {if $userlogged!='nouser'}
                             <li class="nav-item text-light">
+                                <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                            </li>
+                            <li class="nav-item text-light">
                                 <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                             </li>
                             <li class="nav-item text-light">
@@ -52,69 +55,84 @@
         </header>
         <!-- Page content-->
         <div class="container">
-            <div class="row">
-                <!-- Blog entries-->
-                <div class="col-lg-8">
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64, {$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">{$post[0]->getData_pubb()}</div>
-                            <h2 class="card-title">{$post[0]->getTitolo()}</h2>
-                            <p class="card-text">{substr($post[0]->getDomanda(), 0, 100)}...</p>
+            {if !is_array($immagini) && !is_array($post)}
+                <div class="row">
+                    <!-- Blog entries-->
+                    <div class="col-lg-8">
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            <a href="/chefskiss/Forum/InfoPost/{$post->getId()}"><img class="card-img-top" src="data:{$immagini->getTipo()};base64, {$immagini->getImmagine()}" width=900 height=400 alt="..." /></a>
+                            <div class="card-body">
+                                <div class="small text-muted">{$post->getData_pubb()}</div>
+                                <h2 class="card-title">{$post->getTitolo()}</h2>
+                                <p class="card-text">{substr($post->getDomanda(), 0, 100)}...</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Nested row for non-featured blog posts-->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            {if count($post) >= 2}
+            {else}
+                <div class="row">
+                    <!-- Blog entries-->
+                    <div class="col-lg-8">
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            <a href="/chefskiss/Forum/InfoPost/{$post[0]->getId()}"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64, {$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
+                            <div class="card-body">
+                                <div class="small text-muted">{$post[0]->getData_pubb()}</div>
+                                <h2 class="card-title">{$post[0]->getTitolo()}</h2>
+                                <p class="card-text">{substr($post[0]->getDomanda(), 0, 100)}...</p>
+                            </div>
+                        </div>
+                        <!-- Nested row for non-featured blog posts-->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Blog post-->
+                                {if count($post) >= 2}
+                                    <div class="card mb-4">
+                                        <a href="/chefskiss/Forum/InfoPost/{$post[1]->getId()}"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64, {$immagini[1]->getImmagine()}" alt="..." /></a>
+                                        <div class="card-body">
+                                            <div class="small text-muted">{$post[1]->getData_pubb()}</div>
+                                            <h2 class="card-title h4">{$post[1]->getTitolo()}</h2>
+                                            <p class="card-text">{substr($post[1]->getDomanda(), 0, 100)}...</p>
+                                        </div>
+                                    </div>
+                                {/if}
+                                <!-- Blog post-->
+                                {if count($post) >= 3}
+                                    <div class="card mb-4">
+                                        <a href="/chefskiss/Forum/InfoPost/{$post[2]->getId()}"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64, {$immagini[2]->getImmagine()}" alt="..." /></a>
+                                        <div class="card-body">
+                                            <div class="small text-muted">{$post[2]->getData_pubb()}</div>
+                                            <h2 class="card-title h4">{$post[2]->getTitolo()}</h2>
+                                            <p class="card-text">{substr($post[2]->getDomanda(), 0, 100)}...</p>
+                                        </div>
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Blog post-->
+                                {if count($post) >= 4}
                                 <div class="card mb-4">
-                                    <a href="#!"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64, {$immagini[1]->getImmagine()}" alt="..." /></a>
+                                    <a href="/chefskiss/Forum/InfoPost/{$post[3]->getId()}"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64, {$immagini[3]->getImmagine()}" alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$post[1]->getData_pubb()}</div>
-                                        <h2 class="card-title h4">{$post[1]->getTitolo()}</h2>
-                                        <p class="card-text">{substr($post[1]->getDomanda(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$post[3]->getData_pubb()}</div>
+                                        <h2 class="card-title h4">{$post[3]->getTitolo()}</h2>
+                                        <p class="card-text">{substr($post[3]->getDomanda(), 0, 100)}...</p>
                                     </div>
                                 </div>
-                            {/if}
-                            <!-- Blog post-->
-                            {if count($post) >= 3}
+                                {/if}
+                                <!-- Blog post-->
+                                {if count($post) == 5}
                                 <div class="card mb-4">
-                                    <a href="#!"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64, {$immagini[2]->getImmagine()}" alt="..." /></a>
+                                    <a href="/chefskiss/Forum/InfoPost/{$post[4]->getId()}"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64, {$immagini[4]->getImmagine()}" alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$post[2]->getData_pubb()}</div>
-                                        <h2 class="card-title h4">{$post[2]->getTitolo()}</h2>
-                                        <p class="card-text">{substr($post[2]->getDomanda(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$post[4]->getData_pubb()}</div>
+                                        <h2 class="card-title h4">{$post[4]->getTitolo()}</h2>
+                                        <p class="card-text">{substr($post[4]->getDomanda(), 0, 100)}...</p>
                                     </div>
                                 </div>
-                            {/if}
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            {if count($post) >= 4}
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64, {$immagini[3]->getImmagine()}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{$post[3]->getData_pubb()}</div>
-                                    <h2 class="card-title h4">{$post[3]->getTitolo()}</h2>
-                                    <p class="card-text">{substr($post[3]->getDomanda(), 0, 100)}...</p>
-                                </div>
+                                {/if}
                             </div>
-                            {/if}
-                            <!-- Blog post-->
-                            {if count($post) == 5}
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64, {$immagini[4]->getImmagine()}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{$post[4]->getData_pubb()}</div>
-                                    <h2 class="card-title h4">{$post[4]->getTitolo()}</h2>
-                                    <p class="card-text">{substr($post[4]->getDomanda(), 0, 100)}...</p>
-                                </div>
-                            </div>
-                            {/if}
                         </div>
-                    </div>
+                    {/if}
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
@@ -122,7 +140,9 @@
                             {if $index == 1}
                                 <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
                                 <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index}">{$index}</a></li>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                                {if $index + 1 < $num_pagine}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                                {/if}
                                 {if $index + 2 < $num_pagine}
                                     <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 2}">{$index + 2}</a></li>
                                 {/if}
@@ -151,7 +171,7 @@
                         <div class="card-header">Search</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
                                 <button class="btn btn-primary" id="button-search" type="button">Go!</button>
                             </div>
                         </div>
@@ -179,10 +199,6 @@
                         </div>
                     </div>
                     <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -3,15 +3,19 @@
 class CRicette
 {
 
-    static function esplora(){
+    static function esplora($id=null){
         $view = new VRicette();
         $pm = USingleton::getInstance('FPersistentManager');
 
-        $ricette = $pm::load('FRicetta', array(), '', 3);
-
-        $array = self::homeRicette($ricette);
-
-        $view->showRecepies($ricette, $array);
+        if ($id != null){
+            $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
+            $array = self::homeRicette($ricetta);
+            $view->showRecepies($ricetta, $array);
+        } else {
+            $ricette = $pm::load('FRicetta', array(), '', 3);
+            $array = self::homeRicette($ricette);
+            $view->showRecepies($ricette, $array);
+        }
     }
 
     static function InfoRicetta(int $id){
@@ -22,7 +26,6 @@ class CRicette
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
-        //$immagine->setImmagine(base64_encode($immagine->getImmagine()));
         $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id]));
         if(is_array($recensione)){
             for ($i = 0; $i < sizeof($recensione); $i++){
@@ -43,9 +46,9 @@ class CRicette
     }
 
     static function homeRicette($ricette){
-        $ricette_home = array();
-        $immagini_home = array();
-        $autori_ricette = array();
+        //$ricette_home = array();
+        //$immagini_home = array();
+        //$autori_ricette = array();
         $pm = USingleton::getInstance('FPersistentManager');
         if($ricette!=null){
             if(is_array($ricette)){
@@ -162,10 +165,10 @@ class CRicette
         }
         else{
             $parametro = $_POST['text'];
-            strtoupper($parametro);
+            $parametro = strtoupper($parametro);
             $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-            $array = self::homeRicette($ricette);
-            $view->showRecepies($ricette, $array);
+            $id = $ricette->getId();
+            header("Location: /chefskiss/Ricette/esplora/$id");
         }
     }
 
@@ -217,7 +220,7 @@ class CRicette
         $type = $_FILES['file']['type'];
         $nome = $_FILES['file']['name'];
         $immagine = file_get_contents($_FILES['file']['tmp_name']);
-        $immagine = addslashes ($immagine);      
+        $immagine = addslashes ($immagine);
         $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
         $pm::insertMedia($image, 'file');
         return $image->getId();

@@ -18,4 +18,18 @@ class VForum
 
         $this->smarty->display('forum.tpl');
     }
+
+    function showInfo(EPost $post, $user, $immagine,$array){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+
+        $domanda = explode('.', $post->getDomanda());
+
+        $this->smarty->assign('utente', $user);
+        $this->smarty->assign('post', $post);
+        $this->smarty->assign('domanda', $domanda);
+        $this->smarty->assign('immagine', $immagine);
+        $this->smarty->assign('array', $array);
+
+        $this->smarty->display('forum_info.tpl');
+    }
 }

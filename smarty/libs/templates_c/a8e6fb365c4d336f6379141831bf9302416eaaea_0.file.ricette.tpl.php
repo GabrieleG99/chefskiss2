@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 19:42:50
+/* Smarty version 3.1.39, created on 2021-09-28 23:41:56
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_614a199a0e4c02_02504700',
+  'unifunc' => 'content_61538c24017888_01016623',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1632246162,
+      1 => 1632865315,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_614a199a0e4c02_02504700 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61538c24017888_01016623 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -52,6 +52,9 @@ function content_614a199a0e4c02_02504700 (Smarty_Internal_Template $_smarty_tpl)
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
+                                <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>
                                 <li class="nav-item text-light">
@@ -62,20 +65,6 @@ function content_614a199a0e4c02_02504700 (Smarty_Internal_Template $_smarty_tpl)
                                     <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                                 </li>
                             <?php }?>
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="ricette.tpl">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -151,10 +140,10 @@ function content_614a199a0e4c02_02504700 (Smarty_Internal_Template $_smarty_tpl)
             <!-- Blog preview section-->
             <section class="py-5">
                 <div class="container px-5">
-                    <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
-                    <div class="row gx-5">
-                        <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
-                            <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
+                        <?php if (is_array($_smarty_tpl->tpl_vars['array']->value[0])) {?>
+                            <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
+                            <div class="row gx-5">
                                 <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
@@ -206,51 +195,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars
                                 <?php }
 }
 ?>
-                            <?php } else { ?>
-                            <section>
-                                <div class="col-lg-4 mb-5">
-                                    <div class="card h-100 shadow border-0">
-                                        <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getTipo();?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getImmagine();?>
-" width=600 height=350 alt="..." />
-                                        <div class="card-body p-4">
-                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getCategoria();?>
-</div>
-                                            <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getId();?>
-"><div class="h5 card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getNomeRicetta();?>
-</div></a>
-                                            <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['array']->value[0]->getProcedimento(),0,100);?>
-...</p>
-                                        </div>
-                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                            <div class="d-flex align-items-end justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                                    <div class="small">
-                                                        <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
- <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
-</div>
-                                                        <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_();?>
- &middot; Per <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getDosiPersone();?>
- persone &middot; 
-                                                        <?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
-$_smarty_tpl->tpl_vars['i']->value = 0;
-if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione()) {
-for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
-?>
-                                                            <i class="bi bi-star"></i>
-                                                        <?php }
-}
-?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                            
                             <?php }?>
                         <?php }?>
 

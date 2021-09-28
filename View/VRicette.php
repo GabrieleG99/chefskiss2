@@ -10,12 +10,13 @@ class VRicette
         $this->smarty = StartSmarty::configuration();
     }
 
-    function showRecepies($ricette, $array){ //forse da inserire utente tra i parametri in ingresso
+    function showRecepies($ricette, $array=null){ //forse da inserire utente tra i parametri in ingresso
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
-        $numero = rand(0, count(array($ricette)) - 1);
-
-        $this->smarty->assign('ran_num', $numero);
+        if (is_array($ricette)) {
+            $numero = rand(0, count($ricette) - 1);
+            $this->smarty->assign('ran_num', $numero);
+        }
         $this->smarty->assign('ricette', $ricette);
         $this->smarty->assign('array', $array);
 

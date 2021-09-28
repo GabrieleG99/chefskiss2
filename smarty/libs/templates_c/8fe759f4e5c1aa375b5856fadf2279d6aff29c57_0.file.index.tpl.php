@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 19:05:11
+/* Smarty version 3.1.39, created on 2021-09-27 17:13:14
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_614a10c71f7b56_10213882',
+  'unifunc' => 'content_6151df8a9fc4b8_51857684',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1632242717,
+      1 => 1632755206,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_614a10c71f7b56_10213882 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6151df8a9fc4b8_51857684 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -65,6 +65,9 @@ function content_614a10c71f7b56_10213882 (Smarty_Internal_Template $_smarty_tpl)
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
+                                <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>

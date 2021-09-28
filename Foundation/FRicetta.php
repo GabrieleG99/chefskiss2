@@ -113,9 +113,9 @@ class FRicetta extends Fdb {
         else return false;
     }
 
-    public static function filterByCategoria($categoria){
+    public static function filterByCategoria($categoria, $ordinamento='', $limite=''){
         $db = parent::getInstance();
-        $ricetteFiltrate = $db->searchDb(self::$class, array(['categoria', '=', $categoria]));
+        $ricetteFiltrate = $db->loadDb(self::$class, array(['categoria', '=', $categoria]), $ordinamento, $limite);
         return $ricetteFiltrate;
 
     }

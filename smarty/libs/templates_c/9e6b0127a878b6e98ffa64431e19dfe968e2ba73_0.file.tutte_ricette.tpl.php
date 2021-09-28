@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-21 18:50:43
+/* Smarty version 3.1.39, created on 2021-09-28 22:46:04
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_614a0d635e3863_27650785',
+  'unifunc' => 'content_61537f0ccc77c4_20389253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1632243040,
+      1 => 1632861961,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_614a0d635e3863_27650785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61537f0ccc77c4_20389253 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -50,6 +50,9 @@ function content_614a0d635e3863_27650785 (Smarty_Internal_Template $_smarty_tpl)
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                         <li class="nav-item text-light">
+                            <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                        </li>
+                        <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
                         <li class="nav-item text-light">
@@ -60,20 +63,6 @@ function content_614a0d635e3863_27650785 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                         </li>
                         <?php }?>
-                        <!--<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="ricette.tpl">Blog Home</a></li>
-                                <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                            </ul>
-                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -306,16 +295,16 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?primi">Primi</a></li>
-                                        <li>Contorni</li>
-                                        <li>Antipasti</li>
+                                        <li><a href="/chefskiss/Ricette/cerca/primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#">Secondi</a></li>
-                                        <li><a href="#">Dessert</a></li>
-                                        <li><a href="#">Salse</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca/salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>Chef's Kiss - Forum e Ricette</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -30,6 +30,9 @@
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             {if $userlogged!='nouser'}
                                 <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
+                                <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                                 </li>
                                 <li class="nav-item text-light">
@@ -40,20 +43,6 @@
                                     <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                                 </li>
                             {/if}
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.tpl">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -66,8 +55,16 @@
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
                                 <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold">Valerie Luna</div>
-                                    <div class="text-muted">News, Business</div>
+                                    <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
+                                    {if $utente->getPrivilegi() == 1}
+                                        <div class="text-muted">Membro</div>
+                                    {/if}
+                                    {if $utente->getPrivilegi() == 2}
+                                        <div class="text-muted">Moderatore</div>
+                                    {/if}
+                                    {if $utente->getPrivilegi() == 3}
+                                        <div class="text-muted">Amministratore</div>
+                                    {/if}
                                 </div>
                             </div>
                         </div>
@@ -77,23 +74,19 @@
                                 <!-- Post header-->
                                 <header class="mb-4">
                                     <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+                                    <h1 class="fw-bolder mb-1">{$post->getTitolo()}</h1>
                                     <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">January 1, 2021</div>
+                                    <div class="text-muted fst-italic mb-2">{$post->getData_pubb()}</div>
                                     <!-- Post categories-->
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{ucfirst($post->getCategoria())}</a>
                                 </header>
                                 <!-- Preview image figure-->
-                                <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure class="mb-4"><img class="img-fluid rounded" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=900 height=400 alt="..." /></figure>
                                 <!-- Post content-->
                                 <section class="mb-5">
-                                    <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                                    <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                                    <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                                    <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                                    <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                                    <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                                    {for $i = 0; $i < count($domanda) - 1; $i++}
+                                        <p class="fs-5 mb-4">{$domanda[$i]}.</p>
+                                    {/for}
                                 </section>
                             </article>
                             <!-- Comments section-->
@@ -101,24 +94,27 @@
                                 <div class="card bg-light">
                                     <div class="card-body">
                                         <!-- Comment form-->
-                                        <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                        <form class="mb-4" method="post" action="/chefskiss/Forum/InserisciCommento">
+                                            <textarea class="form-control m-2" rows="3" placeholder="Join the discussion and leave a comment!" name="text_comment" required></textarea>
+                                            <button class="rounded-1 border" type="submit">Invia</button>
+                                        </form>
                                         <!-- Comment with nested comments-->
-                                        <div class="d-flex mb-4">
+                                        <!--<div class="d-flex mb-4">-->
                                             <!-- Parent comment-->
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <!--<div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                             <div class="ms-3">
                                                 <div class="fw-bold">Commenter Name</div>
-                                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.-->
                                                 <!-- Child comment 1-->
-                                                <div class="d-flex mt-4">
+                                                <!--<div class="d-flex mt-4">
                                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                     <div class="ms-3">
                                                         <div class="fw-bold">Commenter Name</div>
                                                         And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <!-- Child comment 2-->
-                                                <div class="d-flex mt-4">
+                                                <!--<div class="d-flex mt-4">
                                                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                     <div class="ms-3">
                                                         <div class="fw-bold">Commenter Name</div>
@@ -126,15 +122,33 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <!-- Single comment-->
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                            </div>
-                                        </div>
+                                        {if $array}
+                                            {if is_array($array)}
+                                                {if is_array($array[0])}
+                                                    {for $i = 0; $i < sizeof($array[0]); $i++}
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                            <div class="ms-3">
+                                                                <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
+                                                                {$array[0][$i]->getTesto()} <div class="text-start text-muted">{$array[0][$i]->getData()}</div>
+                                                                    <div class="text-end"><a href="#">Rispondi</a></div>
+                                                            </div>
+                                                        </div>
+                                                    {/for}
+                                                {else}
+                                                    <div class="d-flex">
+                                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                        <div class="ms-3">
+                                                            <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
+                                                            {$array[0]->getTesto()} <div class="text-start text-muted">{$array[0]->getData()}</div>
+                                                            <div class="text-end"><a href="#">Rispondi</a></div>
+                                                        </div>
+                                                    </div>
+                                                {/if}
+                                            {/if}
+                                        {/if}
                                     </div>
                                 </div>
                             </section>

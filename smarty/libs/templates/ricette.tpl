@@ -42,20 +42,6 @@
                                     <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                                 </li>
                             {/if}
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="ricette.tpl">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -121,10 +107,10 @@
             <!-- Blog preview section-->
             <section class="py-5">
                 <div class="container px-5">
-                    <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
-                    <div class="row gx-5">
-                        {if $array}
-                            {if is_array($array[0])}
+                    {if $array}
+                        {if is_array($array[0])}
+                            <h2 class="fw-bolder fs-5 mb-4">Esplora le ricette</h2>
+                            <div class="row gx-5">
                                 {for $i = 0; $i < 3; $i++}
                                     <div class="col-lg-4 mb-5">
                                         <div class="card h-100 shadow border-0">
@@ -152,34 +138,6 @@
                                         </div>
                                     </div>
                                 {/for}
-                            {else}
-                            <section>
-                                <div class="col-lg-4 mb-5">
-                                    <div class="card h-100 shadow border-0">
-                                        <img class="card-img-top" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=600 height=350 alt="..." />
-                                        <div class="card-body p-4">
-                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$array[0]->getCategoria()}</div>
-                                            <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/{$array[0]->getId()}"><div class="h5 card-title mb-3">{$array[0]->getNomeRicetta()}</div></a>
-                                            <p class="card-text mb-0">{substr($array[0]->getProcedimento(), 0, 100)}...</p>
-                                        </div>
-                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                            <div class="d-flex align-items-end justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                                    <div class="small">
-                                                        <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
-                                                        <div class="text-muted">{$array[0]->getData_()} &middot; Per {$array[0]->getDosiPersone()} persone &middot; 
-                                                        {for $i = 0; $i < (int)$array[0]->getValutazione(); $i++}
-                                                            <i class="bi bi-star"></i>
-                                                        {/for}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
                             {/if}
                         {/if}
 
