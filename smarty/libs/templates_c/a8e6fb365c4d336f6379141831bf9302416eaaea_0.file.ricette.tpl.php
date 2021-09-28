@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-28 23:41:56
+/* Smarty version 3.1.39, created on 2021-09-29 00:03:56
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61538c24017888_01016623',
+  'unifunc' => 'content_6153914c3343e3_33266801',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1632865315,
+      1 => 1632865327,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61538c24017888_01016623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6153914c3343e3_33266801 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -195,7 +195,6 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['x']->value < (int)$_smarty_tpl->tpl_vars
                                 <?php }
 }
 ?>
-                            
                             <?php }?>
                         <?php }?>
 

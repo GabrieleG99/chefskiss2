@@ -161,14 +161,13 @@ class CRicette
         if($categoria!=null){
             $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
             self::EsploraLeRicette($index=null, $ricette);
-            //$view->showRecepies($ricette, $array);
         }
         else{
             $parametro = $_POST['text'];
             $parametro = strtoupper($parametro);
             $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-            $id = $ricette->getId();
-            header("Location: /chefskiss/Ricette/esplora/$id");
+            $array = self::homeRicette($ricette);
+            $view->showRecepies($ricette, $array);
         }
     }
 
