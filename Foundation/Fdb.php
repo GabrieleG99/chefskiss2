@@ -54,10 +54,9 @@ class Fdb
      * @param $id
      * @return array|mixed|null
      */
-    public function loadDb($class, $field='', $id='',  $criterio='')
+    public function loadDb($class, $field='', $criterio='', $id='')
     {
         try {
-            // $this->db->beginTransaction();
             if ($field == '' || $id == '' || $criterio == ''){
                 $query = "SELECT * FROM `" . $class::getTable() . '` ';
             } else {
@@ -70,12 +69,14 @@ class Fdb
             if ($num == 0) {
                 $result = null;        //nessuna riga interessata. return null
             } elseif ($num == 1) {                          //nel caso in cui una sola riga fosse interessata
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);   //ritorna una sola riga
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                echo 'sono quA';//ritorna una sola riga
             } else {
                 $result = array();                         //nel caso in cui piu' righe fossero interessate
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);   //imposta la modalità di fetch come array associativo
                 while ($row = $stmt->fetch())
-                    $result[] = $row;                    //ritorna un array di righe.
+                    $result[] = $row;
+                echo 'sono qui';//ritorna un array di righe.
             }
             // $this->closeDbConnection();
             return $result;
@@ -204,6 +205,38 @@ res     * @param $object
         } catch (PDOException $e) {
             echo "Attenzione errore: " . $e->getMessage();
             $this->_conn->rollBack();
+            return null;
+        }
+    }
+
+    public function loadDefColDb($class, $coloumns, $order='', $limit=''){
+        $cols = '';
+        try {
+            for ($i = 0; $i < count($coloumns); $i++){
+                if ($i > 0) $cols .= ', ';
+                $cols .= $coloumns[$i];
+            }
+            $query = 'SELECT ' . $cols . ' FROM '. $class::getTable();
+            if ($order != '')
+                $query .= ' ORDER BY ' . $order . ' DESC';
+            if ($limit != '')
+                $query .= ' LIMIT ' . $limit;
+
+            $stmt = $this->_conn->prepare($query);
+            $stmt->execute();
+            $numRow = $stmt->rowCount();
+            if ($numRow == 0){
+                $result = null;
+            } elseif ($numRow == 1) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            } else {
+                $result = array();
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                while ($row = $stmt->fetch()) $result[] = $row;
+            }
+            return $result;
+        } catch (PDOException $e){
+            echo $e->getMessage();
             return null;
         }
     }

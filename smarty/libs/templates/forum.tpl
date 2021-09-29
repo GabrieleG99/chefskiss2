@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{assign var='userlogged' value=$userlogged|default:'nouser'}
+{assign var='searchMod' value=$searchMod|default:'searchOff'}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -160,7 +162,7 @@
                                 <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
                                 <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$num_pagine}">{$num_pagine}</a></li>
                             {/if}
-                            <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/{$index + 1}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">Next</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -170,10 +172,12 @@
                     <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
+                            <form method="post" action="/chefskiss/Forum/cerca">
+                                <div class="input-group">
+                                    <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                    <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!-- Categories widget-->

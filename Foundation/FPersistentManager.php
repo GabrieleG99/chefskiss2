@@ -57,4 +57,12 @@ class FPersistentManager
         $FClass::insert($object, $filename);
     }
 
+    public static function loadDefCol($class, $coloumns, $order='', $limit=''){
+        if ($class == 'FPost') {
+            $ris = $class::loadDefCol($coloumns, $order, $limit);
+            return $ris;
+        } else
+            return null;
+    }
+
 }

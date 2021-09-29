@@ -58,7 +58,7 @@ class FPost extends Fdb{
     public static function loadByField($parametri = array(), $ordinamento = '', $limite = ''){
         $post = null;
         $db = parent::getInstance();
-        $result = $db->loadDb(static::getClass(), $parametri, $ordinamento, $limite);
+        $result = $db->searchDb(static::getClass(), $parametri, $ordinamento, $limite);
         if (sizeof($parametri) > 0) {
             $rows_number = $db->getRowNum(static::getClass(), $parametri);
         } else {
@@ -120,6 +120,11 @@ class FPost extends Fdb{
         return $result;
     }
 
+    public static function loadDefCol($coloumns, $ordinamento='', $limite=''){
+        $db = parent::getInstance();
+        $result = $db->loadDefColDb(self::$class, $coloumns, $ordinamento, $limite);
+        return $result;
+    }
 }
 
 ?>

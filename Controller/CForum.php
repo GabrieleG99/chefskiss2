@@ -2,14 +2,27 @@
 
 class CForum
 {
-    static function esploraLeDomande($index=null, $filtro=''){
+    static function esploraLeDomande($index=null){
 
         if ($index == null) $new_index = 1;
         else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
 
-        $num_post = $pm::getRows('FPost');
+        if (isset($_COOKIE['titoli_ricerca'])) $data = unserialize($_COOKIE['titoli_ricerca']);
+
+        if (!isset($_COOKIE['titoli_ricerca']) || !is_array($data)) {
+            $num_post = $pm::getRows('FPost');
+        } else {
+            if (isset($data['titolo']) || isset($data['id'])){
+                $num_post = 1;
+            } elseif (is_array($data[0])){
+                $num_post = sizeof($data);
+            } else {
+                echo 'Non sono presenti risultati';
+            }
+        }
+
         $immagini = array();
 
         if ($num_post % 5 != 0){
@@ -18,20 +31,45 @@ class CForum
             $page_number = $num_post / 5;
         }
 
-        if ($new_index * 5 <= $num_post){
-            $post_pag = $pm::load('FPost', array(['id', '>', ($new_index - 1) * 5]), '', 5);
-        } else {
-            $limite = $num_post % 5;
-            $post_pag = $pm::load('FPost', array(['id', '>', $new_index * 5 - 5]), '', $limite);
-        }
+        if (!isset($_COOKIE['titoli_ricerca']) || !is_array($data)) {
+            if ($new_index * 5 <= $num_post) {
+                $post_pag = $pm::load('FPost', array(['id', '>', ($new_index - 1) * 5]), '', 5);
+            } else {
+                $limite = $num_post % 5;
+                $post_pag = $pm::load('FPost', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+            }
 
-        if (is_array($post_pag)) {
-            for ($i = 0; $i < sizeof($post_pag); $i++) {
-                $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $post_pag[$i]->getId_immagine()]));
+            if (is_array($post_pag)) {
+                for ($i = 0; $i < sizeof($post_pag); $i++) {
+                    $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $post_pag[$i]->getId_immagine()]));
+                }
+            } else {
+                $immagini = $pm::load('FImmagine', array(['id', '=', $post_pag->getId_immagine()]));
             }
         } else {
-            $immagini = $pm::load('FImmagine', array(['id', '=', $post_pag->getId_immagine()]));
+            if ($new_index * 5 <= $num_post){
+                for ($i = 0; $i < 5; $i++) {
+                    $post_pag[] = $pm::load('FPost', array(['id', '=', $data[$i]['id']]));
+                }
+            } else {
+                if (isset($data['titolo'])){
+                    $post_pag = $pm::load('FPost', array(['id', '=', $data['id']]));
+                } else if (is_array($data[0])){
+                    for ($i = 0; $i < count($data); $i++) {
+                        $post_pag[] = $pm::load('FPost', array(['id', '=', $data[$i]['id']]));
+                    }
+                }
+            }
+            if (is_array($post_pag)) {
+                for ($i = 0; $i < sizeof($post_pag); $i++) {
+                    $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $post_pag[$i]->getId_immagine()]));
+                }
+            } else {
+                $immagini = $pm::load('FImmagine', array(['id', '=', $post_pag->getId_immagine()]));
+            }
         }
+
+        setcookie('titoli_ricerca', '');
 
         $view = new VForum();
 
@@ -60,7 +98,6 @@ class CForum
             $array = array($commento_info, $autori_commenti);
             $view->showInfo($post, $autore, $immagine, $array);
         }
-
         else $view->showInfo($post, $autore, $immagine, $array=null);
     }
 
@@ -88,10 +125,35 @@ class CForum
             self::esploraLeDomande($index=null, $post);
         }
         else{
+            $j = 0;
             $parametro = $_POST['text'];
             $parametro = strtoupper($parametro);
-            $post = $pm::load('FPost', array(['nome_ricetta', '=', $parametro]));
-            $id = $post->getId();
+            $allPostTitleAndId = $pm::loadDefCol('FPost', array('titolo', 'id'));
+            if (isset($allPostTitleAndId[0]) && is_array($allPostTitleAndId[0])) {
+                for ($i = 0; $i < sizeof($allPostTitleAndId); $i++) {
+                    if (is_int(strpos($allPostTitleAndId[$i]['titolo'], $parametro))){
+                        $array[$j]['titolo'] = $allPostTitleAndId[$i]['titolo'];
+                        $array[$j]['id'] = $allPostTitleAndId[$i]['id'];
+                        $j += 1;
+                    }
+                }
+            } elseif (isset($allPostTitleAndId['titolo'])){
+                if (is_int(strpos($allPostTitleAndId['titolo'], $parametro))){
+                    $array = $allPostTitleAndId;
+                }
+            }
+            $data = serialize($array);
+            setcookie('titoli_ricerca', $data);
+            header('Location: /chefskiss/Forum/esploraLeDomande');
+            /*if (isset($allPostTitleAndId['titolo']) && isset($allPostTitleAndId['id'])){
+                if (strpos($allPostTitleAndId['titolo'], $parametro)){
+                    $post = $pm::load('FPost', array(['titolo', '=', $allPostTitleAndId['titolo']]));
+                }
+            } elseif (is_array($allPostTitleAndId[0])){
+                for ($i = 0; $i < sizeof($allPostTitleAndId); $i++){
+                    $post[] = $pm::load('FPost', array(['titolo', '=', $allPostTitleAndId[$i]['titolo']]));
+                }
+            }*/
         }
     }
 }
