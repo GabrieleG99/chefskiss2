@@ -166,8 +166,8 @@ class CRicette
             $parametro = $_POST['text'];
             $parametro = strtoupper($parametro);
             $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-            $array = self::homeRicette($ricette);
-            $view->showRecepies($ricette, $array);
+            $id = $ricette->getId();
+            header("Location: /chefskiss/Ricette/esplora/$id");
         }
     }
 
