@@ -38,7 +38,7 @@ class CFrontController
                         if (isset($url[1])){
                             for ($i = 0; $i < count($params); $i++){
                                 $array = explode('=', $params[$i]);
-                                $param[$array[0]] = $array[1];
+                                $param = $array[1];
                             }
                             $controller::$function($param);
                         } else {

@@ -58,7 +58,7 @@ class FPersistentManager
     }
 
     public static function loadDefCol($class, $coloumns, $order='', $limit=''){
-        if ($class == 'FPost') {
+        if ($class == 'FPost' || $class == 'FRicetta') {
             $ris = $class::loadDefCol($coloumns, $order, $limit);
             return $ris;
         } else

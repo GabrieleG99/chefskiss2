@@ -67,14 +67,29 @@ class CRicette
         return array($ricette_home, $autori_ricette, $immagini_home);
     }
 
-    static function EsploraLeRicette($index=null, $ricette=''){
+    static function EsploraLeRicette($index=null){
 
         if ($index == null) $new_index = 1;
         else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
+        if (isset($_COOKIE['ricetta_ricerca'])) {
+            $data = unserialize($_COOKIE['ricetta_ricerca']);
+            if($data == null) echo 'Non sono presenti risultati';
+        }
 
-        $num_ricette = $pm::getRows('FRicetta');
+        if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
+            $num_ricette = $pm::getRows('FRicetta');
+        } else {
+            if (isset($data['nome_ricetta']) || isset($data['id'])){
+                $num_ricette = 1;
+            } elseif (is_array($data[0])){
+                $num_ricette = sizeof($data);
+            } else {
+                echo 'Non sono presenti risultati';
+            }
+        }
+
         $immagini = array();
 
         if ($num_ricette % 5 != 0){
@@ -83,30 +98,45 @@ class CRicette
             $page_number = $num_ricette / 5;
         }
 
-        if(!is_array($ricette)){
-            if ($new_index * 5 <= $num_ricette){
+        if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
+            if ($new_index * 5 <= $num_ricette) {
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
             } else {
                 $limite = $num_ricette % 5;
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
             }
-            //var_dump($ricette_pag);
-            for($i = 0; $i < count($ricette_pag); $i++){
-                $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
-            }
-        }
-        else{
-            if ($new_index * 5 <= $num_ricette){
-                for($i = 0; $i < count($ricette); $i++) $ricette_pag[$i] = $ricette[$i];
-            } else {
-                $stop = $num_ricette % 5 + 5;
-                for($limite = $num_ricette % 5; $limite != $stop; $limite++) $ricette_pag[$limite] = $ricette[$limite];
-            }
 
-            for($i = 0; $i < count($ricette_pag); $i++){
-                $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+            if (is_array($ricette_pag)) {
+                for ($i = 0; $i < sizeof($ricette_pag); $i++) {
+                    $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+                }
+            } else {
+                $immagini = $pm::load('FImmagine', array(['id', '=', $ricette_pag->getId_immagine()]));
+            }
+        } else {
+            if ($new_index * 5 <= $num_ricette){
+                for ($i = 0; $i < 5; $i++) {
+                    $ricette_pag[] = $pm::load('FRicetta', array(['id', '=', $data[$i]['id']]));
+                }
+            } else {
+                if (isset($data['nome_ricetta'])){
+                    $ricette_pag = $pm::load('FRicetta', array(['id', '=', $data['id']]));
+                } else if (is_array($data[0])){
+                    for ($i = 0; $i < count($data); $i++) {
+                        $ricette_pag[] = $pm::load('FRicetta', array(['id', '=', $data[$i]['id']]));
+                    }
+                }
+            }
+            if (is_array($ricette_pag)) {
+                for ($i = 0; $i < sizeof($ricette_pag); $i++) {
+                    $immagini[$i] = $pm::load('FImmagine', array(['id', '=', $ricette_pag[$i]->getId_immagine()]));
+                }
+            } else {
+                $immagini = $pm::load('FImmagine', array(['id', '=', $ricette_pag->getId_immagine()]));
             }
         }
+
+        setcookie('ricetta_ricerca', '');
 
         $view = new VRicette();
 
@@ -157,17 +187,37 @@ class CRicette
 
     static function cerca($categoria=null){
         $pm = USingleton::getInstance('FPersistentManager');
-        $view = new VRicette();
         if($categoria!=null){
             $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
-            self::EsploraLeRicette($index=null, $ricette);
+            for($i = 0; $i < sizeof($ricette); $i++){
+                $array[$i]['nome_ricetta'] = $ricette[$i]->getNomeRicetta();
+                $array[$i]['id'] = $ricette[$i]->getId();
+            }
+            $data = serialize($array);
+            setcookie('ricetta_ricerca', $data);
+            header('Location: /chefskiss/Ricette/EsploraLeRicette');
         }
         else{
+            $j = 0;
             $parametro = $_POST['text'];
             $parametro = strtoupper($parametro);
-            $ricette = $pm::load('FRicetta', array(['nome_ricetta', '=', $parametro]));
-            $id = $ricette->getId();
-            header("Location: /chefskiss/Ricette/esplora/$id");
+            $allPostTitleAndId = $pm::loadDefCol('FRicetta', array('nome_ricetta', 'id'));
+            if (isset($allPostTitleAndId[0]) && is_array($allPostTitleAndId[0])) {
+                for ($i = 0; $i < sizeof($allPostTitleAndId); $i++) {
+                    if (is_int(strpos($allPostTitleAndId[$i]['nome_ricetta'], $parametro))){
+                        $array[$j]['nome_ricetta'] = $allPostTitleAndId[$i]['nome_ricetta'];
+                        $array[$j]['id'] = $allPostTitleAndId[$i]['id'];
+                        $j += 1;
+                    }
+                }
+            } elseif (isset($allPostTitleAndId['nome_ricetta'])){
+                if (is_int(strpos($allPostTitleAndId['nome_ricetta'], $parametro))){
+                    $array = $allPostTitleAndId;
+                }
+            }
+            $data = serialize($array);
+            setcookie('ricetta_ricerca', $data);
+            header('Location: /chefskiss/Ricette/EsploraLeRicette');
         }
     }
 

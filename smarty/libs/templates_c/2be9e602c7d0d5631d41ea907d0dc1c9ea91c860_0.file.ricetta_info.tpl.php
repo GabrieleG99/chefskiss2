@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-27 15:55:46
+/* Smarty version 3.1.39, created on 2021-09-30 14:32:39
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6151cd624162a4_31855235',
+  'unifunc' => 'content_6155ae67115096_22178893',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1632748804,
+      1 => 1633004738,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6151cd624162a4_31855235 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6155ae67115096_22178893 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -66,20 +66,6 @@ function content_6151cd624162a4_31855235 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                         </li>
                     <?php }?>
-                    <!--<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                            <li><a class="dropdown-item" href="ricette.tpl">Blog Home</a></li>
-                            <li><a class="dropdown-item" href="forum_info.tpl">Blog Post</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                            <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                            <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                        </ul>
-                    </li>-->
                         </ul>
                     </div>
                 </div>
@@ -181,34 +167,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit">Invia</button>
+                                            <button class="rounded-1 border" type="submit">Invia</button>
                                         </form>
-                                        <!-- Comment with nested comments-->
-                                        <!--<div class="d-flex mb-4">
-                                            Parent comment
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                                Child comment 1
-                                                <div class="d-flex mt-4">
-                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                                    <div class="ms-3">
-                                                        <div class="fw-bold">Commenter Name</div>
-                                                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                                    </div>
-                                                </div>
-                                                Child comment 2
-                                                <div class="d-flex mt-4">
-                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                                    <div class="ms-3">
-                                                        <div class="fw-bold">Commenter Name</div>
-                                                        When you put money directly to a problem, it makes a good headline.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                                        <!-- Single comment-->
                                         <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
                                             <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
                                                 <?php if (is_array($_smarty_tpl->tpl_vars['array']->value[0])) {?>

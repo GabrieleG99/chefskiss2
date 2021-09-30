@@ -153,4 +153,10 @@ class FRicetta extends Fdb {
         }
         return $valutazione;
     }
+
+    public static function loadDefCol($coloumns, $ordinamento='', $limite=''){
+        $db = parent::getInstance();
+        $result = $db->loadDefColDb(self::$class, $coloumns, $ordinamento, $limite);
+        return $result;
+    }
 }

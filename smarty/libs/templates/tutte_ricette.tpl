@@ -189,16 +189,16 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca/primi">Primi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/contorni">Contorni</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/antipasti">Antipasti</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca/secondi">Secondi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/dessert">Dessert</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/salse">Salse</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>
