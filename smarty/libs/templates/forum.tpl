@@ -139,30 +139,65 @@
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
-                            {if $index == 1}
-                                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
-                                <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index}">{$index}</a></li>
-                                {if $index + 1 < $num_pagine}
-                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                            {if $searchMod == 'searchOff'}
+                                {if $index == 1}
+                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index}">{$index}</a></li>
+                                    {if $index + 1 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index + 1}">{$index + 1}</a></li>
+                                    {/if}
+                                    {if $index + 2 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index + 2}">{$index + 2}</a></li>
+                                    {/if}
+                                {else}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index - 1}" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index - 1}">{$index - 1}</a></li>
+                                    <li class="page-item active"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index}">{$index}</a></li>
+                                    {if $index + 1 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index + 1}">{$index + 1}</a></li>
+                                    {/if}
                                 {/if}
-                                {if $index + 2 < $num_pagine}
-                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 2}">{$index + 2}</a></li>
+                                {if $num_pagine <= $index + 1 && $num_pagine != $index}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$num_pagine}">{$num_pagine}</a></li>
+                                {elseif $index < $num_pagine - 1}
+                                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$num_pagine}">{$num_pagine}</a></li>
                                 {/if}
-                            {else}
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index - 1}" tabindex="-1" aria-disabled="true">Back</a></li>
-                                <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index - 1}">{$index - 1}</a></li>
-                                <li class="page-item active"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index}">{$index}</a></li>
-                                {if $index + 1 < $num_pagine}
-                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">{$index + 1}</a></li>
+                                {if $num_pagine >= $index + 1}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index + 1}">Next</a></li>
+                                {else}
+                                    <li class="page-item disabled"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande//{$index + 1}">Next</a></li>
+                                {/if}
+                                {else}
+                                {if $index == 1}
+                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index}">{$index}</a></li>
+                                    {if $index + 1 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index + 1}">{$index + 1}</a></li>
+                                    {/if}
+                                    {if $index + 2 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index + 2}">{$index + 2}</a></li>
+                                    {/if}
+                                {else}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index - 1}" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index - 1}">{$index - 1}</a></li>
+                                    <li class="page-item active"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index}">{$index}</a></li>
+                                    {if $index + 1 < $num_pagine}
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index + 1}">{$index + 1}</a></li>
+                                    {/if}
+                                {/if}
+                                {if $num_pagine <= $index + 1 && $num_pagine != $index}
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$num_pagine}">{$num_pagine}</a></li>
+                                {elseif $index < $num_pagine - 1}
+                                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$num_pagine}">{$num_pagine}</a></li>
+                                {/if}
+                                {if $num_pagine >= $index + 1}
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index + 1}">Next</a></li>
+                                    {else}
+                                    <li class="page-item disabled"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/cerca/{$index + 1}">Next</a></li>
                                 {/if}
                             {/if}
-                            {if $num_pagine <= $index + 1 && $num_pagine != $index}
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$num_pagine}">{$num_pagine}</a></li>
-                            {elseif $index < $num_pagine - 1}
-                                <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$num_pagine}">{$num_pagine}</a></li>
-                            {/if}
-                            <li class="page-item"><a class="page-link" href="/chefskiss/Forum/esploraLeDomande/{$index + 1}">Next</a></li>
                         </ul>
                     </nav>
                 </div>

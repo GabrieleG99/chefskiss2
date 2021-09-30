@@ -7,8 +7,9 @@ class VForum
         $this->smarty = StartSmarty::configuration();
     }
 
-    function showForum($post, $num_pagine, $index, $num_post, $immagini){
+    function showForum($post, $num_pagine, $index, $num_post, $immagini, $cerca){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+        if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
 
         $this->smarty->assign('immagini', $immagini);
         $this->smarty->assign('post', $post);

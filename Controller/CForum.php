@@ -2,7 +2,11 @@
 
 class CForum
 {
-    static function esploraLeDomande($index=null){
+    static function esploraLeDomande($cerca=null, $index=null){
+
+        if ($cerca == null && isset($_COOKIE['searchOn'])) {
+            if ($_COOKIE['searchOn'] == 1) self::searchOff();
+        }
 
         if ($index == null) $new_index = 1;
         else $new_index = $index;
@@ -69,11 +73,15 @@ class CForum
             }
         }
 
-        setcookie('titoli_ricerca', '');
-
         $view = new VForum();
 
-        $view->showForum($post_pag, $page_number, $new_index, $num_post, $immagini);
+        $view->showForum($post_pag, $page_number, $new_index, $num_post, $immagini, $cerca);
+    }
+
+    static function searchOff(){
+        setcookie('searchOn', 0);
+        setcookie('titoli_ricerca', '');
+        header('Location: /chefskiss/Forum/esploraLeDomande');
     }
 
     static function InfoPost(int $id){
@@ -144,7 +152,8 @@ class CForum
             }
             $data = serialize($array);
             setcookie('titoli_ricerca', $data);
-            header('Location: /chefskiss/Forum/esploraLeDomande');
+            setcookie('searchOn', 1);
+            header('Location: /chefskiss/Forum/esploraLeDomande/cerca');
             /*if (isset($allPostTitleAndId['titolo']) && isset($allPostTitleAndId['id'])){
                 if (strpos($allPostTitleAndId['titolo'], $parametro)){
                     $post = $pm::load('FPost', array(['titolo', '=', $allPostTitleAndId['titolo']]));
