@@ -57,41 +57,29 @@ class CFrontController
                     }
                     else {
                         if (CUtente::isLogged()){
-                            $utente = unserialize($_SESSION['utente']);
-                            if ($utente->getPrivilegi() == 3){
-                                header('Location: /chefkiss/Admin/homepage');
-                            } else {
                                 CGestioneRicerca::blogHome();
                             }
-                        } else {
                             CGestioneRicerca::blogHome();
                         }
                     }
                 } else {
                     if (CUtente::isLogged()){
-                        $utente = unserialize($_SESSION['utente']);
-                        if ($utente->getPrivilegi() == 3){
-                            header('Location: /chefkiss/Admin/homepage');
-                        } else {
+
                             CGestioneRicerca::blogHome();
-                        }
                     } else {
                         CGestioneRicerca::blogHome();
                     }
                 }
             } else {
                 if (CUtente::isLogged()){
-                    $utente = unserialize($_SESSION['utente']);
-                    if ($utente->getPrivilegi() == 3){
-                        header('Location: /chefkiss/Admin/homepage');
-                    } else {
+
                         CGestioneRicerca::blogHome();
-                    }
+
                 } else {
                     CGestioneRicerca::blogHome();
                 }
             }
         }
-    }
+
 
 }

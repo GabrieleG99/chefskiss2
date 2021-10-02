@@ -80,8 +80,8 @@ class FUtente extends Fdb{
             if(($result != null) && ($rows_number > 1)){
                 $utente = array();
                 for($i = 0; $i < count($result); $i++){
-                    $utente = new EUtente($result[$i]['nome'], $result[$i]['cognome'], $result[$i]['email'], $result[$i]['password'],
-                                    $result[$i]['nickname'], $result[$i]['data_iscrizione'], $result[$i]['data_fine_ban'], $result[$i]['ban'], $result[$i]['id'], $result[$i]['privilegi']);
+                    $utente = new EUtente($result[$i]['nome'], $result[$i]['cognome'], $result[$i]['id'], $result[$i]['email'], $result[$i]['password'],
+                                    $result[$i]['nickname'], $result[$i]['data_iscrizione'], $result[$i]['data_fine_ban'], $result[$i]['ban'],  $result[$i]['privilegi']);
                 }
             }
         }
