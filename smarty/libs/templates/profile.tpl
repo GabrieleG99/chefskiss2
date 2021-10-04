@@ -35,7 +35,12 @@
                                     <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
                                 </li>
                                 <li class="nav-item text-light">
+                                    {if $utente->getPrivilegi() == 3}
+                                        <a class="nav-link" href="/chefskiss/Admin/homepage">Amministratore</a>
+
+                                    {else}
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
+                                    {/if}
                                 </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
