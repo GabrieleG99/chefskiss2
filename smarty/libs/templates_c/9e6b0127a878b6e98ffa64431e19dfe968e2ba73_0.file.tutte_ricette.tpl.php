@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-28 22:46:04
+/* Smarty version 3.1.39, created on 2021-09-30 19:52:42
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61537f0ccc77c4_20389253',
+  'unifunc' => 'content_6155f96a38d1d0_72823343',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1632861961,
+      1 => 1633022181,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61537f0ccc77c4_20389253 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6155f96a38d1d0_72823343 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -295,16 +295,16 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca/primi">Primi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/contorni">Contorni</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/antipasti">Antipasti</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca/secondi">Secondi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/dessert">Dessert</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca/salse">Salse</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

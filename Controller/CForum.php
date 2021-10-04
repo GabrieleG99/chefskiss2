@@ -154,15 +154,6 @@ class CForum
             setcookie('titoli_ricerca', $data);
             setcookie('searchOn', 1);
             header('Location: /chefskiss/Forum/esploraLeDomande/cerca');
-            /*if (isset($allPostTitleAndId['titolo']) && isset($allPostTitleAndId['id'])){
-                if (strpos($allPostTitleAndId['titolo'], $parametro)){
-                    $post = $pm::load('FPost', array(['titolo', '=', $allPostTitleAndId['titolo']]));
-                }
-            } elseif (is_array($allPostTitleAndId[0])){
-                for ($i = 0; $i < sizeof($allPostTitleAndId); $i++){
-                    $post[] = $pm::load('FPost', array(['titolo', '=', $allPostTitleAndId[$i]['titolo']]));
-                }
-            }*/
         }
     }
 }
