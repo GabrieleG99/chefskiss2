@@ -1,5 +1,28 @@
-<!DOCTYPE html>
-{assign var='userlogged' value=$userlogged|default:'nouser'}
+<?php
+/* Smarty version 3.1.39, created on 2021-09-29 23:25:23
+  from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_6154d9c3a0a5d0_55418645',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '3281035def857a202f1a5d1f01da4022cba3c338' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl',
+      1 => 1632937500,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6154d9c3a0a5d0_55418645 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
+<?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -29,12 +52,9 @@
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
-                            {if $userlogged!='nouser'}
+                            <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
-                                </li>
-                                <li class="nav-item text-light">
-                                    <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda">Nuova Domanda</a>
                                 </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
@@ -42,11 +62,11 @@
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
                                 </li>
-                            {else}
+                            <?php } else { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
                                 </li>
-                            {/if}
+                            <?php }?>
                         </ul>
                     </div>
                 </div>
@@ -59,16 +79,18 @@
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
                                 <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
-                                    {if $utente->getPrivilegi() == 1}
+                                    <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
+</div>
+                                    <?php if ($_smarty_tpl->tpl_vars['utente']->value->getPrivilegi() == 1) {?>
                                         <div class="text-muted">Membro</div>
-                                    {/if}
-                                    {if $utente->getPrivilegi() == 2}
+                                    <?php }?>
+                                    <?php if ($_smarty_tpl->tpl_vars['utente']->value->getPrivilegi() == 2) {?>
                                         <div class="text-muted">Moderatore</div>
-                                    {/if}
-                                    {if $utente->getPrivilegi() == 3}
+                                    <?php }?>
+                                    <?php if ($_smarty_tpl->tpl_vars['utente']->value->getPrivilegi() == 3) {?>
                                         <div class="text-muted">Amministratore</div>
-                                    {/if}
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>
@@ -78,19 +100,32 @@
                                 <!-- Post header-->
                                 <header class="mb-4">
                                     <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">{$post->getTitolo()}</h1>
+                                    <h1 class="fw-bolder mb-1"><?php echo $_smarty_tpl->tpl_vars['post']->value->getTitolo();?>
+</h1>
                                     <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">{$post->getData_pubb()}</div>
+                                    <div class="text-muted fst-italic mb-2"><?php echo $_smarty_tpl->tpl_vars['post']->value->getData_pubb();?>
+</div>
                                     <!-- Post categories-->
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{ucfirst($post->getCategoria())}</a>
+                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php echo ucfirst($_smarty_tpl->tpl_vars['post']->value->getCategoria());?>
+</a>
                                 </header>
                                 <!-- Preview image figure-->
-                                <figure class="mb-4"><img class="img-fluid rounded" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=900 height=400 alt="..." /></figure>
+                                <figure class="mb-4"><img class="img-fluid rounded" src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getImmagine();?>
+" width=900 height=400 alt="..." /></figure>
                                 <!-- Post content-->
                                 <section class="mb-5">
-                                    {for $i = 0; $i < count($domanda) - 1; $i++}
-                                        <p class="fs-5 mb-4">{$domanda[$i]}.</p>
-                                    {/for}
+                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['domanda']->value)-1) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['domanda']->value)-1; $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                        <p class="fs-5 mb-4"><?php echo $_smarty_tpl->tpl_vars['domanda']->value[$_smarty_tpl->tpl_vars['i']->value];?>
+.</p>
+                                    <?php }
+}
+?>
                                 </section>
                             </article>
                             <!-- Comments section-->
@@ -128,31 +163,46 @@
                                             </div>
                                         </div>-->
                                         <!-- Single comment-->
-                                        {if $array}
-                                            {if is_array($array)}
-                                                {if is_array($array[0])}
-                                                    {for $i = 0; $i < sizeof($array[0]); $i++}
+                                        <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
+                                            <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
+                                                <?php if (is_array($_smarty_tpl->tpl_vars['array']->value[0])) {?>
+                                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['array']->value[0])) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['array']->value[0]); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
                                                         <div class="d-flex">
                                                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                             <div class="ms-3">
-                                                                <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
-                                                                {$array[0][$i]->getTesto()} <div class="text-start text-muted">{$array[0][$i]->getData()}</div>
+                                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
+</div>
+                                                                <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getTesto();?>
+ <div class="text-start text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData();?>
+</div>
                                                                     <div class="text-end"><a href="#">Rispondi</a></div>
                                                             </div>
                                                         </div>
-                                                    {/for}
-                                                {else}
+                                                    <?php }
+}
+?>
+                                                <?php } else { ?>
                                                     <div class="d-flex">
                                                         <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                                         <div class="ms-3">
-                                                            <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
-                                                            {$array[0]->getTesto()} <div class="text-start text-muted">{$array[0]->getData()}</div>
+                                                            <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
+</div>
+                                                            <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getTesto();?>
+ <div class="text-start text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData();?>
+</div>
                                                             <div class="text-end"><a href="#">Rispondi</a></div>
                                                         </div>
                                                     </div>
-                                                {/if}
-                                            {/if}
-                                        {/if}
+                                                <?php }?>
+                                            <?php }?>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </section>
@@ -177,8 +227,14 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
+>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <?php echo '<script'; ?>
+ src="js/scripts.js"><?php echo '</script'; ?>
+>
     </body>
 </html>
+<?php }
+}

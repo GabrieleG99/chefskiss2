@@ -33,4 +33,8 @@ class VForum
 
         $this->smarty->display('forum_info.tpl');
     }
+
+    function showSubmitPost(){
+        $this->smarty->display('new-post.tpl');
+    }
 }

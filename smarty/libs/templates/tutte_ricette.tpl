@@ -29,6 +29,9 @@
                         <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
                         </li>
+                            <li class="nav-item text-light">
+                                <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda">Nuova Domanda</a>
+                            </li>
                         <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
