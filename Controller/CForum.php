@@ -156,4 +156,56 @@ class CForum
             header('Location: /chefskiss/Forum/esploraLeDomande/cerca');
         }
     }
+
+    static function nuovaDomanda(){
+        $view = new VForum();
+        $view->showSubmitPost();
+    }
+
+    static function pubblicaDomanda(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        if(CUtente::isLogged()){
+            $id_immagine = self::upload();
+            if($id_immagine!=false){
+                $utente = unserialize($session->readValue('utente'));
+                $autore = $utente->getId();
+                $titolo = $_POST['title'];
+                $domanda = $_POST['content'];
+                $categoria = $_POST['recipe-type'];
+                $post = new EPost($autore, $titolo, $domanda, $categoria, date('Y-m-d'), $id_immagine);
+                $pm::insert($post);
+                $id_post = $post->getId();
+                header("Location: /chefskiss/Forum/InfoPost/$id_post");
+            }
+            else; //errore caricamento immagine
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
+    static function upload(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $result = false;
+        $max_size = 600000;
+        $result = is_uploaded_file($_FILES['file']['tmp_name']);
+        if (!$result){
+            //echo "Impossibile eseguire l'upload.";
+            return false;
+        } else {
+            $size = $_FILES['file']['size'];
+            if ($size > $max_size){
+                //echo "Il file è troppo grande.";
+                return false;
+            }
+            $type = $_FILES['file']['type'];
+            $nome = $_FILES['file']['name'];
+            $immagine = file_get_contents($_FILES['file']['tmp_name']);
+            $immagine = addslashes ($immagine);
+            $image = new EImmagine($nome, $size, $type, $immagine);
+            $pm::insertMedia($image, 'file');
+            return $image->getId();
+        }
+    }
 }
