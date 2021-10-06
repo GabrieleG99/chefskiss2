@@ -67,16 +67,17 @@ class CRicette
         return array($ricette_home, $autori_ricette, $immagini_home);
     }
 
-    static function EsploraLeRicette($index=null){
+    static function EsploraLeRicette($cerca=null, $index=null){
 
-        if ($index == null) $new_index = 1;
+        if ($cerca == null && isset($_COOKIE['searchOn'])) {
+            if ($_COOKIE['searchOn'] == 1) self::searchOff();
+        }
+
+        if ($index == null) $new_index = '1';
         else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
-        if (isset($_COOKIE['ricetta_ricerca'])) {
-            $data = unserialize($_COOKIE['ricetta_ricerca']);
-            if($data == null) echo 'Non sono presenti risultati';
-        }
+        if (isset($_COOKIE['ricetta_ricerca'])) $data = unserialize($_COOKIE['ricetta_ricerca']);
 
         if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
             $num_ricette = $pm::getRows('FRicetta');
@@ -135,12 +136,17 @@ class CRicette
                 $immagini = $pm::load('FImmagine', array(['id', '=', $ricette_pag->getId_immagine()]));
             }
         }
-
-        setcookie('ricetta_ricerca', '');
-
         $view = new VRicette();
+        
+        $cerca = 'cerca';
 
-        $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini);
+        $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
+    }
+
+    static function searchOff(){
+        setcookie('searchOn', 0);
+        setcookie('ricetta_ricerca', '');
+        header('Location: /chefskiss/Ricette/EsploraLeRicette');
     }
 
     static function InserisciRecensione(){
@@ -195,7 +201,8 @@ class CRicette
             }
             $data = serialize($array);
             setcookie('ricetta_ricerca', $data);
-            header('Location: /chefskiss/Ricette/EsploraLeRicette');
+            setcookie('searchOn', 1);
+            header('Location: /chefskiss/Ricette/EsploraLeRicette/cerca');
         }
         else{
             $j = 0;

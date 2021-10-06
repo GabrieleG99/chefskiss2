@@ -37,8 +37,9 @@ class VRicette
         $this->smarty->display('ricetta_info.tpl');
     }
 
-    function showAll($ricette, $num_pagine, $index, $num_ricette, $immagini){
+    function showAll($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+        if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
 
         $this->smarty->assign('immagini', $immagini);
         $this->smarty->assign('ricette', $ricette);

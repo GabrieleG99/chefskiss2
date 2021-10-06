@@ -75,6 +75,8 @@ class CForum
 
         $view = new VForum();
 
+        var_dump($new_index);
+
         $view->showForum($post_pag, $page_number, $new_index, $num_post, $immagini, $cerca);
     }
 

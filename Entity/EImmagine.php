@@ -15,8 +15,9 @@ class EImmagine{
      * @param $tipo
      * @param $immagine
      */
-    public function __construct($nome=null, $dimensione=null, $tipo=null, $immagine=null)
+    public function __construct($id, $nome=null, $dimensione=null, $tipo=null, $immagine=null)
     {
+        $this->id = $id;
         $this->nome = $nome;
         $this->dimensione = $dimensione;
         $this->tipo = $tipo;
