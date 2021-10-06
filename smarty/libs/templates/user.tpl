@@ -39,7 +39,7 @@
                         </li>
                     {else}
                         <li class="nav-item">
-                            <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
+                            <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
                         </li>
                     {/if}
                     <!--<li class="nav-item dropdown">

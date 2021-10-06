@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-02 12:32:05
+/* Smarty version 3.1.39, created on 2021-10-02 16:03:22
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61583525c9fac2_44230256',
+  'unifunc' => 'content_615866aa67ed94_73193435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '47ac6dd68956d32edb194613ef7392c6501f7288' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\user.tpl',
-      1 => 1633170724,
+      1 => 1633183401,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61583525c9fac2_44230256 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615866aa67ed94_73193435 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -62,7 +62,7 @@ function content_61583525c9fac2_44230256 (Smarty_Internal_Template $_smarty_tpl)
                         </li>
                     <?php } else { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/chefskiss/Utente/login">Accedi</a>
+                            <a class="nav-link" href="/chefskiss/Utente/logout">Disconnetti</a>
                         </li>
                     <?php }?>
                     <!--<li class="nav-item dropdown">

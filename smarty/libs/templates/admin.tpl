@@ -87,7 +87,7 @@
 
             {if $list}
                 {if is_array($list)}
-                    {for $i = 1; $i < sizeof($list)+1; $i++}
+                    {for $i = 0; $i < sizeof($list); $i++}
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
                                 <div class="card-body p-4">
