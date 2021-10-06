@@ -76,7 +76,6 @@ class Fdb
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);   //imposta la modalità di fetch come array associativo
                 while ($row = $stmt->fetch())
                     $result[] = $row;
-                echo 'sono qui';//ritorna un array di righe.
             }
             // $this->closeDbConnection();
             return $result;

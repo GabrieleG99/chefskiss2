@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-04 23:40:59
+/* Smarty version 3.1.39, created on 2021-10-07 00:40:32
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615b74eb5a5649_78897665',
+  'unifunc' => 'content_615e25e0138cb1_00080153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1633383518,
+      1 => 1633560031,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615b74eb5a5649_78897665 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615e25e0138cb1_00080153 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -315,87 +315,47 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                         </div>
                     </div>
                     <div class="row gx-5">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Forum1']->value;?>
+                        <?php if (is_array($_smarty_tpl->tpl_vars['post_home']->value) && is_array($_smarty_tpl->tpl_vars['post_author']->value) && is_array($_smarty_tpl->tpl_vars['post_immagine']->value)) {?>
+                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['post_home']->value)) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['post_home']->value); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['post_immagine']->value[$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['post_immagine']->value[$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
 " alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['Titolo_Post1']->value;?>
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Forum/InfoPost/<?php echo $_smarty_tpl->tpl_vars['post_home']->value[$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+"><h5 class="card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['post_home']->value[$_smarty_tpl->tpl_vars['i']->value]->getTitolo();?>
 </h5></a>
-                                    <p class="card-text mb-0"><?php echo $_smarty_tpl->tpl_vars['Descrizione_Post1']->value;?>
-</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore1']->value;?>
+                                            <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['post_home']->value[$_smarty_tpl->tpl_vars['i']->value]->getDomanda(),0,100);?>
+...</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore1']->value;?>
 " width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore1']->value;?>
+                                                    <div class="small">
+                                                        <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['post_author']->value[$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['post_author']->value[$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
 </div>
-                                                <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Post1']->value;?>
+                                                        <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['post_home']->value[$_smarty_tpl->tpl_vars['i']->value]->getData_pubb();?>
 </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Forum2']->value;?>
-" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['Titolo_Post2']->value;?>
-</h5></a>
-                                    <p class="card-text mb-0"><?php echo $_smarty_tpl->tpl_vars['Descrizione_Post2']->value;?>
-</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore2']->value;?>
-" width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore2']->value;?>
-</div>
-                                                <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Post2']->value;?>
-</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Forum3']->value;?>
-" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['Titolo_Post3']->value;?>
-</h5></a>
-                                    <p class="card-text mb-0"><?php echo $_smarty_tpl->tpl_vars['Descrizione_Post3']->value;?>
-</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore3']->value;?>
-" width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['Nome_Autore3']->value;?>
-</div>
-                                                <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['Data_Post3']->value;?>
-</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <?php }
+}
+?>
+                        <?php }?>
                     </div>
                     <!-- Call to action-->
                     <!--<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">

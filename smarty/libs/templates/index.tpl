@@ -226,69 +226,31 @@
                         </div>
                     </div>
                     <div class="row gx-5">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="{$Immagine_Forum1}" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">{$Titolo_Post1}</h5></a>
-                                    <p class="card-text mb-0">{$Descrizione_Post1}</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore1}" width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">{$Nome_Autore1}</div>
-                                                <div class="text-muted">{$Data_Post1}</div>
+                        {if is_array($post_home) && is_array($post_author) && is_array($post_immagine)}
+                            {for $i = 0; $i < sizeof($post_home); $i++}
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="data:{$post_immagine[$i]->getTipo()};base64,{$post_immagine[$i]->getImmagine()}" alt="..." />
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
+                                            <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Forum/InfoPost/{$post_home[$i]->getId()}"><h5 class="card-title mb-3">{$post_home[$i]->getTitolo()}</h5></a>
+                                            <p class="card-text mb-0">{substr($post_home[$i]->getDomanda(), 0, 100)}...</p>
+                                        </div>
+                                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="rounded-circle me-3" src="{$Immagine_Autore1}" width="40" height="40" alt="..." />
+                                                    <div class="small">
+                                                        <div class="fw-bold">{$post_author[$i]->getNome()} {$post_author[$i]->getCognome()}</div>
+                                                        <div class="text-muted">{$post_home[$i]->getData_pubb()}</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="{$Immagine_Forum2}" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">{$Titolo_Post2}</h5></a>
-                                    <p class="card-text mb-0">{$Descrizione_Post2}</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore2}" width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">{$Nome_Autore2}</div>
-                                                <div class="text-muted">{$Data_Post2}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="{$Immagine_Forum3}" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">{$Titolo_Post3}</h5></a>
-                                    <p class="card-text mb-0">{$Descrizione_Post3}</p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="{$Immagine_Autore3}" width="40" height="40" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">{$Nome_Autore3}</div>
-                                                <div class="text-muted">{$Data_Post3}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            {/for}
+                        {/if}
                     </div>
                     <!-- Call to action-->
                     <!--<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-29 00:03:56
+/* Smarty version 3.1.39, created on 2021-10-06 16:59:55
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6153914c3343e3_33266801',
+  'unifunc' => 'content_615db9ebd41ef4_91014726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1632865327,
+      1 => 1633383658,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6153914c3343e3_33266801 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615db9ebd41ef4_91014726 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -53,6 +53,9 @@ function content_6153914c3343e3_33266801 (Smarty_Internal_Template $_smarty_tpl)
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                </li>
+                                <li class="nav-item text-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda">Nuova Domanda</a>
                                 </li>
                                 <li class="nav-item text-light">
                                     <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
