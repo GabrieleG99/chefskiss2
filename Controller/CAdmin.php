@@ -10,11 +10,8 @@ class CAdmin
         $utente = unserialize($session->readValue('utente'));
         if ($utente != null && $utente->getPrivilegi() == 3) {
             $pm = USingleton::getInstance('FPersistentManager');
-            $rows = $pm::getRows('FUtente');
-            for ($i = 1; $i < $rows; $i++) {
-                $list[$i] = $pm::load('FUtente', array(), '', $i + 1); //da sistemare la load
-
-            }
+            $list = $pm::load('FUtente');
+            
             $view->homepage($utente, $list);
         } else {
             header('Location: /chefskiss/');
