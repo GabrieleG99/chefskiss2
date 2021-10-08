@@ -41,11 +41,12 @@ class CGestioneRicerca
             $post_id = $pm::loadDefCol('FPost', array('id'));
             $post_home[] = $pm::load('FPost', array(['id', '=', $post_id[$ran_num[$i]]['id']]));
             $post_author[] = $pm::load('FUtente', array(['id', '=', $post_home[$i]->getAutore()]));
-            $post_immagini[] = $pm::load('FImmagine', array(['id', '=', $post_home[$i]->getId_immagine()])); //TODO: ['id', '=', $post_author[$i]->getId_immagine()] aggiungere quando sarà fatta la gestione immagini per gli utenti
+            $post_immagini[] = $pm::load('FImmagine', array(['id', '=', $post_home[$i]->getId_immagine()]));
+            $immagini_autori[] = $pm::load('FImmagine', array(['id', '=', $post_author[$i]->getid_immagine()]));
 
             $check = 0;
         }
 
-        $vSearch->showHome($ricette_home, $autori_ricette, $immagini, $post_home, $post_author, $post_immagini);
+        $vSearch->showHome($ricette_home, $autori_ricette, $immagini, $post_home, $post_author, $post_immagini, $immagini_autori);
     }
 }

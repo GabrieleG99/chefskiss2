@@ -9,7 +9,7 @@ class FUtente extends Fdb{
 
     private static $class = 'FUtente';
 
-    private static $values = '(:nome, :cognome, :email, :id, :password, :nickname, :data_iscrizione, :data_fine_ban, :ban, :privilegi)';
+    private static $values = '(:nome, :cognome, :email, :id, :password, :id_immagine, :data_iscrizione, :data_fine_ban, :ban, :privilegi)';
 
     public function __construct(){
     }
@@ -53,7 +53,7 @@ class FUtente extends Fdb{
         $stmt->bindValue(':cognome', $user->getCognome(), PDO::PARAM_STR);
         $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
         $stmt->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(':nickname', $user->getNickname(), PDO::PARAM_STR);
+        $stmt->bindValue(':id_immagine', $user->getid_immagine(), PDO::PARAM_STR);
         $stmt->bindValue(':data_iscrizione', $user->getDataIscrizione(), PDO::PARAM_STR);
         $stmt->bindValue(':ban', $user->getBan(), PDO::PARAM_BOOL);
         $stmt->bindValue(':id', $user->getId(), PDO::PARAM_INT);
@@ -74,14 +74,14 @@ class FUtente extends Fdb{
         }
         if(($result != null) && ($rows_number == 1)) {
             $utente = new EUtente($result['nome'], $result['cognome'], $result['id'], $result['email'], $result['password'],
-                                    $result['nickname'], $result['data_iscrizione'], $result['data_fine_ban'], $result['ban'], $result['privilegi']);
+                                    $result['id_immagine'], $result['data_iscrizione'], $result['data_fine_ban'], $result['ban'], $result['privilegi']);
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $utente = array();
                 for($i = 0; $i < count($result); $i++){
                     $utente[] = new EUtente($result[$i]['nome'], $result[$i]['cognome'], $result[$i]['id'], $result[$i]['email'], $result[$i]['password'],
-                                    $result[$i]['nickname'], $result[$i]['data_iscrizione'], $result[$i]['data_fine_ban'], $result[$i]['ban'],  $result[$i]['privilegi']);
+                                    $result[$i]['id_immagine'], $result[$i]['data_iscrizione'], $result[$i]['data_fine_ban'], $result[$i]['ban'],  $result[$i]['privilegi']);
                 }
             }
         }

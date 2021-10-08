@@ -120,7 +120,7 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[3]->getId()}"><img src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[3]->getId()}"><img src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -138,7 +138,7 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[4]->getId()}"><img src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[4]->getId()}"><img src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -156,7 +156,7 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[5]->getId()}"><img src="data:{$immagini[5]->getTipo()};base64,{$immagini[5]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[5]->getId()}"><img src="data:{$immagini[5]->getTipo()};base64,{$immagini[5]->getImmagine()}" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -174,7 +174,7 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row g-0">
                                       <div class="col-md-4">
-                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[6]->getId()}"><img src="data:{$immagini[6]->getTipo()};base64,{$immagini[6]->getImmagine()}" class="img-fluid rounded-start" alt="..."></a>
+                                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette_home[6]->getId()}"><img src="data:{$immagini[6]->getTipo()};base64,{$immagini[6]->getImmagine()}" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -230,7 +230,7 @@
                             {for $i = 0; $i < sizeof($post_home); $i++}
                                 <div class="col-lg-4 mb-5">
                                     <div class="card h-100 shadow border-0">
-                                        <img class="card-img-top" src="data:{$post_immagine[$i]->getTipo()};base64,{$post_immagine[$i]->getImmagine()}" alt="..." />
+                                        <img class="card-img-top" src="data:{$post_immagine[$i]->getTipo()};base64,{$post_immagine[$i]->getImmagine()}" width=600 height=350 alt="..." />
                                         <div class="card-body p-4">
                                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
                                             <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Forum/InfoPost/{$post_home[$i]->getId()}"><h5 class="card-title mb-3">{$post_home[$i]->getTitolo()}</h5></a>
@@ -239,7 +239,7 @@
                                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                             <div class="d-flex align-items-end justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                    <img class="rounded-circle me-3" src="{$Immagine_Autore1}" width="40" height="40" alt="..." />
+                                                    <img class="rounded-circle me-3" src="data:{$immagini_autore[$i]->getTipo()};base64,{$immagini_autore[$i]->getImmagine()}" width="40" height="40" alt="..." />
                                                     <div class="small">
                                                         <div class="fw-bold">{$post_author[$i]->getNome()} {$post_author[$i]->getCognome()}</div>
                                                         <div class="text-muted">{$post_home[$i]->getData_pubb()}</div>

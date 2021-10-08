@@ -93,20 +93,23 @@ class CForum
         $autore = $pm::load('FUtente', array(['id', '=', $post->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=',$post->getId_immagine()]));
         $commento = $pm::load('FCommento', array(['id_post', '=', $id]));
+        $immagini_autore = $pm::load('FImmagine', array(['id', '=', $autore->getid_immagine()]));
         if (is_array($commento)){
             for ($i = 0; $i < sizeof($commento); $i++){
                 $commento_info[$i] = $commento[$i];
                 $autori_commenti[$i] = $pm::load('FUtente', array(['id', '=', $commento[$i]->getAutore()]));
-                $array = array($commento_info, $autori_commenti);
+                $immagini_autore_recensione[$i] = $pm::load('FImmagine', array(['id', '=', $autori_commenti[$i]->getid_immagine()]));
+                $array = array($commento_info, $autori_commenti, $immagini_autore_recensione);
             }
-            $view->showInfo($post, $autore, $immagine, $array);
+            $view->showInfo($post, $autore, $immagine, $array, $immagini_autore);
         } elseif ($commento != null){
             $commento_info = $commento;
             $autori_commenti = $pm::load('FUtente', array(['id', '=', $commento->getAutore()]));
-            $array = array($commento_info, $autori_commenti);
-            $view->showInfo($post, $autore, $immagine, $array);
+            $immagini_autore_recensione = $pm::load('FImmagine', array(['id', '=', $autori_commenti->getid_immagine()]));
+            $array = array($commento_info, $autori_commenti, $immagini_autore_recensione);
+            $view->showInfo($post, $autore, $immagine, $array, $immagini_autore);
         }
-        else $view->showInfo($post, $autore, $immagine, $array=null);
+        else $view->showInfo($post, $autore, $immagine, $array=null, $immagini_autore);
     }
 
     static function InserisciCommento(){

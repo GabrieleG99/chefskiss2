@@ -77,7 +77,7 @@
                     <!-- Column -->
                     <div class="card"> <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
                         <div class="card-body little-profile text-center">
-                            <div class="pro-img"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
+                            <div class="pro-img"><img src="data:{$immagine_utente->getTipo()};base64,{$immagine_utente->getImmagine()}" width=40 height=40 alt="user"></div>
                             <div class="ms-3">
                                 <h3 class="m-b-0">{$utente->getNome()} {$utente->getCognome()}</h3>
                                 {if $utente->getPrivilegi() == 1}
@@ -118,7 +118,7 @@
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                                 <div class="d-flex align-items-end justify-content-between">
                                                     <div class="d-flex align-items-center">
-                                                        <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                        <img class="rounded-circle me-3" src="data:{$immagini_autori[$i]->getTipo()};base64,{$immagini_autori[$i]->getImmagine()}" width=40 height=40 alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
                                                             <div class="text-muted">{$ricette[$i]->getData_()} &middot; Per {$ricette[$i]->getDosiPersone()} persone</div>

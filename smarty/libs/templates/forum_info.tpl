@@ -57,7 +57,7 @@
                     <div class="row gx-5">
                         <div class="col-lg-3">
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
-                                <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                <img class="img-fluid rounded-circle" src="data:{$immagine_autore->getTipo()};base64,{$immagine_autore->getImmagine()}" width=40 height=40 alt="..." />
                                 <div class="ms-3">
                                     <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
                                     {if $utente->getPrivilegi() == 1}
@@ -133,7 +133,7 @@
                                                 {if is_array($array[0])}
                                                     {for $i = 0; $i < sizeof($array[0]); $i++}
                                                         <div class="d-flex">
-                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=40 height=40 alt="..." /></div>
                                                             <div class="ms-3">
                                                                 <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
                                                                 {$array[0][$i]->getTesto()} <div class="text-start text-muted">{$array[0][$i]->getData()}</div>
@@ -143,7 +143,7 @@
                                                     {/for}
                                                 {else}
                                                     <div class="d-flex">
-                                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                                        <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=40 height=40 alt="..." /></div>
                                                         <div class="ms-3">
                                                             <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
                                                             {$array[0]->getTesto()} <div class="text-start text-muted">{$array[0]->getData()}</div>

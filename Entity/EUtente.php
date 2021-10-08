@@ -8,7 +8,7 @@ class EUtente
     private $id;
     private $email;
     private $password;
-    private $nickname;
+    private $id_immagine;
     private $data_iscrizione;
     private $data_fine_ban;
     private $ban;
@@ -20,19 +20,19 @@ class EUtente
      * @param $id
      * @param $email
      * @param $password
-     * @param $nickname
+     * @param $id_immagine
      * @param $data_iscrizione
      * @param $ban
      * @param $privilegi
      */
-    public function __construct($nome=null, $cognome=null, $id, $email=null, $password=null, $nickname=null, $data_iscrizione=null, $data_fine_ban = null, $ban=0, $privilegi=null)
+    public function __construct($nome=null, $cognome=null, $id, $email=null, $password=null, $id_immagine=null, $data_iscrizione=null, $data_fine_ban = null, $ban=0, $privilegi=null)
     {
         $this->nome = $nome;
         $this->cognome = $cognome;
         $this->id = $id;
         $this->email = $email;
         $this->password = $password;
-        $this->nickname = $nickname;
+        $this->id_immagine = $id_immagine;
         $this->data_iscrizione = $data_iscrizione;
         $this->ban = $ban;
         $this->privilegi = $privilegi;
@@ -46,7 +46,7 @@ class EUtente
             'id' => $this->getId(),
             'email' => $this->getEmail(),
             'password' => $this->getPassword(),
-            'nickname' => $this->getNickname(),
+            'id_immagine' => $this->getid_immagine(),
             'data_iscrizione' => $this->getDataIscrizione(),
             'ban' => $this->getBan()
         ];
@@ -135,17 +135,17 @@ class EUtente
     /**
      * @return mixed
      */
-    public function getNickname()
+    public function getid_immagine()
     {
-        return $this->nickname;
+        return $this->id_immagine;
     }
 
     /**
-     * @param mixed $nickname
+     * @param mixed $id_immagine
      */
-    public function setNickname($nickname)
+    public function setid_immagine($id_immagine)
     {
-        $this->nickname = $nickname;
+        $this->id_immagine = $id_immagine;
     }
 
     /**

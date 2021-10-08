@@ -99,14 +99,17 @@ class CUtente
         $utente = unserialize($session->readValue('utente'));
         $pm = USingleton::getInstance('FPersistentManager');
         if(CUtente::isLogged()){
+            $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
             if($ricetta != null) {
                 for($i = 0; $i < sizeof($ricetta); $i++){
                     $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
+                    $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
+                    $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
                 }
-                $view->profilo($ricetta, $utente, $immagine);
+                $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
             }
-            else $view->profilo($ricetta, $utente, $immagine = null);
+            else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null);
         }
         else{
             header('Location: /chefskiss/Utente/login');

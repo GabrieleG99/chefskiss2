@@ -26,29 +26,29 @@ class CRicette
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
+        $immagini_autore = $pm::load('FImmagine', array(['id', '=', $autore->getid_immagine()]));
         $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id]));
         if(is_array($recensione)){
             for ($i = 0; $i < sizeof($recensione); $i++){
                 $recensioni_info[$i] = $recensione[$i];
                 $autori_recensioni[$i] = $pm::load('FUtente', array(['id', '=', $recensione[$i]->getAutore()]));
-                $array = array($recensioni_info, $autori_recensioni);
+                $immagini_autore_recensione[$i] = $pm::load('FImmagine', array(['id', '=', $autori_recensioni[$i]->getid_immagine()]));
+                $array = array($recensioni_info, $autori_recensioni, $immagini_autore_recensione);
             }
-            $view->showInfo($ricetta, $autore, $immagine, $array);
+            $view->showInfo($ricetta, $autore, $immagine, $array, $immagini_autore);
         }
         elseif($recensione != null){
             $recensioni_info = $recensione;
             $autori_recensioni = $pm::load('FUtente', array(['id', '=', $recensione->getAutore()]));
-            $array = array($recensioni_info, $autori_recensioni);
-            $view->showInfo($ricetta, $autore, $immagine, $array);
+            $immagini_autore_recensione = $pm::load('FImmagine', array(['id', '=', $autori_recensioni->getid_immagine()]));
+            $array = array($recensioni_info, $autori_recensioni, $immagini_autore_recensione);
+            $view->showInfo($ricetta, $autore, $immagine, $array, $immagini_autore);
         }
 
-        else $view->showInfo($ricetta, $autore, $immagine, $array=null);
+        else $view->showInfo($ricetta, $autore, $immagine, $array=null, $immagini_autore);
     }
 
     static function homeRicette($ricette){
-        //$ricette_home = array();
-        //$immagini_home = array();
-        //$autori_ricette = array();
         $pm = USingleton::getInstance('FPersistentManager');
         if($ricette!=null){
             if(is_array($ricette)){
@@ -56,15 +56,17 @@ class CRicette
                     $ricette_home[$i] = $ricette[$i];
                     $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricette[$i]->getAutore()]));
                     $immagini_home[$i] = $pm::load('FImmagine', array(['id', '=', $ricette[$i]->getId_immagine()]));
+                    $immagini_autore[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
                 }
             }
             else{
                 $ricette_home = $ricette;
                 $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricette->getAutore()]));
                 $immagini_home = $pm::load('FImmagine', array(['id', '=', $ricette->getId_immagine()]));
+                $immagini_autore = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
             }
         }
-        return array($ricette_home, $autori_ricette, $immagini_home);
+        return array($ricette_home, $autori_ricette, $immagini_home, $immagini_autore);
     }
 
     static function EsploraLeRicette($cerca=null, $index=null){

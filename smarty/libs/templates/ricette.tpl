@@ -126,7 +126,7 @@
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                                 <div class="d-flex align-items-end justify-content-between">
                                                     <div class="d-flex align-items-center">
-                                                        <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                        <img class="rounded-circle me-3" src="data:{$array[3][$i]->getTipo()};base64,{$array[3][$i]->getImmagine()}" width=40 height=40 alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
                                                             <div class="text-muted">{$array[0][$i]->getData_()} &middot; Per {$array[0][$i]->getDosiPersone()} persone &middot; 
