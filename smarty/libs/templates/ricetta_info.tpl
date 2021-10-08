@@ -70,7 +70,12 @@
                                     {/if}
                                 </div>
                             </div>
-                        </div>
+                            {if {$mod->getPrivilegi() >=2 }}
+                                <button>
+                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Rimuovi Ricetta </a>
+                                </button>
+                            {/if}
+                            </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
                             <article>

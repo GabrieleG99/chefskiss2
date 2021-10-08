@@ -11,7 +11,7 @@ class CAdmin
         if ($utente != null && $utente->getPrivilegi() == 3) {
             $pm = USingleton::getInstance('FPersistentManager');
             $list = $pm::load('FUtente');
-            
+
             $view->homepage($utente, $list);
         } else {
             header('Location: /chefskiss/');

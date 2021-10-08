@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-06 19:39:14
+/* Smarty version 3.1.39, created on 2021-10-08 19:27:46
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615ddf42e44778_86504760',
+  'unifunc' => 'content_61607f9223af60_96298916',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1633541952,
+      1 => 1633714066,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615ddf42e44778_86504760 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61607f9223af60_96298916 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -97,7 +97,17 @@ function content_615ddf42e44778_86504760 (Smarty_Internal_Template $_smarty_tpl)
                                     <?php }?>
                                 </div>
                             </div>
-                        </div>
+                            <?php ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1) {?>
+                                <button>
+                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
+/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
+"> Rimuovi Ricetta </a>
+                                </button>
+                            <?php }?>
+                            </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
                             <article>
