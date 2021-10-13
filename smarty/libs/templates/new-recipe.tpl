@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/new_recipe.css"/>
     <!--font awesome stylesheet-->
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/font-awesome.min.css"/>
-<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=RbME8I9KL0-y0r-PcLXYNoERQFAyHIT6r7W2X0tArVCYpjvCw6pvif2Wr7BiPT9H4WSYB7woJxWbaRlD_Ru7fc5mN5JJ1FXpwEEVVnFFKuTqFOe85_VlF11-Jo6qv3tL" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL3RlbXBsYXRlcy5tYWplc3RpY3RoZW1lcy5jb20vcmVjaXBlcHJlc3Mvc3VibWl0LXJlY2lwZS5odG1s"/></head>
 <body>
 <!--pre-loader-->
 <div class="preloader">

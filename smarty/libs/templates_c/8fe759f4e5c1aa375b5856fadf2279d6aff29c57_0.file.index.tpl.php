@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-07 00:40:32
+/* Smarty version 3.1.39, created on 2021-10-13 15:55:03
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615e25e0138cb1_00080153',
+  'unifunc' => 'content_6166e537919b42_70648584',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1633560031,
+      1 => 1634133260,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615e25e0138cb1_00080153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6166e537919b42_70648584 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -160,7 +160,7 @@ function content_615e25e0138cb1_00080153 (Smarty_Internal_Template $_smarty_tpl)
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[3]->getId();?>
 "><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getImmagine();?>
-" class="img-fluid rounded-start" alt="..."></a>
+" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -191,7 +191,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[4]->getId();?>
 "><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getImmagine();?>
-" class="img-fluid rounded-start" alt="..."></a>
+" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -222,7 +222,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[5]->getId();?>
 "><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[5]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[5]->getImmagine();?>
-" class="img-fluid rounded-start" alt="..."></a>
+" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -253,7 +253,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                                         <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette_home']->value[6]->getId();?>
 "><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value[6]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[6]->getImmagine();?>
-" class="img-fluid rounded-start" alt="..."></a>
+" width="400" height="200" class="img-fluid rounded-start" alt="..."></a>
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
@@ -326,7 +326,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                     <div class="card h-100 shadow border-0">
                                         <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['post_immagine']->value[$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['post_immagine']->value[$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
-" alt="..." />
+" width=600 height=350 alt="..." />
                                         <div class="card-body p-4">
                                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">Post</div>
                                             <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Forum/InfoPost/<?php echo $_smarty_tpl->tpl_vars['post_home']->value[$_smarty_tpl->tpl_vars['i']->value]->getId();?>
@@ -338,7 +338,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                             <div class="d-flex align-items-end justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                    <img class="rounded-circle me-3" src="<?php echo $_smarty_tpl->tpl_vars['Immagine_Autore1']->value;?>
+                                                    <img class="rounded-circle me-3" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini_autore']->value[$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini_autore']->value[$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
 " width="40" height="40" alt="..." />
                                                     <div class="small">
                                                         <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['post_author']->value[$_smarty_tpl->tpl_vars['i']->value]->getNome();?>

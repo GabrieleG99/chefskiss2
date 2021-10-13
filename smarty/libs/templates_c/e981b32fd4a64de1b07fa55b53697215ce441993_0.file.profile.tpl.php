@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-04 23:38:38
+/* Smarty version 3.1.39, created on 2021-10-13 16:01:38
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615b745eb864e6_54926973',
+  'unifunc' => 'content_6166e6c2a87528_92126536',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e981b32fd4a64de1b07fa55b53697215ce441993' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl',
-      1 => 1633383518,
+      1 => 1634133260,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615b745eb864e6_54926973 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6166e6c2a87528_92126536 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -100,7 +100,9 @@ function content_615b745eb864e6_54926973 (Smarty_Internal_Template $_smarty_tpl)
                     <!-- Column -->
                     <div class="card"> <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
                         <div class="card-body little-profile text-center">
-                            <div class="pro-img"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
+                            <div class="pro-img"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine_utente']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagine_utente']->value->getImmagine();?>
+" width=40 height=40 alt="user"></div>
                             <div class="ms-3">
                                 <h3 class="m-b-0"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
@@ -156,7 +158,9 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                                 <div class="d-flex align-items-end justify-content-between">
                                                     <div class="d-flex align-items-center">
-                                                        <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                        <img class="rounded-circle me-3" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini_autori']->value[$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini_autori']->value[$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
+" width=40 height=40 alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>

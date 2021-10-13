@@ -176,13 +176,13 @@ class CForum
                 $autore = $utente->getId();
                 $titolo = $_POST['title'];
                 $domanda = $_POST['content'];
-                $categoria = $_POST['recipe-type'];
+                $categoria = $_POST['post-type'];
                 $post = new EPost($autore, $titolo, $domanda, $categoria, date('Y-m-d'), $id_immagine);
+                var_dump($post);
                 $pm::insert($post);
                 $id_post = $post->getId();
                 header("Location: /chefskiss/Forum/InfoPost/$id_post");
             }
-            else; //errore caricamento immagine
         }
         else{
             header('Location: /chefskiss/Utente/login');
@@ -195,7 +195,6 @@ class CForum
         $max_size = 600000;
         $result = is_uploaded_file($_FILES['file']['tmp_name']);
         if (!$result){
-            //echo "Impossibile eseguire l'upload.";
             return false;
         } else {
             $size = $_FILES['file']['size'];
@@ -207,7 +206,7 @@ class CForum
             $nome = $_FILES['file']['name'];
             $immagine = file_get_contents($_FILES['file']['tmp_name']);
             $immagine = addslashes ($immagine);
-            $image = new EImmagine($nome, $size, $type, $immagine);
+            $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
             $pm::insertMedia($image, 'file');
             return $image->getId();
         }
