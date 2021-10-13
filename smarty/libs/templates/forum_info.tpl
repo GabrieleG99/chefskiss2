@@ -133,7 +133,15 @@
                                                 {if is_array($array[0])}
                                                     {for $i = 0; $i < sizeof($array[0]); $i++}
                                                         <div class="d-flex">
-                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=40 height=40 alt="..." /></div>
+                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=40 height=40 alt="..." />
+                                                                {if {$mod != null && $mod->getPrivilegi()>=2 }}
+                                                                    <button class="btn">
+                                                                        <i class="fa fa-trash"></i>
+                                                                        <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/{$array[0][$i]->getId()}/{$post->getId()}">Rimuovi</a>
+                                                                    </button>
+                                                                {else}
+                                                                {/if}
+                                                            </div>
                                                             <div class="ms-3">
                                                                 <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
                                                                 {$array[0][$i]->getTesto()} <div class="text-start text-muted">{$array[0][$i]->getData()}</div>
@@ -143,7 +151,15 @@
                                                     {/for}
                                                 {else}
                                                     <div class="d-flex">
-                                                        <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=40 height=40 alt="..." /></div>
+                                                        <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=40 height=40 alt="..." />
+                                                            {if {$mod != null && $mod->getPrivilegi()>=2 }}
+                                                                <button class="btn">
+                                                                    <i class="fa fa-trash"></i>
+                                                                    <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/{$array[0]->getId()}/{$post->getId()}">Rimuovi</a>
+                                                                </button>
+                                                            {else}
+                                                            {/if}
+                                                        </div>
                                                         <div class="ms-3">
                                                             <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
                                                             {$array[0]->getTesto()} <div class="text-start text-muted">{$array[0]->getData()}</div>

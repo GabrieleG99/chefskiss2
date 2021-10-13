@@ -70,11 +70,14 @@
                                     {/if}
                                 </div>
                             </div>
-                            {if {$mod->getPrivilegi() >=2 }}
+                            {if {$mod != null && $mod->getPrivilegi()>=2 }}
                                 <button>
                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Rimuovi Ricetta </a>
                                 </button>
+                            {else}
                             {/if}
+
+
                             </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
@@ -125,12 +128,23 @@
                                             <button class="rounded-1 border" type="submit">Invia</button>
                                         </form>
                                         {if $array}
+
                                             {if is_array($array)}
                                                 {if is_array($array[0])}
                                                     {for $i = 0; $i < sizeof($array[0]); $i++}
                                                         <div class="d-flex">
-                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=40 height=40 alt="..." /></div>
+                                                            <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2][$i]->getTipo()};base64,{$array[2][$i]->getImmagine()}" width=40 height=40 alt="..." />
+                                                                {if {$mod != null && $mod->getPrivilegi()>=2 }}
+                                                                    <button class="btn">
+                                                                        <i class="fa fa-trash"></i>
+                                                                        <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0][$i]->getId()}/{$ricetta->getId()}">Rimuovi</a>
+                                                                    </button>
+                                                                {else}
+                                                                {/if}
+                                                            </div>
+
                                                             <div class="ms-3">
+
                                                                 <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
                                                                 {$array[0][$i]->getCommento()} <div class="text-end d-flex">{$array[0][$i]->getData_pubblicazione()}</div>
                                                             </div>
@@ -138,10 +152,20 @@
                                                     {/for}
                                                 {else}
                                                 <div class="d-flex">
-                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=40 height=40 alt="..." /></div>
+                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$array[2]->getTipo()};base64,{$array[2]->getImmagine()}" width=40 height=40 alt="..." />
+                                                        {if {$mod != null && $mod->getPrivilegi()>=2 }}
+                                                            <button class="btn">
+                                                                <i class="fa fa-trash"></i>
+                                                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0]->getId()}">Rimuovi</a>
+                                                            </button>
+                                                        {else}
+                                                        {/if}
+                                                    </div>
                                                     <div class="ms-3">
                                                         <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
                                                         {$array[0]->getCommento()} <div class="text-end">{$array[0]->getData_pubblicazione()}</div>
+
+
                                                     </div>
                                                 </div>
                                                 {/if}

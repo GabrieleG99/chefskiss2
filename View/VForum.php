@@ -20,11 +20,12 @@ class VForum
         $this->smarty->display('forum.tpl');
     }
 
-    function showInfo(EPost $post, $user, $immagine,$array, $immagine_autore){
+    function showInfo(EPost $post, $user,$mod, $immagine,$array, $immagine_autore){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
         $domanda = explode('.', $post->getDomanda());
 
+        $this->smarty->assign('mod', $mod);
         $this->smarty->assign('utente', $user);
         $this->smarty->assign('post', $post);
         $this->smarty->assign('domanda', $domanda);

@@ -89,6 +89,7 @@ class CForum
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
         $session->setValue('id_post', $id);
+        $mod = unserialize($session->readValue('utente'));
         $post = $pm::load('FPost', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $post->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=',$post->getId_immagine()]));
@@ -101,15 +102,15 @@ class CForum
                 $immagini_autore_recensione[$i] = $pm::load('FImmagine', array(['id', '=', $autori_commenti[$i]->getid_immagine()]));
                 $array = array($commento_info, $autori_commenti, $immagini_autore_recensione);
             }
-            $view->showInfo($post, $autore, $immagine, $array, $immagini_autore);
+            $view->showInfo($post, $autore,$mod, $immagine, $array, $immagini_autore);
         } elseif ($commento != null){
             $commento_info = $commento;
             $autori_commenti = $pm::load('FUtente', array(['id', '=', $commento->getAutore()]));
             $immagini_autore_recensione = $pm::load('FImmagine', array(['id', '=', $autori_commenti->getid_immagine()]));
             $array = array($commento_info, $autori_commenti, $immagini_autore_recensione);
-            $view->showInfo($post, $autore, $immagine, $array, $immagini_autore);
+            $view->showInfo($post, $autore,$mod, $immagine, $array, $immagini_autore);
         }
-        else $view->showInfo($post, $autore, $immagine, $array=null, $immagini_autore);
+        else $view->showInfo($post, $autore,$mod, $immagine, $array=null, $immagini_autore);
     }
 
     static function InserisciCommento(){

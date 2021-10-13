@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-08 19:27:46
+/* Smarty version 3.1.39, created on 2021-10-11 19:00:23
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61607f9223af60_96298916',
+  'unifunc' => 'content_61646da78ea9f0_47445509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1633714066,
+      1 => 1633971623,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61607f9223af60_96298916 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61646da78ea9f0_47445509 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -98,7 +98,7 @@ function content_61607f9223af60_96298916 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                             </div>
                             <?php ob_start();
-echo $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
 $_prefixVariable1 = ob_get_clean();
 if ($_prefixVariable1) {?>
                                 <button>
@@ -106,7 +106,10 @@ if ($_prefixVariable1) {?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
 "> Rimuovi Ricetta </a>
                                 </button>
+                            <?php } else { ?>
                             <?php }?>
+
+
                             </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
@@ -185,6 +188,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                             <button class="rounded-1 border" type="submit">Invia</button>
                                         </form>
                                         <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
+
                                             <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
                                                 <?php if (is_array($_smarty_tpl->tpl_vars['array']->value[0])) {?>
                                                     <?php
@@ -196,8 +200,23 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                                         <div class="d-flex">
                                                             <div class="flex-shrink-0"><img class="rounded-circle" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2][$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
-" width=40 height=40 alt="..." /></div>
+" width=40 height=40 alt="..." />
+                                                                <?php ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2) {?>
+                                                                    <button class="btn">
+                                                                        <i class="fa fa-trash"></i>
+                                                                        <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/<?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
+">Rimuovi</a>
+                                                                    </button>
+                                                                <?php } else { ?>
+                                                                <?php }?>
+                                                            </div>
+
                                                             <div class="ms-3">
+
                                                                 <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
 </div>
@@ -213,7 +232,19 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0"><img class="rounded-circle" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[2]->getImmagine();?>
-" width=40 height=40 alt="..." /></div>
+" width=40 height=40 alt="..." />
+                                                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
+$_prefixVariable3 = ob_get_clean();
+if ($_prefixVariable3) {?>
+                                                            <button class="btn">
+                                                                <i class="fa fa-trash"></i>
+                                                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/<?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getId();?>
+">Rimuovi</a>
+                                                            </button>
+                                                        <?php } else { ?>
+                                                        <?php }?>
+                                                    </div>
                                                     <div class="ms-3">
                                                         <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
@@ -221,6 +252,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                                         <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getCommento();?>
  <div class="text-end"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_pubblicazione();?>
 </div>
+
+
                                                     </div>
                                                 </div>
                                                 <?php }?>
