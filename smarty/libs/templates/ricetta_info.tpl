@@ -156,7 +156,7 @@
                                                         {if {$mod != null && $mod->getPrivilegi()>=2 }}
                                                             <button class="btn">
                                                                 <i class="fa fa-trash"></i>
-                                                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0]->getId()}">Rimuovi</a>
+                                                                <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0]->getId()}/{$ricetta->getId()}">Rimuovi</a>
                                                             </button>
                                                         {else}
                                                         {/if}
