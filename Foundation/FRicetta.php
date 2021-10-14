@@ -140,14 +140,16 @@ class FRicetta extends Fdb {
         if($recensione != null){
             if(is_array($recensione)){
                 for($i = 0; $i < sizeof($recensione); $i++){
-                    if($recensione[$i]->getValutazione() != 0)$voti[$i] = $recensione[$i]->getValutazione();
+                    if($recensione[$i]->getValutazione() != 0){
+                        $voti[] = $recensione[$i]->getValutazione();
+                    }
                 }
                 $valutazione = array_sum($voti)/sizeof($voti);
-                $ricetta->setValutazione(array_sum($voti)/sizeof($voti));
+                $ricetta->setValutazione((int)$valutazione);
             }
             else {
                 $valutazione = $recensione->getValutazione();
-                $ricetta->setValutazione($recensione->getValutazione());
+                $ricetta->setValutazione((int)$recensione->getValutazione());
             }
         }
         return $valutazione;

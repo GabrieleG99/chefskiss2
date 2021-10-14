@@ -102,10 +102,17 @@ class CUtente
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
             if($ricetta != null) {
-                for($i = 0; $i < sizeof($ricetta); $i++){
-                    $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
-                    $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
-                    $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
+                if(is_array($ricetta)){
+                    for($i = 0; $i < sizeof($ricetta); $i++){
+                        $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
+                        $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
+                        $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
+                    }
+                }
+                else{
+                    $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
+                    $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
+                    $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
                 }
                 $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
             }
