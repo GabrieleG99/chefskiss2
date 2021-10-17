@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 23:53:50
+/* Smarty version 3.1.39, created on 2021-10-17 12:34:24
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6167556eb0bc57_89582426',
+  'unifunc' => 'content_616bfc308fe990_35385940',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1634162030,
+      1 => 1634466864,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6167556eb0bc57_89582426 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616bfc308fe990_35385940 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -114,7 +114,6 @@ if ($_prefixVariable2) {?>
                                 <button>
                                 <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
-/<?php echo $_smarty_tpl->tpl_vars['utente']->value->getId();?>
 "> Cancella Ricetta </a>
                                 </button>
                                 <?php } else { ?>

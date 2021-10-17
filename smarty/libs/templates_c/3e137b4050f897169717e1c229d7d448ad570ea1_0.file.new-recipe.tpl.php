@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 16:46:30
+/* Smarty version 3.1.39, created on 2021-10-17 12:49:03
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6166f1469c1ef8_77878711',
+  'unifunc' => 'content_616bff9fa56141_36986274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e137b4050f897169717e1c229d7d448ad570ea1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-recipe.tpl',
-      1 => 1634135453,
+      1 => 1634467687,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6166f1469c1ef8_77878711 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616bff9fa56141_36986274 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +72,7 @@ function content_6166f1469c1ef8_77878711 (Smarty_Internal_Template $_smarty_tpl)
                     <br/>
                     <label for="recipe-content">Come hai realizzato la tua ricetta?</label>
                     <textarea name="content" id="recipe-content" cols="30" rows="10" required></textarea>
-                    <label for="upload-image">Dai un volto al tuo piatto</label>
+                    <label for="upload-image">Fai una foto al tuo piatto</label>
                     <input type="file" name="file" id="upload-image" required/>
                     <fieldset class="ingredient-set">
                         <label for="ingredients">Inserisci gli ingredienti usati</label>

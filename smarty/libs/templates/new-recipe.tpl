@@ -49,7 +49,7 @@
                     <br/>
                     <label for="recipe-content">Come hai realizzato la tua ricetta?</label>
                     <textarea name="content" id="recipe-content" cols="30" rows="10" required></textarea>
-                    <label for="upload-image">Dai un volto al tuo piatto</label>
+                    <label for="upload-image">Fai una foto al tuo piatto</label>
                     <input type="file" name="file" id="upload-image" required/>
                     <fieldset class="ingredient-set">
                         <label for="ingredients">Inserisci gli ingredienti usati</label>

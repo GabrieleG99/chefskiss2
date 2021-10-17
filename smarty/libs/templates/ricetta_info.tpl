@@ -76,7 +76,7 @@
                                 </button>
                             {elseif {$mod !=null && $mod->getId() == $ricetta->getAutore()}}
                                 <button>
-                                <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}/{$utente->getId()}"> Cancella Ricetta </a>
+                                <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Cancella Ricetta </a>
                                 </button>
                                 {else}
                             {/if}

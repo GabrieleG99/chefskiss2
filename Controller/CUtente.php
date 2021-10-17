@@ -120,12 +120,6 @@ class CUtente
                     $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
                     $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
 
-            if ($ricetta != null) {
-                for ($i = 0; $i < sizeof($ricetta); $i++) {
-                    $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
-                    $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
-                    $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
-
                 }
                 $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
             } else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null);
@@ -135,24 +129,27 @@ class CUtente
     }
 
 
-    static function cancellaRicetta($id, $id_imm ,$id_autore)
+    static function cancellaRicetta($id, $id_imm)
     {
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
+        if ($utente != null) {
+            $ricetta = $pm::load('FRicetta', array(['id', '=', $id ]));
 
-        if ($utente != null && $id_autore == $utente->getId() ) {
-            $pm::delete('id', $id, 'FRicetta');
-            $pm::delete('id', $id_imm, 'Fimmagine');
+            if ($ricetta->getAutore() == $utente->getId()) {
+                $pm::delete('id', $id, 'FRicetta');
+                $pm::delete('id', $id_imm, 'Fimmagine');
 
-            header("Location: /chefskiss/Ricette/EsploraLeRicette");
+                header("Location: /chefskiss/Ricette/EsploraLeRicette");
+            } else {
+                header("Location: /chefskiss/Ricette/EsploraLeRicette");
+            }
         } else {
             header("Location: /chefskiss/Ricette/EsploraLeRicette");
+
         }
-
-
     }
-
 
     static function modificaProfilo(){
         $view = new VUtente();
