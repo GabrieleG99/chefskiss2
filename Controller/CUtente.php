@@ -116,9 +116,9 @@ class CUtente
                     }
                 }
                 else{
-                    $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
-                    $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
-                    $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
+                    $immagine[] = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
+                    $autori_ricette[] = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
+                    $immagini_autori[] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[0]->getid_immagine()]));
 
                 }
                 $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
