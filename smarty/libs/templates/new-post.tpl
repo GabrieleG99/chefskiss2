@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="recipe-submit-btn">Pubblica la tua ricetta</button>
+                        <button type="submit" class="recipe-submit-btn">Pubblica la tua domanda</button>
                     </div>
                 </form>
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 16:17:17
+/* Smarty version 3.1.39, created on 2021-10-13 16:46:30
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6166ea6d8a3133_43192705',
+  'unifunc' => 'content_6166f1469c1ef8_77878711',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e137b4050f897169717e1c229d7d448ad570ea1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-recipe.tpl',
-      1 => 1634134634,
+      1 => 1634135453,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6166ea6d8a3133_43192705 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6166f1469c1ef8_77878711 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -45,9 +45,6 @@ function content_6166ea6d8a3133_43192705 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/new_recipe.css"/>
     <!--font awesome stylesheet-->
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/font-awesome.min.css"/>
-<!--<?php echo '<script'; ?>
- type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=RbME8I9KL0-y0r-PcLXYNoERQFAyHIT6r7W2X0tArVCYpjvCw6pvif2Wr7BiPT9H4WSYB7woJxWbaRlD_Ru7fc5mN5JJ1FXpwEEVVnFFKuTqFOe85_VlF11-Jo6qv3tL" charset="UTF-8"><?php echo '</script'; ?>
-><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL3RlbXBsYXRlcy5tYWplc3RpY3RoZW1lcy5jb20vcmVjaXBlcHJlc3Mvc3VibWl0LXJlY2lwZS5odG1s"/></head>
 <body>
 <!--pre-loader-->
 <div class="preloader">

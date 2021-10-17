@@ -71,6 +71,12 @@
                                     {/if}
                                 </div>
                             </div>
+                            {if {$mod != null && $mod->getPrivilegi()>=2 }}
+                                <button>
+                                    <a class="nav-link" href="/chefskiss/Moderatore/rimuoviPost/{$post->getId()}/{$post->getId_immagine()}"> Rimuovi Post </a>
+                                </button>
+                            {else}
+                            {/if}
                         </div>
                         <div class="col-lg-9">
                             <!-- Post content-->

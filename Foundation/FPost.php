@@ -87,10 +87,9 @@ class FPost extends Fdb{
         else return false;
     }
 
-    public static function delete($field, $id, $id_ricetta){
+    public static function delete($field, $id){
         $db = parent::getInstance();
-        $result = $db->deleteDB(self::getClass(), $field, $id);
-        $db->deleteDB(FImmagine::getClass(), $field, $id_ricetta);
+        $result = $db->deleteDB(self::getClass(), $field, $id);;
         if ($result) return true;
         else return false;
     }

@@ -3,42 +3,42 @@
 class CUtente
 {
 
-    static function login (){
-        if($_SERVER['REQUEST_METHOD']=="GET"){
-            if(static::isLogged()) {
+    static function login()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "GET") {
+            if (static::isLogged()) {
                 $pm = new FPersistentManager();
                 $view = new VUtente();
                 //$result = $pm->loadTrasporti();
                 //$view->loginOk($result);
                 $view->loginOk();
-            }
-            else{
-                $view=new VUtente();
+            } else {
+                $view = new VUtente();
                 $view->showFormLogin();
             }
-        }elseif ($_SERVER['REQUEST_METHOD']=="POST")
+        } elseif ($_SERVER['REQUEST_METHOD'] == "POST")
             static::verifica();
     }
 
-    static function verifica(){
+    static function verifica()
+    {
         $view = new VUtente();
         $pm = USingleton::getInstance('FPersistentManager');
         $utente = $pm->loadLogin($_POST['email'], $_POST['password']);
         //var_dump($utente);
-        if ($utente != null && $utente->getBan() != true){
-            if (session_status() == PHP_SESSION_NONE){
+        if ($utente != null && $utente->getBan() != true) {
+            if (session_status() == PHP_SESSION_NONE) {
                 $session = USingleton::getInstance('USession');
                 $savableData = serialize($utente);
                 $privilegi = $utente->getPrivilegi();
                 $session->setValue('privilegi', $privilegi);
                 $session->setValue('utente', $savableData);
-                if ($privilegi == 1){ //accesso con privilegi base (utente)
+                if ($privilegi == 1) { //accesso con privilegi base (utente)
                     if (isset($_COOKIE['home']))
                         setcookie('home', null, time() - 900, '/');
                     else
                         header('Location: /chefskiss/');
-                }
-                else { //accesso con privilegi maggiori (moderatore o amministratore)
+                } else { //accesso con privilegi maggiori (moderatore o amministratore)
                     header('Location: /chefskiss/Admin/homepage');
                 }
             }
@@ -47,31 +47,34 @@ class CUtente
         }
     }
 
-    static function isLogged(){
+    static function isLogged()
+    {
         $check = false;
-        if (isset($_COOKIE['PHPSESSID'])){
-            if (session_status() == PHP_SESSION_NONE){
+        if (isset($_COOKIE['PHPSESSID'])) {
+            if (session_status() == PHP_SESSION_NONE) {
                 USingleton::getInstance('USession');
             }
         }
-        if (isset($_SESSION['utente'])){
+        if (isset($_SESSION['utente'])) {
             $check = true;
         }
         return $check;
     }
 
-    static function registrazione(){
-        if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+    static function registrazione()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $view = new VUtente();
-            if (self::isLogged()){
+            if (self::isLogged()) {
                 $view->loginOk();
             }
-        } else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             self::verify_registration();
         }
     }
 
-    static function logout(){
+    static function logout()
+    {
         $session = USingleton::getInstance('USession');
         $session->unsetSession();
         $session->destroySession();
@@ -79,11 +82,12 @@ class CUtente
         header('Location: /ChefsKiss/chefskiss/');
     }
 
-    static function verify_registration(){
+    static function verify_registration()
+    {
         $pm = USingleton::getInstance('FPersistentManager');
         $verify_email = $pm::exist('email', $_POST['email'], 'FUtente');
         $view = new VUtente();
-        if ($verify_email){
+        if ($verify_email) {
             $view->registrationError('email');
         } else {
             $nome_utente = explode(' ', $_POST['username']);
@@ -93,14 +97,16 @@ class CUtente
         }
     }
 
-    static function profilo(){
+    static function profilo()
+    {
         $view = new VUtente();
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
         $pm = USingleton::getInstance('FPersistentManager');
-        if(CUtente::isLogged()){
+        if (CUtente::isLogged()) {
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
+
             if($ricetta != null) {
                 if(is_array($ricetta)){
                     for($i = 0; $i < sizeof($ricetta); $i++){
@@ -113,14 +119,37 @@ class CUtente
                     $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
                     $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
                     $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
+
+            if ($ricetta != null) {
+                for ($i = 0; $i < sizeof($ricetta); $i++) {
+                    $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
+                    $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
+                    $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
+
                 }
                 $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
-            }
-            else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null);
-        }
-        else{
+            } else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null);
+        } else {
             header('Location: /chefskiss/Utente/login');
         }
+    }
+
+    static function cancellaRicetta($id, $id_imm ,$id_autore)
+    {
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+
+        if ($utente != null && $id_autore == $utente->getId() ) {
+            $pm::delete('id', $id, 'FRicetta');
+            $pm::delete('id', $id_imm, 'Fimmagine');
+
+            header("Location: /chefskiss/Ricette/EsploraLeRicette");
+        } else {
+            header("Location: /chefskiss/Ricette/EsploraLeRicette");
+        }
+
+
     }
 
 }

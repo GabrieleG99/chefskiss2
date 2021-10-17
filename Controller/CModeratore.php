@@ -32,7 +32,19 @@ class CModeratore
 
 
     }
-    static function rimuoviPost(){
+    static function rimuoviPost($id,$id_imm){
+
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $mod = unserialize($session->readValue('utente'));
+        if ($mod != null && $mod->getPrivilegi() >= 2) {
+            $pm::delete('id', $id, 'FPost');
+            $pm::delete('id', $id_imm, 'Fimmagine');
+            header("Location: /chefskiss/Forum/esploraLeDomande");
+        } else {
+            header("Location: /chefskiss/Forum/esploraLeDomande");
+        }
+
 
 
     }
