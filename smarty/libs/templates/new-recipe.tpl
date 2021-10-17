@@ -84,8 +84,9 @@
                             </select>
                         </div>
                         <div class="col-sm-6">
-                            <label for="servings">Numero Dosi</label>
-                            <input type="text" name="servings" id="servings" required/>
+                            <label for="servings">Numero Dosi </label>
+                            <br>
+                            <input type="number" min="1" placeholder="1" name="servings" id="servings" required/>
                         </div>
                     </div>
                     <div class="text-center">

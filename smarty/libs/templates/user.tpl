@@ -75,7 +75,7 @@
 
                         <form name="form" action="/chefskiss/Admin/bannaUtente/{$utente->getId()}" method="post">
                             <p>Banna utente fino al</p>
-                            <input type="date" name="date" value="">
+                            <input type="date"  name="date" value="">
                             <button type="submit">Invia</button>
                         </form>
 
@@ -92,6 +92,7 @@
                 </div>
                 {if $utente->getBan() == true}
                     <p class="text-muted">Utente bannato fino al {$utente->getDataFineBan()}</p>
+                    <a class="nav-link" href="/chefskiss/Admin/rimuoviBan/{$utente->getId()}"> Rimuovi Ban</a>
                 {/if}
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-02 16:03:22
+/* Smarty version 3.1.39, created on 2021-10-17 16:34:52
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615866aa67ed94_73193435',
+  'unifunc' => 'content_616c348c27eed2_77217261',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '47ac6dd68956d32edb194613ef7392c6501f7288' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\user.tpl',
-      1 => 1633183401,
+      1 => 1634481165,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615866aa67ed94_73193435 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616c348c27eed2_77217261 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -102,7 +102,7 @@ function content_615866aa67ed94_73193435 (Smarty_Internal_Template $_smarty_tpl)
                         <form name="form" action="/chefskiss/Admin/bannaUtente/<?php echo $_smarty_tpl->tpl_vars['utente']->value->getId();?>
 " method="post">
                             <p>Banna utente fino al</p>
-                            <input type="date" name="date" value="">
+                            <input type="date"  name="date" value="">
                             <button type="submit">Invia</button>
                         </form>
 
@@ -121,6 +121,8 @@ function content_615866aa67ed94_73193435 (Smarty_Internal_Template $_smarty_tpl)
                 <?php if ($_smarty_tpl->tpl_vars['utente']->value->getBan() == true) {?>
                     <p class="text-muted">Utente bannato fino al <?php echo $_smarty_tpl->tpl_vars['utente']->value->getDataFineBan();?>
 </p>
+                    <a class="nav-link" href="/chefskiss/Admin/rimuoviBan/<?php echo $_smarty_tpl->tpl_vars['utente']->value->getId();?>
+"> Rimuovi Ban</a>
                 <?php }?>
 
 

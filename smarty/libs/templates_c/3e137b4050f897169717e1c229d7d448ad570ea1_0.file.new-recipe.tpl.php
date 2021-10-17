@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-17 12:49:03
+/* Smarty version 3.1.39, created on 2021-10-17 13:19:00
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616bff9fa56141_36986274',
+  'unifunc' => 'content_616c06a473ca34_29148219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e137b4050f897169717e1c229d7d448ad570ea1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-recipe.tpl',
-      1 => 1634467687,
+      1 => 1634469522,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616bff9fa56141_36986274 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616c06a473ca34_29148219 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -107,8 +107,9 @@ function content_616bff9fa56141_36986274 (Smarty_Internal_Template $_smarty_tpl)
                             </select>
                         </div>
                         <div class="col-sm-6">
-                            <label for="servings">Numero Dosi</label>
-                            <input type="text" name="servings" id="servings" required/>
+                            <label for="servings">Numero Dosi </label>
+                            <br>
+                            <input type="number" min="1" placeholder="1" name="servings" id="servings" required/>
                         </div>
                     </div>
                     <div class="text-center">
