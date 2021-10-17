@@ -95,7 +95,11 @@
                             </button>
                             <div class="ms-3">
                                 {if $ricette != null}
-                                    <h3 class="m-b-0 font-light">{sizeof($ricette)}</h3><small>Ricette Pubblicate</small>
+                                    {if is_array($ricette)}
+                                        <h3 class="m-b-0 font-light">{sizeof($ricette)}</h3><small>Ricette Pubblicate</small>
+                                    {else}
+                                        <h3 class="m-b-0 font-light">1</h3><small>Ricetta Pubblicata</small>
+                                    {/if}
                                 {/if}
                             </div>
                         </div>
@@ -115,7 +119,7 @@
                                             <img class="card-img-top" src="data:{$immagini[$i]->getTipo()};base64,{$immagini[$i]->getImmagine()}" width=600 height=350 alt="..." />
                                             <div class="card-body p-4">
                                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$ricette[$i]->getCategoria()}</div>
-                                                <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/{$ricette[$i]->getId()}"><div class="h5 card-title mb-3">{$ricette[$i]->getNomeRicetta()}</div></a>
+                                                <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Ricette/InfoRicetta/{$ricette[$i]->getId()}"><div class="h5 card-title mb-3">{$ricette[$i]->getNomeRicetta()}</div></a>
                                                 <p class="card-text mb-0">{substr($ricette[$i]->getProcedimento(), 0, 100)}...</p>
                                             </div>
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -132,6 +136,28 @@
                                         </div>
                                     </div>
                                 {/for}
+                                {else}
+                                    <div class="col-lg-4 mb-5">
+                                        <div class="card h-100 shadow border-0">
+                                            <img class="card-img-top" src="data:{$immagini->getTipo()};base64,{$immagini->getImmagine()}" width=600 height=350 alt="..." />
+                                            <div class="card-body p-4">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{$ricette->getCategoria()}</div>
+                                                <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Ricette/InfoRicetta/{$ricette->getId()}"><div class="h5 card-title mb-3">{$ricette->getNomeRicetta()}</div></a>
+                                                <p class="card-text mb-0">{substr($ricette->getProcedimento(), 0, 100)}...</p>
+                                            </div>
+                                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                                <div class="d-flex align-items-end justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <img class="rounded-circle me-3" src="data:{$immagini_autori->getTipo()};base64,{$immagini_autori->getImmagine()}" width=40 height=40 alt="..." />
+                                                        <div class="small">
+                                                            <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
+                                                            <div class="text-muted">{$ricette->getData_()} &middot; Per {$ricette->getDosiPersone()} persone</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             {/if}
                             {else}
                             <h2> L'utente non ha ancora pubblicato ricette</h2>

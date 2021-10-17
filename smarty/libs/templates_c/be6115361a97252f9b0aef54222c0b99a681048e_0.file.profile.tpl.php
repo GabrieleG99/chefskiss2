@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-16 19:07:05
+/* Smarty version 3.1.39, created on 2021-10-17 16:11:25
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616b06b9f41558_40371315',
+  'unifunc' => 'content_616c2f0d74f073_37515897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6115361a97252f9b0aef54222c0b99a681048e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\profile.tpl',
-      1 => 1634404022,
+      1 => 1634479881,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616b06b9f41558_40371315 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616c2f0d74f073_37515897 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -122,8 +122,12 @@ function content_616b06b9f41558_40371315 (Smarty_Internal_Template $_smarty_tpl)
                             </button>
                             <div class="ms-3">
                                 <?php if ($_smarty_tpl->tpl_vars['ricette']->value != null) {?>
-                                    <h3 class="m-b-0 font-light"><?php echo sizeof($_smarty_tpl->tpl_vars['ricette']->value);?>
+                                    <?php if (is_array($_smarty_tpl->tpl_vars['ricette']->value)) {?>
+                                        <h3 class="m-b-0 font-light"><?php echo sizeof($_smarty_tpl->tpl_vars['ricette']->value);?>
 </h3><small>Ricette Pubblicate</small>
+                                    <?php } else { ?>
+                                        <h3 class="m-b-0 font-light">1</h3><small>Ricetta Pubblicata</small>
+                                    <?php }?>
                                 <?php }?>
                             </div>
                         </div>
@@ -180,6 +184,40 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                 <?php }
 }
 ?>
+                                <?php } else { ?>
+                                    <div class="col-lg-4 mb-5">
+                                        <div class="card h-100 shadow border-0">
+                                            <img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value->getImmagine();?>
+" width=600 height=350 alt="..." />
+                                            <div class="card-body p-4">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getCategoria();?>
+</div>
+                                                <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value->getId();?>
+"><div class="h5 card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getNomeRicetta();?>
+</div></a>
+                                                <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value->getProcedimento(),0,100);?>
+...</p>
+                                            </div>
+                                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                                <div class="d-flex align-items-end justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <img class="rounded-circle me-3" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini_autori']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagini_autori']->value->getImmagine();?>
+" width=40 height=40 alt="..." />
+                                                        <div class="small">
+                                                            <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+ <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
+</div>
+                                                            <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getData_();?>
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value->getDosiPersone();?>
+ persone</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             <?php }?>
                             <?php } else { ?>
                             <h2> L'utente non ha ancora pubblicato ricette</h2>
