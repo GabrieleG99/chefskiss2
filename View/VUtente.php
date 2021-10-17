@@ -47,4 +47,12 @@ class VUtente
         $this->smarty->display('profile.tpl');
     }
 
+    public function modificaProfilo($utente, $immagine_utente){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+
+        $this->smarty->assign('utente', $utente);
+        $this->smarty->assign('immagine_utente', $immagine_utente);
+        $this->smarty->display('edit-profile.tpl');
+    }
+
 }

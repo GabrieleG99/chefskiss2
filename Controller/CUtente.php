@@ -134,6 +134,7 @@ class CUtente
         }
     }
 
+
     static function cancellaRicetta($id, $id_imm ,$id_autore)
     {
         $pm = USingleton::getInstance('FPersistentManager');
@@ -150,6 +151,77 @@ class CUtente
         }
 
 
+    }
+
+
+    static function modificaProfilo(){
+        $view = new VUtente();
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        $pm = USingleton::getInstance('FPersistentManager');
+        if(CUtente::isLogged()){
+            $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
+            $view->modificaProfilo($utente, $immagini_utente);
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
+    static function confermaModifiche(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        if(CUtente::isLogged()){
+            $id_immagine = self::upload();
+            $utente = unserialize($session->readValue('utente'));
+            $nome_utente = $_POST['nome'];
+            $cognome_utente = $_POST['cognome'];
+            $email_utente = $_POST['email'];
+            $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
+            $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
+            $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
+            $utente->setEmail($email_utente);
+            $utente->setNome($nome_utente);
+            $utente->setCognome($cognome_utente);
+            $session->destroyValue('utente');
+            if($id_immagine!=false){
+                $pm::update('id_immagine', $id_immagine, 'id', $utente->getId(), 'FUtente');
+                $utente->setid_immagine($id_immagine);
+                $session->setValue('utente', serialize($utente));
+                header("Location: /chefskiss/Utente/profilo");
+            }
+            else{
+                $session->setValue('utente', serialize($utente));
+                header("Location: /chefskiss/Utente/profilo");
+            }
+        }
+        else{
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
+    static function upload(){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $result = false;
+        $max_size = 600000;
+        $result = is_uploaded_file($_FILES['file']['tmp_name']);
+        if (!$result){
+          //echo "Impossibile eseguire l'upload.";
+          return false;
+        } else {
+          $size = $_FILES['file']['size'];
+        if ($size > $max_size){
+            //echo "Il file è troppo grande.";
+            return false;
+        }
+        $type = $_FILES['file']['type'];
+        $nome = $_FILES['file']['name'];
+        $immagine = file_get_contents($_FILES['file']['tmp_name']);
+        $immagine = addslashes ($immagine);
+        $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
+        $pm::insertMedia($image, 'file');
+        return $image->getId();
+        }
     }
 
 }

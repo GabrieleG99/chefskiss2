@@ -90,6 +90,9 @@
                                     <p class="text-muted">Amministratore</p>
                                 {/if}
                             </div>
+                            <button>
+                                <a class="nav-link" href="/chefskiss/Utente/modificaProfilo"> Modifica Profilo </a>
+                            </button>
                             <div class="ms-3">
                                 {if $ricette != null}
                                     <h3 class="m-b-0 font-light">{sizeof($ricette)}</h3><small>Ricette Pubblicate</small>
