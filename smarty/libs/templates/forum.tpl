@@ -225,16 +225,16 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

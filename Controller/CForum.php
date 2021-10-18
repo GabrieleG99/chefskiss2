@@ -134,7 +134,19 @@ class CForum
         $view = new VForum();
         if($categoria!=null){
             $post = $pm::load('FPost', array(['categoria', '=', $categoria]));
-            self::esploraLeDomande($index=null, $post);
+            if (is_array($post)) {
+                for ($i = 0; $i < sizeof($post); $i++) {
+                    $array[$i]['titolo'] = $post[$i]->getTitolo();
+                    $array[$i]['id'] = $post[$i]->getId();
+                }
+            } else {
+                $array['titolo']  = $post->getTitolo();
+                $array['id'] = $post->getId();
+            }
+            $data = serialize($array);
+            setcookie('titoli_ricerca', $data);
+            setcookie('searchOn', 1);
+            header('Location: /chefskiss/Forum/esploraLeDomande/cerca');
         }
         else{
             $j = 0;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-04 23:40:59
+/* Smarty version 3.1.39, created on 2021-10-18 23:43:01
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615b74eb04a1f1_00909898',
+  'unifunc' => 'content_616dea6552aed2_26390517',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2bb3a53173060b218b340c019eda9d8eaa3ec93b' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl',
-      1 => 1633383518,
+      1 => 1634593362,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615b74eb04a1f1_00909898 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616dea6552aed2_26390517 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -52,10 +52,10 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
                             <li class="nav-item text-light">
-                                <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
+                                <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta"> Nuova Ricetta</a>
                             </li>
                             <li class="nav-item text-light">
-                                <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda">Nuova Domanda</a>
+                                <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda"> Nuova Domanda</a>
                             </li>
                             <li class="nav-item text-light">
                                 <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
@@ -322,16 +322,16 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>
