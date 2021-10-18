@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-30 19:52:42
+/* Smarty version 3.1.39, created on 2021-10-14 16:38:47
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6155f96a38d1d0_72823343',
+  'unifunc' => 'content_616840f71f1e45_87222290',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1633022181,
+      1 => 1633531870,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6155f96a38d1d0_72823343 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616840f71f1e45_87222290 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -52,6 +52,9 @@ function content_6155f96a38d1d0_72823343 (Smarty_Internal_Template $_smarty_tpl)
                         <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Ricette/nuovaRicetta">Nuova Ricetta</a>
                         </li>
+                            <li class="nav-item text-light">
+                                <a class="nav-link" href="/chefskiss/Forum/nuovaDomanda">Nuova Domanda</a>
+                            </li>
                         <li class="nav-item text-light">
                             <a class="nav-link" href="/chefskiss/Utente/profilo">Profilo</a>
                         </li>
@@ -230,47 +233,103 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
-                            <?php if ($_smarty_tpl->tpl_vars['index']->value == 1) {?>
-                                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
-                                <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+                            <?php if ($_smarty_tpl->tpl_vars['searchMod']->value == 'searchOff') {?>
+                                <?php if ($_smarty_tpl->tpl_vars['index']->value == 1) {?>
+                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value;?>
 </a></li>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+1 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
 </a></li>
-                                <?php if ($_smarty_tpl->tpl_vars['index']->value+2 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
-                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value+2;?>
+                                    <?php }?>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+2 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value+2;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value+2;?>
 </a></li>
-                                <?php }?>
-                            <?php } else { ?>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
+                                    <?php }?>
+                                <?php } else { ?>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
 " tabindex="-1" aria-disabled="true">Back</a></li>
-                                <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
+                                    <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
 </a></li>
-                                <li class="page-item active"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+                                    <li class="page-item active"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value;?>
 </a></li>
-                                <?php if ($_smarty_tpl->tpl_vars['index']->value+1 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
-                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+1 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
 "><?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
 </a></li>
+                                    <?php }?>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['num_pagine']->value <= $_smarty_tpl->tpl_vars['index']->value+1 && $_smarty_tpl->tpl_vars['num_pagine']->value != $_smarty_tpl->tpl_vars['index']->value) {?>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+</a></li>
+                                <?php } elseif ($_smarty_tpl->tpl_vars['index']->value < $_smarty_tpl->tpl_vars['num_pagine']->value-1) {?>
+                                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+</a></li>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['num_pagine']->value >= $_smarty_tpl->tpl_vars['index']->value+1) {?>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+">Next</a></li>
+                                <?php } else { ?>
+                                    <li class="page-item disabled"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette//<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+">Next</a></li>
+                                <?php }?>
+                                <?php } else { ?>
+                                <?php if ($_smarty_tpl->tpl_vars['index']->value == 1) {?>
+                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+</a></li>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+1 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+</a></li>
+                                    <?php }?>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+2 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value+2;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value+2;?>
+</a></li>
+                                    <?php }?>
+                                <?php } else { ?>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
+" tabindex="-1" aria-disabled="true">Back</a></li>
+                                    <li class="page-item" aria-current="page"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value-1;?>
+</a></li>
+                                    <li class="page-item active"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+</a></li>
+                                    <?php if ($_smarty_tpl->tpl_vars['index']->value+1 < $_smarty_tpl->tpl_vars['num_pagine']->value) {?>
+                                        <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+</a></li>
+                                    <?php }?>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['num_pagine']->value <= $_smarty_tpl->tpl_vars['index']->value+1 && $_smarty_tpl->tpl_vars['num_pagine']->value != $_smarty_tpl->tpl_vars['index']->value) {?>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+</a></li>
+                                <?php } elseif ($_smarty_tpl->tpl_vars['index']->value < $_smarty_tpl->tpl_vars['num_pagine']->value-1) {?>
+                                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
+</a></li>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['num_pagine']->value >= $_smarty_tpl->tpl_vars['index']->value+1) {?>
+                                <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+">Next</a></li>
+                                    <?php } else { ?>
+                                    <li class="page-item disabled"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/cerca/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
+">Next</a></li>
                                 <?php }?>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['num_pagine']->value <= $_smarty_tpl->tpl_vars['index']->value+1 && $_smarty_tpl->tpl_vars['num_pagine']->value != $_smarty_tpl->tpl_vars['index']->value) {?>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
-</a></li>
-                            <?php } elseif ($_smarty_tpl->tpl_vars['index']->value < $_smarty_tpl->tpl_vars['num_pagine']->value-1) {?>
-                                <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                                <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['num_pagine']->value;?>
-</a></li>
-                            <?php }?>
-
-                            <li class="page-item"><a class="page-link" href="/chefskiss/Ricette/EsploraLeRicette/<?php echo $_smarty_tpl->tpl_vars['index']->value+1;?>
-">Next</a></li>
                         </ul>
                     </nav>
                 </div>

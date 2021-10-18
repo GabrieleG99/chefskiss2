@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-06 16:59:55
+/* Smarty version 3.1.39, created on 2021-10-14 16:38:43
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615db9ebd41ef4_91014726',
+  'unifunc' => 'content_616840f3e9f583_50412145',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8e6fb365c4d336f6379141831bf9302416eaaea' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricette.tpl',
-      1 => 1633383658,
+      1 => 1634133260,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_615db9ebd41ef4_91014726 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616840f3e9f583_50412145 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -170,7 +170,9 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < 3; $_smarty_tpl->tpl_vars['
                                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                                 <div class="d-flex align-items-end justify-content-between">
                                                     <div class="d-flex align-items-center">
-                                                        <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                        <img class="rounded-circle me-3" src="data:<?php echo $_smarty_tpl->tpl_vars['array']->value[3][$_smarty_tpl->tpl_vars['i']->value]->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['array']->value[3][$_smarty_tpl->tpl_vars['i']->value]->getImmagine();?>
+" width=40 height=40 alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>

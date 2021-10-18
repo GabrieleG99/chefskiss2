@@ -178,7 +178,6 @@ class CForum
                 $domanda = $_POST['content'];
                 $categoria = $_POST['post-type'];
                 $post = new EPost($autore, $titolo, $domanda, $categoria, date('Y-m-d'), $id_immagine);
-                var_dump($post);
                 $pm::insert($post);
                 $id_post = $post->getId();
                 header("Location: /chefskiss/Forum/InfoPost/$id_post");

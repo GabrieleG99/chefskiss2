@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 16:17:49
+/* Smarty version 3.1.39, created on 2021-10-14 16:40:17
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6166ea8dc3dd67_71415605',
+  'unifunc' => 'content_61684151729f86_58518197',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0fab3fabf39139f5a906e9a53507b7c3b59aa9e7' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl',
-      1 => 1634134664,
+      1 => 1634135430,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6166ea8dc3dd67_71415605 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>

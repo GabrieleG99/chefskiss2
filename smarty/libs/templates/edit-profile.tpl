@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="mt-3 px-4"> <span class="text-uppercase name">Foto Profilo</span>
                                     <div class="d-flex flex-row align-items-center mt-2"> <img src="data:{$immagine_utente->getTipo()};base64,{$immagine_utente->getImmagine()}" width=80 height=80 alt="user" class="rounded">
-                                        <div class="ml-3"><input class="btn btn-outline-primary" type="file" name="file" id="upload-image"/> </div>
+                                        <div class="ml-3"><input class="btn btn-outline-secondary" type="file" name="file" id="upload-image" /></div>
                                     </div>
                                 </div>
                                 <div class="mt-3 px-4 d-flex justify-content-between align-items-center"> <button type="submit" class="btn btn-primary">Salva Modifiche</button> </div>

@@ -90,7 +90,7 @@
                                     <p class="text-muted">Amministratore</p>
                                 {/if}
                             </div>
-                            <button>
+                            <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Utente/modificaProfilo"> Modifica Profilo </a>
                             </button>
                             <div class="ms-3">
