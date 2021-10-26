@@ -65,13 +65,16 @@
                     <div class="card mb-4">
                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[0]->getId()}"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64,{$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">{$ricette[0]->getData_()} &middot;
-                                {for $i = 0; $i < (int) $ricette[0]->getValutazione(); $i++}
-                                    <i class="bi bi-star"></i>
-                                {/for}
-                                </div>
                             <h2 class="card-title">{$ricette[0]->getNomeRicetta()}</h2>
                             <p class="card-text">{substr($ricette[0]->getProcedimento(), 0, 100)}...</p>
+                            <div class="small text-muted">{$ricette[0]->getData_()} &middot; Per {$ricette[0]->getDosiPersone()} persone &middot;
+                            {for $i = 0; $i < (int) $ricette[0]->getValutazione(); $i++}
+                                <i class="bi bi-star"></i>
+                            {/for}
+                            {if $ricette[0]->getValutazione() == 0}
+                                ancora nessuna recensione
+                            {/if}
+                            </div>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -82,13 +85,16 @@
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[1]->getId()}"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64,{$immagini[1]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted">{$ricette[1]->getData_()} &middot;
-                                                {for $i = 0; $i < (int) $ricette[1]->getValutazione(); $i++}
-                                                <i class="bi bi-star"></i>
-                                            {/for}
-                                            </div>
                                             <h2 class="card-title h4">{$ricette[1]->getNomeRicetta()}</h2>
                                             <p class="card-text">{substr($ricette[1]->getProcedimento(), 0, 100)}...</p>
+                                            <div class="small text-muted">{$ricette[1]->getData_()} &middot; Per {$ricette[1]->getDosiPersone()} persone &middot;
+                                            {for $i = 0; $i < (int) $ricette[1]->getValutazione(); $i++}
+                                                <i class="bi bi-star"></i>
+                                            {/for}
+                                            {if $ricette[1]->getValutazione() == 0}
+                                                ancora nessuna recensione
+                                            {/if}
+                                            </div>
                                         </div>
                                     </div>
                                 {/if}
@@ -97,13 +103,16 @@
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[2]->getId()}"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64,{$immagini[2]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted">{$ricette[2]->getData_()} &middot;
+                                            <h2 class="card-title h4">{$ricette[2]->getNomeRicetta()}</h2>
+                                            <p class="card-text">{substr($ricette[2]->getProcedimento(), 0, 100)}...</p>
+                                            <div class="small text-muted">{$ricette[2]->getData_()} &middot; Per {$ricette[2]->getDosiPersone()} persone &middot;
                                             {for $i = 0; $i < (int) $ricette[2]->getValutazione(); $i++}
                                                 <i class="bi bi-star"></i>
                                             {/for}
+                                            {if $ricette[2]->getValutazione() == 0}
+                                                ancora nessuna recensione
+                                            {/if}
                                             </div>
-                                            <h2 class="card-title h4">{$ricette[2]->getNomeRicetta()}</h2>
-                                            <p class="card-text">{substr($ricette[2]->getProcedimento(), 0, 100)}...</p>
                                         </div>
                                     </div>
                                 {/if}
@@ -114,13 +123,16 @@
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[3]->getId()}"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64,{$immagini[3]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$ricette[3]->getData_()} &middot;
-                                            {for $i = 0; $i < (int) $ricette[3]->getValutazione(); $i++}
-                                                <i class="bi bi-star"></i>
-                                            {/for}
-                                            </div>
                                         <h2 class="card-title h4">{$ricette[3]->getNomeRicetta()}</h2>
                                         <p class="card-text">{substr($ricette[3]->getProcedimento(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$ricette[3]->getData_()} &middot; Per {$ricette[3]->getDosiPersone()} persone &middot;
+                                        {for $i = 0; $i < (int) $ricette[3]->getValutazione(); $i++}
+                                            <i class="bi bi-star"></i>
+                                        {/for}
+                                        {if $ricette[3]->getValutazione() == 0}
+                                            ancora nessuna recensione
+                                        {/if}
+                                        </div>
                                     </div>
                                 </div>
                             {/if}
@@ -129,13 +141,16 @@
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Ricette/InfoRicetta/{$ricette[4]->getId()}"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64,{$immagini[4]->getImmagine()}" width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$ricette[4]->getData_()} &middot;
-                                            {for $i = 0; $i < (int) $ricette[4]->getValutazione(); $i++}
-                                                <i class="bi bi-star"></i>
-                                            {/for}
-                                            </div>
                                         <h2 class="card-title h4">{$ricette[4]->getNomeRicetta()}</h2>
                                         <p class="card-text">{substr($ricette[4]->getProcedimento(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$ricette[4]->getData_()} &middot; Per {$ricette[4]->getDosiPersone()} persone &middot;
+                                        {for $i = 0; $i < (int) $ricette[4]->getValutazione(); $i++}
+                                            <i class="bi bi-star"></i>
+                                        {/for}
+                                        {if $ricette[4]->getValutazione() == 0}
+                                            ancora nessuna recensione
+                                        {/if}
+                                        </div>
                                     </div>
                                 </div>
                             {/if}
@@ -250,6 +265,7 @@
                     </div>-->
                 </div>
             </div>
+        </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>

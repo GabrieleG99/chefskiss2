@@ -113,7 +113,7 @@ class Fdb
     }
 
     /**
-res     * @param $object
+     * @param $object
      * @param $class
      * @return bool|mixed
      */

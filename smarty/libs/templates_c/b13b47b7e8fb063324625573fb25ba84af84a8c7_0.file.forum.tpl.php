@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 22:46:15
+/* Smarty version 3.1.39, created on 2021-10-22 13:47:25
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61674597d22240_78495642',
+  'unifunc' => 'content_6172a4cd9dece6_68812621',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b13b47b7e8fb063324625573fb25ba84af84a8c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum.tpl',
-      1 => 1634157975,
+      1 => 1634716766,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61674597d22240_78495642 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6172a4cd9dece6_68812621 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -322,16 +322,16 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=primi">Primi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=contorni">Contorni</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=antipasti">Antipasti</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=secondi">Secondi</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=dessert">Dessert</a></li>
+                                        <li><a href="/chefskiss/Forum/cerca?categoria=salse">Salse</a></li>
                                     </ul>
                                 </div>
                             </div>

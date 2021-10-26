@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-17 16:11:25
+/* Smarty version 3.1.39, created on 2021-10-26 21:51:40
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616c2f0d74f073_37515897',
+  'unifunc' => 'content_61785c4c593783_60017302',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6115361a97252f9b0aef54222c0b99a681048e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\profile.tpl',
-      1 => 1634479881,
+      1 => 1635277886,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616c2f0d74f073_37515897 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61785c4c593783_60017302 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -117,7 +117,7 @@ function content_616c2f0d74f073_37515897 (Smarty_Internal_Template $_smarty_tpl)
                                     <p class="text-muted">Amministratore</p>
                                 <?php }?>
                             </div>
-                            <button>
+                            <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Utente/modificaProfilo"> Modifica Profilo </a>
                             </button>
                             <div class="ms-3">
@@ -156,7 +156,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                                             <div class="card-body p-4">
                                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
 </div>
-                                                <a class="text-decoration-none link-dark stretched-link" href="InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+                                                <a class="text-decoration-none link-dark stretched-link" href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getId();?>
 "><div class="h5 card-title mb-3"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getNomeRicetta();?>
 </div></a>
                                                 <p class="card-text mb-0"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getProcedimento(),0,100);?>
@@ -174,7 +174,21 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
 </div>
                                                             <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getDosiPersone();?>
- persone</div>
+ persone &middot;
+                                                            <?php
+$_smarty_tpl->tpl_vars['j'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['j']->value = 0;
+if ($_smarty_tpl->tpl_vars['j']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['j']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione(); $_smarty_tpl->tpl_vars['j']->value++) {
+?>
+                                                                <i class="bi bi-star"></i>
+                                                            <?php }
+}
+?>
+                                                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione() == 0) {?>
+                                                                ancora nessuna recensione
+                                                            <?php }?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

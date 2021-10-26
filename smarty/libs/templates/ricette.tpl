@@ -133,6 +133,9 @@
                                                             {for $x = 0; $x < (int)$array[0][$i]->getValutazione(); $x++}
                                                                 <i class="bi bi-star"></i>
                                                             {/for}
+                                                            {if $array[0][$i]->getValutazione() == 0}
+                                                                ancora nessuna recensione
+                                                            {/if}
                                                             </div>
                                                         </div>
                                                     </div>

@@ -128,7 +128,14 @@
                                                         <img class="rounded-circle me-3" src="data:{$immagini_autori[$i]->getTipo()};base64,{$immagini_autori[$i]->getImmagine()}" width=40 height=40 alt="..." />
                                                         <div class="small">
                                                             <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
-                                                            <div class="text-muted">{$ricette[$i]->getData_()} &middot; Per {$ricette[$i]->getDosiPersone()} persone</div>
+                                                            <div class="text-muted">{$ricette[$i]->getData_()} &middot; Per {$ricette[$i]->getDosiPersone()} persone &middot;
+                                                            {for $j = 0; $j < (int) $ricette[$i]->getValutazione(); $j++}
+                                                                <i class="bi bi-star"></i>
+                                                            {/for}
+                                                            {if $ricette[$i]->getValutazione() == 0}
+                                                                ancora nessuna recensione
+                                                            {/if}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

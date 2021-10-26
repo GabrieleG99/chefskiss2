@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/new_recipe.css"/>
     <!--font awesome stylesheet-->
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/font-awesome.min.css"/>
+</head>
 <body>
 <!--pre-loader-->
 <div class="preloader">
@@ -107,13 +108,8 @@
 
 <script src="/chefskiss/smarty/libs/js/jquery-1.11.3.min.js"></script>
 <script src="/chefskiss/smarty/libs/js/jquery-ui.js"></script>
-<script src="/chefskiss/smarty/libs/js/slick.min.js"></script>
-<script src="/chefskiss/smarty/libs/js/jquery.meanmenu.js"></script>
 <script src="/chefskiss/smarty/libs/js/jquery.selectric.min.js"></script>
 <script src="/chefskiss/smarty/libs/js/wow.js"></script>
-<script src="/chefskiss/smarty/libs/js/jquery.form.js"></script>
-<script src="/chefskiss/smarty/libs/js/jquery.validate.min.js"></script>
-<script src="/chefskiss/smarty/libs/js/jquery.swipebox.js"></script>
 <script src="/chefskiss/smarty/libs/js/custom.js"></script>
 
 </body>

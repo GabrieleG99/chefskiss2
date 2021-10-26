@@ -11,6 +11,7 @@ class CModeratore
         if ($mod != null && $mod->getPrivilegi() >= 2) {
             $pm::delete('id', $id, 'FRicetta');
             $pm::delete('id', $id_imm, 'Fimmagine');
+            $pm::delete('id_ricetta', $id, 'FRecensione' );
             header("Location: /chefskiss/Ricette/EsploraLeRicette");
         } else {
             header("Location: /chefskiss/Ricette/EsploraLeRicette");

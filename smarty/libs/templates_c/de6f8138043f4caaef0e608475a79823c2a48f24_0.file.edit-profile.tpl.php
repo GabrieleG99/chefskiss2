@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-17 10:52:47
+/* Smarty version 3.1.39, created on 2021-10-22 13:46:41
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616be45f99a696_15382593',
+  'unifunc' => 'content_6172a4a1c6b873_09771485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de6f8138043f4caaef0e608475a79823c2a48f24' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-profile.tpl',
-      1 => 1634459482,
+      1 => 1634716766,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616be45f99a696_15382593 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6172a4a1c6b873_09771485 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -108,7 +108,7 @@ function content_616be45f99a696_15382593 (Smarty_Internal_Template $_smarty_tpl)
                                     <div class="d-flex flex-row align-items-center mt-2"> <img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine_utente']->value->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagine_utente']->value->getImmagine();?>
 " width=80 height=80 alt="user" class="rounded">
-                                        <div class="ml-3"><input class="btn btn-outline-primary" type="file" name="file" id="upload-image"/> </div>
+                                        <div class="ml-3"><input class="btn btn-outline-secondary" type="file" name="file" id="upload-image" /></div>
                                     </div>
                                 </div>
                                 <div class="mt-3 px-4 d-flex justify-content-between align-items-center"> <button type="submit" class="btn btn-primary">Salva Modifiche</button> </div>

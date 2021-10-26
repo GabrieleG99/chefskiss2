@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-17 13:19:00
+/* Smarty version 3.1.39, created on 2021-10-26 18:17:34
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616c06a473ca34_29148219',
+  'unifunc' => 'content_61782a1e136c84_99710302',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e137b4050f897169717e1c229d7d448ad570ea1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-recipe.tpl',
-      1 => 1634469522,
+      1 => 1635265044,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616c06a473ca34_29148219 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61782a1e136c84_99710302 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +45,7 @@ function content_616c06a473ca34_29148219 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/new_recipe.css"/>
     <!--font awesome stylesheet-->
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/font-awesome.min.css"/>
+</head>
 <body>
 <!--pre-loader-->
 <div class="preloader">
@@ -135,25 +136,10 @@ function content_616c06a473ca34_29148219 (Smarty_Internal_Template $_smarty_tpl)
  src="/chefskiss/smarty/libs/js/jquery-ui.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/slick.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.meanmenu.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/jquery.selectric.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/wow.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.form.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.validate.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.swipebox.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/custom.js"><?php echo '</script'; ?>
