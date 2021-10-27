@@ -88,13 +88,13 @@ class CForum
         $view = new VForum();
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
-        $session->setValue('id_post', $id);
         $mod = unserialize($session->readValue('utente'));
+        $session->setValue('id_post', $id);
         $post = $pm::load('FPost', array(['id', '=', $id]));
         $autore = $pm::load('FUtente', array(['id', '=', $post->getAutore()]));
         $immagine = $pm::load('FImmagine', array(['id', '=',$post->getId_immagine()]));
-        $commento = $pm::load('FCommento', array(['id_post', '=', $id]));
         $immagini_autore = $pm::load('FImmagine', array(['id', '=', $autore->getid_immagine()]));
+        $commento = $pm::load('FCommento', array(['id_post', '=', $id]));
         if (is_array($commento)){
             for ($i = 0; $i < sizeof($commento); $i++){
                 $commento_info[$i] = $commento[$i];

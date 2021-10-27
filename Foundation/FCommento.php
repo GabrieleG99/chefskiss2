@@ -57,7 +57,7 @@ class FCommento extends Fdb{
     public static function loadByField($field, $val, $criterio){
         $comment = null;
         $db = parent::getInstance();
-        $result = $db->loadDb(static::getClass(), $field, $val, $criterio);
+        $result = $db->searchDb(static::getClass(), $field, $val, $criterio);
         $rows_number = $db->getRowNum(static::getClass(), $field, $val);
         if(($result != null) && ($rows_number == 1)) {
             $comment = new ECommento($result['id_post'], $result['autore'], $result['testo'], $result['data']);

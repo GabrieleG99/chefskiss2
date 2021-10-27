@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-18 23:27:49
+/* Smarty version 3.1.39, created on 2021-10-27 15:19:01
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616de6d500d0e0_93247487',
+  'unifunc' => 'content_617951c5226739_55036452',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e981b32fd4a64de1b07fa55b53697215ce441993' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl',
-      1 => 1634592468,
+      1 => 1635340711,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616de6d500d0e0_93247487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617951c5226739_55036452 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -174,7 +174,21 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
 </div>
                                                             <div class="text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getData_();?>
  &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getDosiPersone();?>
- persone</div>
+ persone &middot;
+                                                            <?php
+$_smarty_tpl->tpl_vars['j'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['j']->value = 0;
+if ($_smarty_tpl->tpl_vars['j']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['j']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione(); $_smarty_tpl->tpl_vars['j']->value++) {
+?>
+                                                                <i class="bi bi-star"></i>
+                                                            <?php }
+}
+?>
+                                                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value[$_smarty_tpl->tpl_vars['i']->value]->getValutazione() == 0) {?>
+                                                                ancora nessuna recensione
+                                                            <?php }?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

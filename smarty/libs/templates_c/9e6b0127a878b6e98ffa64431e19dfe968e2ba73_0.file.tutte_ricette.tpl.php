@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-14 16:38:47
+/* Smarty version 3.1.39, created on 2021-10-27 15:20:14
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616840f71f1e45_87222290',
+  'unifunc' => 'content_6179520eb86937_11572871',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1633531870,
+      1 => 1635340711,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616840f71f1e45_87222290 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6179520eb86937_11572871 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -91,23 +91,27 @@ function content_616840f71f1e45_87222290 (Smarty_Internal_Template $_smarty_tpl)
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                         <div class="card-body">
+                            <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getNomeRicetta();?>
+</h2>
+                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[0]->getProcedimento(),0,100);?>
+...</p>
                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getData_();?>
- &middot;
-                                <?php
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getDosiPersone();?>
+ persone &middot;
+                            <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
 if ($_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[0]->getValutazione()) {
 for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
 ?>
-                                    <i class="bi bi-star"></i>
-                                <?php }
+                                <i class="bi bi-star"></i>
+                            <?php }
 }
 ?>
-                                </div>
-                            <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[0]->getNomeRicetta();?>
-</h2>
-                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[0]->getProcedimento(),0,100);?>
-...</p>
+                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value[0]->getValutazione() == 0) {?>
+                                ancora nessuna recensione
+                            <?php }?>
+                            </div>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -121,9 +125,14 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
+                                            <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getNomeRicetta();?>
+</h2>
+                                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[1]->getProcedimento(),0,100);?>
+...</p>
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getData_();?>
- &middot;
-                                                <?php
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getDosiPersone();?>
+ persone &middot;
+                                            <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
 if ($_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[1]->getValutazione()) {
@@ -133,11 +142,10 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                                             <?php }
 }
 ?>
+                                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value[1]->getValutazione() == 0) {?>
+                                                ancora nessuna recensione
+                                            <?php }?>
                                             </div>
-                                            <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[1]->getNomeRicetta();?>
-</h2>
-                                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[1]->getProcedimento(),0,100);?>
-...</p>
                                         </div>
                                     </div>
                                 <?php }?>
@@ -149,8 +157,13 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                                         <div class="card-body">
+                                            <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getNomeRicetta();?>
+</h2>
+                                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[2]->getProcedimento(),0,100);?>
+...</p>
                                             <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getData_();?>
- &middot;
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getDosiPersone();?>
+ persone &middot;
                                             <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
@@ -161,11 +174,10 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                                             <?php }
 }
 ?>
+                                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value[2]->getValutazione() == 0) {?>
+                                                ancora nessuna recensione
+                                            <?php }?>
                                             </div>
-                                            <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[2]->getNomeRicetta();?>
-</h2>
-                                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[2]->getProcedimento(),0,100);?>
-...</p>
                                         </div>
                                     </div>
                                 <?php }?>
@@ -179,23 +191,27 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
+                                        <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getNomeRicetta();?>
+</h2>
+                                        <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[3]->getProcedimento(),0,100);?>
+...</p>
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getData_();?>
- &middot;
-                                            <?php
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getDosiPersone();?>
+ persone &middot;
+                                        <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
 if ($_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[3]->getValutazione()) {
 for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[3]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
 ?>
-                                                <i class="bi bi-star"></i>
-                                            <?php }
+                                            <i class="bi bi-star"></i>
+                                        <?php }
 }
 ?>
-                                            </div>
-                                        <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[3]->getNomeRicetta();?>
-</h2>
-                                        <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[3]->getProcedimento(),0,100);?>
-...</p>
+                                        <?php if ($_smarty_tpl->tpl_vars['ricette']->value[3]->getValutazione() == 0) {?>
+                                            ancora nessuna recensione
+                                        <?php }?>
+                                        </div>
                                     </div>
                                 </div>
                             <?php }?>
@@ -207,23 +223,27 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                                     <div class="card-body">
+                                        <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getNomeRicetta();?>
+</h2>
+                                        <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[4]->getProcedimento(),0,100);?>
+...</p>
                                         <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getData_();?>
- &middot;
-                                            <?php
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getDosiPersone();?>
+ persone &middot;
+                                        <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
 if ($_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[4]->getValutazione()) {
 for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value[4]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
 ?>
-                                                <i class="bi bi-star"></i>
-                                            <?php }
+                                            <i class="bi bi-star"></i>
+                                        <?php }
 }
 ?>
-                                            </div>
-                                        <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['ricette']->value[4]->getNomeRicetta();?>
-</h2>
-                                        <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value[4]->getProcedimento(),0,100);?>
-...</p>
+                                        <?php if ($_smarty_tpl->tpl_vars['ricette']->value[4]->getValutazione() == 0) {?>
+                                            ancora nessuna recensione
+                                        <?php }?>
+                                        </div>
                                     </div>
                                 </div>
                             <?php }?>
@@ -376,6 +396,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                     </div>-->
                 </div>
             </div>
+        </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
