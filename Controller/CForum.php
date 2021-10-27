@@ -139,9 +139,11 @@ class CForum
                     $array[$i]['titolo'] = $post[$i]->getTitolo();
                     $array[$i]['id'] = $post[$i]->getId();
                 }
-            } else {
+            } elseif($post != null) {
                 $array['titolo']  = $post->getTitolo();
                 $array['id'] = $post->getId();
+            } else {
+                $array = null;
             }
             $data = serialize($array);
             setcookie('titoli_ricerca', $data);
