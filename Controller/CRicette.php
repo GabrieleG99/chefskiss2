@@ -76,7 +76,7 @@ class CRicette
             if ($_COOKIE['searchOn'] == 1) self::searchOff();
         }
 
-        if ($index == null) $new_index = '1';
+        if ($index == null) $new_index = 1;
         else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
@@ -106,8 +106,10 @@ class CRicette
             if ($new_index * 5 <= $num_ricette) {
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
             } else {
-                $limite = $num_ricette % 5;
-                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+                //$limite = $num_ricette % 5;
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]));
+                $k = sizeof($ricette_pag) - 1;
+                $ricette_pag = $ricette_pag[$k];
             }
 
             if (is_array($ricette_pag)) {
@@ -198,9 +200,15 @@ class CRicette
         $pm = USingleton::getInstance('FPersistentManager');
         if($categoria!=null){
             $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
-            for($i = 0; $i < sizeof($ricette); $i++){
-                $array[$i]['nome_ricetta'] = $ricette[$i]->getNomeRicetta();
-                $array[$i]['id'] = $ricette[$i]->getId();
+            if (is_array($ricette)){
+                for($i = 0; $i < sizeof($ricette); $i++){
+                    $array[$i]['nome_ricetta'] = $ricette[$i]->getNomeRicetta();
+                    $array[$i]['id'] = $ricette[$i]->getId();
+                }
+            }
+            else {
+                $array['nome_ricetta'] = $ricette->getNomeRicetta();
+                $array['id'] = $ricette->getId();
             }
             $data = serialize($array);
             setcookie('ricetta_ricerca', $data);
@@ -227,7 +235,8 @@ class CRicette
             }
             $data = serialize($array);
             setcookie('ricetta_ricerca', $data);
-            header('Location: /chefskiss/Ricette/EsploraLeRicette');
+            setcookie('searchOn', 1);
+            header('Location: /chefskiss/Ricette/EsploraLeRicette/cerca');
         }
     }
 

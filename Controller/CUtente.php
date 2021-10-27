@@ -177,6 +177,7 @@ class CUtente
             $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
             $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
             $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
+            if((int)$utente->getid_immagine() != 29) $pm::delete('id', $utente->getid_immagine(), 'FImmagine');
             $utente->setEmail($email_utente);
             $utente->setNome($nome_utente);
             $utente->setCognome($cognome_utente);

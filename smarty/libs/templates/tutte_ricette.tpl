@@ -58,6 +58,27 @@
         </header>
         <!-- Page content-->
         <div class="container">
+        {if !is_array($immagini) && !is_array($ricette)}
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    <div class="card mb-4">
+                        <a href="/chefskiss/Ricette/InfoRicetta/{$ricette->getId()}"><img class="card-img-top" src="data:{$immagini->getTipo()};base64, {$immagini->getImmagine()}" width=900 height=400 alt="..." /></a>
+                        <div class="card-body">
+                            <h2 class="card-title">{$ricette->getNomeRicetta()}</h2>
+                            <p class="card-text">{substr($ricette->getProcedimento(), 0, 100)}...</p>
+                            <div class="small text-muted">{$ricette->getData_()} &middot; Per {$ricette->getDosiPersone()} persone &middot;
+                            {for $i = 0; $i < (int) $ricette->getValutazione(); $i++}
+                                <i class="bi bi-star"></i>
+                            {/for}
+                            {if $ricette->getValutazione() == 0}
+                                ancora nessuna recensione
+                            {/if}
+                        </div>
+                    </div>
+                    </div>
+        {else}
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
@@ -156,6 +177,7 @@
                             {/if}
                         </div>
                         </div>
+                    {/if}
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
