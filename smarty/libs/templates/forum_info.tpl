@@ -75,6 +75,10 @@
                                 <button>
                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviPost/{$post->getId()}/{$post->getId_immagine()}"> Rimuovi Post </a>
                                 </button>
+                            {elseif {$mod !=null && $mod->getId() == $post->getAutore()}}
+                                <button>
+                                    <a class="nav-link" href="/chefskiss/Utente/cancellaPost/{$post->getId()}/{$post->getId_immagine()}"> Cancella Post </a>
+                                </button>
                             {else}
                             {/if}
                         </div>
@@ -145,6 +149,10 @@
                                                                         <i class="fa fa-trash"></i>
                                                                         <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/{$array[0][$i]->getId()}/{$post->getId()}">Rimuovi</a>
                                                                     </button>
+                                                                {elseif {$mod !=null && $mod->getId() == $array[1][$i]->getId()}}
+                                                                    <button>
+                                                                        <a class="nav-link" href="/chefskiss/Utente/cancellaCommento/{$array[0][$i]->getId()}"> Cancella </a>
+                                                                    </button>
                                                                 {else}
                                                                 {/if}
                                                             </div>
@@ -162,6 +170,10 @@
                                                                 <button class="btn">
                                                                     <i class="fa fa-trash"></i>
                                                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/{$array[0]->getId()}/{$post->getId()}">Rimuovi</a>
+                                                                </button>
+                                                            {elseif {$mod !=null && $mod->getId() == $array[1]->getId()}}
+                                                                <button>
+                                                                    <a class="nav-link" href="/chefskiss/Utente/cancellaCommento/{$array[0]->getId()}"> Cancella </a>
                                                                 </button>
                                                             {else}
                                                             {/if}

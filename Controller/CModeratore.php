@@ -41,6 +41,7 @@ class CModeratore
         if ($mod != null && $mod->getPrivilegi() >= 2) {
             $pm::delete('id', $id, 'FPost');
             $pm::delete('id', $id_imm, 'Fimmagine');
+            $pm::delete('id_post', $id, 'FCommento' );
             header("Location: /chefskiss/Forum/esploraLeDomande");
         } else {
             header("Location: /chefskiss/Forum/esploraLeDomande");

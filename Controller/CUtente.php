@@ -107,15 +107,14 @@ class CUtente
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
 
-            if($ricetta != null) {
-                if(is_array($ricetta)){
-                    for($i = 0; $i < sizeof($ricetta); $i++){
+            if ($ricetta != null) {
+                if (is_array($ricetta)) {
+                    for ($i = 0; $i < sizeof($ricetta); $i++) {
                         $immagine[$i] = $pm::load('FImmagine', array(['id', '=', $ricetta[$i]->getId_immagine()]));
                         $autori_ricette[$i] = $pm::load('FUtente', array(['id', '=', $ricetta[$i]->getAutore()]));
                         $immagini_autori[$i] = $pm::load('FImmagine', array(['id', '=', $autori_ricette[$i]->getid_immagine()]));
                     }
-                }
-                else{
+                } else {
                     $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
                     $autori_ricette = $pm::load('FUtente', array(['id', '=', $ricetta->getAutore()]));
                     $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
@@ -135,7 +134,7 @@ class CUtente
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
         if ($utente != null) {
-            $ricetta = $pm::load('FRicetta', array(['id', '=', $id ]));
+            $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
 
             if ($ricetta->getAutore() == $utente->getId()) {
                 $pm::delete('id', $id, 'FRicetta');
@@ -151,24 +150,65 @@ class CUtente
         }
     }
 
-    static function modificaProfilo(){
+    static function cancellaPost($id, $id_imm)
+    {
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        if ($utente != null) {
+            $post = $pm::load('FPost', array(['id', '=', $id]));
+
+            if ($post->getAutore() == $utente->getId()) {
+                $pm::delete('id', $id, 'FPost');
+                $pm::delete('id', $id_imm, 'FImmagine');
+
+                header("Location: /chefskiss/Ricette/EsploraLeDomande");
+            } else {
+                header("Location: /chefskiss/Ricette/EsploraLeDomande");
+            }
+        } else {
+            header("Location: /chefskiss/Ricette/EsploraLeDomande");
+
+        }
+    }
+
+    static function cancellaCommento($id)
+    {
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        if ($utente != null) {
+            $commento = $pm::load('FCommento', array(['id', '=', $id]));
+            if ($commento != null && $commento->getAutore() == $utente->getId()) {
+                $pm::delete('id', $id, 'FCommento');
+                header("Location: /chefskiss/Forum/InfoPost/{$commento->getId_post()}");
+            }
+            else{ header("Location: /chefskiss/Forum/esploraLeDomande");}
+        } else {
+            header("Location: /chefskiss/Forum/esploraLeDomande");
+
+        }
+    }
+
+    static function modificaProfilo()
+    {
         $view = new VUtente();
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
         $pm = USingleton::getInstance('FPersistentManager');
-        if(CUtente::isLogged()){
+        if (CUtente::isLogged()) {
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $view->modificaProfilo($utente, $immagini_utente);
-        }
-        else{
+        } else {
             header('Location: /chefskiss/Utente/login');
         }
     }
 
-    static function confermaModifiche(){
+    static function confermaModifiche()
+    {
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
-        if(CUtente::isLogged()){
+        if (CUtente::isLogged()) {
             $id_immagine = self::upload();
             $utente = unserialize($session->readValue('utente'));
             $nome_utente = $_POST['nome'];
@@ -177,48 +217,47 @@ class CUtente
             $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
             $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
             $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
-            if((int)$utente->getid_immagine() != 29) $pm::delete('id', $utente->getid_immagine(), 'FImmagine');
+            if ((int)$utente->getid_immagine() != 29) $pm::delete('id', $utente->getid_immagine(), 'FImmagine');
             $utente->setEmail($email_utente);
             $utente->setNome($nome_utente);
             $utente->setCognome($cognome_utente);
             $session->destroyValue('utente');
-            if($id_immagine!=false){
+            if ($id_immagine != false) {
                 $pm::update('id_immagine', $id_immagine, 'id', $utente->getId(), 'FUtente');
                 $utente->setid_immagine($id_immagine);
                 $session->setValue('utente', serialize($utente));
                 header("Location: /chefskiss/Utente/profilo");
-            }
-            else{
+            } else {
                 $session->setValue('utente', serialize($utente));
                 header("Location: /chefskiss/Utente/profilo");
             }
-        }
-        else{
+        } else {
             header('Location: /chefskiss/Utente/login');
         }
     }
 
-    static function upload(){
+    static function upload()
+    {
         $pm = USingleton::getInstance('FPersistentManager');
         $result = false;
         $max_size = 600000;
         $result = is_uploaded_file($_FILES['file']['tmp_name']);
-        if (!$result){
-          //echo "Impossibile eseguire l'upload.";
-          return false;
-        } else {
-          $size = $_FILES['file']['size'];
-        if ($size > $max_size){
-            //echo "Il file è troppo grande.";
+        if (!$result) {
+            //echo "Impossibile eseguire l'upload.";
             return false;
-        }
-        $type = $_FILES['file']['type'];
-        $nome = $_FILES['file']['name'];
-        $immagine = file_get_contents($_FILES['file']['tmp_name']);
-        $immagine = addslashes ($immagine);
-        $image = new EImmagine($id=0, $nome, $size, $type, $immagine);
-        $pm::insertMedia($image, 'file');
-        return $image->getId();
+        } else {
+            $size = $_FILES['file']['size'];
+            if ($size > $max_size) {
+                //echo "Il file è troppo grande.";
+                return false;
+            }
+            $type = $_FILES['file']['type'];
+            $nome = $_FILES['file']['name'];
+            $immagine = file_get_contents($_FILES['file']['tmp_name']);
+            $immagine = addslashes($immagine);
+            $image = new EImmagine($id = 0, $nome, $size, $type, $immagine);
+            $pm::insertMedia($image, 'file');
+            return $image->getId();
         }
     }
 
