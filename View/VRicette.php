@@ -56,4 +56,13 @@ class VRicette
         $this->smarty->display('new-recipe.tpl');
     }
 
+    public function modificaRicette($ricetta, $immagine, $ingredienti){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+
+        $this->smarty->assign('ricetta', $ricetta);
+        $this->smarty->assign('immagine', $immagine);
+        $this->smarty->assign('ingredienti', $ingredienti);
+        $this->smarty->display('edit-ricetta.tpl');
+    }
+
 }

@@ -74,15 +74,22 @@
                                 <button>
                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Rimuovi Ricetta </a>
                                 </button>
+                                {if $mod->getId() == $ricetta->getAutore()}
+                                    <button>
+                                    <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/{$ricetta->getId()}"> Modifica Ricetta </a>
+                                    </button>
+                                {/if}
                             {elseif {$mod !=null && $mod->getId() == $ricetta->getAutore()}}
                                 <button>
                                 <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Cancella Ricetta </a>
                                 </button>
-                                {else}
+                                <button>
+                                <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/{$ricetta->getId()}"> Modifica Ricetta </a>
+                                </button>
                             {/if}
 
 
-                            </div>
+                        </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
                             <article>
@@ -95,6 +102,9 @@
                                     {for $i = 0; $i < (int)$ricetta->getValutazione(); $i++}
                                         <i class="bi bi-star"></i>
                                     {/for}
+                                    {if $ricetta->getValutazione() == 0}
+                                        ancora nessuna recensione
+                                    {/if}
                                     </div>
                                     <!-- Post categories-->
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!">{ucfirst($ricetta->getCategoria())}</a>

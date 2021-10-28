@@ -303,4 +303,41 @@ class CRicette
         }
     }
 
+    static function modificaRicetta($id_ricetta){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        $ricetta = $pm::load('FRicetta', array(['id', '=', $id_ricetta]));
+        if (CUtente::isLogged() && $utente->getid() == $ricetta->getAutore){
+            $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getid_immagine()]));
+            $view = new VRicette();
+            $view->modificaRicette($ricetta, $immagine, $ricetta->parseIngredienti());
+        }
+        else header('Location: /chefskiss/Utente/login');
+    }
+
+    static function confermaModifiche($id){
+        $pm = USingleton::getInstance('FPersistentManager');
+        if (CUtente::isLogged()) {
+            $titolo = $_POST['title'];
+            $procedimento = $_POST['content'];
+            $array = $_POST['ingredients'];
+            $ingredienti = implode(", ", $array);
+            $categoria = $_POST['recipe-type'];
+            $dosi = $_POST['servings'];
+            $id_immagine = self::upload();
+            if($id_immagine!=false){
+                $pm::update('id_immagine', $id_immagine, 'id', $id, 'FRicetta');
+            }
+            $pm::update('nome_ricetta', $titolo, 'id', $id, 'FRicetta');
+            $pm::update('procedimento', $procedimento, 'id', $id, 'FRicetta');
+            $pm::update('ingredienti', $ingredienti, 'id', $id, 'FRicetta');
+            $pm::update('categoria', $categoria, 'id', $id, 'FRicetta');
+            $pm::update('dosi_persone', $dosi, 'id', $id, 'FRicetta');
+            header("Location: /chefskiss/Ricette/InfoRicetta/$id");
+        } else {
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
+
 }
