@@ -72,6 +72,8 @@ class CRicette
 
     static function EsploraLeRicette($cerca=null, $index=null){
 
+        $ricette_per_pagina = 5;
+
         if ($cerca == null && isset($_COOKIE['searchOn'])) {
             if ($_COOKIE['searchOn'] == 1) self::searchOff();
         }
@@ -96,18 +98,18 @@ class CRicette
 
         $immagini = array();
 
-        if ($num_ricette % 5 != 0){
-            $page_number = floor($num_ricette / 5 + 1);
+        if ($num_ricette % $ricette_per_pagina != 0){
+            $page_number = floor($num_ricette / $ricette_per_pagina + 1);
         } else {
-            $page_number = $num_ricette / 5;
+            $page_number = $num_ricette / $ricette_per_pagina;
         }
 
         if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
-            if ($new_index * 5 <= $num_ricette) {
-                $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
+            if ($new_index * $ricette_per_pagina <= $num_ricette) {
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * $ricette_per_pagina]), '', $ricette_per_pagina);
             } else {
-                $limite = $num_ricette % 5;
-                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+                $limite = $num_ricette % $ricette_per_pagina;
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * $ricette_per_pagina - $ricette_per_pagina]), '', $limite);
             }
 
             if (is_array($ricette_pag)) {
@@ -265,7 +267,7 @@ class CRicette
                     else $id_ricetta = 2;
                 }
                 $ricetta = new ERicetta($ingredienti, $procedimento, $categoria, date('Y-m-d'), $autore, $titolo, $dosi, $id_immagine, $valutazione=0);
-                $ricetta->setid($id_ricetta);
+                $ricetta->setId($id_ricetta);
                 $pm::insert($ricetta);
                 //$id_ricetta = $ricetta->getId();
                 header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-27 15:20:14
+/* Smarty version 3.1.39, created on 2021-10-28 16:02:10
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6179520eb86937_11572871',
+  'unifunc' => 'content_617aad6261e744_67861908',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1635340711,
+      1 => 1635428918,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6179520eb86937_11572871 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617aad6261e744_67861908 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -81,6 +81,41 @@ function content_6179520eb86937_11572871 (Smarty_Internal_Template $_smarty_tpl)
         </header>
         <!-- Page content-->
         <div class="container">
+        <?php if (!is_array($_smarty_tpl->tpl_vars['immagini']->value) && !is_array($_smarty_tpl->tpl_vars['ricette']->value)) {?>
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    <div class="card mb-4">
+                        <a href="/chefskiss/Ricette/InfoRicetta/<?php echo $_smarty_tpl->tpl_vars['ricette']->value->getId();?>
+"><img class="card-img-top" src="data:<?php echo $_smarty_tpl->tpl_vars['immagini']->value->getTipo();?>
+;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value->getImmagine();?>
+" width=900 height=400 alt="..." /></a>
+                        <div class="card-body">
+                            <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getNomeRicetta();?>
+</h2>
+                            <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['ricette']->value->getProcedimento(),0,100);?>
+...</p>
+                            <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['ricette']->value->getData_();?>
+ &middot; Per <?php echo $_smarty_tpl->tpl_vars['ricette']->value->getDosiPersone();?>
+ persone &middot;
+                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_vars['ricette']->value->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                <i class="bi bi-star"></i>
+                            <?php }
+}
+?>
+                            <?php if ($_smarty_tpl->tpl_vars['ricette']->value->getValutazione() == 0) {?>
+                                ancora nessuna recensione
+                            <?php }?>
+                        </div>
+                    </div>
+                    </div>
+        <?php } else { ?>
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
@@ -249,6 +284,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                             <?php }?>
                         </div>
                         </div>
+                    <?php }?>
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />

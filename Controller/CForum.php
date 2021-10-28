@@ -4,14 +4,23 @@ class CForum
 {
     static function esploraLeDomande($cerca=null, $index=null){
 
+        $post_per_pagina = 5;
+
+        // Verifica che sia attiva la ricerca, se la risposta è no esce dalla modalità cerca
         if ($cerca == null && isset($_COOKIE['searchOn'])) {
             if ($_COOKIE['searchOn'] == 1) self::searchOff();
         }
 
+        // Controlla l'indice della pagina
         if ($index == null) $new_index = 1;
         else $new_index = $index;
 
         $pm = USingleton::getInstance('FPersistentManager');
+
+        /**
+         * Se è attiva la modalità ricerca, ricava i dati dei titoli e gli id dei post dal cookie.
+         * Inoltre memorizza il numero di post che dovranno essere paginati.
+         */
 
         if (isset($_COOKIE['titoli_ricerca'])) $data = unserialize($_COOKIE['titoli_ricerca']);
 
@@ -29,18 +38,21 @@ class CForum
 
         $immagini = array();
 
-        if ($num_post % 5 != 0){
-            $page_number = floor($num_post / 5 + 1);
+        if ($num_post % $post_per_pagina != 0){
+            $page_number = floor($num_post / $post_per_pagina + 1);
         } else {
-            $page_number = $num_post / 5;
+            $page_number = $num_post / $post_per_pagina;
         }
 
+        /**
+         * Va ad eseguire la paginazione
+         */
         if (!isset($_COOKIE['titoli_ricerca']) || !is_array($data)) {
-            if ($new_index * 5 <= $num_post) {
-                $post_pag = $pm::load('FPost', array(['id', '>', ($new_index - 1) * 5]), '', 5);
+            if ($new_index * $post_per_pagina <= $num_post) {
+                $post_pag = $pm::load('FPost', array(['id', '>', ($new_index - 1) * $post_per_pagina]), '', $post_per_pagina);
             } else {
-                $limite = $num_post % 5;
-                $post_pag = $pm::load('FPost', array(['id', '>', $new_index * 5 - 5]), '', $limite);
+                $limite = $num_post % $post_per_pagina;
+                $post_pag = $pm::load('FPost', array(['id', '>', $new_index * $post_per_pagina - $post_per_pagina]), '', $limite);
             }
 
             if (is_array($post_pag)) {
