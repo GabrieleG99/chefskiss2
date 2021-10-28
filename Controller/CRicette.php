@@ -106,10 +106,8 @@ class CRicette
             if ($new_index * 5 <= $num_ricette) {
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * 5]), '', 5);
             } else {
-                //$limite = $num_ricette % 5;
-                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]));
-                $k = sizeof($ricette_pag) - 1;
-                $ricette_pag = $ricette_pag[$k];
+                $limite = $num_ricette % 5;
+                $ricette_pag = $pm::load('FRicetta', array(['id', '>', $new_index * 5 - 5]), '', $limite);
             }
 
             if (is_array($ricette_pag)) {
@@ -259,9 +257,17 @@ class CRicette
                 $ingredienti = implode(", ", $array);
                 $categoria = $_POST['recipe-type'];
                 $dosi = $_POST['servings'];
+                $ricette = $pm::load('FRicetta');
+                if($ricette != null){
+                    if(is_array($ricette)){
+                        $id_ricetta = end($ricette)->getid() + 1;
+                    }
+                    else $id_ricetta = 2;
+                }
                 $ricetta = new ERicetta($ingredienti, $procedimento, $categoria, date('Y-m-d'), $autore, $titolo, $dosi, $id_immagine, $valutazione=0);
+                $ricetta->setid($id_ricetta);
                 $pm::insert($ricetta);
-                $id_ricetta = $ricetta->getId();
+                //$id_ricetta = $ricetta->getId();
                 header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
             }
             else; //errore caricamento immagine

@@ -135,12 +135,19 @@ class CUtente
         $utente = unserialize($session->readValue('utente'));
         if ($utente != null) {
             $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
-
             if ($ricetta->getAutore() == $utente->getId()) {
                 $pm::delete('id', $id, 'FRicetta');
                 $pm::delete('id', $id_imm, 'Fimmagine');
                 $pm::delete('id_ricetta', $id, 'FRecensione' );
-
+                $ricette = $pm::load('FRicetta', array(['id', '>', $id]));
+                if($ricette != null){
+                    if(is_array($ricette)){
+                        for($i = 0; $i < sizeof($ricette); $i++){
+                            $pm::update('id', $ricette[$i]->getid() - 1, 'id', $ricette[$i]->getid(), 'FRicetta');
+                        }
+                    }
+                    else $pm::update('id', $ricette->getid() - 1, 'id', $ricette->getid(), 'FRicetta');
+                }
                 header("Location: /chefskiss/Ricette/EsploraLeRicette");
             } else {
                 header("Location: /chefskiss/Ricette/EsploraLeRicette");

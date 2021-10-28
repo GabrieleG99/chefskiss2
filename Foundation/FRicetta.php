@@ -6,7 +6,7 @@ class FRicetta extends Fdb {
 
     private static $class = 'FRicetta';
 
-    private static $values = '(:ingredienti, :procedimento, :categoria, :data, :autore, :nome_ricetta, :dosi_persone, :id_immagine, :valutazione)';
+    private static $values = '(:ingredienti, :procedimento, :categoria, :data, :autore, :nome_ricetta, :dosi_persone, :id_immagine, :valutazione, :id)';
 
     public function __construct(){
     }
@@ -52,6 +52,7 @@ class FRicetta extends Fdb {
         $stmt->bindValue(':dosi_persone', $ricetta->getDosiPersone(), PDO::PARAM_INT);
         $stmt->bindValue(':id_immagine', $ricetta->getId_immagine(), PDO::PARAM_INT);
         $stmt->bindValue(':valutazione', $ricetta->getValutazione(), PDO::PARAM_INT);
+        $stmt->bindValue(':id', $ricetta->getid(), PDO::PARAM_INT);
 
     }
 
