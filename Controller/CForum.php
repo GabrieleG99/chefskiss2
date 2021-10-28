@@ -200,7 +200,7 @@ class CForum
             if($id_immagine!=false){
                 $utente = unserialize($session->readValue('utente'));
                 $autore = $utente->getId();
-                $titolo = $_POST['title'];
+                $titolo = strtoupper($_POST['title']);
                 $domanda = $_POST['content'];
                 $categoria = $_POST['post-type'];
                 $post = new EPost($autore, $titolo, $domanda, $categoria, date('Y-m-d'), $id_immagine);

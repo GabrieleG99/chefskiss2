@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-14 16:40:17
+/* Smarty version 3.1.39, created on 2021-10-28 16:21:15
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61684151729f86_58518197',
+  'unifunc' => 'content_617ab1db5ad926_20103726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0fab3fabf39139f5a906e9a53507b7c3b59aa9e7' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl',
-      1 => 1634135430,
+      1 => 1635340711,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617ab1db5ad926_20103726 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +45,7 @@ function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/new_recipe.css"/>
     <!--font awesome stylesheet-->
     <link rel="stylesheet" href="/chefskiss/smarty/libs/css/font-awesome.min.css"/>
+</head>
 <body>
 <!--pre-loader-->
 <div class="preloader">
@@ -72,7 +73,7 @@ function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl)
                     <br/>
                     <label for="recipe-content">Come hai realizzato la tua ricetta?</label>
                     <textarea name="content" id="recipe-content" cols="30" rows="10" required></textarea>
-                    <label for="upload-image">Dai un volto al tuo piatto</label>
+                    <label for="upload-image">Fai una foto al tuo piatto</label>
                     <input type="file" name="file" id="upload-image" required/>
                     <fieldset class="ingredient-set">
                         <label for="ingredients">Inserisci gli ingredienti usati</label>
@@ -107,8 +108,9 @@ function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl)
                             </select>
                         </div>
                         <div class="col-sm-6">
-                            <label for="servings">Numero Dosi</label>
-                            <input type="text" name="servings" id="servings" required/>
+                            <label for="servings">Numero Dosi </label>
+                            <br>
+                            <input type="number" min="1" placeholder="1" name="servings" id="servings" required/>
                         </div>
                     </div>
                     <div class="text-center">
@@ -134,25 +136,10 @@ function content_61684151729f86_58518197 (Smarty_Internal_Template $_smarty_tpl)
  src="/chefskiss/smarty/libs/js/jquery-ui.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/slick.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.meanmenu.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/jquery.selectric.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/wow.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.form.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.validate.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="/chefskiss/smarty/libs/js/jquery.swipebox.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="/chefskiss/smarty/libs/js/custom.js"><?php echo '</script'; ?>

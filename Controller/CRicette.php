@@ -253,7 +253,7 @@ class CRicette
             if($id_immagine!=false){
                 $utente = unserialize($session->readValue('utente'));
                 $autore = $utente->getId();
-                $titolo = $_POST['title'];
+                $titolo = strtoupper($_POST['title']);
                 $procedimento = $_POST['content'];
                 $array = $_POST['ingredients'];
                 $ingredienti = implode(", ", $array);
