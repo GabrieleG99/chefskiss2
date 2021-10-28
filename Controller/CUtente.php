@@ -24,7 +24,7 @@ class CUtente
     {
         $view = new VUtente();
         $pm = USingleton::getInstance('FPersistentManager');
-        $utente = $pm->loadLogin($_POST['email'], $_POST['password']);
+        $utente = $pm->loadLogin($_POST['email'], md5($_POST['password']));
         //var_dump($utente);
         if ($utente != null && $utente->getBan() != true) {
             if (session_status() == PHP_SESSION_NONE) {
@@ -91,7 +91,7 @@ class CUtente
             $view->registrationError('email');
         } else {
             $nome_utente = explode(' ', $_POST['username']);
-            $utente = new EUtente($nome_utente[0], $nome_utente[1], time(), $_POST['email'], $_POST['password'], '', date('y/m/d'), null, false, 1);
+            $utente = new EUtente($nome_utente[0], $nome_utente[1], time(), $_POST['email'], md5($_POST['password']), '', date('y/m/d'), null, false, 1);
             $pm::insert($utente);
             header('Location: /chefskiss/Utente/login');
         }
@@ -139,6 +139,7 @@ class CUtente
             if ($ricetta->getAutore() == $utente->getId()) {
                 $pm::delete('id', $id, 'FRicetta');
                 $pm::delete('id', $id_imm, 'Fimmagine');
+                $pm::delete('id_ricetta', $id, 'FRecensione' );
 
                 header("Location: /chefskiss/Ricette/EsploraLeRicette");
             } else {
@@ -161,6 +162,7 @@ class CUtente
             if ($post->getAutore() == $utente->getId()) {
                 $pm::delete('id', $id, 'FPost');
                 $pm::delete('id', $id_imm, 'FImmagine');
+                $pm::delete('id_post', $id, 'FCommento' );
 
                 header("Location: /chefskiss/Ricette/EsploraLeDomande");
             } else {
@@ -189,6 +191,26 @@ class CUtente
 
         }
     }
+
+    static function cancellaRecensione($id)
+    {
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        if ($utente != null) {
+            $recensione = $pm::load('FRecensione', array(['id', '=', $id]));
+            if ($recensione != null && $recensione->getAutore() == $utente->getId()) {
+                $pm::delete('id', $id, 'FRecensione');
+                header("Location: /chefskiss/Ricette/InfoRicetta/{$recensione->getId_ricetta()}");
+            }
+            else{ header("Location: /chefskiss/Forum/esploraLeRicette");}
+        } else {
+            header("Location: /chefskiss/Forum/esploraLeRicette");
+
+        }
+    }
+
+
 
     static function modificaProfilo()
     {

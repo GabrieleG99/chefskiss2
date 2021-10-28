@@ -143,6 +143,11 @@
                                                                         <i class="fa fa-trash"></i>
                                                                         <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0][$i]->getId()}/{$ricetta->getId()}">Rimuovi</a>
                                                                     </button>
+                                                                {elseif {$mod !=null && $mod->getId() == $array[1][$i]->getId()}}
+                                                                    <button class="btn">
+                                                                        <i class="fa fa-trash"></i>
+                                                                        <a class="nav-link" href="/chefskiss/Utente/cancellaRecensione/{$array[0][$i]->getId()}"> Cancella </a>
+                                                                    </button>
                                                                 {else}
                                                                 {/if}
                                                             </div>
@@ -161,6 +166,11 @@
                                                             <button class="btn">
                                                                 <i class="fa fa-trash"></i>
                                                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRecensione/{$array[0]->getId()}/{$ricetta->getId()}">Rimuovi</a>
+                                                            </button>
+                                                        {elseif {$mod !=null && $mod->getId() == $array[1]->getId()}}
+                                                            <button class="btn">
+                                                                <i class="fa fa-trash"></i>
+                                                                <a class="nav-link" href="/chefskiss/Utente/cancellaRecensione/{$array[0]->getId()}"> Cancella </a>
                                                             </button>
                                                         {else}
                                                         {/if}
