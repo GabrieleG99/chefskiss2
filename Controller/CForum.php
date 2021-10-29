@@ -236,4 +236,37 @@ class CForum
             return $image->getId();
         }
     }
+
+    static function modificaPost($id_post){
+        $pm = USingleton::getInstance('FPersistentManager');
+        $session = USingleton::getInstance('USession');
+        $utente = unserialize($session->readValue('utente'));
+        $post = $pm::load('FPost', array(['id', '=', $id_post]));
+        if (CUtente::isLogged() && $utente->getid() == $post->getAutore()){
+            $immagine = $pm::load('FImmagine', array(['id', '=', $post->getid_immagine()]));
+            $view = new VForum();
+            $view->modificaPost($post, $immagine);
+        }
+        else header('Location: /chefskiss/Utente/login');
+    }
+
+    static function confermaModifiche($id, $id_image){
+        $pm = USingleton::getInstance('FPersistentManager');
+        if (CUtente::isLogged()) {
+            $titolo = $_POST['title'];
+            $domanda = $_POST['content'];
+            $categoria = $_POST['recipe-type'];
+            $id_immagine = self::upload();
+            if($id_immagine!=false){
+                $pm::update('id_immagine', $id_immagine, 'id', $id, 'FPost');
+                $pm::delete('id', $id_image, 'Fimmagine');
+            }
+            $pm::update('titolo', $titolo, 'id', $id, 'FPost');
+            $pm::update('domanda', $domanda, 'id', $id, 'FPost');
+            $pm::update('categoria', $categoria, 'id', $id, 'FPost');
+            header("Location: /chefskiss/Post/InfoPost/$id");
+        } else {
+            header('Location: /chefskiss/Utente/login');
+        }
+    }
 }

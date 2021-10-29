@@ -75,9 +75,17 @@
                                 <button>
                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviPost/{$post->getId()}/{$post->getId_immagine()}"> Rimuovi Post </a>
                                 </button>
+                                {if $mod->getId() == $post->getAutore()}
+                                    <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/{$post->getId()}"> Modifica Post </a>
+                                    </button>
+                                {/if}
                             {elseif {$mod !=null && $mod->getId() == $post->getAutore()}}
                                 <button>
                                     <a class="nav-link" href="/chefskiss/Utente/cancellaPost/{$post->getId()}/{$post->getId_immagine()}"> Cancella Post </a>
+                                </button>
+                                <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/{$post->getId()}"> Modifica Post </a>
                                 </button>
                             {else}
                             {/if}

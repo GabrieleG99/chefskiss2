@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-28 16:53:53
+/* Smarty version 3.1.39, created on 2021-10-29 15:45:17
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617ab9815abfa9_44571375',
+  'unifunc' => 'content_617bfaed0a7213_94659453',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1635432829,
+      1 => 1635515112,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617ab9815abfa9_44571375 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617bfaed0a7213_94659453 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -101,13 +101,13 @@ function content_617ab9815abfa9_44571375 (Smarty_Internal_Template $_smarty_tpl)
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
 $_prefixVariable1 = ob_get_clean();
 if ($_prefixVariable1) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
 "> Rimuovi Ricetta </a>
                                 </button>
                                 <?php if ($_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['ricetta']->value->getAutore()) {?>
-                                    <button>
+                                    <button class="border rounded-2 btn-outline-light">
                                     <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 "> Modifica Ricetta </a>
                                     </button>
@@ -117,12 +117,12 @@ ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['ricetta']->value->getAutore();
 $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
 "> Cancella Ricetta </a>
                                 </button>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 "> Modifica Ricetta </a>
                                 </button>

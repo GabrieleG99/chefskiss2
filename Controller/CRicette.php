@@ -259,10 +259,11 @@ class CRicette
                 $ingredienti = implode(", ", $array);
                 $categoria = $_POST['recipe-type'];
                 $dosi = $_POST['servings'];
-                $ricette = $pm::load('FRicetta');
-                if($ricette != null){
-                    if(is_array($ricette)){
-                        $id_ricetta = end($ricette)->getid() + 1;
+                $id_ricette = $pm::loadDefCol('FRicetta', array('id'));
+                if($id_ricette != null){
+                    if(is_array($id_ricette)){
+                        var_dump($id_ricette);
+                        $id_ricetta = $id_ricette[count($id_ricette) - 1]['id'] + 1;
                     }
                     else $id_ricetta = 2;
                 }
@@ -308,7 +309,7 @@ class CRicette
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id_ricetta]));
-        if (CUtente::isLogged() && $utente->getid() == $ricetta->getAutore){
+        if (CUtente::isLogged() && $utente->getid() == $ricetta->getAutore()){
             $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getid_immagine()]));
             $view = new VRicette();
             $view->modificaRicette($ricetta, $immagine, $ricetta->parseIngredienti());
@@ -316,7 +317,7 @@ class CRicette
         else header('Location: /chefskiss/Utente/login');
     }
 
-    static function confermaModifiche($id){
+    static function confermaModifiche($id, $id_image){
         $pm = USingleton::getInstance('FPersistentManager');
         if (CUtente::isLogged()) {
             $titolo = $_POST['title'];
@@ -328,6 +329,7 @@ class CRicette
             $id_immagine = self::upload();
             if($id_immagine!=false){
                 $pm::update('id_immagine', $id_immagine, 'id', $id, 'FRicetta');
+                $pm::delete('id', $id_image, 'Fimmagine');
             }
             $pm::update('nome_ricetta', $titolo, 'id', $id, 'FRicetta');
             $pm::update('procedimento', $procedimento, 'id', $id, 'FRicetta');

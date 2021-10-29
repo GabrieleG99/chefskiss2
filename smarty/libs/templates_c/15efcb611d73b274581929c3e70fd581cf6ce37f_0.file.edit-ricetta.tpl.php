@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-28 17:48:18
+/* Smarty version 3.1.39, created on 2021-10-29 15:34:01
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-ricetta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617ac6427314f9_20898667',
+  'unifunc' => 'content_617bf849944d37_41643153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '15efcb611d73b274581929c3e70fd581cf6ce37f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-ricetta.tpl',
-      1 => 1635436095,
+      1 => 1635514437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617ac6427314f9_20898667 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617bf849944d37_41643153 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +68,7 @@ function content_617ac6427314f9_20898667 (Smarty_Internal_Template $_smarty_tpl)
             <h2>Modifica la ricetta</h2>
             <div class="submit-recipe-form">
                 <form action="/chefskiss/Ricette/confermaModifiche/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getid();?>
+/<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getid();?>
 " method="post" enctype="multipart/form-data">
                     <label for="title">Cambia il nome del tuo piatto</label>
                     <input type="text" name="title" id="title" value="<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getNomeRicetta();?>

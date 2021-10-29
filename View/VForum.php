@@ -39,4 +39,12 @@ class VForum
     function showSubmitPost(){
         $this->smarty->display('new-post.tpl');
     }
+
+    public function modificaPost($post, $immagine){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+
+        $this->smarty->assign('post', $post);
+        $this->smarty->assign('immagine', $immagine);
+        $this->smarty->display('edit-post.tpl');
+    }
 }

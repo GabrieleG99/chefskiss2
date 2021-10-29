@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-27 18:36:18
+/* Smarty version 3.1.39, created on 2021-10-29 16:00:58
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617980020ddea7_22975130',
+  'unifunc' => 'content_617bfe9aeaac32_42845724',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6147cd5f9967b7bd91ef9ef393968e7cb0634842' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum_info.tpl',
-      1 => 1635352577,
+      1 => 1635516053,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617980020ddea7_22975130 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617bfe9aeaac32_42845724 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -107,6 +107,12 @@ if ($_prefixVariable1) {?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
 "> Rimuovi Post </a>
                                 </button>
+                                <?php if ($_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore()) {?>
+                                    <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+"> Modifica Post </a>
+                                    </button>
+                                <?php }?>
                             <?php } else {
 ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore();
@@ -116,6 +122,10 @@ if ($_prefixVariable2) {?>
                                     <a class="nav-link" href="/chefskiss/Utente/cancellaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
 "> Cancella Post </a>
+                                </button>
+                                <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+"> Modifica Post </a>
                                 </button>
                             <?php } else { ?>
                             <?php }}?>
