@@ -125,7 +125,6 @@ class FUtente extends Fdb{
         $utente = null;
         $db = Fdb::getInstance();
         $result = $db->checkIfLogged($user, $pass);
-        var_dump($result);
         if (isset($result)){
             $utente = self::loadByField(array(['email', '=', $result['email']]));
         }

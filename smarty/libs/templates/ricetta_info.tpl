@@ -71,19 +71,19 @@
                                 </div>
                             </div>
                             {if {$mod != null && $mod->getPrivilegi()>=2 }}
-                                <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Rimuovi Ricetta </a>
                                 </button>
                                 {if $mod->getId() == $ricetta->getAutore()}
-                                    <button class="border rounded-2 btn-outline-light">
+                                    <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/{$ricetta->getId()}"> Modifica Ricetta </a>
                                     </button>
                                 {/if}
                             {elseif {$mod !=null && $mod->getId() == $ricetta->getAutore()}}
-                                <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                 <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/{$ricetta->getId()}/{$ricetta->getId_immagine()}"> Cancella Ricetta </a>
                                 </button>
-                                <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                 <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/{$ricetta->getId()}"> Modifica Ricetta </a>
                                 </button>
                             {/if}

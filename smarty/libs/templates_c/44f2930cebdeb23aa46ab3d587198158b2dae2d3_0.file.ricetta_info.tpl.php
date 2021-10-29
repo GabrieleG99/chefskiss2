@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-28 16:21:49
+/* Smarty version 3.1.39, created on 2021-10-29 16:03:51
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617ab1fd348488_66160782',
+  'unifunc' => 'content_617bff47364861_63609133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44f2930cebdeb23aa46ab3d587198158b2dae2d3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/ricetta_info.tpl',
-      1 => 1635428918,
+      1 => 1635516230,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617ab1fd348488_66160782 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617bff47364861_63609133 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -101,26 +101,35 @@ function content_617ab1fd348488_66160782 (Smarty_Internal_Template $_smarty_tpl)
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
 $_prefixVariable1 = ob_get_clean();
 if ($_prefixVariable1) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                 <a class="nav-link" href="/chefskiss/Moderatore/rimuoviRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
 "> Rimuovi Ricetta </a>
                                 </button>
+                                <?php if ($_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['ricetta']->value->getAutore()) {?>
+                                    <button class="border rounded-2 btn-outline-light my-3">
+                                    <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
+"> Modifica Ricetta </a>
+                                    </button>
+                                <?php }?>
                             <?php } else {
 ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['ricetta']->value->getAutore();
 $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                 <a class="nav-link" href="/chefskiss/Utente/cancellaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId_immagine();?>
 "> Cancella Ricetta </a>
                                 </button>
-                                <?php } else { ?>
+                                <button class="border rounded-2 btn-outline-light my-3">
+                                <a class="nav-link" href="/chefskiss/Ricette/modificaRicetta/<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getId();?>
+"> Modifica Ricetta </a>
+                                </button>
                             <?php }}?>
 
 
-                            </div>
+                        </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
                             <article>
@@ -142,6 +151,9 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                                     <?php }
 }
 ?>
+                                    <?php if ($_smarty_tpl->tpl_vars['ricetta']->value->getValutazione() == 0) {?>
+                                        ancora nessuna recensione
+                                    <?php }?>
                                     </div>
                                     <!-- Post categories-->
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php echo ucfirst($_smarty_tpl->tpl_vars['ricetta']->value->getCategoria());?>

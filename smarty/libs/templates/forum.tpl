@@ -12,6 +12,7 @@
         <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/chefskiss/smarty/libs/css/boot_styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/chefskiss/smarty/libs/css/toast.css">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -73,6 +74,8 @@
                                 <p class="card-text">{substr($post->getDomanda(), 0, 100)}...</p>
                             </div>
                         </div>
+                    </div>
+                </div>
             {else}
                 <div class="row">
                     <!-- Blog entries-->
@@ -138,7 +141,7 @@
                             </div>
                         </div>
                     {/if}
-                    <!-- Pagination-->
+                        <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -241,10 +244,13 @@
                         </div>
                     </div>
                     <!-- Side widget-->
+                    <div class="col-sm-6">
+                        <div class="toast">Toast di esempio</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
+                    <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
         </footer>
