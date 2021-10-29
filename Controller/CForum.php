@@ -253,7 +253,7 @@ class CForum
     static function confermaModifiche($id, $id_image){
         $pm = USingleton::getInstance('FPersistentManager');
         if (CUtente::isLogged()) {
-            $titolo = $_POST['title'];
+            $titolo = strtoupper($_POST['title']);
             $domanda = $_POST['content'];
             $categoria = $_POST['recipe-type'];
             $id_immagine = self::upload();
