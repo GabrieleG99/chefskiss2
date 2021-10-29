@@ -77,7 +77,7 @@
                             {/if}
                         </div>
                     </div>
-                    </div>
+                </div>
         {else}
             <div class="row">
                 <!-- Blog entries-->

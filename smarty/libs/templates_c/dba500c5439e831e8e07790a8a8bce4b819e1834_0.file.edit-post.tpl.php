@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 16:06:16
+/* Smarty version 3.1.39, created on 2021-10-29 17:33:49
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617bffd8132786_73691747',
+  'unifunc' => 'content_617c145ddcd147_67027943',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dba500c5439e831e8e07790a8a8bce4b819e1834' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-post.tpl',
-      1 => 1635516373,
+      1 => 1635521627,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617bffd8132786_73691747 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c145ddcd147_67027943 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -78,7 +78,7 @@ function content_617bffd8132786_73691747 (Smarty_Internal_Template $_smarty_tpl)
                     <textarea name="content" id="recipe-content" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['post']->value->getdomanda();?>
 </textarea>
                     <label for="upload-image">Modifica la foto</label>
-                    <input type="file" name="file" id="upload-image" required/>
+                    <input type="file" name="file" id="upload-image"/>
                     <div class="d-flex flex-row align-items-center mt-2"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getImmagine();?>
 " width=80 height=80 alt="ricetta" class="rounded">
@@ -105,7 +105,7 @@ function content_617bffd8132786_73691747 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
-                            <select name="post-type" id="recipe-type" class="advance-selectable">
+                            <select name="post-type" id="recipe-type" class="advance-selectable" required>
                                 <option value="antipasti">Antipasti</option>
                                 <option value="primi">Primi</option>
                                 <option value="secondi">Secondi</option>

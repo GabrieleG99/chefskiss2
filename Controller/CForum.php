@@ -203,9 +203,16 @@ class CForum
                 $titolo = strtoupper($_POST['title']);
                 $domanda = $_POST['content'];
                 $categoria = $_POST['post-type'];
+                $id_posts = $pm::loadDefCol('FPost', array('id'));
+                if($id_posts != null){
+                    if(is_array($id_posts)){
+                        $id_post = $id_posts[count($id_posts) - 1]['id'] + 1;
+                    }
+                    else $id_post = 2;
+                }
                 $post = new EPost($autore, $titolo, $domanda, $categoria, date('Y-m-d'), $id_immagine);
+                $post->setId($id_post);
                 $pm::insert($post);
-                $id_post = $post->getId();
                 header("Location: /chefskiss/Forum/InfoPost/$id_post");
             }
         }

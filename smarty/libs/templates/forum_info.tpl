@@ -106,9 +106,13 @@
                                 <figure class="mb-4"><img class="img-fluid rounded" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=900 height=400 alt="..." /></figure>
                                 <!-- Post content-->
                                 <section class="mb-5">
+                                {if count($domanda) != 1}
                                     {for $i = 0; $i < count($domanda) - 1; $i++}
                                         <p class="fs-5 mb-4">{$domanda[$i]}.</p>
                                     {/for}
+                                {else}
+                                    <p class="fs-5 mb-4">{$domanda[0]}.</p>
+                                {/if}
                                 </section>
                             </article>
                             <!-- Comments section-->

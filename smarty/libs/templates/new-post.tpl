@@ -49,7 +49,7 @@
                     <input type="text" name="title" id="title" required/>
                     <br/>
                     <label for="recipe-content">Qual'è la tua domanda?</label>
-                    <textarea name="content" id="recipe-content" cols="30" rows="10" required></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10" required></textarea>
                     <label for="upload-image">Aggiungi una foto</label>
                     <input type="file" name="file" id="upload-image" required/>
                     <!--<fieldset class="ingredient-set">
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
-                            <select name="post-type" id="recipe-type" class="advance-selectable">
+                            <select name="post-type" id="recipe-type" class="advance-selectable" required>
                                 <option value="antipasti">Antipasti</option>
                                 <option value="primi">Primi</option>
                                 <option value="secondi">Secondi</option>

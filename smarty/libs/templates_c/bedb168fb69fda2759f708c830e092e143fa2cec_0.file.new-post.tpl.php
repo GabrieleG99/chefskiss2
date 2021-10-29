@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-27 17:53:58
+/* Smarty version 3.1.39, created on 2021-10-29 17:29:57
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617976167b8fd0_14412822',
+  'unifunc' => 'content_617c1375508d94_77824018',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bedb168fb69fda2759f708c830e092e143fa2cec' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-post.tpl',
-      1 => 1635340739,
+      1 => 1635521380,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617976167b8fd0_14412822 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c1375508d94_77824018 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +72,7 @@ function content_617976167b8fd0_14412822 (Smarty_Internal_Template $_smarty_tpl)
                     <input type="text" name="title" id="title" required/>
                     <br/>
                     <label for="recipe-content">Qual'è la tua domanda?</label>
-                    <textarea name="content" id="recipe-content" cols="30" rows="10" required></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10" required></textarea>
                     <label for="upload-image">Aggiungi una foto</label>
                     <input type="file" name="file" id="upload-image" required/>
                     <!--<fieldset class="ingredient-set">

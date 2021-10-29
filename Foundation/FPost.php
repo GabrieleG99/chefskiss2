@@ -6,7 +6,7 @@ class FPost extends Fdb{
 
     private static $class = 'FPost';
 
-    private static $values = '(:domanda, :autore, :titolo, :categoria, :data, :id_immagine)';
+    private static $values = '(:domanda, :autore, :titolo, :categoria, :data, :id_immagine, :id)';
     
     public function __construct(){
     }
@@ -41,12 +41,13 @@ class FPost extends Fdb{
      */
     public static function bind($stmt, EPost $post){
         //$stmt->bindValue(':id', $post->getId(), PDO::PARAM_INT);
-        $stmt->bindValue(':domanda', $post->getDomanda(), PDO::PARAM_INT);
+        $stmt->bindValue(':domanda', $post->getDomanda(), PDO::PARAM_STR);
         $stmt->bindValue(':autore', $post->getAutore(), PDO::PARAM_INT);
         $stmt->bindValue(':categoria', $post->getCategoria(), PDO::PARAM_STR);
         $stmt->bindValue(':data', $post->getData_pubb(), PDO::PARAM_STR);
         $stmt->bindValue(':id_immagine', $post->getId_immagine(), PDO::PARAM_INT);
         $stmt->bindValue(':titolo', $post->getTitolo(), PDO::PARAM_STR);
+        $stmt->bindValue(':id', $post->getid(), PDO::PARAM_INT);
     }
 
     public static function insert($object){

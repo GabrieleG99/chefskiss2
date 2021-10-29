@@ -51,6 +51,15 @@ class CModeratore
             $pm::delete('id', $id, 'FPost');
             $pm::delete('id', $id_imm, 'Fimmagine');
             $pm::delete('id_post', $id, 'FCommento' );
+            $post = $pm::load('FPost', array(['id', '>', $id]));
+            if($post != null){
+                if(is_array($post)){
+                    for($i = 0; $i < sizeof($post); $i++){
+                        $pm::update('id', $post[$i]->getid() - 1, 'id', $post[$i]->getid(), 'FPost');
+                    }
+                }
+                else $pm::update('id', $post->getid() - 1, 'id', $post->getid(), 'FPost');
+            }
             header("Location: /chefskiss/Forum/esploraLeDomande");
         } else {
             header("Location: /chefskiss/Forum/esploraLeDomande");

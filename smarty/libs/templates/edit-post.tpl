@@ -51,7 +51,7 @@
                     <label for="recipe-content">Modifica la tua domanda</label>
                     <textarea name="content" id="recipe-content" cols="30" rows="10" required>{$post->getdomanda()}</textarea>
                     <label for="upload-image">Modifica la foto</label>
-                    <input type="file" name="file" id="upload-image" required/>
+                    <input type="file" name="file" id="upload-image"/>
                     <div class="d-flex flex-row align-items-center mt-2"><img src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=80 height=80 alt="ricetta" class="rounded">
                     <!--<fieldset class="ingredient-set">
                         <label for="ingredients">Inserisci gli ingredienti usati</label>

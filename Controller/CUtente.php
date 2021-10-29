@@ -174,13 +174,21 @@ class CUtente
                 $pm::delete('id', $id, 'FPost');
                 $pm::delete('id', $id_imm, 'FImmagine');
                 $pm::delete('id_post', $id, 'FCommento' );
-
-                header("Location: /chefskiss/Ricette/EsploraLeDomande");
+                $post = $pm::load('FPost', array(['id', '>', $id]));
+                if($post != null){
+                    if(is_array($post)){
+                        for($i = 0; $i < sizeof($post); $i++){
+                            $pm::update('id', $post[$i]->getid() - 1, 'id', $post[$i]->getid(), 'FPost');
+                        }
+                    }
+                    else $pm::update('id', $post->getid() - 1, 'id', $post->getid(), 'FPost');
+                }
+                header("Location: /chefskiss/Forum/EsploraLeDomande");
             } else {
-                header("Location: /chefskiss/Ricette/EsploraLeDomande");
+                header("Location: /chefskiss/Forum/EsploraLeDomande");
             }
         } else {
-            header("Location: /chefskiss/Ricette/EsploraLeDomande");
+            header("Location: /chefskiss/Forum/EsploraLeDomande");
 
         }
     }

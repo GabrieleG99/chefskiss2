@@ -262,7 +262,6 @@ class CRicette
                 $id_ricette = $pm::loadDefCol('FRicetta', array('id'));
                 if($id_ricette != null){
                     if(is_array($id_ricette)){
-                        var_dump($id_ricette);
                         $id_ricetta = $id_ricette[count($id_ricette) - 1]['id'] + 1;
                     }
                     else $id_ricetta = 2;

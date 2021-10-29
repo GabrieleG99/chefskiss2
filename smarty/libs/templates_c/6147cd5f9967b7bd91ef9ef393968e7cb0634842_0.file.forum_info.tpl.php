@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 16:00:58
+/* Smarty version 3.1.39, created on 2021-10-29 17:41:56
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617bfe9aeaac32_42845724',
+  'unifunc' => 'content_617c1644088261_21024929',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6147cd5f9967b7bd91ef9ef393968e7cb0634842' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum_info.tpl',
-      1 => 1635516053,
+      1 => 1635522111,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617bfe9aeaac32_42845724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c1644088261_21024929 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -151,6 +151,7 @@ if ($_prefixVariable2) {?>
 " width=900 height=400 alt="..." /></figure>
                                 <!-- Post content-->
                                 <section class="mb-5">
+                                <?php if (count($_smarty_tpl->tpl_vars['domanda']->value) != 1) {?>
                                     <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
@@ -162,6 +163,10 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                     <?php }
 }
 ?>
+                                <?php } else { ?>
+                                    <p class="fs-5 mb-4"><?php echo $_smarty_tpl->tpl_vars['domanda']->value[0];?>
+.</p>
+                                <?php }?>
                                 </section>
                             </article>
                             <!-- Comments section-->

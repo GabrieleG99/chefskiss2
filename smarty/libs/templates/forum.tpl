@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
             {else}
                 <div class="row">
                     <!-- Blog entries-->
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                     {/if}
-                        <!-- Pagination-->
+                    <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -243,10 +243,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget-->
+                    <!-- Side widget
                     <div class="col-sm-6">
                         <div class="toast">Toast di esempio</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
