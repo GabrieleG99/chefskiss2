@@ -15,8 +15,9 @@ class VAdmin{
 
         $this->smarty->display('admin.tpl');
     }
-    function profiloUtente($utente){
+    function profiloUtente($utente, $immagine){
         $this->smarty->assign('utente',$utente);
+        $this->smarty->assign('immagine', $immagine);
 
         $this->smarty->display('user.tpl');
     }

@@ -320,7 +320,7 @@ class CRicette
     static function confermaModifiche($id, $id_image){
         $pm = USingleton::getInstance('FPersistentManager');
         if (CUtente::isLogged()) {
-            $titolo = $_POST['title'];
+            $titolo = strtoupper($_POST['title']);
             $procedimento = $_POST['content'];
             $array = $_POST['ingredients'];
             $ingredienti = implode(", ", $array);

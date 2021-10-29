@@ -27,7 +27,8 @@ class CAdmin
         $admin = unserialize($session->readValue('utente'));
         if ($admin != null && $admin->getPrivilegi() == 3) {
             $utente = $pm::load('FUtente', array(['id', '=', $id]));
-            $view->profiloUtente($utente);
+            $immagine = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
+            $view->profiloUtente($utente, $immagine);
         } else {
             header('Location: /chefskiss/');
         }

@@ -72,7 +72,7 @@
         <!-- Column -->
         <div class="card"> <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
             <div class="card-body little-profile text-center">
-                <div class="pro-img"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
+                <div class="pro-img"><img src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
                 <div class="ms-3">
                     <h3 class="m-b-0">{$utente->getNome()} {$utente->getCognome()}</h3>
                     {if $utente->getPrivilegi() == 1 & $utente->getBan()==0}
