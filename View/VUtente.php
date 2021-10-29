@@ -21,8 +21,10 @@ class VUtente
         $this->smarty->display('.smarty/libs/templates/index.tpl');
     }
 
-    public function loginErr(){
-        $this->smarty->assign('error', "errore");
+    public function loginErr($ban=0, $error='', $fine_ban=''){
+        $this->smarty->assign('ban', $ban);
+        $this->smarty->assign('fine_ban', $fine_ban);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('./smarty/libs/templates/login_registration_form.tpl');
     }
 

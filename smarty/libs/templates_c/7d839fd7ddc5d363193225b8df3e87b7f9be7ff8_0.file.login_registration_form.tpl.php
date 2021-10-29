@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-11 13:32:40
+/* Smarty version 3.1.39, created on 2021-10-29 17:32:39
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/login_registration_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_613c93d89e9100_14031045',
+  'unifunc' => 'content_617c141752d786_60796601',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7d839fd7ddc5d363193225b8df3e87b7f9be7ff8' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/login_registration_form.tpl',
-      1 => 1631293036,
+      1 => 1635521556,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_613c93d89e9100_14031045 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c141752d786_60796601 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!-- Coding by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
@@ -99,6 +99,18 @@ function content_613c93d89e9100_14031045 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     </div>
   </div>
+  <?php if ($_smarty_tpl->tpl_vars['ban']->value == 1 && $_smarty_tpl->tpl_vars['fine_ban']->value != '') {?>
+    <?php echo '<script'; ?>
+>alert("Sei stato bannato fino al <?php echo $_smarty_tpl->tpl_vars['fine_ban']->value;?>
+")<?php echo '</script'; ?>
+>
+  <?php }?>
+
+  <?php if ($_smarty_tpl->tpl_vars['error']->value == 'errore') {?>
+    <?php echo '<script'; ?>
+>alert("Riprova l'accesso")<?php echo '</script'; ?>
+>
+  <?php }?>
 </body>
 </html>
 <?php }

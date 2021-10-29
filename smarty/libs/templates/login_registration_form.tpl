@@ -76,5 +76,12 @@
     </div>
     </div>
   </div>
+  {if $ban == 1 && $fine_ban != ''}
+    <script>alert("Sei stato bannato fino al {$fine_ban}")</script>
+  {/if}
+
+  {if $error == 'errore'}
+    <script>alert("Riprova l'accesso")</script>
+  {/if}
 </body>
 </html>

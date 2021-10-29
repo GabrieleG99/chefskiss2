@@ -26,24 +26,28 @@ class CUtente
         $pm = USingleton::getInstance('FPersistentManager');
         $utente = $pm->loadLogin($_POST['email'], md5($_POST['password']));
         //var_dump($utente);
-        if ($utente != null && $utente->getBan() != true) {
-            if (session_status() == PHP_SESSION_NONE) {
-                $session = USingleton::getInstance('USession');
-                $savableData = serialize($utente);
-                $privilegi = $utente->getPrivilegi();
-                $session->setValue('privilegi', $privilegi);
-                $session->setValue('utente', $savableData);
-                if ($privilegi == 1) { //accesso con privilegi base (utente)
-                    if (isset($_COOKIE['home']))
-                        setcookie('home', null, time() - 900, '/');
-                    else
-                        header('Location: /chefskiss/');
-                } else { //accesso con privilegi maggiori (moderatore o amministratore)
-                    header('Location: /chefskiss/Admin/homepage');
+        if ($utente != null) {
+            if ($utente->getBan() != true) {
+                if (session_status() == PHP_SESSION_NONE) {
+                    $session = USingleton::getInstance('USession');
+                    $savableData = serialize($utente);
+                    $privilegi = $utente->getPrivilegi();
+                    $session->setValue('privilegi', $privilegi);
+                    $session->setValue('utente', $savableData);
+                    if ($privilegi == 1) { //accesso con privilegi base (utente)
+                        if (isset($_COOKIE['home']))
+                            setcookie('home', null, time() - 900, '/');
+                        else
+                            header('Location: /chefskiss/');
+                    } else { //accesso con privilegi maggiori (moderatore o amministratore)
+                        header('Location: /chefskiss/Admin/homepage');
+                    }
                 }
+            } else {
+                $view->loginErr(1, '', $utente->getDataFineBan());
             }
         } else {
-            $view->loginErr();
+            $view->loginErr(0,'errore');
         }
     }
 

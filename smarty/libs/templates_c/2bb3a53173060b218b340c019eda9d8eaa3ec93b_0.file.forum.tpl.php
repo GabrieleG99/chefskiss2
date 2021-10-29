@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-27 16:46:13
+/* Smarty version 3.1.39, created on 2021-10-29 16:48:04
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61796635626954_09795035',
+  'unifunc' => 'content_617c09a415f282_01293620',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2bb3a53173060b218b340c019eda9d8eaa3ec93b' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl',
-      1 => 1635345972,
+      1 => 1635518204,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61796635626954_09795035 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c09a415f282_01293620 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-18 23:52:54
+/* Smarty version 3.1.39, created on 2021-10-29 16:51:40
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616decb6a9ed44_73586396',
+  'unifunc' => 'content_617c0a7c6f4919_98062970',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3281035def857a202f1a5d1f01da4022cba3c338' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl',
-      1 => 1634554988,
+      1 => 1635518175,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616decb6a9ed44_73586396 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c0a7c6f4919_98062970 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -107,8 +107,28 @@ if ($_prefixVariable1) {?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
 "> Rimuovi Post </a>
                                 </button>
+                                <?php if ($_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore()) {?>
+                                    <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+"> Modifica Post </a>
+                                    </button>
+                                <?php }?>
+                            <?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore();
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2) {?>
+                                <button>
+                                    <a class="nav-link" href="/chefskiss/Utente/cancellaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
+"> Cancella Post </a>
+                                </button>
+                                <button class="border rounded-2 btn-outline-light">
+                                    <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
+"> Modifica Post </a>
+                                </button>
                             <?php } else { ?>
-                            <?php }?>
+                            <?php }}?>
                         </div>
                         <div class="col-lg-9">
                             <!-- Post content-->
@@ -194,16 +214,25 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
 " width=40 height=40 alt="..." />
                                                                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
-$_prefixVariable2 = ob_get_clean();
-if ($_prefixVariable2) {?>
+$_prefixVariable3 = ob_get_clean();
+if ($_prefixVariable3) {?>
                                                                     <button class="btn">
                                                                         <i class="fa fa-trash"></i>
                                                                         <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/<?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 ">Rimuovi</a>
                                                                     </button>
+                                                                <?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getId();
+$_prefixVariable4 = ob_get_clean();
+if ($_prefixVariable4) {?>
+                                                                    <button>
+                                                                        <a class="nav-link" href="/chefskiss/Utente/cancellaCommento/<?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+"> Cancella </a>
+                                                                    </button>
                                                                 <?php } else { ?>
-                                                                <?php }?>
+                                                                <?php }}?>
                                                             </div>
                                                             <div class="ms-3">
                                                                 <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
@@ -225,16 +254,25 @@ if ($_prefixVariable2) {?>
 " width=40 height=40 alt="..." />
                                                             <?php ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
-$_prefixVariable3 = ob_get_clean();
-if ($_prefixVariable3) {?>
+$_prefixVariable5 = ob_get_clean();
+if ($_prefixVariable5) {?>
                                                                 <button class="btn">
                                                                     <i class="fa fa-trash"></i>
                                                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviCommento/<?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 ">Rimuovi</a>
                                                                 </button>
+                                                            <?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['array']->value[1]->getId();
+$_prefixVariable6 = ob_get_clean();
+if ($_prefixVariable6) {?>
+                                                                <button>
+                                                                    <a class="nav-link" href="/chefskiss/Utente/cancellaCommento/<?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getId();?>
+"> Cancella </a>
+                                                                </button>
                                                             <?php } else { ?>
-                                                            <?php }?>
+                                                            <?php }}?>
                                                         </div>
                                                         <div class="ms-3">
                                                             <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
