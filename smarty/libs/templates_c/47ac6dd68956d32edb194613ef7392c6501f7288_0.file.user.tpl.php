@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-24 18:58:23
+/* Smarty version 3.1.39, created on 2021-10-29 17:00:22
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617590afe1f5a4_07937879',
+  'unifunc' => 'content_617c0c865235e0_01264113',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '47ac6dd68956d32edb194613ef7392c6501f7288' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\user.tpl',
-      1 => 1635094689,
+      1 => 1635519615,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617590afe1f5a4_07937879 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c0c865235e0_01264113 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -95,7 +95,9 @@ function content_617590afe1f5a4_07937879 (Smarty_Internal_Template $_smarty_tpl)
         <!-- Column -->
         <div class="card"> <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
             <div class="card-body little-profile text-center">
-                <div class="pro-img"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
+                <div class="pro-img"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getImmagine();?>
+" alt="user"></div><!--./smarty/libs/assets/background_profilo.jpg-->
                 <div class="ms-3">
                     <h3 class="m-b-0"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>

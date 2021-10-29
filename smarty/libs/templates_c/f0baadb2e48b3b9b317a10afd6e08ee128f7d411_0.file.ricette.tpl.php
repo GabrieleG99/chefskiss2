@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-26 21:47:25
+/* Smarty version 3.1.39, created on 2021-10-29 17:30:41
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61785b4d24cd04_67956278',
+  'unifunc' => 'content_617c13a1e00f65_65562820',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0baadb2e48b3b9b317a10afd6e08ee128f7d411' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricette.tpl',
-      1 => 1635277643,
+      1 => 1635520927,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61785b4d24cd04_67956278 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c13a1e00f65_65562820 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -47,7 +47,7 @@ function content_61785b4d24cd04_67956278 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>

@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2021-10-29 17:57:53
+  from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\contact.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_617c1a01e561d9_44772014',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'c03d56e249072f1f9820e98693b7caa066b07bb7' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\contact.tpl',
+      1 => 1635523068,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_617c1a01e561d9_44772014 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -92,13 +115,21 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
+>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <?php echo '<script'; ?>
+ src="js/scripts.js"><?php echo '</script'; ?>
+>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <?php echo '<script'; ?>
+ src="https://cdn.startbootstrap.com/sb-forms-latest.js"><?php echo '</script'; ?>
+>
     </body>
 </html>
+<?php }
+}
