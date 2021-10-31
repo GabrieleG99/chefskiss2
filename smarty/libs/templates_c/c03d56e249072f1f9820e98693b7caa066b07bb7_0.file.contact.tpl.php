@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:57:53
+/* Smarty version 3.1.39, created on 2021-10-31 17:39:40
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\contact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c1a01e561d9_44772014',
+  'unifunc' => 'content_617ec6cc114b91_02274047',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c03d56e249072f1f9820e98693b7caa066b07bb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\contact.tpl',
-      1 => 1635523068,
+      1 => 1635698377,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c1a01e561d9_44772014 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617ec6cc114b91_02274047 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,6 +98,8 @@ function content_617c1a01e561d9_44772014 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">

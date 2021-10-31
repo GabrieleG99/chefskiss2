@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:22:08
+/* Smarty version 3.1.39, created on 2021-10-31 17:40:13
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c11a0a3abc4_40227918',
+  'unifunc' => 'content_617ec6edf03bd7_68814170',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b13b47b7e8fb063324625573fb25ba84af84a8c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum.tpl',
-      1 => 1635520927,
+      1 => 1635696828,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c11a0a3abc4_40227918 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617ec6edf03bd7_68814170 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -104,7 +104,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     </div>
-                </div>
+                
             <?php } else { ?>
                 <div class="row">
                     <!-- Blog entries-->
@@ -200,7 +200,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     <?php }?>
-                        <!-- Pagination-->
+                    <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -340,10 +340,10 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget-->
+                    <!-- Side widget
                     <div class="col-sm-6">
                         <div class="toast">Toast di esempio</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -359,7 +359,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
         <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-    </body>
+        </div></body>
 </html>
 <?php }
 }

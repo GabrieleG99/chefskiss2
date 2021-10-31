@@ -200,19 +200,21 @@ class CRicette
         $pm = USingleton::getInstance('FPersistentManager');
         if($categoria!=null){
             $ricette = $pm::load('FRicetta', array(['categoria', '=', $categoria]));
-            if (is_array($ricette)){
-                for($i = 0; $i < sizeof($ricette); $i++){
-                    $array[$i]['nome_ricetta'] = $ricette[$i]->getNomeRicetta();
-                    $array[$i]['id'] = $ricette[$i]->getId();
+            if($ricette != null){
+                if (is_array($ricette)){
+                    for($i = 0; $i < sizeof($ricette); $i++){
+                        $array[$i]['nome_ricetta'] = $ricette[$i]->getNomeRicetta();
+                        $array[$i]['id'] = $ricette[$i]->getId();
+                    }
                 }
+                else {
+                    $array['nome_ricetta'] = $ricette->getNomeRicetta();
+                    $array['id'] = $ricette->getId();
+                }    
+                $data = serialize($array);
+                setcookie('ricetta_ricerca', $data);
+                setcookie('searchOn', 1);
             }
-            else {
-                $array['nome_ricetta'] = $ricette->getNomeRicetta();
-                $array['id'] = $ricette->getId();
-            }
-            $data = serialize($array);
-            setcookie('ricetta_ricerca', $data);
-            setcookie('searchOn', 1);
             header('Location: /chefskiss/Ricette/EsploraLeRicette/cerca');
         }
         else{
