@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:32:39
+/* Smarty version 3.1.39, created on 2021-10-29 17:51:36
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/login_registration_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c141752d786_60796601',
+  'unifunc' => 'content_617c1888895fe3_69813045',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7d839fd7ddc5d363193225b8df3e87b7f9be7ff8' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/login_registration_form.tpl',
-      1 => 1635521556,
+      1 => 1635522695,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c141752d786_60796601 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c1888895fe3_69813045 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
+<?php $_smarty_tpl->_assignInScope('ban', (($tmp = @$_smarty_tpl->tpl_vars['ban']->value)===null||$tmp==='' ? 0 : $tmp));
+$_smarty_tpl->_assignInScope('error', (($tmp = @$_smarty_tpl->tpl_vars['error']->value)===null||$tmp==='' ? '' : $tmp));
+$_smarty_tpl->_assignInScope('fine_ban', (($tmp = @$_smarty_tpl->tpl_vars['fine_ban']->value)===null||$tmp==='' ? '' : $tmp));?>
 <!-- Coding by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
   <head>
@@ -37,14 +40,13 @@ function content_617c141752d786_60796601 (Smarty_Internal_Template $_smarty_tpl)
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="../smarty/libs/assets/frontImg.jpg" alt="">
+        <img src="../smarty/libs/assets/ThomasKeller828x1344.jpg" alt="">
         <div class="text">
-          <span class="text-1">Every new friend is a <br> new adventure</span>
-          <span class="text-2">Let's get connected</span>
+          <span class="text-1">Accedi a un mondo di<br> nuove ricette</span>
         </div>
       </div>
       <div class="back">
-        <img class="backImg" src="../smarty/libs/assets/backImg.jpg" alt="">
+        <img class="backImg" src="../smarty/libs/assets/ThomasKeller.jpg" alt="">
         <div class="text">
           <span class="text-1">Complete miles of journey <br> with one step</span>
           <span class="text-2">Let's get started</span>

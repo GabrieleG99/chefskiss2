@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-28 16:02:10
+/* Smarty version 3.1.39, created on 2021-10-29 21:42:05
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617aad6261e744_67861908',
+  'unifunc' => 'content_617c4e8d3d6ef7_46114947',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1635428918,
+      1 => 1635536520,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617aad6261e744_67861908 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c4e8d3d6ef7_46114947 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
-<?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
+<?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
+$_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -45,7 +46,7 @@ function content_617aad6261e744_67861908 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
@@ -114,7 +115,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                             <?php }?>
                         </div>
                     </div>
-                    </div>
+                </div>
         <?php } else { ?>
             <div class="row">
                 <!-- Blog entries-->
@@ -445,7 +446,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
         <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-    </body>
+            </div></body>
 </html>
 <?php }
 }

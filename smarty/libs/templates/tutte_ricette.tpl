@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {assign var='userlogged' value=$userlogged|default:'nouser'}
+{assign var='searchMod' value=$searchMod|default:'searchOff'}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -296,5 +297,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-    </body>
+            </div></body>
 </html>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{assign var='ban' value=$ban|default:0}
+{assign var='error' value=$error|default:''}
+{assign var='fine_ban' value=$fine_ban|default:''}
 <!-- Coding by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
   <head>
@@ -14,14 +17,13 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="../smarty/libs/assets/frontImg.jpg" alt="">
+        <img src="../smarty/libs/assets/ThomasKeller828x1344.jpg" alt="">
         <div class="text">
-          <span class="text-1">Every new friend is a <br> new adventure</span>
-          <span class="text-2">Let's get connected</span>
+          <span class="text-1">Accedi a un mondo di<br> nuove ricette</span>
         </div>
       </div>
       <div class="back">
-        <img class="backImg" src="../smarty/libs/assets/backImg.jpg" alt="">
+        <img class="backImg" src="../smarty/libs/assets/ThomasKeller.jpg" alt="">
         <div class="text">
           <span class="text-1">Complete miles of journey <br> with one step</span>
           <span class="text-2">Let's get started</span>

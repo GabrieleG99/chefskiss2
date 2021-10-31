@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 16:48:04
+/* Smarty version 3.1.39, created on 2021-10-29 21:42:48
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c09a415f282_01293620',
+  'unifunc' => 'content_617c4eb889aca2_61946771',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2bb3a53173060b218b340c019eda9d8eaa3ec93b' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum.tpl',
-      1 => 1635518204,
+      1 => 1635536567,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c09a415f282_01293620 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c4eb889aca2_61946771 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -47,7 +47,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
@@ -104,7 +104,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     </div>
-                </div>
+                
             <?php } else { ?>
                 <div class="row">
                     <!-- Blog entries-->
@@ -200,7 +200,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     <?php }?>
-                        <!-- Pagination-->
+                    <!-- Pagination-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -340,10 +340,10 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget-->
+                    <!-- Side widget
                     <div class="col-sm-6">
                         <div class="toast">Toast di esempio</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -359,7 +359,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
         <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-    </body>
+        </div></body>
 </html>
 <?php }
 }

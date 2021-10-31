@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:13:04
+/* Smarty version 3.1.39, created on 2021-10-29 21:29:47
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c0f80b57138_72515413',
+  'unifunc' => 'content_617c4babe62fe8_23447274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1635519800,
+      1 => 1635535774,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c0f80b57138_72515413 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617c4babe62fe8_23447274 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -60,7 +60,7 @@ function content_617c0f80b57138_72515413 (Smarty_Internal_Template $_smarty_tpl)
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
