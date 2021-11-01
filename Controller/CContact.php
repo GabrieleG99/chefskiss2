@@ -2,7 +2,8 @@
 
 class CContact
 {
-    static function contattaci(){
+    static function contattaci()
+    {
         $view = new VContact();
         $session = USingleton::getInstance('USession');
         $utente = unserialize($session->readValue('utente'));
@@ -14,19 +15,19 @@ class CContact
 
     }
 
-    static function mail(){
+    static function mail()
+    {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];
-        $formcontent="From: $name \n Message: $message";
+        $formcontent = "From: $name \nEmail: $email \nMessage: $message";
         $recipient = "loris.lindozzi@gmail.com";
         $subject = "Contact Form";
-        $mailheader = "From: $email \r\n";
-        mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
-        echo "Thank You!";
+        mail($recipient, $subject, $formcontent, $email);
+        header("Location: /chefskiss/Contact/contattaci");
+
+
     }
-
-
 
 
 }
