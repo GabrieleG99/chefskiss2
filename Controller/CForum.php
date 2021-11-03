@@ -271,7 +271,7 @@ class CForum
             $pm::update('titolo', $titolo, 'id', $id, 'FPost');
             $pm::update('domanda', $domanda, 'id', $id, 'FPost');
             $pm::update('categoria', $categoria, 'id', $id, 'FPost');
-            header("Location: /chefskiss/Post/InfoPost/$id");
+            header("Location: /chefskiss/Forum/InfoPost/$id");
         } else {
             header('Location: /chefskiss/Utente/login');
         }

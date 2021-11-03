@@ -72,22 +72,21 @@
                                 </div>
                             </div>
                             {if {$mod != null && $mod->getPrivilegi()>=2 }}
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviPost/{$post->getId()}/{$post->getId_immagine()}"> Rimuovi Post </a>
                                 </button>
                                 {if $mod->getId() == $post->getAutore()}
-                                    <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Forum/modificaPost/{$post->getId()}"> Modifica Post </a>
-                                    </button>
+                                </button>
                                 {/if}
                             {elseif {$mod !=null && $mod->getId() == $post->getAutore()}}
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Utente/cancellaPost/{$post->getId()}/{$post->getId_immagine()}"> Cancella Post </a>
                                 </button>
-                                <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Forum/modificaPost/{$post->getId()}"> Modifica Post </a>
                                 </button>
-                            {else}
                             {/if}
                         </div>
                         <div class="col-lg-9">
