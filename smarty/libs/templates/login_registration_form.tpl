@@ -58,7 +58,11 @@
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name (Nome Cognome)" name="username" required>
+                <input type="text" placeholder="Enter your name" name="name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your surname" name="username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>

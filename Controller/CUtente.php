@@ -94,8 +94,9 @@ class CUtente
         if ($verify_email) {
             $view->registrationError('email');
         } else {
-            $nome_utente = explode(' ', $_POST['username']);
-            $utente = new EUtente($nome_utente[0], $nome_utente[1], time(), $_POST['email'], md5($_POST['password']), '', date('y/m/d'), null, false, 1);
+            $nome_utente = $_POST['name'];
+            $cognome_utente = $_POST['username'];
+            $utente = new EUtente($nome_utente, $cognome_utente, time(), $_POST['email'], md5($_POST['password']), 29, date('y/m/d'), null, false, 1);
             $pm::insert($utente);
             header('Location: /chefskiss/Utente/login');
         }
@@ -110,7 +111,6 @@ class CUtente
         if (CUtente::isLogged()) {
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
-
             if ($ricetta != null) {
                 if (is_array($ricetta)) {
                     for ($i = 0; $i < sizeof($ricetta); $i++) {
@@ -249,30 +249,33 @@ class CUtente
     {
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
+        $verify_email = $pm::exist('email', $_POST['email'], 'FUtente');
         if (CUtente::isLogged()) {
-            $id_immagine = self::upload();
-            $utente = unserialize($session->readValue('utente'));
-            $nome_utente = $_POST['nome'];
-            $cognome_utente = $_POST['cognome'];
-            $email_utente = $_POST['email'];
-            $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
-            $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
-            $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
-            if ((int)$utente->getid_immagine() != 29) $pm::delete('id', $utente->getid_immagine(), 'FImmagine');
-            $utente->setEmail($email_utente);
-            $utente->setNome($nome_utente);
-            $utente->setCognome($cognome_utente);
-            $session->destroyValue('utente');
-            if ($id_immagine != false) {
-                $pm::update('id_immagine', $id_immagine, 'id', $utente->getId(), 'FUtente');
-                $utente->setid_immagine($id_immagine);
-                $session->setValue('utente', serialize($utente));
-                header("Location: /chefskiss/Utente/profilo");
+                $id_immagine = self::upload();
+                $utente = unserialize($session->readValue('utente'));
+                $nome_utente = $_POST['nome'];
+                $cognome_utente = $_POST['cognome'];
+                if(!$verify_email){
+                    $email_utente = $_POST['email'];
+                    $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
+                    $utente->setEmail($email_utente);
+                }
+                $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
+                $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
+                $utente->setNome($nome_utente);
+                $utente->setCognome($cognome_utente);
+                $session->destroyValue('utente');
+                if ($id_immagine != false) {
+                    if ((int)$utente->getid_immagine() != 29) $pm::delete('id', $utente->getid_immagine(), 'FImmagine');
+                    $pm::update('id_immagine', $id_immagine, 'id', $utente->getId(), 'FUtente');
+                    $utente->setid_immagine($id_immagine);
+                    $session->setValue('utente', serialize($utente));
+                    header("Location: /chefskiss/Utente/profilo");
+                } else {
+                    $session->setValue('utente', serialize($utente));
+                    header("Location: /chefskiss/Utente/profilo");
+                }
             } else {
-                $session->setValue('utente', serialize($utente));
-                header("Location: /chefskiss/Utente/profilo");
-            }
-        } else {
             header('Location: /chefskiss/Utente/login');
         }
     }

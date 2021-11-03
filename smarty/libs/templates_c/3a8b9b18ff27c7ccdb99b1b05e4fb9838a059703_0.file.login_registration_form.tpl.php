@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-31 17:20:54
+/* Smarty version 3.1.39, created on 2021-11-03 15:31:22
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\login_registration_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617ec2665461d6_14415768',
+  'unifunc' => 'content_61829d3a503186_59961645',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3a8b9b18ff27c7ccdb99b1b05e4fb9838a059703' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\login_registration_form.tpl',
-      1 => 1635696828,
+      1 => 1635949877,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617ec2665461d6_14415768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61829d3a503186_59961645 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('ban', (($tmp = @$_smarty_tpl->tpl_vars['ban']->value)===null||$tmp==='' ? 0 : $tmp));
 $_smarty_tpl->_assignInScope('error', (($tmp = @$_smarty_tpl->tpl_vars['error']->value)===null||$tmp==='' ? '' : $tmp));
@@ -81,7 +81,11 @@ $_smarty_tpl->_assignInScope('fine_ban', (($tmp = @$_smarty_tpl->tpl_vars['fine_
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name (Nome Cognome)" name="username" required>
+                <input type="text" placeholder="Enter your name" name="name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your surname" name="username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
