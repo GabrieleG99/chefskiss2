@@ -65,4 +65,18 @@ class VRicette
         $this->smarty->display('edit-ricetta.tpl');
     }
 
+    function showAllErr($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca, $tipoerr, $input){
+        if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
+        if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
+
+        $this->smarty->assign('immagini', $immagini);
+        $this->smarty->assign('ricette', $ricette);
+        $this->smarty->assign('num_pagine', $num_pagine);
+        $this->smarty->assign('index', $index);
+        $this->smarty->assign('num_ricette', $num_ricette);
+        $this->smarty->assign('tipoerr', $tipoerr);
+        $this->smarty->assign('input', $input);
+
+        $this->smarty->display('tutte_ricette_err.tpl');
+    }
 }

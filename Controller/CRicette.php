@@ -86,13 +86,13 @@ class CRicette
 
         if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
             $num_ricette = $pm::getRows('FRicetta');
+        } elseif($data[0] == 'no_categoria' || $data[0] == 'no_ricerca'){
+            $num_ricette = $pm::getRows('FRicetta');
         } else {
             if (isset($data['nome_ricetta']) || isset($data['id'])){
                 $num_ricette = 1;
             } elseif (is_array($data[0])){
                 $num_ricette = sizeof($data);
-            } else {
-                echo 'Non sono presenti risultati';
             }
         }
 
@@ -103,8 +103,7 @@ class CRicette
         } else {
             $page_number = $num_ricette / $ricette_per_pagina;
         }
-
-        if (!isset($_COOKIE['ricetta_ricerca']) || !is_array($data)) {
+        if (!isset($_COOKIE['ricetta_ricerca']) || $data[0] == 'no_categoria' || $data[0] == 'no_ricerca') {
             if ($new_index * $ricette_per_pagina <= $num_ricette) {
                 $ricette_pag = $pm::load('FRicetta', array(['id', '>', ($new_index - 1) * $ricette_per_pagina]), '', $ricette_per_pagina);
             } else {
@@ -142,10 +141,14 @@ class CRicette
             }
         }
         $view = new VRicette();
-        
+
         $cerca = 'cerca';
 
-        $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
+        if(isset($data)){
+            if($data[0] == 'no_categoria' || $data[0] == 'no_ricerca') $view->showAllErr($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca, $data[0], $data[1]);
+            else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
+        }
+        else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
     }
 
     static function searchOff(){
@@ -215,10 +218,16 @@ class CRicette
                 setcookie('ricetta_ricerca', $data);
                 setcookie('searchOn', 1);
             }
+            else{
+                $data = serialize(['no_categoria', $categoria]);
+                setcookie('ricetta_ricerca', $data);
+                setcookie('searchOn', 1);
+            }
             header('Location: /chefskiss/Ricette/EsploraLeRicette/cerca');
         }
         else{
             $j = 0;
+            $array = null;
             $parametro = $_POST['text'];
             $parametro = strtoupper($parametro);
             $allPostTitleAndId = $pm::loadDefCol('FRicetta', array('nome_ricetta', 'id'));
@@ -236,6 +245,9 @@ class CRicette
                 }
             }
             $data = serialize($array);
+            if($array == null){
+                $data = serialize(['no_ricerca', $parametro]);
+            }
             setcookie('ricetta_ricerca', $data);
             setcookie('searchOn', 1);
             header('Location: /chefskiss/Ricette/EsploraLeRicette/cerca');
