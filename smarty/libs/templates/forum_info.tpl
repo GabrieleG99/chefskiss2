@@ -170,7 +170,6 @@
                                                             <div class="ms-3">
                                                                 <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
                                                                 {$array[0][$i]->getTesto()} <div class="text-start text-muted">{$array[0][$i]->getData()}</div>
-                                                                    <div class="text-end"><a href="#">Rispondi</a></div>
                                                             </div>
                                                         </div>
                                                     {/for}
