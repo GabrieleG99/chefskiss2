@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-08 17:52:25
+/* Smarty version 3.1.39, created on 2021-11-08 18:06:30
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618955c9a2ec95_00732754',
+  'unifunc' => 'content_61895916bfe023_67616472',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '80e789078284c9520ffc65f37f3cf017c9872622' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\index.tpl',
-      1 => 1636390343,
+      1 => 1636391190,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618955c9a2ec95_00732754 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61895916bfe023_67616472 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -54,6 +54,7 @@ function content_618955c9a2ec95_00732754 (Smarty_Internal_Template $_smarty_tpl)
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
+                    <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
                     <a class="navbar-brand" href="index.tpl">Chef's Kiss</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
