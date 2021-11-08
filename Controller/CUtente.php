@@ -83,7 +83,7 @@ class CUtente
         $session->unsetSession();
         $session->destroySession();
         setcookie('PHPSESSID', '');
-        header('Location: /ChefsKiss/chefskiss/');
+        header('Location: /ChefsKiss/chefskiss');
     }
 
     static function verify_registration()
