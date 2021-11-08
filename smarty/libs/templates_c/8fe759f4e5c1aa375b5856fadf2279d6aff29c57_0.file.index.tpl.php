@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 21:29:47
+/* Smarty version 3.1.39, created on 2021-11-08 17:55:08
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c4babe62fe8_23447274',
+  'unifunc' => 'content_6189566c8adb38_60867901',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fe759f4e5c1aa375b5856fadf2279d6aff29c57' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/index.tpl',
-      1 => 1635535774,
+      1 => 1636390392,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c4babe62fe8_23447274 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6189566c8adb38_60867901 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -31,7 +31,7 @@ function content_617c4babe62fe8_23447274 (Smarty_Internal_Template $_smarty_tpl)
         <meta name="author" content="" />
         <title>Chef's Kiss - Ricette e Forum</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->

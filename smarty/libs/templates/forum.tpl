@@ -9,7 +9,7 @@
         <meta name="author" content="" />
         <title>Chef's Kiss - Forum e Ricette</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/chefskiss/smarty/libs/css/boot_styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/chefskiss/smarty/libs/css/toast.css">
