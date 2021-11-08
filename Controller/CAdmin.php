@@ -53,11 +53,12 @@ class CAdmin
 
     static function bannaUtente($id)
     {
+        $view = new VAdmin();
         $session = USingleton::getInstance('USession');
         $admin = unserialize($session->readValue('utente'));
         if ($admin != null && $admin->getPrivilegi() == 3) {
             $pm = USingleton::getInstance('FPersistentManager');
-            $date = $_POST['date'];
+            $date = $view->getDate();
             date_default_timezone_set('Europe/Rome');
             $timezone = date_default_timezone_get();
             if (strtotime($date) > strtotime($timezone)) {

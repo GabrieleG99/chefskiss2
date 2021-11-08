@@ -17,9 +17,9 @@ class CContact
 
     static function mail()
     {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
+        $name = VContact::getName();
+        $email = VContact::getEmail();
+        $message = VContact::getMessage();
         $formcontent = "From: $name \nEmail: $email \nMessage: $message";
         $recipient = "loris.lindozzi@gmail.com";
         $subject = "Contact Form";

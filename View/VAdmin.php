@@ -9,6 +9,10 @@ class VAdmin{
         $this->smarty = StartSmarty::configuration();
     }
 
+    function getDate(){
+        return $_POST['date'];
+    }
+
    function homepage($utente, $list, $immagine){
         $this->smarty->assign('utente', $utente);
         $this->smarty->assign('list', $list);
@@ -22,7 +26,5 @@ class VAdmin{
 
         $this->smarty->display('user.tpl');
     }
-
-
 
 }

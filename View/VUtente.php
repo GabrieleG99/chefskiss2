@@ -12,6 +12,21 @@ class VUtente
     {
         $this->smarty = StartSmarty::configuration();
     }
+    static function getEmail(){
+        return $_POST['email'];
+    }
+    static function getPassword(){
+        return md5($_POST['password']);
+    }
+    static function getNome(){
+        return $_POST['nome'];
+    }
+    static function getCognome(){
+        return $_POST['cognome'];
+    }
+    static function getUsername(){
+        return $_POST['username'];
+    }
 
     public function showFormLogin(){
         $this->smarty->display('./smarty/libs/templates/login_registration_form.tpl');

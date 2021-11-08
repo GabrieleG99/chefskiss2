@@ -24,7 +24,7 @@ class CUtente
     {
         $view = new VUtente();
         $pm = USingleton::getInstance('FPersistentManager');
-        $utente = $pm->loadLogin($_POST['email'], md5($_POST['password']));
+        $utente = $pm->loadLogin(VUtente::getEmail(), VUtente::getPassword());
         //var_dump($utente);
         if ($utente != null) {
             if ($utente->getBan() != true) {
@@ -89,14 +89,14 @@ class CUtente
     static function verify_registration()
     {
         $pm = USingleton::getInstance('FPersistentManager');
-        $verify_email = $pm::exist('email', $_POST['email'], 'FUtente');
+        $verify_email = $pm::exist('email', VUtente::getEmail(), 'FUtente');
         $view = new VUtente();
         if ($verify_email) {
             $view->registrationError('email');
         } else {
-            $nome_utente = $_POST['name'];
-            $cognome_utente = $_POST['username'];
-            $utente = new EUtente($nome_utente, $cognome_utente, time(), $_POST['email'], md5($_POST['password']), 29, date('y/m/d'), null, false, 1);
+            $nome_utente = VUtente::getNome();
+            $cognome_utente = VUtente::getUsername();
+            $utente = new EUtente($nome_utente, $cognome_utente, time(), VUtente::getEmail(), VUtente::getPassword(), 29, date('y/m/d'), null, false, 1);
             $pm::insert($utente);
             header('Location: /chefskiss/Utente/login');
         }
@@ -249,14 +249,14 @@ class CUtente
     {
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
-        $verify_email = $pm::exist('email', $_POST['email'], 'FUtente');
+        $verify_email = $pm::exist('email', VUtente::getEmail(), 'FUtente');
         if (CUtente::isLogged()) {
                 $id_immagine = self::upload();
                 $utente = unserialize($session->readValue('utente'));
-                $nome_utente = $_POST['nome'];
-                $cognome_utente = $_POST['cognome'];
+                $nome_utente = VUtente::getNome();
+                $cognome_utente = VUtente::getCognome();
                 if(!$verify_email){
-                    $email_utente = $_POST['email'];
+                    $email_utente = VUtente::getEmail();
                     $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
                     $utente->setEmail($email_utente);
                 }
