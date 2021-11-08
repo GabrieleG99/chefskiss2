@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 16:51:40
+/* Smarty version 3.1.39, created on 2021-11-08 17:28:17
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c0a7c6f4919_98062970',
+  'unifunc' => 'content_61895021749495_46229370',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3281035def857a202f1a5d1f01da4022cba3c338' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/forum_info.tpl',
-      1 => 1635518175,
+      1 => 1636127974,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c0a7c6f4919_98062970 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61895021749495_46229370 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -48,7 +48,7 @@ function content_617c0a7c6f4919_98062970 (Smarty_Internal_Template $_smarty_tpl)
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
@@ -102,32 +102,31 @@ function content_617c0a7c6f4919_98062970 (Smarty_Internal_Template $_smarty_tpl)
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getPrivilegi() >= 2;
 $_prefixVariable1 = ob_get_clean();
 if ($_prefixVariable1) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Moderatore/rimuoviPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
 "> Rimuovi Post </a>
                                 </button>
                                 <?php if ($_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore()) {?>
-                                    <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 "> Modifica Post </a>
-                                    </button>
+                                </button>
                                 <?php }?>
                             <?php } else {
 ob_start();
 echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod']->value->getId() == $_smarty_tpl->tpl_vars['post']->value->getAutore();
 $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2) {?>
-                                <button>
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Utente/cancellaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 /<?php echo $_smarty_tpl->tpl_vars['post']->value->getId_immagine();?>
 "> Cancella Post </a>
                                 </button>
-                                <button class="border rounded-2 btn-outline-light">
+                                <button class="border rounded-2 btn-outline-light my-3">
                                     <a class="nav-link" href="/chefskiss/Forum/modificaPost/<?php echo $_smarty_tpl->tpl_vars['post']->value->getId();?>
 "> Modifica Post </a>
                                 </button>
-                            <?php } else { ?>
                             <?php }}?>
                         </div>
                         <div class="col-lg-9">
@@ -151,6 +150,7 @@ if ($_prefixVariable2) {?>
 " width=900 height=400 alt="..." /></figure>
                                 <!-- Post content-->
                                 <section class="mb-5">
+                                <?php if (count($_smarty_tpl->tpl_vars['domanda']->value) != 1) {?>
                                     <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
@@ -162,6 +162,10 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                     <?php }
 }
 ?>
+                                <?php } else { ?>
+                                    <p class="fs-5 mb-4"><?php echo $_smarty_tpl->tpl_vars['domanda']->value[0];?>
+.</p>
+                                <?php }?>
                                 </section>
                             </article>
                             <!-- Comments section-->

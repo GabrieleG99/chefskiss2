@@ -131,7 +131,7 @@ class CForum
         if (CUtente::isLogged()){
             $id_post = intval($session->readValue('id_post'));
             $utente = unserialize($session->readValue('utente'));
-            $text = $_POST['text_comment'];
+            $text = VForum::getTextComment();
             $post = new ECommento($id_post, $utente->getId(), $text, date('Y-m-d'));
             $pm::insert($post);
             $session->destroyValue('id_post');
@@ -164,7 +164,7 @@ class CForum
         }
         else{
             $j = 0;
-            $parametro = $_POST['text'];
+            $parametro = VForum::getTextSearch();
             $parametro = strtoupper($parametro);
             $allPostTitleAndId = $pm::loadDefCol('FPost', array('titolo', 'id'));
             if (isset($allPostTitleAndId[0]) && is_array($allPostTitleAndId[0])) {
@@ -200,9 +200,9 @@ class CForum
             if($id_immagine!=false){
                 $utente = unserialize($session->readValue('utente'));
                 $autore = $utente->getId();
-                $titolo = strtoupper($_POST['title']);
-                $domanda = $_POST['content'];
-                $categoria = $_POST['post-type'];
+                $titolo = strtoupper(VForum::getPostTitle());
+                $domanda = VForum::getPostContent();
+                $categoria = VForum::getPostType();
                 $id_posts = $pm::loadDefCol('FPost', array('id'));
                 if($id_posts != null){
                     if(is_array($id_posts)){
@@ -260,9 +260,9 @@ class CForum
     static function confermaModifiche($id, $id_image){
         $pm = USingleton::getInstance('FPersistentManager');
         if (CUtente::isLogged()) {
-            $titolo = strtoupper($_POST['title']);
-            $domanda = $_POST['content'];
-            $categoria = $_POST['recipe-type'];
+            $titolo = strtoupper(VForum::getPostTitle());
+            $domanda = VForum::getPostContent();
+            $categoria = VForum::getPostType();
             $id_immagine = self::upload();
             if($id_immagine!=false){
                 $pm::update('id_immagine', $id_immagine, 'id', $id, 'FPost');

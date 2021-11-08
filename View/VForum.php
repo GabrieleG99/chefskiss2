@@ -7,6 +7,26 @@ class VForum
         $this->smarty = StartSmarty::configuration();
     }
 
+    static function getTextComment(){
+        return $_POST['text_comment'];
+    }
+
+    static function getTextSearch(){
+        return $_POST['text'];
+    }
+
+    static function getPostTitle(){
+        return $_POST['title'];
+    }
+
+    static function getPostContent(){
+        return $_POST['content'];
+    }
+
+    static function getPostType(){
+        return $_POST['post-type'];
+    }
+
     function showForum($post, $num_pagine, $index, $num_post, $immagini, $cerca){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
         if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
