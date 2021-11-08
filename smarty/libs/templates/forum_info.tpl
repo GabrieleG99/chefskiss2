@@ -192,7 +192,7 @@
                                                         <div class="ms-3">
                                                             <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
                                                             {$array[0]->getTesto()} <div class="text-start text-muted">{$array[0]->getData()}</div>
-                                                            <div class="text-end"><a href="#">Rispondi</a></div>
+                                                            
                                                         </div>
                                                     </div>
                                                 {/if}

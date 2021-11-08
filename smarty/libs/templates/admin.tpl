@@ -57,24 +57,21 @@
     </nav>
 </main>
 <div class="padding">
-    <div class="col-md-8">
-        <!-- Column -->
-                <div class="ms-3">
-                    <h3 class="m-b-0">{$utente->getNome()} {$utente->getCognome()}</h3>
-                    <p class="text-muted">Amministratore</p>
-                <div class="ms-3">
-                </div>
-            </div>
+    <!-- Column -->
+    <div class="d-flex">
+        <div class="flex-shrink-0"><img class="rounded-circle" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=100 height=100 alt="..." /></div>
+        <div class="ms-3">
+            <h3 class="m-b-0">{$utente->getNome()} {$utente->getCognome()}</h3>
+            <p class="text-muted">Amministratore</p>
         </div>
+        <h2 class="fw-bolder fs-5 mb-4 padding">Lista membri
+            <input type="text" id="SearchTxt" /><input type="button" id="SearchBtn" value="Cerca" onclick="doSearch(document.getElementById('SearchTxt').value)" />
+        </h2>
     </div>
 </div>
 </section>
 <section class="py-5">
     <div class="container px-5">
-
-        <h2 class="fw-bolder fs-5 mb-4">Lista membri
-            <input type="text" id="SearchTxt" /><input type="button" id="SearchBtn" value="Cerca" onclick="doSearch(document.getElementById('SearchTxt').value)" />
-        </h2>
         <script>
             function doSearch(text) {
                 if (window.find(text)) {

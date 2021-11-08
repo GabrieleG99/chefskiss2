@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-03 16:59:26
+/* Smarty version 3.1.39, created on 2021-11-08 16:09:44
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6182b1dea3b344_13284930',
+  'unifunc' => 'content_61893db8c75968_11825510',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6147cd5f9967b7bd91ef9ef393968e7cb0634842' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum_info.tpl',
-      1 => 1635955162,
+      1 => 1636384182,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6182b1dea3b344_13284930 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61893db8c75968_11825510 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -285,7 +285,7 @@ if ($_prefixVariable6) {?>
                                                             <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getTesto();?>
  <div class="text-start text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData();?>
 </div>
-                                                            <div class="text-end"><a href="#">Rispondi</a></div>
+                                                            
                                                         </div>
                                                     </div>
                                                 <?php }?>

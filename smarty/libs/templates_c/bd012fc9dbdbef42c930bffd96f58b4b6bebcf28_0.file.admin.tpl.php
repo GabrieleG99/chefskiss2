@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:33:28
+/* Smarty version 3.1.39, created on 2021-11-08 15:48:29
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c1448e442e2_59377695',
+  'unifunc' => 'content_618938bd503662_57894334',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd012fc9dbdbef42c930bffd96f58b4b6bebcf28' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\admin.tpl',
-      1 => 1635520927,
+      1 => 1636382907,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c1448e442e2_59377695 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618938bd503662_57894334 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -80,26 +80,25 @@ function content_617c1448e442e2_59377695 (Smarty_Internal_Template $_smarty_tpl)
     </nav>
 </main>
 <div class="padding">
-    <div class="col-md-8">
-        <!-- Column -->
-                <div class="ms-3">
-                    <h3 class="m-b-0"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+    <!-- Column -->
+    <div class="d-flex">
+        <div class="flex-shrink-0"><img class="rounded-circle" src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
+;base64,<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getImmagine();?>
+" width=100 height=100 alt="..." /></div>
+        <div class="ms-3">
+            <h3 class="m-b-0"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
 </h3>
-                    <p class="text-muted">Amministratore</p>
-                <div class="ms-3">
-                </div>
-            </div>
+            <p class="text-muted">Amministratore</p>
         </div>
+        <h2 class="fw-bolder fs-5 mb-4 padding">Lista membri
+            <input type="text" id="SearchTxt" /><input type="button" id="SearchBtn" value="Cerca" onclick="doSearch(document.getElementById('SearchTxt').value)" />
+        </h2>
     </div>
 </div>
 </section>
 <section class="py-5">
     <div class="container px-5">
-
-        <h2 class="fw-bolder fs-5 mb-4">Lista membri
-            <input type="text" id="SearchTxt" /><input type="button" id="SearchBtn" value="Cerca" onclick="doSearch(document.getElementById('SearchTxt').value)" />
-        </h2>
         <?php echo '<script'; ?>
 >
             function doSearch(text) {

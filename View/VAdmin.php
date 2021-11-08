@@ -9,9 +9,10 @@ class VAdmin{
         $this->smarty = StartSmarty::configuration();
     }
 
-   function homepage($utente, $list){
+   function homepage($utente, $list, $immagine){
         $this->smarty->assign('utente', $utente);
         $this->smarty->assign('list', $list);
+        $this->smarty->assign('immagine', $immagine);
 
         $this->smarty->display('admin.tpl');
     }

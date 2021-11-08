@@ -186,8 +186,6 @@
                                                     <div class="ms-3">
                                                         <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
                                                         {$array[0]->getCommento()} <div class="text-end">{$array[0]->getData_pubblicazione()}</div>
-
-
                                                     </div>
                                                 </div>
                                                 {/if}
