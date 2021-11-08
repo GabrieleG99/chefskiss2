@@ -165,15 +165,15 @@ class CRicette
             $utente = unserialize($session->readValue('utente'));
             $ricetta = $pm::load('FRicetta', array(['id', '=', $id_ricetta]));
             if(self::hasVoted($utente->getId(), $id_ricetta)){
-                $text = $_POST['text_comment'];
-                $voto = intval($_POST['star']);
+                $text = VRicette::getTestoCommento();
+                $voto = VRicette::getValutazione();
                 $recensione = new ERecensione($text, $voto, $id_ricetta, date('Y-m-d'), $utente->getId());
                 $pm::insert($recensione);
                 $session->destroyValue('id_ricetta');
                 header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
             }
             else{ //l'utente ha già votato
-                $text = $_POST['text_comment'];
+                $text = VRicette::getTestoCommento();
                 $voto = 0;
                 $recensione = new ERecensione($text, $voto, $id_ricetta, date('Y-m-d'), $utente->getId());
                 $pm::insert($recensione);
@@ -228,7 +228,7 @@ class CRicette
         else{
             $j = 0;
             $array = null;
-            $parametro = $_POST['text'];
+            $parametro = VRicette::getTestoRicerca();
             $parametro = strtoupper($parametro);
             $allPostTitleAndId = $pm::loadDefCol('FRicetta', array('nome_ricetta', 'id'));
             if (isset($allPostTitleAndId[0]) && is_array($allPostTitleAndId[0])) {
@@ -267,12 +267,12 @@ class CRicette
             if($id_immagine!=false){
                 $utente = unserialize($session->readValue('utente'));
                 $autore = $utente->getId();
-                $titolo = strtoupper($_POST['title']);
-                $procedimento = $_POST['content'];
-                $array = $_POST['ingredients'];
+                $titolo = VRicette::getTitoloRicetta();
+                $procedimento = VRicette::getProcedimentoRicetta();
+                $array = VRicette::getIngredientiRicetta();
                 $ingredienti = implode(", ", $array);
-                $categoria = $_POST['recipe-type'];
-                $dosi = $_POST['servings'];
+                $categoria = VRicette::getCategoriaRicetta();
+                $dosi = VRicette::getDosiRicetta();
                 $id_ricette = $pm::loadDefCol('FRicetta', array('id'));
                 if($id_ricette != null){
                     if(is_array($id_ricette)){
@@ -333,12 +333,12 @@ class CRicette
     static function confermaModifiche($id, $id_image){
         $pm = USingleton::getInstance('FPersistentManager');
         if (CUtente::isLogged()) {
-            $titolo = strtoupper($_POST['title']);
-            $procedimento = $_POST['content'];
-            $array = $_POST['ingredients'];
+            $titolo = VRicette::getTitoloRicetta();
+            $procedimento = VRicette::getProcedimentoRicetta();
+            $array = VRicette::getIngredientiRicetta();
             $ingredienti = implode(", ", $array);
-            $categoria = $_POST['recipe-type'];
-            $dosi = $_POST['servings'];
+            $categoria = VRicette::getCategoriaRicetta();
+            $dosi = VRicette::getDosiRicetta();
             $id_immagine = self::upload();
             if($id_immagine!=false){
                 $pm::update('id_immagine', $id_immagine, 'id', $id, 'FRicetta');

@@ -10,6 +10,38 @@ class VRicette
         $this->smarty = StartSmarty::configuration();
     }
 
+    static function getTestoCommento(){
+        return $_POST['text_comment'];
+    }
+
+    static function getValutazione(){
+        return intval($_POST['star']);
+    }
+
+    static function getTestoRicerca(){
+        return $_POST['text'];
+    }
+
+    static function getTitoloRicetta(){
+        return strtoupper($_POST['title']);
+    }
+
+    static function getProcedimentoRicetta(){
+        return $_POST['content'];
+    }
+
+    static function getIngredientiRicetta(){
+        return $_POST['ingredients'];
+    }
+
+    static function getCategoriaRicetta(){
+        return $_POST['recipe-type'];
+    }
+
+    static function getDosiRicetta(){
+        return $_POST['servings'];
+    }
+
     function showRecepies($ricette, $array=null){ //forse da inserire utente tra i parametri in ingresso
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
@@ -79,4 +111,5 @@ class VRicette
 
         $this->smarty->display('tutte_ricette_err.tpl');
     }
+
 }
