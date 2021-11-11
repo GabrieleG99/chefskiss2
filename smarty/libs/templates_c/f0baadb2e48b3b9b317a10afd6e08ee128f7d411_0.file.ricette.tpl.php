@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:30:41
+/* Smarty version 3.1.39, created on 2021-11-11 09:47:32
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c13a1e00f65_65562820',
+  'unifunc' => 'content_618cd8a47862b3_37683497',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0baadb2e48b3b9b317a10afd6e08ee128f7d411' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricette.tpl',
-      1 => 1635520927,
+      1 => 1636620363,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c13a1e00f65_65562820 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618cd8a47862b3_37683497 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -31,7 +31,7 @@ function content_617c13a1e00f65_65562820 (Smarty_Internal_Template $_smarty_tpl)
         <meta name="author" content="" />
         <title>Chef's Kiss - Forum e Ricette</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -42,7 +42,8 @@ function content_617c13a1e00f65_65562820 (Smarty_Internal_Template $_smarty_tpl)
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.tpl">Chef's kiss</a>
+                <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
+                <a class="navbar-brand px-sm-3" href="/chefskiss/">Chef's Kiss</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

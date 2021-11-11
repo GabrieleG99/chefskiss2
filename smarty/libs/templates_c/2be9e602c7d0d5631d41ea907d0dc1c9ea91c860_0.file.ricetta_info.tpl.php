@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-08 17:30:53
+/* Smarty version 3.1.39, created on 2021-11-11 09:44:57
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618950bd60b596_74978381',
+  'unifunc' => 'content_618cd80928f947_25303454',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1636384298,
+      1 => 1636618976,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618950bd60b596_74978381 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618cd80928f947_25303454 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -43,7 +43,8 @@ function content_618950bd60b596_74978381 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-5">
-            <a class="navbar-brand" href="index.tpl">Chef's kiss</a>
+        <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
+        <a class="navbar-brand px-sm-3" href="/chefskiss/">Chef's Kiss</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

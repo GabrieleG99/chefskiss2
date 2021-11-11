@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Chef's Kiss - Forum e Ricette</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -19,7 +19,8 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.tpl">Chef's kiss</a>
+                <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
+                <a class="navbar-brand px-sm-3" href="/chefskiss/">Chef's Kiss</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
