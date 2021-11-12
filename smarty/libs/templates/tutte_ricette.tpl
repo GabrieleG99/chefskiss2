@@ -253,12 +253,12 @@
                     <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
-                        <form method="POST" action="/chefskiss/Ricette/cerca">
-                            <div class="input-group">
-                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
-                            </div>
-                        </form>
+                            <form method="POST" action="/chefskiss/Ricette/cerca">
+                                <div class="input-group">
+                                    <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                    <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!-- Categories widget-->
@@ -283,11 +283,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget-->
-                    <!--<div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -299,5 +294,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-            </div></body>
+            </div>
+    </body>
 </html>

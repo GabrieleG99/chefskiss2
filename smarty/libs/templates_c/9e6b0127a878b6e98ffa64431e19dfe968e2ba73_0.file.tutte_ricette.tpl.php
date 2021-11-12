@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 21:42:05
+/* Smarty version 3.1.39, created on 2021-11-12 11:47:26
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c4e8d3d6ef7_46114947',
+  'unifunc' => 'content_618e463e9bdaf6_76949721',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e6b0127a878b6e98ffa64431e19dfe968e2ba73' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/tutte_ricette.tpl',
-      1 => 1635536520,
+      1 => 1636713698,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c4e8d3d6ef7_46114947 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e463e9bdaf6_76949721 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -396,12 +396,12 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                     <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
-                        <form method="POST" action="/chefskiss/Ricette/cerca">
-                            <div class="input-group">
-                                <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
-                            </div>
-                        </form>
+                            <form method="POST" action="/chefskiss/Ricette/cerca">
+                                <div class="input-group">
+                                    <input class="form-control" name="text" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                    <button class="btn btn-primary" id="button-search" type="submit">Go!</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!-- Categories widget-->
@@ -426,11 +426,6 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget-->
-                    <!--<div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -446,7 +441,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
         <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-            </div></body>
+            </div>
+    </body>
 </html>
 <?php }
 }

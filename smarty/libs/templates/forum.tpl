@@ -24,9 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         {if $userlogged!='nouser'}
@@ -70,10 +68,9 @@
                         <div class="card mb-4">
                             <a href="/chefskiss/Forum/InfoPost/{$post->getId()}"><img class="card-img-top" src="data:{$immagini->getTipo()};base64, {$immagini->getImmagine()}" width=900 height=400 alt="..." /></a>
                             <div class="card-body">
-                                <div class="small text-muted">{$post->getData_pubb()}</div>
                                 <h2 class="card-title">{$post->getTitolo()}</h2>
                                 <p class="card-text">{substr($post->getDomanda(), 0, 100)}...</p>
-                            </div>
+                                <div class="small text-muted">{$post->getData_pubb()}</div>
                         </div>
                     </div>
                 
@@ -85,9 +82,9 @@
                         <div class="card mb-4">
                             <a href="/chefskiss/Forum/InfoPost/{$post[0]->getId()}"><img class="card-img-top" src="data:{$immagini[0]->getTipo()};base64, {$immagini[0]->getImmagine()}" width=900 height=400 alt="..." /></a>
                             <div class="card-body">
-                                <div class="small text-muted">{$post[0]->getData_pubb()}</div>
                                 <h2 class="card-title">{$post[0]->getTitolo()}</h2>
                                 <p class="card-text">{substr($post[0]->getDomanda(), 0, 100)}...</p>
+                                <div class="small text-muted">{$post[0]->getData_pubb()}</div>
                             </div>
                         </div>
                         <!-- Nested row for non-featured blog posts-->
@@ -98,9 +95,9 @@
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Forum/InfoPost/{$post[1]->getId()}"><img class="card-img-top" src="data:{$immagini[1]->getTipo()};base64, {$immagini[1]->getImmagine()}" alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted">{$post[1]->getData_pubb()}</div>
                                             <h2 class="card-title h4">{$post[1]->getTitolo()}</h2>
                                             <p class="card-text">{substr($post[1]->getDomanda(), 0, 100)}...</p>
+                                            <div class="small text-muted">{$post[1]->getData_pubb()}</div>
                                         </div>
                                     </div>
                                 {/if}
@@ -109,9 +106,9 @@
                                     <div class="card mb-4">
                                         <a href="/chefskiss/Forum/InfoPost/{$post[2]->getId()}"><img class="card-img-top" src="data:{$immagini[2]->getTipo()};base64, {$immagini[2]->getImmagine()}" alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted">{$post[2]->getData_pubb()}</div>
                                             <h2 class="card-title h4">{$post[2]->getTitolo()}</h2>
                                             <p class="card-text">{substr($post[2]->getDomanda(), 0, 100)}...</p>
+                                            <div class="small text-muted">{$post[2]->getData_pubb()}</div>
                                         </div>
                                     </div>
                                 {/if}
@@ -122,9 +119,9 @@
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Forum/InfoPost/{$post[3]->getId()}"><img class="card-img-top" src="data:{$immagini[3]->getTipo()};base64, {$immagini[3]->getImmagine()}" alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$post[3]->getData_pubb()}</div>
                                         <h2 class="card-title h4">{$post[3]->getTitolo()}</h2>
                                         <p class="card-text">{substr($post[3]->getDomanda(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$post[2]->getData_pubb()}</div>
                                     </div>
                                 </div>
                                 {/if}
@@ -133,9 +130,9 @@
                                 <div class="card mb-4">
                                     <a href="/chefskiss/Forum/InfoPost/{$post[4]->getId()}"><img class="card-img-top" src="data:{$immagini[4]->getTipo()};base64, {$immagini[4]->getImmagine()}" alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted">{$post[4]->getData_pubb()}</div>
                                         <h2 class="card-title h4">{$post[4]->getTitolo()}</h2>
                                         <p class="card-text">{substr($post[4]->getDomanda(), 0, 100)}...</p>
+                                        <div class="small text-muted">{$post[2]->getData_pubb()}</div>
                                     </div>
                                 </div>
                                 {/if}
@@ -244,10 +241,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget
-                    <div class="col-sm-6">
-                        <div class="toast">Toast di esempio</div>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -259,5 +252,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        </div></body>
+        </div>
+    </body>
 </html>
