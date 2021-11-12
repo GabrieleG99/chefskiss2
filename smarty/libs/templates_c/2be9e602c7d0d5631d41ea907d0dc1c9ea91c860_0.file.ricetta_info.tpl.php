@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:44:57
+/* Smarty version 3.1.39, created on 2021-11-12 14:51:27
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd80928f947_25303454',
+  'unifunc' => 'content_618e715f0e2f84_23340153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1636618976,
+      1 => 1636725041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd80928f947_25303454 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e715f0e2f84_23340153 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -84,9 +84,10 @@ function content_618cd80928f947_25303454 (Smarty_Internal_Template $_smarty_tpl)
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagine_autore']->value->getImmagine();?>
 " width=40 height=40 alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+                                    <a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['utente']->value->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
-</div>
+</a>
                                     <?php if ($_smarty_tpl->tpl_vars['utente']->value->getPrivilegi() == 1) {?>
                                         <div class="text-muted">Membro</div>
                                     <?php }?>
@@ -247,10 +248,10 @@ if ($_prefixVariable4) {?>
                                                             </div>
 
                                                             <div class="ms-3">
-
-                                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
+                                                                <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
-</div>
+</a></div>
                                                                 <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getCommento();?>
  <div class="text-end d-flex"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_pubblicazione();?>
 </div>
@@ -288,9 +289,10 @@ if ($_prefixVariable6) {?>
                                                         <?php }}?>
                                                     </div>
                                                     <div class="ms-3">
-                                                        <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
+                                                        <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
-</div>
+</a></div>
                                                         <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getCommento();?>
  <div class="text-end"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_pubblicazione();?>
 </div>

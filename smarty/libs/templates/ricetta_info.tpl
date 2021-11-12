@@ -59,7 +59,7 @@
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
                                 <img class="img-fluid rounded-circle" src="data:{$immagine_autore->getTipo()};base64,{$immagine_autore->getImmagine()}" width=40 height=40 alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</div>
+                                    <a href="/chefskiss/Utente/profilo/{$utente->getId()}" class="fw-bold">{$utente->getNome()} {$utente->getCognome()}</a>
                                     {if $utente->getPrivilegi() == 1}
                                         <div class="text-muted">Membro</div>
                                     {/if}
@@ -162,8 +162,7 @@
                                                             </div>
 
                                                             <div class="ms-3">
-
-                                                                <div class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</div>
+                                                                <div><a href="/chefskiss/Utente/profilo/{$array[1][$i]->getId()}" class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</a></div>
                                                                 {$array[0][$i]->getCommento()} <div class="text-end d-flex">{$array[0][$i]->getData_pubblicazione()}</div>
                                                             </div>
                                                         </div>
@@ -185,7 +184,7 @@
                                                         {/if}
                                                     </div>
                                                     <div class="ms-3">
-                                                        <div class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</div>
+                                                        <div><a href="/chefskiss/Utente/profilo/{$array[1]->getId()}" class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</a></div>
                                                         {$array[0]->getCommento()} <div class="text-end">{$array[0]->getData_pubblicazione()}</div>
                                                     </div>
                                                 </div>

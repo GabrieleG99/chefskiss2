@@ -102,13 +102,14 @@ class CUtente
         }
     }
 
-    static function profilo()
-    {
+    static function profilo($idutente=null){
         $view = new VUtente();
         $session = USingleton::getInstance('USession');
-        $utente = unserialize($session->readValue('utente'));
         $pm = USingleton::getInstance('FPersistentManager');
-        if (CUtente::isLogged()) {
+        if($idutente == null){
+            $utente = unserialize($session->readValue('utente'));
+        } else $utente = $pm::load('FUtente', array(['id', '=', $idutente]));
+        if (CUtente::isLogged() || $idutente!=null){
             $immagini_utente = $pm::load('FImmagine', array(['id', '=', $utente->getid_immagine()]));
             $ricetta = $pm::load('FRicetta', array(['autore', '=', $utente->getId()]));
             if ($ricetta != null) {
@@ -124,8 +125,8 @@ class CUtente
                     $immagini_autori = $pm::load('FImmagine', array(['id', '=', $autori_ricette->getid_immagine()]));
 
                 }
-                $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori);
-            } else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null);
+                $view->profilo($ricetta, $utente, $immagine, $immagini_utente, $immagini_autori, $idutente);
+            } else $view->profilo($ricetta, $utente, $immagine = null, $immagini_utente, $immagini_autori = null, $idutente);
         } else {
             header('Location: /chefskiss/Utente/login');
         }

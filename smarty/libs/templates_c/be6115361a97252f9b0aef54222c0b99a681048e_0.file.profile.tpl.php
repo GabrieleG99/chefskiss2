@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:44:51
+/* Smarty version 3.1.39, created on 2021-11-12 14:41:16
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd803c3ed67_50513482',
+  'unifunc' => 'content_618e6efca3d2e1_06050277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6115361a97252f9b0aef54222c0b99a681048e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\profile.tpl',
-      1 => 1636618967,
+      1 => 1636724474,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd803c3ed67_50513482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e6efca3d2e1_06050277 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -118,9 +118,11 @@ function content_618cd803c3ed67_50513482 (Smarty_Internal_Template $_smarty_tpl)
                                     <p class="text-muted">Amministratore</p>
                                 <?php }?>
                             </div>
+                            <?php if ($_smarty_tpl->tpl_vars['idutente']->value == null) {?>
                             <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Utente/modificaProfilo"> Modifica Profilo </a>
-                            </button>
+                            </button>   
+                            <?php }?>
                             <div class="ms-3">
                                 <?php if ($_smarty_tpl->tpl_vars['ricette']->value != null) {?>
                                     <?php if (is_array($_smarty_tpl->tpl_vars['ricette']->value)) {?>

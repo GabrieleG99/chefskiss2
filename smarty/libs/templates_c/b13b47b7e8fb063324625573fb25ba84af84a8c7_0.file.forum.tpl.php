@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:24:03
+/* Smarty version 3.1.39, created on 2021-11-12 14:57:00
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd323644173_29042846',
+  'unifunc' => 'content_618e72ac6d1416_23413299',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b13b47b7e8fb063324625573fb25ba84af84a8c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum.tpl',
-      1 => 1636618952,
+      1 => 1636725385,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd323644173_29042846 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e72ac6d1416_23413299 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -47,9 +47,7 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                         <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
@@ -96,13 +94,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                             <div class="card-body">
-                                <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value->getData_pubb();?>
-</div>
                                 <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['post']->value->getTitolo();?>
 </h2>
                                 <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value->getDomanda(),0,100);?>
 ...</p>
-                            </div>
+                                <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value->getData_pubb();?>
+</div>
                         </div>
                     </div>
                 
@@ -117,12 +114,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value[0]->getImmagine();?>
 " width=900 height=400 alt="..." /></a>
                             <div class="card-body">
-                                <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[0]->getData_pubb();?>
-</div>
                                 <h2 class="card-title"><?php echo $_smarty_tpl->tpl_vars['post']->value[0]->getTitolo();?>
 </h2>
                                 <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value[0]->getDomanda(),0,100);?>
 ...</p>
+                                <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[0]->getData_pubb();?>
+</div>
                             </div>
                         </div>
                         <!-- Nested row for non-featured blog posts-->
@@ -136,12 +133,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value[1]->getImmagine();?>
 " alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[1]->getData_pubb();?>
-</div>
                                             <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['post']->value[1]->getTitolo();?>
 </h2>
                                             <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value[1]->getDomanda(),0,100);?>
 ...</p>
+                                            <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[1]->getData_pubb();?>
+</div>
                                         </div>
                                     </div>
                                 <?php }?>
@@ -153,12 +150,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value[2]->getImmagine();?>
 " alt="..." /></a>
                                         <div class="card-body">
-                                            <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[2]->getData_pubb();?>
-</div>
                                             <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['post']->value[2]->getTitolo();?>
 </h2>
                                             <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value[2]->getDomanda(),0,100);?>
 ...</p>
+                                            <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[2]->getData_pubb();?>
+</div>
                                         </div>
                                     </div>
                                 <?php }?>
@@ -172,12 +169,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value[3]->getImmagine();?>
 " alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[3]->getData_pubb();?>
-</div>
                                         <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['post']->value[3]->getTitolo();?>
 </h2>
                                         <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value[3]->getDomanda(),0,100);?>
 ...</p>
+                                        <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[2]->getData_pubb();?>
+</div>
                                     </div>
                                 </div>
                                 <?php }?>
@@ -189,12 +186,12 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
 ;base64, <?php echo $_smarty_tpl->tpl_vars['immagini']->value[4]->getImmagine();?>
 " alt="..." /></a>
                                     <div class="card-body">
-                                        <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[4]->getData_pubb();?>
-</div>
                                         <h2 class="card-title h4"><?php echo $_smarty_tpl->tpl_vars['post']->value[4]->getTitolo();?>
 </h2>
                                         <p class="card-text"><?php echo substr($_smarty_tpl->tpl_vars['post']->value[4]->getDomanda(),0,100);?>
 ...</p>
+                                        <div class="small text-muted"><?php echo $_smarty_tpl->tpl_vars['post']->value[2]->getData_pubb();?>
+</div>
                                     </div>
                                 </div>
                                 <?php }?>
@@ -341,10 +338,6 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
                             </div>
                         </div>
                     </div>
-                    <!-- Side widget
-                    <div class="col-sm-6">
-                        <div class="toast">Toast di esempio</div>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -360,7 +353,8 @@ $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['sear
         <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-        </div></body>
+        </div>
+    </body>
 </html>
 <?php }
 }

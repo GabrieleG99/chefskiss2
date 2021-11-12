@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-22 13:46:41
+/* Smarty version 3.1.39, created on 2021-11-12 14:49:44
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6172a4a1c6b873_09771485',
+  'unifunc' => 'content_618e70f82e75e5_32198483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de6f8138043f4caaef0e608475a79823c2a48f24' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-profile.tpl',
-      1 => 1634716766,
+      1 => 1636619330,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6172a4a1c6b873_09771485 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e70f82e75e5_32198483 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -55,7 +55,8 @@ function content_6172a4a1c6b873_09771485 (Smarty_Internal_Template $_smarty_tpl)
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.tpl">Chef's Kiss</a>
+                <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
+                <a class="navbar-brand px-sm-3" href="/chefskiss/">Chef's Kiss</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

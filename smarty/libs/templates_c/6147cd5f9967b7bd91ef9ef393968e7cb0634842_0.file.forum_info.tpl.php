@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:25:46
+/* Smarty version 3.1.39, created on 2021-11-12 14:48:23
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd38aad11b6_61639140',
+  'unifunc' => 'content_618e70a7773bf1_20527648',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6147cd5f9967b7bd91ef9ef393968e7cb0634842' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum_info.tpl',
-      1 => 1636618940,
+      1 => 1636724901,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd38aad11b6_61639140 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e70a7773bf1_20527648 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -85,9 +85,10 @@ function content_618cd38aad11b6_61639140 (Smarty_Internal_Template $_smarty_tpl)
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagine_autore']->value->getImmagine();?>
 " width=40 height=40 alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+                                    <a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['utente']->value->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
-</div>
+</a>
                                     <?php if ($_smarty_tpl->tpl_vars['utente']->value->getPrivilegi() == 1) {?>
                                         <div class="text-muted">Membro</div>
                                     <?php }?>
@@ -240,9 +241,10 @@ if ($_prefixVariable4) {?>
                                                                 <?php }}?>
                                                             </div>
                                                             <div class="ms-3">
-                                                                <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
+                                                                <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
-</div>
+</a></div>
                                                                 <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getTesto();?>
  <div class="text-start text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData();?>
 </div>
@@ -279,9 +281,10 @@ if ($_prefixVariable6) {?>
                                                             <?php }}?>
                                                         </div>
                                                         <div class="ms-3">
-                                                            <div class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
+                                                        <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getId();?>
+" class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
-</div>
+</a></div>
                                                             <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getTesto();?>
  <div class="text-start text-muted"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData();?>
 </div>
