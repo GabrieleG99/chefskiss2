@@ -134,14 +134,19 @@
                                                 <div class="col-md-12">
                                                     <div class="stars"> 
                                                         <div class="text-muted">Dai un voto alla ricetta!</div>
-                                                        <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                        {if is_array($valutato)}
+                                                            {for $i = 0; $i < (int)$valutato[1]; $i++}
+                                                                <input disabled checked class="star star-5" id="star-5" type="checkbox" name="star"/> <label class="star star-5" for="star-5"></label>
+                                                            {/for}
+                                                        {else}
+                                                            <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                        {/if}
                                                     </div>
                                                 </div>
                                             </div>
                                             <button class="rounded-1 border" type="submit">Invia</button>
                                         </form>
                                         {if $array}
-
                                             {if is_array($array)}
                                                 {if is_array($array[0])}
                                                     {for $i = 0; $i < sizeof($array[0]); $i++}
@@ -160,9 +165,12 @@
                                                                 {else}
                                                                 {/if}
                                                             </div>
-
                                                             <div class="ms-3">
-                                                                <div><a href="/chefskiss/Utente/profilo/{$array[1][$i]->getId()}" class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</a></div>
+                                                                <div><a href="/chefskiss/Utente/profilo/{$array[1][$i]->getId()}" class="fw-bold">{$array[1][$i]->getNome()} {$array[1][$i]->getCognome()}</a>
+                                                                {for $j = 0; $j < (int)$array[0][$i]->getValutazione(); $j++}
+                                                                    <i class="bi bi-star"></i>
+                                                                {/for}
+                                                                </div>
                                                                 {$array[0][$i]->getCommento()} <div class="text-end d-flex">{$array[0][$i]->getData_pubblicazione()}</div>
                                                             </div>
                                                         </div>
@@ -184,7 +192,11 @@
                                                         {/if}
                                                     </div>
                                                     <div class="ms-3">
-                                                        <div><a href="/chefskiss/Utente/profilo/{$array[1]->getId()}" class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</a></div>
+                                                        <div><a href="/chefskiss/Utente/profilo/{$array[1]->getId()}" class="fw-bold">{$array[1]->getNome()} {$array[1]->getCognome()}</a> 
+                                                        {for $i = 0; $i < (int)$array[0]->getValutazione(); $i++}
+                                                            <i class="bi bi-star"></i>
+                                                        {/for}
+                                                        </div>
                                                         {$array[0]->getCommento()} <div class="text-end">{$array[0]->getData_pubblicazione()}</div>
                                                     </div>
                                                 </div>

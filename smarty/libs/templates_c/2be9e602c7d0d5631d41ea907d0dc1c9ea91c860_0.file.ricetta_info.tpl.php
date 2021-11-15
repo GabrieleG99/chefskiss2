@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-12 14:51:27
+/* Smarty version 3.1.39, created on 2021-11-15 11:34:36
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618e715f0e2f84_23340153',
+  'unifunc' => 'content_619237bca4fc32_57649092',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1636725041,
+      1 => 1636972472,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618e715f0e2f84_23340153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619237bca4fc32_57649092 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -203,14 +203,26 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                                 <div class="col-md-12">
                                                     <div class="stars"> 
                                                         <div class="text-muted">Dai un voto alla ricetta!</div>
-                                                        <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                        <?php if (is_array($_smarty_tpl->tpl_vars['valutato']->value)) {?>
+                                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['valutato']->value[1]) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['valutato']->value[1]; $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                                <input disabled checked class="star star-5" id="star-5" type="checkbox" name="star"/> <label class="star star-5" for="star-5"></label>
+                                                            <?php }
+}
+?>
+                                                        <?php } else { ?>
+                                                            <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>
+                                                        <?php }?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <button class="rounded-1 border" type="submit">Invia</button>
                                         </form>
                                         <?php if ($_smarty_tpl->tpl_vars['array']->value) {?>
-
                                             <?php if (is_array($_smarty_tpl->tpl_vars['array']->value)) {?>
                                                 <?php if (is_array($_smarty_tpl->tpl_vars['array']->value[0])) {?>
                                                     <?php
@@ -246,12 +258,22 @@ if ($_prefixVariable4) {?>
                                                                 <?php } else { ?>
                                                                 <?php }}?>
                                                             </div>
-
                                                             <div class="ms-3">
                                                                 <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
 " class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1][$_smarty_tpl->tpl_vars['i']->value]->getCognome();?>
-</a></div>
+</a>
+                                                                <?php
+$_smarty_tpl->tpl_vars['j'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['j']->value = 0;
+if ($_smarty_tpl->tpl_vars['j']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['j']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getValutazione(); $_smarty_tpl->tpl_vars['j']->value++) {
+?>
+                                                                    <i class="bi bi-star"></i>
+                                                                <?php }
+}
+?>
+                                                                </div>
                                                                 <?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getCommento();?>
  <div class="text-end d-flex"><?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getData_pubblicazione();?>
 </div>
@@ -292,7 +314,18 @@ if ($_prefixVariable6) {?>
                                                         <div><a href="/chefskiss/Utente/profilo/<?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getId();?>
 " class="fw-bold"><?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getNome();?>
  <?php echo $_smarty_tpl->tpl_vars['array']->value[1]->getCognome();?>
-</a></div>
+</a> 
+                                                        <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione()) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['array']->value[0]->getValutazione(); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                            <i class="bi bi-star"></i>
+                                                        <?php }
+}
+?>
+                                                        </div>
                                                         <?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getCommento();?>
  <div class="text-end"><?php echo $_smarty_tpl->tpl_vars['array']->value[0]->getData_pubblicazione();?>
 </div>

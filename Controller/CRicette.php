@@ -29,6 +29,10 @@ class CRicette
         $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getId_immagine()]));
         $immagini_autore = $pm::load('FImmagine', array(['id', '=', $autore->getid_immagine()]));
         $recensione = $pm::load('FRecensione', array(['id_ricetta', '=', $id]));
+        if($mod != null){
+            $valutato = self::hasVoted($mod->getId(), $id);
+        }
+        else $valutato = true;
         if(is_array($recensione)){
             for ($i = 0; $i < sizeof($recensione); $i++){
                 $recensioni_info[$i] = $recensione[$i];
@@ -36,17 +40,17 @@ class CRicette
                 $immagini_autore_recensione[$i] = $pm::load('FImmagine', array(['id', '=', $autori_recensioni[$i]->getid_immagine()]));
                 $array = array($recensioni_info, $autori_recensioni, $immagini_autore_recensione);
             }
-            $view->showInfo($ricetta, $autore,$mod, $immagine, $array, $immagini_autore);
+            $view->showInfo($ricetta, $autore,$mod, $immagine, $array, $immagini_autore, $valutato);
         }
         elseif($recensione != null){
             $recensioni_info = $recensione;
             $autori_recensioni = $pm::load('FUtente', array(['id', '=', $recensione->getAutore()]));
             $immagini_autore_recensione = $pm::load('FImmagine', array(['id', '=', $autori_recensioni->getid_immagine()]));
             $array = array($recensioni_info, $autori_recensioni, $immagini_autore_recensione);
-            $view->showInfo($ricetta, $autore,$mod, $immagine, $array, $immagini_autore);
+            $view->showInfo($ricetta, $autore,$mod, $immagine, $array, $immagini_autore, $valutato);
         }
 
-        else $view->showInfo($ricetta, $autore,$mod, $immagine, $array=null, $immagini_autore);
+        else $view->showInfo($ricetta, $autore,$mod, $immagine, $array=null, $immagini_autore, $valutato);
     }
 
     static function homeRicette($ricette){
@@ -192,10 +196,10 @@ class CRicette
         $recensioni = $pm::load('FRecensione', array(['id_ricetta', '=', $recipe_id]));
         if(is_array($recensioni)){
             for ($i = 0; $i < count($recensioni); $i++){
-                if($recensioni[$i]->getValutazione() > 0 && $recensioni[$i]->getAutore() == $user_id) $check = false;
+                if($recensioni[$i]->getValutazione() > 0 && $recensioni[$i]->getAutore() == $user_id) $check = array($recensioni[$i]->getAutore(), $recensioni[$i]->getValutazione());
             }
         }
-        elseif($recensioni!=null && $recensioni->getValutazione() > 0 && $recensioni->getAutore() == $user_id) $check = false;
+        elseif($recensioni!=null && $recensioni->getValutazione() > 0 && $recensioni->getAutore() == $user_id) $check = array($recensioni->getAutore(), $recensioni->getValutazione());
         return $check;
     }
 
