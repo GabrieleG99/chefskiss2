@@ -135,8 +135,11 @@
                                                     <div class="stars"> 
                                                         <div class="text-muted">Dai un voto alla ricetta!</div>
                                                         {if is_array($valutato)}
-                                                            {for $i = 0; $i < (int)$valutato[1]; $i++}
-                                                                <input disabled checked class="star star-5" id="star-5" type="checkbox" name="star"/> <label class="star star-5" for="star-5"></label>
+                                                            {for $j = (int)$valutato[1] + 1; $j <= 5; $j++}
+                                                                <input disabled class="star star-{strval($j)}" id="star-{strval($j)}" type="radio" name="checked-star"/><label class="star star-{strval($j)}" for="star-{strval($j)}"></label>
+                                                            {/for}
+                                                            {for $i = 1; $i <= (int)$valutato[1]; $i++}
+                                                                <input class="star star-{strval($i)}" id="star-{strval($i)}" type="checkbox" name="checked-star" disabled checked/><label class="star star-{strval($i)}" for="star-{strval($i)}"></label>
                                                             {/for}
                                                         {else}
                                                             <input class="star star-5" id="star-5" type="radio" name="star" value="5"/> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" value="4"/> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" value="3"/> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" value="2"/> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" value="1"/> <label class="star star-1" for="star-1"></label>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-15 11:34:36
+/* Smarty version 3.1.39, created on 2021-11-15 14:16:00
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619237bca4fc32_57649092',
+  'unifunc' => 'content_61925d907eecb0_81803427',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1636972472,
+      1 => 1636982158,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619237bca4fc32_57649092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61925d907eecb0_81803427 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -205,12 +205,30 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                                         <div class="text-muted">Dai un voto alla ricetta!</div>
                                                         <?php if (is_array($_smarty_tpl->tpl_vars['valutato']->value)) {?>
                                                             <?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
-$_smarty_tpl->tpl_vars['i']->value = 0;
-if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['valutato']->value[1]) {
-for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['valutato']->value[1]; $_smarty_tpl->tpl_vars['i']->value++) {
+$_smarty_tpl->tpl_vars['j'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['j']->value = (int)$_smarty_tpl->tpl_vars['valutato']->value[1]+1;
+if ($_smarty_tpl->tpl_vars['j']->value <= 5) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['j']->value <= 5; $_smarty_tpl->tpl_vars['j']->value++) {
 ?>
-                                                                <input disabled checked class="star star-5" id="star-5" type="checkbox" name="star"/> <label class="star star-5" for="star-5"></label>
+                                                                <input disabled class="star star-<?php echo strval($_smarty_tpl->tpl_vars['j']->value);?>
+" id="star-<?php echo strval($_smarty_tpl->tpl_vars['j']->value);?>
+" type="radio" name="checked-star"/><label class="star star-<?php echo strval($_smarty_tpl->tpl_vars['j']->value);?>
+" for="star-<?php echo strval($_smarty_tpl->tpl_vars['j']->value);?>
+"></label>
+                                                            <?php }
+}
+?>
+                                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 1;
+if ($_smarty_tpl->tpl_vars['i']->value <= (int)$_smarty_tpl->tpl_vars['valutato']->value[1]) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value <= (int)$_smarty_tpl->tpl_vars['valutato']->value[1]; $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                                <input class="star star-<?php echo strval($_smarty_tpl->tpl_vars['i']->value);?>
+" id="star-<?php echo strval($_smarty_tpl->tpl_vars['i']->value);?>
+" type="checkbox" name="checked-star" disabled checked/><label class="star star-<?php echo strval($_smarty_tpl->tpl_vars['i']->value);?>
+" for="star-<?php echo strval($_smarty_tpl->tpl_vars['i']->value);?>
+"></label>
                                                             <?php }
 }
 ?>
