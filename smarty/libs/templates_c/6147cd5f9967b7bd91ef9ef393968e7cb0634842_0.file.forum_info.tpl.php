@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-12 14:48:23
+/* Smarty version 3.1.39, created on 2021-11-15 17:50:29
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618e70a7773bf1_20527648',
+  'unifunc' => 'content_61928fd577c333_35168158',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6147cd5f9967b7bd91ef9ef393968e7cb0634842' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum_info.tpl',
-      1 => 1636724901,
+      1 => 1636995026,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618e70a7773bf1_20527648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61928fd577c333_35168158 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -34,6 +34,7 @@ function content_618e70a7773bf1_20527648 (Smarty_Internal_Template $_smarty_tpl)
         <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/chefskiss/smarty/libs/css/boot_styles.css" rel="stylesheet" />
     </head>
@@ -234,6 +235,7 @@ echo $_smarty_tpl->tpl_vars['mod']->value != null && $_smarty_tpl->tpl_vars['mod
 $_prefixVariable4 = ob_get_clean();
 if ($_prefixVariable4) {?>
                                                                     <button>
+                                                                        <i class="fa fa-trash"></i>
                                                                         <a class="nav-link" href="/chefskiss/Utente/cancellaCommento/<?php echo $_smarty_tpl->tpl_vars['array']->value[0][$_smarty_tpl->tpl_vars['i']->value]->getId();?>
 "> Cancella </a>
                                                                     </button>

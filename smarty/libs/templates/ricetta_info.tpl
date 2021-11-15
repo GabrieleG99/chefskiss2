@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Chef's Kiss - Forum e Ricette</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                     {if $userlogged!='nouser'}
@@ -110,6 +110,7 @@
                                 </header>
                                 <!-- Preview image figure-->
                                 <figure class="mb-4"><img class="img-fluid rounded" src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=900 height=400 alt="..." /></figure>
+                                <h2>Ingredienti</h2>
                                 <ul>
                                     {for $i = 0; $i < count($ricetta->parseIngredienti()); $i++}
                                         {$ingredienti = $ricetta->parseIngredienti()}
@@ -118,6 +119,7 @@
                                 </ul>
                                 <!-- Post content-->
                                 <section class="mb-5">
+                                <h2>Procedimento</h2>
                                     {for $i = 0; $i < count($procedimento); $i++}
                                         <p class="fs-5 mb-4">{$procedimento[$i]}</p>
                                     {/for}

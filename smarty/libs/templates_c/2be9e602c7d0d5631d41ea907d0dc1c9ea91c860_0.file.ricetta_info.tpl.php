@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-15 14:16:00
+/* Smarty version 3.1.39, created on 2021-11-15 17:56:01
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\ricetta_info.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61925d907eecb0_81803427',
+  'unifunc' => 'content_61929121b9db86_88546975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2be9e602c7d0d5631d41ea907d0dc1c9ea91c860' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\ricetta_info.tpl',
-      1 => 1636982158,
+      1 => 1636995359,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61925d907eecb0_81803427 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61929121b9db86_88546975 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -31,7 +31,7 @@ function content_61925d907eecb0_81803427 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="author" content="" />
     <title>Chef's Kiss - Forum e Ricette</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -49,7 +49,7 @@ function content_61925d907eecb0_81803427 (Smarty_Internal_Template $_smarty_tpl)
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                     <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                     <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
@@ -163,6 +163,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars
                                 <figure class="mb-4"><img class="img-fluid rounded" src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getImmagine();?>
 " width=900 height=400 alt="..." /></figure>
+                                <h2>Ingredienti</h2>
                                 <ul>
                                     <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
@@ -179,6 +180,7 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                                 </ul>
                                 <!-- Post content-->
                                 <section class="mb-5">
+                                <h2>Procedimento</h2>
                                     <?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
 $_smarty_tpl->tpl_vars['i']->value = 0;
