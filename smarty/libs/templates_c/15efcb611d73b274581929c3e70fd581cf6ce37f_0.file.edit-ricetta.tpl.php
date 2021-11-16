@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 15:34:01
+/* Smarty version 3.1.39, created on 2021-11-16 09:45:28
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-ricetta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617bf849944d37_41643153',
+  'unifunc' => 'content_61936fa8f11968_02769381',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '15efcb611d73b274581929c3e70fd581cf6ce37f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-ricetta.tpl',
-      1 => 1635514437,
+      1 => 1637052323,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617bf849944d37_41643153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61936fa8f11968_02769381 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,8 @@ function content_617bf849944d37_41643153 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title>Chef's Kiss</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -74,8 +76,8 @@ function content_617bf849944d37_41643153 (Smarty_Internal_Template $_smarty_tpl)
                     <input type="text" name="title" id="title" value="<?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getNomeRicetta();?>
 " required/>
                     <br/>
-                    <label for="recipe-content">Cambia il procedimento del tuo piatto?</label>
-                    <textarea type="text" name="content" id="recipe-content" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getprocedimento();?>
+                    <label for="recipe-content">Cambia il procedimento del tuo piatto</label>
+                    <textarea name="content" id="recipe-content" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getprocedimento();?>
 </textarea>
                     <label for="upload-image">Cambia la foto del tuo piatto</label>
                     <div class="d-flex flex-row align-items-center mt-2"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>

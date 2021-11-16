@@ -159,7 +159,7 @@ class Fdb
     {
         try {
             $this->_conn->beginTransaction();
-            $query = "UPDATE " . $class::getTable() . " SET " . $field . "='" . $newvalue . "' WHERE " . $pk . "='" . $id . "';";
+            $query = "UPDATE " . $class::getTable() . ' SET ' . $field . '="' . addslashes($newvalue) . '" WHERE ' . $pk . '="' . $id . '";';
             //var_dump($query);
             $stmt = $this->_conn->prepare($query);
             $stmt->execute();

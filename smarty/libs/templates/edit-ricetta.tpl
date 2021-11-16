@@ -50,7 +50,7 @@
                     <label for="title">Cambia il nome del tuo piatto</label>
                     <input type="text" name="title" id="title" value="{$ricetta->getNomeRicetta()}" required/>
                     <br/>
-                    <label for="recipe-content">Cambia il procedimento del tuo piatto?</label>
+                    <label for="recipe-content">Cambia il procedimento del tuo piatto</label>
                     <textarea type="text" name="content" id="recipe-content" cols="30" rows="10" required>{$ricetta->getprocedimento()}</textarea>
                     <label for="upload-image">Cambia la foto del tuo piatto</label>
                     <div class="d-flex flex-row align-items-center mt-2"><img src="data:{$immagine->getTipo()};base64,{$immagine->getImmagine()}" width=80 height=80 alt="ricetta" class="rounded">
