@@ -10,7 +10,7 @@ class CModeratore
         $mod = unserialize($session->readValue('utente'));
         if ($mod != null && $mod->getPrivilegi() >= 2) {
             $pm::delete('id', $id, 'FRicetta');
-            $pm::delete('id', $id_imm, 'Fimmagine');
+            $pm::delete('id', $id_imm, 'FImmagine');
             $pm::delete('id_ricetta', $id, 'FRecensione' );
             $ricette = $pm::load('FRicetta', array(['id', '>', $id]));
             if($ricette != null){
@@ -49,7 +49,7 @@ class CModeratore
         $mod = unserialize($session->readValue('utente'));
         if ($mod != null && $mod->getPrivilegi() >= 2) {
             $pm::delete('id', $id, 'FPost');
-            $pm::delete('id', $id_imm, 'Fimmagine');
+            $pm::delete('id', $id_imm, 'FImmagine');
             $pm::delete('id_post', $id, 'FCommento' );
             $post = $pm::load('FPost', array(['id', '>', $id]));
             if($post != null){

@@ -68,14 +68,14 @@ class FRecensione extends Fdb{
             $rows_number = $db->getRowNum(static::getClass());
         }
         if(($result != null) && ($rows_number == 1)) {
-            $recensione = new Erecensione($result['commento'], $result['valutazione'], $result['id_ricetta'], $result['data'], $result['autore']);
+            $recensione = new ERecensione($result['commento'], $result['valutazione'], $result['id_ricetta'], $result['data'], $result['autore']);
             $recensione->setId($result['id']);
         }
         else {
             if(($result != null) && ($rows_number > 1)){
                 $recensione = array();
                 for($i = 0; $i < sizeof($result); $i++){
-                    $recensione[$i] = new Erecensione($result[$i]['commento'], $result[$i]['valutazione'], $result[$i]['id_ricetta'], $result[$i]['data'], $result[$i]['autore']);
+                    $recensione[$i] = new ERecensione($result[$i]['commento'], $result[$i]['valutazione'], $result[$i]['id_ricetta'], $result[$i]['data'], $result[$i]['autore']);
                     $recensione[$i]->setId($result[$i]['id']);
                 }
             }

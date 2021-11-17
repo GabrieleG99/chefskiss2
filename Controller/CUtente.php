@@ -83,7 +83,7 @@ class CUtente
         $session->unsetSession();
         $session->destroySession();
         setcookie('PHPSESSID', '');
-        header('Location: /ChefsKiss/chefskiss');
+        header('Location: /chefskiss');
     }
 
     static function verify_registration()
@@ -142,7 +142,7 @@ class CUtente
             $ricetta = $pm::load('FRicetta', array(['id', '=', $id]));
             if ($ricetta->getAutore() == $utente->getId()) {
                 $pm::delete('id', $id, 'FRicetta');
-                $pm::delete('id', $id_imm, 'Fimmagine');
+                $pm::delete('id', $id_imm, 'FImmagine');
                 $pm::delete('id_ricetta', $id, 'FRecensione' );
                 $ricette = $pm::load('FRicetta', array(['id', '>', $id]));
                 if($ricette != null){
