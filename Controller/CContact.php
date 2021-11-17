@@ -5,6 +5,8 @@ class CContact
     static function contattaci()
     {
         $view = new VContact();
+        $view->contact();
+            
 
     }
 

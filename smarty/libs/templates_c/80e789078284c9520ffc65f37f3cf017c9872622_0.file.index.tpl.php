@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:20:48
+/* Smarty version 3.1.39, created on 2021-11-17 17:53:14
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd2605585f7_51730907',
+  'unifunc' => 'content_6195337ab1cb44_50341474',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '80e789078284c9520ffc65f37f3cf017c9872622' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\index.tpl',
-      1 => 1636618845,
+      1 => 1637167714,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd2605585f7_51730907 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6195337ab1cb44_50341474 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -60,9 +60,7 @@ function content_618cd2605585f7_51730907 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/">Home</a></li>
-                            <!--<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Contact/contattaci">Contact</a></li>
-                            <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Forum/esploraLeDomande">Forum</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chefskiss/Ricette/esplora">Ricette</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['userlogged']->value != 'nouser') {?>
