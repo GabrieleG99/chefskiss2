@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:47:56
+/* Smarty version 3.1.39, created on 2021-11-17 18:20:07
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\tutte_ricette_err.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd8bccee4e9_71275881',
+  'unifunc' => 'content_619539c73c7251_09144124',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a22ed20ec6927b2054cc2b4a365322542258b5f5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\tutte_ricette_err.tpl',
-      1 => 1636620435,
+      1 => 1637169188,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd8bccee4e9_71275881 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619539c73c7251_09144124 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -419,22 +419,50 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int) $_smarty_tpl->tpl_var
                     <div class="card mb-4">
                         <div class="card-header">Categories</div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=primi">Primi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=contorni">Contorni</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=antipasti">Antipasti</a></li>
+                        <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                            <?php $_smarty_tpl->_assignInScope('value', sizeof($_smarty_tpl->tpl_vars['categorie']->value)/2);?>
+                            <?php if ($_smarty_tpl->tpl_vars['categorie']->value != null) {?>
+                                <?php if (is_array($_smarty_tpl->tpl_vars['categorie']->value)) {?>
+                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['value']->value) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < (int)$_smarty_tpl->tpl_vars['value']->value; $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=<?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+</a></li>
+                                    <?php }
+}
+?>
                                     </ul>
                                 </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=secondi">Secondi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=dessert">Dessert</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=salse">Salse</a></li>
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['value']->value;
+if ($_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value)) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                                <li><a href="/chefskiss/Ricette/cerca?categoria=<?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+</a></li>
+                                            <?php }
+}
+?>
+                                        </ul>
+                                    </div>
+                                <?php } else { ?>
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria=<?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                                <?php }?>
+                            <?php }?>
                         </div>
                     </div>
                     <!-- Side widget-->

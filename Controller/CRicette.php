@@ -102,6 +102,8 @@ class CRicette
 
         $immagini = array();
 
+        $categorie = $pm::load('FCategorie');
+
         if ($num_ricette % $ricette_per_pagina != 0){
             $page_number = floor($num_ricette / $ricette_per_pagina + 1);
         } else {
@@ -149,10 +151,10 @@ class CRicette
         $cerca = 'cerca';
 
         if(isset($data)){
-            if($data[0] == 'no_categoria' || $data[0] == 'no_ricerca') $view->showAllErr($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca, $data[0], $data[1]);
-            else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
+            if($data[0] == 'no_categoria' || $data[0] == 'no_ricerca') $view->showAllErr($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca, $data[0], $data[1], $categorie);
+            else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca, $categorie);
         }
-        else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca);
+        else $view->showAll($ricette_pag, $page_number, $new_index, $num_ricette, $immagini, $cerca, $categorie);
     }
 
     static function searchOff(){
@@ -328,8 +330,9 @@ class CRicette
         $ricetta = $pm::load('FRicetta', array(['id', '=', $id_ricetta]));
         if (CUtente::isLogged() && $utente->getid() == $ricetta->getAutore()){
             $immagine = $pm::load('FImmagine', array(['id', '=', $ricetta->getid_immagine()]));
+            $categorie = $pm::load('FCategorie');
             $view = new VRicette();
-            $view->modificaRicette($ricetta, $immagine, $ricetta->parseIngredienti());
+            $view->modificaRicette($ricetta, $immagine, $ricetta->parseIngredienti(), $categorie);
         }
         else header('Location: /chefskiss/Utente/login');
     }

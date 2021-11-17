@@ -72,7 +72,7 @@ class VRicette
         $this->smarty->display('ricetta_info.tpl');
     }
 
-    function showAll($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca){
+    function showAll($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca, $categorie){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
         if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
 
@@ -81,6 +81,7 @@ class VRicette
         $this->smarty->assign('num_pagine', $num_pagine);
         $this->smarty->assign('index', $index);
         $this->smarty->assign('num_ricette', $num_ricette);
+        $this->smarty->assign('categorie', $categorie);
 
         $this->smarty->display('tutte_ricette.tpl');
     }
@@ -89,16 +90,17 @@ class VRicette
         $this->smarty->display('new-recipe.tpl');
     }
 
-    public function modificaRicette($ricetta, $immagine, $ingredienti){
+    public function modificaRicette($ricetta, $immagine, $ingredienti, $categorie){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
         $this->smarty->assign('ricetta', $ricetta);
         $this->smarty->assign('immagine', $immagine);
         $this->smarty->assign('ingredienti', $ingredienti);
+        $this->smarty->assign('categorie', $categorie);
         $this->smarty->display('edit-ricetta.tpl');
     }
 
-    function showAllErr($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca, $tipoerr, $input){
+    function showAllErr($ricette, $num_pagine, $index, $num_ricette, $immagini, $cerca, $tipoerr, $input, $categorie){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
         if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
 
@@ -109,6 +111,7 @@ class VRicette
         $this->smarty->assign('num_ricette', $num_ricette);
         $this->smarty->assign('tipoerr', $tipoerr);
         $this->smarty->assign('input', $input);
+        $this->smarty->assign('categorie', $categorie);
 
         $this->smarty->display('tutte_ricette_err.tpl');
     }

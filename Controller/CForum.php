@@ -38,6 +38,8 @@ class CForum
 
         $immagini = array();
 
+        $categorie = $pm::load('FCategorie');
+
         if ($num_post % $post_per_pagina != 0){
             $page_number = floor($num_post / $post_per_pagina + 1);
         } else {
@@ -87,7 +89,7 @@ class CForum
 
         $view = new VForum();
 
-        $view->showForum($post_pag, $page_number, $new_index, $num_post, $immagini, $cerca);
+        $view->showForum($post_pag, $page_number, $new_index, $num_post, $immagini, $cerca, $categorie);
     }
 
     static function searchOff(){
@@ -251,8 +253,9 @@ class CForum
         $post = $pm::load('FPost', array(['id', '=', $id_post]));
         if (CUtente::isLogged() && $utente->getid() == $post->getAutore()){
             $immagine = $pm::load('FImmagine', array(['id', '=', $post->getid_immagine()]));
+            $categorie = $pm::load('FCategorie');
             $view = new VForum();
-            $view->modificaPost($post, $immagine);
+            $view->modificaPost($post, $immagine, $categorie);
         }
         else header('Location: /chefskiss/Utente/login');
     }

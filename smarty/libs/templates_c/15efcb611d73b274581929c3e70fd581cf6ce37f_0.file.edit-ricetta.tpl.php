@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-16 09:45:28
+/* Smarty version 3.1.39, created on 2021-11-17 17:08:14
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-ricetta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61936fa8f11968_02769381',
+  'unifunc' => 'content_619528eec0a0b8_75069354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '15efcb611d73b274581929c3e70fd581cf6ce37f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-ricetta.tpl',
-      1 => 1637052323,
+      1 => 1637165292,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61936fa8f11968_02769381 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619528eec0a0b8_75069354 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +77,7 @@ function content_61936fa8f11968_02769381 (Smarty_Internal_Template $_smarty_tpl)
 " required/>
                     <br/>
                     <label for="recipe-content">Cambia il procedimento del tuo piatto</label>
-                    <textarea name="content" id="recipe-content" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getprocedimento();?>
+                    <textarea type="text" name="content" id="recipe-content" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['ricetta']->value->getprocedimento();?>
 </textarea>
                     <label for="upload-image">Cambia la foto del tuo piatto</label>
                     <div class="d-flex flex-row align-items-center mt-2"><img src="data:<?php echo $_smarty_tpl->tpl_vars['immagine']->value->getTipo();?>
@@ -119,12 +119,26 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
                             <select name="recipe-type" id="recipe-type" class="advance-selectable">
-                                <option value="antipasti">Antipasti</option>
-                                <option value="primi">Primi</option>
-                                <option value="secondi">Secondi</option>
-                                <option value="contorni">Contorni</option>
-                                <option value="salse">Salse</option>
-                                <option value="dessert">Dessert</option>
+                            <?php if ($_smarty_tpl->tpl_vars['categorie']->value != null) {?>
+                                <?php if (is_array($_smarty_tpl->tpl_vars['categorie']->value)) {?>
+                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value)) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+</option>
+                                    <?php }
+}
+?>
+                                <?php } else { ?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+</option>
+                                <?php }?>
+                            <?php }?>
                             </select>
                         </div>
                         <div class="col-sm-6">

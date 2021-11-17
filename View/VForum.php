@@ -27,7 +27,7 @@ class VForum
         return $_POST['post-type'];
     }
 
-    function showForum($post, $num_pagine, $index, $num_post, $immagini, $cerca){
+    function showForum($post, $num_pagine, $index, $num_post, $immagini, $cerca, $categorie){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
         if ($cerca != null) $this->smarty->assign('searchMod', 'searchOn');
 
@@ -36,6 +36,7 @@ class VForum
         $this->smarty->assign('num_pagine', $num_pagine);
         $this->smarty->assign('index', $index);
         $this->smarty->assign('num_post', $num_post);
+        $this->smarty->assign('categorie', $categorie);
 
         $this->smarty->display('forum.tpl');
     }
@@ -60,11 +61,12 @@ class VForum
         $this->smarty->display('new-post.tpl');
     }
 
-    public function modificaPost($post, $immagine){
+    public function modificaPost($post, $immagine, $categorie){
         if (CUtente::isLogged()) $this->smarty->assign('userlogged', 'logged');
 
         $this->smarty->assign('post', $post);
         $this->smarty->assign('immagine', $immagine);
+        $this->smarty->assign('categorie', $categorie);
         $this->smarty->display('edit-post.tpl');
     }
 }

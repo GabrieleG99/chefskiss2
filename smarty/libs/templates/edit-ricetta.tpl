@@ -82,12 +82,15 @@
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
                             <select name="recipe-type" id="recipe-type" class="advance-selectable">
-                                <option value="antipasti">Antipasti</option>
-                                <option value="primi">Primi</option>
-                                <option value="secondi">Secondi</option>
-                                <option value="contorni">Contorni</option>
-                                <option value="salse">Salse</option>
-                                <option value="dessert">Dessert</option>
+                            {if $categorie != null}
+                                {if is_array($categorie)}
+                                    {for $i = 0; $i < sizeof($categorie); $i++}
+                                        <option value="{$categorie[$i]->getCategoria()}">{$categorie[$i]->getCategoria()}</option>
+                                    {/for}
+                                {else}
+                                    <option value="{$categorie->getCategoria()}">{$categorie->getCategoria()}</option>
+                                {/if}
+                            {/if}
                             </select>
                         </div>
                         <div class="col-sm-6">

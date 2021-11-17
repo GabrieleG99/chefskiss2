@@ -272,22 +272,30 @@
                     <div class="card mb-4">
                         <div class="card-header">Categories</div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=primi">Primi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=contorni">Contorni</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=antipasti">Antipasti</a></li>
+                        <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                            {$value = sizeof($categorie)/2}
+                            {if $categorie != null}
+                                {if is_array($categorie)}
+                                    {for $i = 0; $i < (int)$value; $i++}
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria={$categorie[$i]->getCategoria()}">{$categorie[$i]->getCategoria()}</a></li>
+                                    {/for}
                                     </ul>
                                 </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=secondi">Secondi</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=dessert">Dessert</a></li>
-                                        <li><a href="/chefskiss/Ricette/cerca?categoria=salse">Salse</a></li>
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            {for $i = $value; $i < sizeof($categorie); $i++}
+                                                <li><a href="/chefskiss/Ricette/cerca?categoria={$categorie[$i]->getCategoria()}">{$categorie[$i]->getCategoria()}</a></li>
+                                            {/for}
+                                        </ul>
+                                    </div>
+                                {else}
+                                        <li><a href="/chefskiss/Ricette/cerca?categoria={$categorie->getCategoria()}">{$categorie->getCategoria()}</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                                {/if}
+                            {/if}
                         </div>
                     </div>
                     <!-- Side widget-->

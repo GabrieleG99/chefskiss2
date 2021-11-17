@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:33:49
+/* Smarty version 3.1.39, created on 2021-11-17 17:38:21
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c145ddcd147_67027943',
+  'unifunc' => 'content_61952ffd8e2c27_18099394',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dba500c5439e831e8e07790a8a8bce4b819e1834' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-post.tpl',
-      1 => 1635521627,
+      1 => 1637166939,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c145ddcd147_67027943 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61952ffd8e2c27_18099394 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,8 @@ function content_617c145ddcd147_67027943 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title>Chef's Kiss</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -38,7 +40,7 @@ function content_617c145ddcd147_67027943 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <!-- site favicon -->
-    <!--<link rel="icon" href="../assets/background_profilo.jpg" />-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     
 
     <!--selectric stylesheet-->
@@ -106,12 +108,26 @@ function content_617c145ddcd147_67027943 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
                             <select name="post-type" id="recipe-type" class="advance-selectable" required>
-                                <option value="antipasti">Antipasti</option>
-                                <option value="primi">Primi</option>
-                                <option value="secondi">Secondi</option>
-                                <option value="contorni">Contorni</option>
-                                <option value="salse">Salse</option>
-                                <option value="dessert">Dessert</option>
+                            <?php if ($_smarty_tpl->tpl_vars['categorie']->value != null) {?>
+                                <?php if (is_array($_smarty_tpl->tpl_vars['categorie']->value)) {?>
+                                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 0;
+if ($_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value)) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_vars['categorie']->value); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value[$_smarty_tpl->tpl_vars['i']->value]->getCategoria();?>
+</option>
+                                    <?php }
+}
+?>
+                                <?php } else { ?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+"><?php echo $_smarty_tpl->tpl_vars['categorie']->value->getCategoria();?>
+</option>
+                                <?php }?>
+                            <?php }?>
                             </select>
                         </div>
                     </div>
