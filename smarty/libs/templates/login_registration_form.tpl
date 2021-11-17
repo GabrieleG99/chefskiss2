@@ -25,8 +25,7 @@
       <div class="back">
         <img class="backImg" src="../smarty/libs/assets/ThomasKeller.jpg" alt="">
         <div class="text">
-          <span class="text-1">Complete miles of journey <br> with one step</span>
-          <span class="text-2">Let's get started</span>
+
         </div>
       </div>
     </div>
