@@ -5,18 +5,6 @@ class CContact
     static function contattaci()
     {
         $view = new VContact();
-        $session = USingleton::getInstance('USession');
-        $utente = unserialize($session->readValue('utente'));
-        if ($utente != null) {
-            $view->contact();
-        } else {
-            header('Location: /chefskiss/Utente/login');
-        }
-
-    }
-
-    static function mail()
-    {
         $name = VContact::getName();
         $email = VContact::getEmail();
         $message = VContact::getMessage();
@@ -25,9 +13,6 @@ class CContact
         $subject = "Contact Form";
         mail($recipient, $subject, $formcontent, $email);
         header("Location: /chefskiss/Contact/contattaci");
-
-
     }
-
 
 }
