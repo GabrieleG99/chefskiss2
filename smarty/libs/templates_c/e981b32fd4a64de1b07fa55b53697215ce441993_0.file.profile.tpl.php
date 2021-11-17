@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-31 16:27:18
+/* Smarty version 3.1.39, created on 2021-11-12 17:09:08
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617eb5d6a325b8_91638771',
+  'unifunc' => 'content_618e91a4c65134_07680848',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e981b32fd4a64de1b07fa55b53697215ce441993' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/profile.tpl',
-      1 => 1635535774,
+      1 => 1636733317,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617eb5d6a325b8_91638771 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e91a4c65134_07680848 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));?>
 <html lang="en">
@@ -45,7 +45,8 @@ function content_617eb5d6a325b8_91638771 (Smarty_Internal_Template $_smarty_tpl)
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.tpl">Chef's kiss</a>
+                <img class="rounded-circle" src="/chefskiss/smarty/libs/assets/logo.png" width="40" height="40">
+                <a class="navbar-brand px-sm-3" href="/chefskiss/">Chef's Kiss</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -117,9 +118,11 @@ function content_617eb5d6a325b8_91638771 (Smarty_Internal_Template $_smarty_tpl)
                                     <p class="text-muted">Amministratore</p>
                                 <?php }?>
                             </div>
+                            <?php if ($_smarty_tpl->tpl_vars['idutente']->value == null) {?>
                             <button class="border rounded-2 btn-outline-light">
                                 <a class="nav-link" href="/chefskiss/Utente/modificaProfilo"> Modifica Profilo </a>
-                            </button>
+                            </button>   
+                            <?php }?>
                             <div class="ms-3">
                                 <?php if ($_smarty_tpl->tpl_vars['ricette']->value != null) {?>
                                     <?php if (is_array($_smarty_tpl->tpl_vars['ricette']->value)) {?>

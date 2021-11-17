@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-28 16:21:15
+/* Smarty version 3.1.39, created on 2021-11-12 17:09:41
   from '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617ab1db5ad926_20103726',
+  'unifunc' => 'content_618e91c5a77fd4_63197353',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0fab3fabf39139f5a906e9a53507b7c3b59aa9e7' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/chefskiss/smarty/libs/templates/new-recipe.tpl',
-      1 => 1635340711,
+      1 => 1636714737,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617ab1db5ad926_20103726 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618e91c5a77fd4_63197353 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,8 @@ function content_617ab1db5ad926_20103726 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title>Chef's Kiss</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
