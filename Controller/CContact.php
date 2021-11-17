@@ -5,6 +5,11 @@ class CContact
     static function contattaci()
     {
         $view = new VContact();
+
+    }
+
+    static function mail()
+    {
         $name = VContact::getName();
         $email = VContact::getEmail();
         $message = VContact::getMessage();
@@ -13,6 +18,9 @@ class CContact
         $subject = "Contact Form";
         mail($recipient, $subject, $formcontent, $email);
         header("Location: /chefskiss/Contact/contattaci");
+
+
     }
+
 
 }
