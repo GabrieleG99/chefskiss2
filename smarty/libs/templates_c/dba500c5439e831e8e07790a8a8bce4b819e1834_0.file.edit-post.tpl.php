@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-17 17:38:21
+/* Smarty version 3.1.39, created on 2021-11-22 17:30:19
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\edit-post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61952ffd8e2c27_18099394',
+  'unifunc' => 'content_619bc59b0beac9_35068620',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dba500c5439e831e8e07790a8a8bce4b819e1834' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\edit-post.tpl',
-      1 => 1637166939,
+      1 => 1637598615,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61952ffd8e2c27_18099394 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619bc59b0beac9_35068620 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -52,9 +52,8 @@ function content_61952ffd8e2c27_18099394 (Smarty_Internal_Template $_smarty_tpl)
 <!--pre-loader-->
 <div class="preloader">
     <div class="loadr">
-        <svg  viewbox="0 0 74.6 81">
-            <path d="M67.8,12.9C51.7,5.2,26.2,0.2,26.2,0.2c-10.9-1.8-9.3,11.4-9,20.2c0,0.7,0.1,1.4,0.1,2c7.8,1.5,19.7,4,29.2,7.4c11.4,4.1,9.6,8.3,9.2,16c-0.2,4.9-0.4,14,1.1,21.3c7.7,1.4,13.8,1.9,13.1-0.3c-6.3-7.2-0.1-29.6,1.8-34.2C73.3,28.7,79.3,18.4,67.8,12.9z">      </path>
-            <path d="M58.9,79.5c-6.5-5.6-6.2-23.6-5.8-31.3c0.4-7.7,2.1-11.9-9.2-16c-15.3-5.5-37.3-8.8-37.3-8.8c-9.1-1.1-6.6,8.4-5.5,15.1c1.7,10,5.4,22,7.9,27.8c2.8,6.5,8.9,7.3,8.9,7.3S65.4,85.1,58.9,79.5z"></path>
+        <svg viewbox="0 0 74.6 81">
+            <img class="align-center" src="/chefskiss/smarty/libs/assets/chef-hat.svg" height="50" width="50"/>
         </svg>
     </div>
 </div>

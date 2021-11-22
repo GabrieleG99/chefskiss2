@@ -153,6 +153,10 @@ class FRicetta extends Fdb {
                 $ricetta->setValutazione((int)$recensione->getValutazione());
             }
         }
+        else {
+            $valutazione = 0;
+            $ricetta->setValutazione($valutazione);
+        }
         return $valutazione;
     }
 
