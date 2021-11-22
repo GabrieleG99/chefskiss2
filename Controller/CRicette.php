@@ -176,6 +176,7 @@ class CRicette
                 $recensione = new ERecensione($text, $voto, $id_ricetta, date('Y-m-d'), $utente->getId());
                 $pm::insert($recensione);
                 $session->destroyValue('id_ricetta');
+                setcookie('id_ricetta', '');
                 header("Location: /chefskiss/Ricette/InfoRicetta/$id_ricetta");
             }
             else{ //l'utente ha già votato
