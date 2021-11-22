@@ -1,4 +1,4 @@
-# chefskiss1
+# chefskiss
 
 Modalità di istallazione:
 1. Creare una cartella chiamata "chefskiss" in xampp/htdocs
