@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-03 15:31:22
+/* Smarty version 3.1.39, created on 2021-11-22 17:09:00
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\login_registration_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61829d3a503186_59961645',
+  'unifunc' => 'content_619bc09c93eef3_80592569',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3a8b9b18ff27c7ccdb99b1b05e4fb9838a059703' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\login_registration_form.tpl',
-      1 => 1635949877,
+      1 => 1637167714,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61829d3a503186_59961645 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619bc09c93eef3_80592569 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('ban', (($tmp = @$_smarty_tpl->tpl_vars['ban']->value)===null||$tmp==='' ? 0 : $tmp));
 $_smarty_tpl->_assignInScope('error', (($tmp = @$_smarty_tpl->tpl_vars['error']->value)===null||$tmp==='' ? '' : $tmp));
@@ -48,8 +48,7 @@ $_smarty_tpl->_assignInScope('fine_ban', (($tmp = @$_smarty_tpl->tpl_vars['fine_
       <div class="back">
         <img class="backImg" src="../smarty/libs/assets/ThomasKeller.jpg" alt="">
         <div class="text">
-          <span class="text-1">Complete miles of journey <br> with one step</span>
-          <span class="text-2">Let's get started</span>
+
         </div>
       </div>
     </div>

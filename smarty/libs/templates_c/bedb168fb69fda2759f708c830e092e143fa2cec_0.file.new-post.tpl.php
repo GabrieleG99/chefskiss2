@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-29 17:29:57
+/* Smarty version 3.1.39, created on 2021-11-22 17:16:22
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\new-post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617c1375508d94_77824018',
+  'unifunc' => 'content_619bc256489ab9_49506072',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bedb168fb69fda2759f708c830e092e143fa2cec' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\new-post.tpl',
-      1 => 1635521380,
+      1 => 1636804531,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_617c1375508d94_77824018 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619bc256489ab9_49506072 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,9 @@ function content_617c1375508d94_77824018 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Chef's Kiss</title>
+    <title>Chef's Kiss - Forum e Ricette</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -38,7 +40,7 @@ function content_617c1375508d94_77824018 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <!-- site favicon -->
-    <!--<link rel="icon" href="../assets/background_profilo.jpg" />-->
+    <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
     
 
     <!--selectric stylesheet-->
@@ -98,7 +100,7 @@ function content_617c1375508d94_77824018 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="recipe-type">Categoria</label>
-                            <select name="post-type" id="recipe-type" class="advance-selectable">
+                            <select name="post-type" id="recipe-type" class="advance-selectable" required>
                                 <option value="antipasti">Antipasti</option>
                                 <option value="primi">Primi</option>
                                 <option value="secondi">Secondi</option>

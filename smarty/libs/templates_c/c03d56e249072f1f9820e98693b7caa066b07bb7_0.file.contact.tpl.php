@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-11 09:25:10
+/* Smarty version 3.1.39, created on 2021-11-22 17:11:01
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\contact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618cd36645e084_33533851',
+  'unifunc' => 'content_619bc11599fca8_62568029',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c03d56e249072f1f9820e98693b7caa066b07bb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\contact.tpl',
-      1 => 1636618912,
+      1 => 1637597457,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_618cd36645e084_33533851 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619bc11599fca8_62568029 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,16 +102,28 @@ function content_618cd36645e084_33533851 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </section>
         <!-- Footer-->
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Chef's Kiss</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Contact</a>
-                    </div>
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Chef's Kiss 2021</div></div>
+                <div class="col-auto">
+                    <!--<a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>-->
+                    <a class="link-light small" href="/chefskiss/Contact/contattaci">Contact</a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
+>
+    <!-- Core theme JS-->
+    <?php echo '<script'; ?>
+ src="js/scripts.js"><?php echo '</script'; ?>
+>
 
 
     </body>

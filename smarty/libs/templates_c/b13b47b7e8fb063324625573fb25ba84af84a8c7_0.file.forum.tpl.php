@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-17 18:19:39
+/* Smarty version 3.1.39, created on 2021-11-22 17:16:01
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\forum.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619539ab0720d5_24833363',
+  'unifunc' => 'content_619bc241271348_12068063',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b13b47b7e8fb063324625573fb25ba84af84a8c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\forum.tpl',
-      1 => 1637169576,
+      1 => 1637597758,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619539ab0720d5_24833363 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619bc241271348_12068063 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('userlogged', (($tmp = @$_smarty_tpl->tpl_vars['userlogged']->value)===null||$tmp==='' ? 'nouser' : $tmp));
 $_smarty_tpl->_assignInScope('searchMod', (($tmp = @$_smarty_tpl->tpl_vars['searchMod']->value)===null||$tmp==='' ? 'searchOff' : $tmp));?>
@@ -369,19 +369,29 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < sizeof($_smarty_tpl->tpl_va
                 </div>
             </div>
         </div>
-                    <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <?php echo '<script'; ?>
+        </div>
+            <footer class="bg-dark py-4 mt-auto">
+                <div class="container px-5">
+                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                        <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Chef's Kiss 2021</div></div>
+                        <div class="col-auto">
+                            <!--<a class="link-light small" href="#!">Privacy</a>
+                            <span class="text-white mx-1">&middot;</span>
+                            <a class="link-light small" href="#!">Terms</a>
+                            <span class="text-white mx-1">&middot;</span>-->
+                            <a class="link-light small" href="/chefskiss/Contact/contattaci">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
 >
-        <!-- Core theme JS-->
-        <?php echo '<script'; ?>
+            <!-- Core theme JS-->
+            <?php echo '<script'; ?>
  src="js/scripts.js"><?php echo '</script'; ?>
 >
-        </div>
     </body>
 </html>
 <?php }

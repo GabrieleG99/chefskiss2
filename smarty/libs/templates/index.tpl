@@ -266,7 +266,7 @@
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Terms</a>
                         <span class="text-white mx-1">&middot;</span>-->
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="Contact/contattaci">Contact</a>
                     </div>
                 </div>
             </div>
