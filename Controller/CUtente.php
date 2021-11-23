@@ -7,7 +7,6 @@ class CUtente
     {
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
             if (static::isLogged()) {
-                $pm = new FPersistentManager();
                 $view = new VUtente();
                 $view->loginOk();
             } else {
