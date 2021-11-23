@@ -15,7 +15,7 @@ class Fdb
 
         if (!$this->existConn()) {
             try {
-                $this->_conn = new PDO("mysql:host=127.0.0.1;dbname=chefskiss", 'root', 'pippo');
+                $this->_conn = new PDO("mysql:host=127.0.0.1;dbname=my_chefskiss", 'root', 'pippo');
             } catch (PDOException $e) {
                 print $e->getMessage();
             }

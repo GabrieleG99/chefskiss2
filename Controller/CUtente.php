@@ -9,8 +9,6 @@ class CUtente
             if (static::isLogged()) {
                 $pm = new FPersistentManager();
                 $view = new VUtente();
-                //$result = $pm->loadTrasporti();
-                //$view->loginOk($result);
                 $view->loginOk();
             } else {
                 $view = new VUtente();
