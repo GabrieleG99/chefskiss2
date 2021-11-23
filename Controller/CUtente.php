@@ -25,17 +25,14 @@ class CUtente
         //var_dump($utente);
         if ($utente != null) {
             if ($utente->getBan() != true) {
-                if (session_status() == PHP_SESSION_NONE) {
+                if (USession::sessionStatus() == PHP_SESSION_NONE) {
                     $session = USingleton::getInstance('USession');
                     $savableData = serialize($utente);
                     $privilegi = $utente->getPrivilegi();
                     $session->setValue('privilegi', $privilegi);
                     $session->setValue('utente', $savableData);
                     if ($privilegi == 1) { //accesso con privilegi base (utente)
-                        if (isset($_COOKIE['home']))
-                            setcookie('home', null, time() - 900, '/');
-                        else
-                            header('Location: /chefskiss/');
+                        header('Location: /chefskiss/');
                     } else { //accesso con privilegi maggiori (moderatore o amministratore)
                         header('Location: /chefskiss/Admin/homepage');
                     }
@@ -52,7 +49,7 @@ class CUtente
     {
         $check = false;
         if (isset($_COOKIE['PHPSESSID'])) {
-            if (session_status() == PHP_SESSION_NONE) {
+            if (USession::sessionStatus() == PHP_SESSION_NONE) {
                 USingleton::getInstance('USession');
             }
         }
@@ -80,7 +77,7 @@ class CUtente
         $session->unsetSession();
         $session->destroySession();
         setcookie('PHPSESSID', '');
-        header('Location: /chefskiss');
+        header('Location: /chefskiss/');
     }
 
     static function verify_registration()
@@ -223,7 +220,6 @@ class CUtente
             else{ header("Location: /chefskiss/Forum/esploraLeRicette");}
         } else {
             header("Location: /chefskiss/Forum/esploraLeRicette");
-
         }
     }
 

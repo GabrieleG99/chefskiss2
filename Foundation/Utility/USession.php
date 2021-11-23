@@ -28,6 +28,10 @@ class USession{
         else return false;
     }
 
+    public static function sessionStatus(){
+        return session_status();
+    }
+
     public function unsetSession(){
         session_unset();
     }
