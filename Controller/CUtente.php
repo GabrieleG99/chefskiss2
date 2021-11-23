@@ -243,17 +243,17 @@ class CUtente
     {
         $pm = USingleton::getInstance('FPersistentManager');
         $session = USingleton::getInstance('USession');
-        $verify_email = $pm::exist('email', VUtente::getEmail(), 'FUtente');
+        //$verify_email = $pm::exist('email', VUtente::getEmail(), 'FUtente');
         if (CUtente::isLogged()) {
                 $id_immagine = self::upload();
                 $utente = unserialize($session->readValue('utente'));
                 $nome_utente = VUtente::getNome();
                 $cognome_utente = VUtente::getCognome();
-                if(!$verify_email){
+                /*if(!$verify_email){
                     $email_utente = VUtente::getEmail();
                     $pm::update('email', $email_utente, 'id', $utente->getId(), 'FUtente');
                     $utente->setEmail($email_utente);
-                }
+                }*/
                 $pm::update('nome', $nome_utente, 'id', $utente->getId(), 'FUtente');
                 $pm::update('cognome', $cognome_utente, 'id', $utente->getId(), 'FUtente');
                 $utente->setNome($nome_utente);
