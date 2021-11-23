@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Chef's Kiss - Ricette e Forum</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/chefskiss/smarty/libs/assets/chef-hat.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -68,7 +68,7 @@
                     <div class="row height d-flex justify-content-center align-items-center">
                         <div class="col-md-8">
                             <div class="card py-5">
-                                <div class="inputs px-4"> <span class="text-uppercase">Email</span> <input type="text" name="email" class="form-control" value="{$utente->getEmail()}"> </div>
+                                <div class="inputs px-4"> <span class="text-uppercase">Email</span> <input disabled type="text" name="email" class="form-control" value="{$utente->getEmail()}"> </div>
                                 <div class="row mt-3 g-2">
                                     <div class="col-md-6">
                                         <div class="inputs px-4"> <span class="text-uppercase">Nome</span> <input type="text" name="nome" class="form-control" value="{$utente->getNome()}"> </div>
