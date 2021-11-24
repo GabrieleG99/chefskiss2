@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-22 17:09:00
+/* Smarty version 3.1.39, created on 2021-11-24 15:34:00
   from 'C:\xampp\htdocs\chefskiss\smarty\libs\templates\login_registration_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619bc09c93eef3_80592569',
+  'unifunc' => 'content_619e4d58d847c7_54307061',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3a8b9b18ff27c7ccdb99b1b05e4fb9838a059703' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chefskiss\\smarty\\libs\\templates\\login_registration_form.tpl',
-      1 => 1637167714,
+      1 => 1637764346,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619bc09c93eef3_80592569 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e4d58d847c7_54307061 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <?php $_smarty_tpl->_assignInScope('ban', (($tmp = @$_smarty_tpl->tpl_vars['ban']->value)===null||$tmp==='' ? 0 : $tmp));
 $_smarty_tpl->_assignInScope('error', (($tmp = @$_smarty_tpl->tpl_vars['error']->value)===null||$tmp==='' ? '' : $tmp));
@@ -80,7 +80,7 @@ $_smarty_tpl->_assignInScope('fine_ban', (($tmp = @$_smarty_tpl->tpl_vars['fine_
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" name="name" required>
+                <input type="text" placeholder="Enter your name" name="nome" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-user"></i>
